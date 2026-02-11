@@ -7,10 +7,8 @@ import {
   Zap,
   Droplets,
   Cpu,
-  Star,
   ArrowRight,
   Shield,
-  Clock,
   Award,
   Users,
   ChevronRight,
@@ -18,6 +16,13 @@ import {
   Phone,
   MapPin,
   CheckCircle2,
+} from "lucide-react";
+import {
+  Smile,
+  ShieldCheck,
+  BadgeDollarSign,
+  Clock,
+  Star,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
@@ -183,37 +188,37 @@ const Index = () => {
   };
 
   const repairTypes = [
-    {
-      name: "Screen Repair",
-      icon: Monitor,
-      price: "From $49",
-      color: "bg-primary/10 text-primary",
-    },
-    {
-      name: "Battery Replace",
-      icon: Battery,
-      price: "From $29",
-      color: "bg-accent/10 text-accent",
-    },
-    {
-      name: "Charging Port",
-      icon: Zap,
-      price: "From $25",
-      color: "bg-amber-100 text-amber-600",
-    },
-    {
-      name: "Water Damage",
-      icon: Droplets,
-      price: "From $59",
-      color: "bg-sky-100 text-sky-600",
-    },
-    {
-      name: "Software Issue",
-      icon: Cpu,
-      price: "From $19",
-      color: "bg-purple-100 text-purple-600",
-    },
-  ];
+  {
+    name: "Stay Happy",
+    icon: Smile,              // happiness / satisfaction
+    price: "From $49",
+    color: "bg-primary/10 text-primary",
+  },
+  {
+    name: "Certified Grade-A Parts",
+    icon: ShieldCheck,        // certified / trusted / quality
+    price: "From $29",
+    color: "bg-accent/10 text-accent",
+  },
+  {
+    name: "Best Price Guaranteed",
+    icon: BadgeDollarSign,    // best price / money value
+    price: "From $25",
+    color: "bg-amber-100 text-amber-600",
+  },
+  {
+    name: "Same-Day Repair",
+    icon: Clock,              // speed / same day
+    price: "From $59",
+    color: "bg-sky-100 text-sky-600",
+  },
+  {
+    name: "Excellent Rated On Trustpilot",
+    icon: Star,               // rating / reviews
+    price: "From $19",
+    color: "bg-purple-100 text-purple-600",
+  },
+];
   return (
     <div className="min-h-screen bg-background overflow-hidden">
       <Navbar />
@@ -244,17 +249,20 @@ const Index = () => {
                 custom={1}
                 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight"
               >
-                Book Your <br />
+                {/* Book Your <br />
                 <span className="text-gradient">Mobile Repair</span> <br />
-                Today
+                Today */}
+                
+                <span className="text-gradient">Your Phone Fixed</span> <br />
+                Today!
+
               </motion.h1>
               <motion.p
                 variants={fadeUp}
                 custom={2}
                 className="mt-6 text-lg text-muted-foreground max-w-lg leading-relaxed"
               >
-                Fast, Reliable, Certified Technicians. Get your device repaired
-                at your doorstep with our premium on-site repair service.
+                From cracked screens to software glitches, we handle it all. Quick, affordable, and professional mobile repair — right when you need it.
               </motion.p>
               <motion.div
                 variants={fadeUp}
@@ -266,14 +274,14 @@ const Index = () => {
                     size="lg"
                     className="gradient-primary text-primary-foreground rounded-full px-8 shadow-soft hover:shadow-lg transition-all text-base h-14"
                   >
-                    Book Repair Now <ArrowRight className="w-5 h-5 ml-1" />
+                    Book Now <ArrowRight className="w-5 h-5 ml-1" />
                   </Button>
                 </Link>
                 {/* <Button size="lg" variant="outline" className="rounded-full px-8 h-14 text-base">
                   View Pricing
                 </Button> */}
               </motion.div>
-              <motion.div
+              {/* <motion.div
                 variants={fadeUp}
                 custom={4}
                 className="mt-10 flex items-center gap-6"
@@ -288,7 +296,7 @@ const Index = () => {
                     </div>
                   </div>
                 ))}
-              </motion.div>
+              </motion.div> */}
             </motion.div>
 
             <motion.div
@@ -299,7 +307,7 @@ const Index = () => {
             >
               <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                 <img
-                  src={heroImage}
+                  src="/hero-pic.jpg"
                   alt="Mobile phone repair"
                   className="w-full h-[500px] object-cover"
                 />
@@ -415,15 +423,14 @@ const Index = () => {
               custom={1}
               className="text-3xl lg:text-4xl font-bold mt-3 text-foreground"
             >
-              Expert Repair Services
+              Why Choose Tech-Outlet Repairs?
             </motion.h2>
             <motion.p
               variants={fadeUp}
               custom={2}
-              className="mt-4 text-muted-foreground max-w-2xl mx-auto"
+              className="mt-4 text-muted-foreground max-w-6xl mx-auto"
             >
-              From cracked screens to water damage, our certified technicians
-              can handle it all with genuine parts and quality guarantee.
+              Phones, tablets, or laptops giving you trouble? We'll repair it. Send us your phone from anywhere in the UK or visit us our shop, and we'll fix it fast. Book online for free, whether you've got a broken iPad, laptop, or mobile phone, our expert team fixes it all and post it back to you on the same day. Free send-back delivery across London, Essex, and the entire UK! We don't just repair – we rescue your tech, providing lightning-fast service with a smile. From screen repair, battery replacements to software issues we've got you covered with guaranteed quality and friendly support.
             </motion.p>
           </motion.div>
 
@@ -468,12 +475,12 @@ const Index = () => {
               transition={{ duration: 0.7 }}
             >
               <span className="text-sm font-medium text-primary uppercase tracking-wider">
-                How It Works
+                We Fix, Any Device
               </span>
               <h2 className="text-3xl lg:text-4xl font-bold mt-3 text-foreground">
-                Simple 4-Step Process
+                Expert Mobile Phone & IPad Repair Services in London & UK
               </h2>
-              <div className="mt-8 space-y-6">
+              {/* <div className="mt-8 space-y-6">
                 {howItWorks.map((item, i) => (
                   <motion.div
                     key={item.step}
@@ -496,10 +503,31 @@ const Index = () => {
                     </div>
                   </motion.div>
                 ))}
+              </div> */}
+               <div className="mt-8 space-y-6">
+               
+                  <motion.div
+                    
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 1 * 0.15 }}
+                    className="flex gap-4 items-start group"
+                  >
+                    <div>
+                      <p className="text-sm text-muted-foreground mt-1">
+                        At Tech Outlet Repairs, we specialise in fast and reliable phone repair for all smartphone models, including iPhone screen replacements (all models), battery replacements, back glass repairs, software updates, and more. We also provide expert repairs for MacBooks, HP and Dell laptops, samsung tablet repairs, and all iPad models across generations.
+                      </p>
+                       <p className="text-sm text-muted-foreground mt-1">
+                        Explore our website for affordable, high-quality repairs, sales of refurbished devices, and premium accessories. Trust us for all your device needs, keeping your tech in top shape in one convenient location!
+                      </p>
+                    </div>
+                  </motion.div>
+               
               </div>
               <Link to="/book">
                 <Button className="mt-8 gradient-primary text-primary-foreground rounded-full px-8 shadow-soft">
-                  Get Started <ArrowRight className="w-4 h-4 ml-1" />
+                  Book Now <ArrowRight className="w-4 h-4 ml-1" />
                 </Button>
               </Link>
             </motion.div>
@@ -513,7 +541,7 @@ const Index = () => {
             >
               <div className="rounded-3xl overflow-hidden shadow-2xl">
                 <img
-                  src={repairProcess}
+                  src="/outlet-pic.jpeg"
                   alt="Repair process"
                   className="w-full h-[450px] object-cover"
                 />
