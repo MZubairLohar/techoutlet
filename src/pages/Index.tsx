@@ -724,9 +724,9 @@ const Index = () => {
               </p>
               <div className="mt-8 space-y-1">
                 {[
-                  { icon: Mail, text: "support@fixmyphone.com" },
-                  { icon: Phone, text: "+1 (555) 123-4567" },
-                  { icon: MapPin, text: "123 Repair St, Tech City, TC 10001" },
+                  { icon: Mail, text: "info@techout.uk" },
+                  { icon: Phone, text: "020 8062 0553" },
+                  { icon: MapPin, text: "260 Tottenham Ct Rd, London W1T 7 RF " },
                 ].map(({ icon: Icon, text }) => (
                   <div
                     key={text}
