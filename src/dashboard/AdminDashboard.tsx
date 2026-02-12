@@ -46,6 +46,12 @@ import DashboardIcon from "@mui/icons-material/Dashboard";
 import UpdateAccessories from "@/pages/UpdateAccessories";
 import ServicesPage from "@/pages/Services";
 import ClosedDaysPage from "@/pages/CloseDay";
+import ShoppingCartCheckoutIcon from "@mui/icons-material/ShoppingCartCheckout";
+import HandymanIcon from "@mui/icons-material/Handyman";
+import BusinessIcon from "@mui/icons-material/Business";
+import HeadphonesIcon from "@mui/icons-material/Headphones";
+import EventBusyIcon from "@mui/icons-material/EventBusy";
+import MiscellaneousServicesIcon from "@mui/icons-material/MiscellaneousServices";
 
 interface RouteItem {
   name: string;
@@ -67,59 +73,47 @@ const routes1: RouteItem[] = [
     element: <Dashboard />,
     icon: <DashboardIcon />,
   },
-  // {
-  //   name: "Accessories",
-  //   path: "Accessories",
-  //   element: <AccessoriesForm />,
-  //   icon: <DevicesIcon />
-  // },
-  // {
-  //   name: "Create Blogs",
-  //   path: "Blogs",
-  //   element: <BlogsForm />,
-  //   icon: <MenuBookIcon />
-  // },
   {
     name: "Blogs",
     path: "Blogsdata",
     element: <BlogData />,
-    icon: <MenuBookIcon />,
+    icon: <MenuBookIcon />, // reading/blogs
   },
   {
     name: "Orders",
     path: "Orders",
     element: <Orders />,
-    icon: <ShoppingBagIcon />,
+    icon: <ShoppingCartCheckoutIcon />, // orders/cart
   },
   {
-    name: "Repairing Requests", // spelling fixed
+    name: "Repairing Requests",
     path: "RepairingRequests",
     element: <RapiringRequests />,
-    icon: <BuildIcon />,
+    icon: <HandymanIcon />, // repair work
   },
   {
     name: "Brands",
     path: "Brands",
     element: <Brands />,
-    icon: <BrandingWatermarkIcon />,
+    icon: <BusinessIcon />, // brands/companies
   },
   {
     name: "Accessories",
     path: "updateAccessories",
     element: <UpdateAccessories />,
-    icon: <BrandingWatermarkIcon />,
+    icon: <HeadphonesIcon />, // accessories/items
   },
   { 
     name: "CloseDays",
     path: "CloseDay",
     element: <ClosedDaysPage />,
-    icon: <BrandingWatermarkIcon />
+    icon: <EventBusyIcon />, // closed/unavailable days
   },
   { 
     name: "Services",
     path: "Services",
     element: <ServicesPage />,
-    icon: <BrandingWatermarkIcon />,
+    icon: <MiscellaneousServicesIcon />, // services
   },
   {
     name: "Notifications",
