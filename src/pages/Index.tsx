@@ -313,7 +313,7 @@ const Index = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-foreground/30 to-transparent" />
               </div>
-              <motion.div
+              {/* <motion.div
                 animate={{ y: [-5, 5, -5] }}
                 transition={{ duration: 3, repeat: Infinity }}
                 className="absolute -bottom-6 -left-6 bg-background rounded-2xl p-4 shadow-card flex items-center gap-3"
@@ -327,7 +327,7 @@ const Index = () => {
                     On all repairs
                   </div>
                 </div>
-              </motion.div>
+              </motion.div> */}
               <motion.div
                 animate={{ y: [5, -5, 5] }}
                 transition={{ duration: 3, repeat: Infinity, delay: 1 }}
