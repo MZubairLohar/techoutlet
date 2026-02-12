@@ -3,6 +3,7 @@ import axios from "axios";
 import { BASE_URL } from "@/Base_URL/Base_URL";
 import { Button } from "@/components/ui/button";
 import { Trash2 } from "lucide-react";
+import { showErrorToast,showSuccessToast } from "@/lib/toast";
 
 interface Notification {
   _id: string;
@@ -23,7 +24,8 @@ export default function Notifications() {
       const res = await axios.get(`${BASE_URL}/getContacts`);
       setNotifications(res.data.message);
     } catch (err: any) {
-      console.error("Failed to fetch notifications:", err.response?.data || err.message);
+      // console.error("Failed to fetch notifications:", err.response?.data || err.message);
+      showErrorToast("Failed to fetch notifications");
     }
   };
 
@@ -38,9 +40,10 @@ export default function Notifications() {
     try {
       await axios.delete(`${BASE_URL}/deleteContact/${id}`);
       setNotifications((prev) => prev.filter((notif) => notif._id !== id));
+      showSuccessToast("Notification deleted successfully");
     } catch (err: any) {
-      console.error("Failed to delete notification:", err.response?.data || err.message);
-      alert("Failed to delete notification");
+      // console.error("Failed to delete notification:", err.response?.data || err.message);
+      showErrorToast("Failed to delete notification");
     }
   };
 

@@ -6,37 +6,13 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { CircularProgress } from "@mui/material";
 import LoginIcon from "@mui/icons-material/Login";
+import { showErrorToast, showSuccessToast } from "@/lib/toast";
 
 const Login: React.FC = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-
-
-  const notifyFieldsError = (error) =>
-    toast.error(error, {
-      position: "top-center",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
-    });
-
-    const notifyInvalidError = (error) =>
-    toast.error(error, {
-      position: "top-center",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
-    });
 
   // const handleSubmit = (e: React.FormEvent) => {
   //   e.preventDefault();
@@ -54,7 +30,8 @@ const Login: React.FC = () => {
    const handleSubmit = async (e: React.FormEvent) => {
     event.preventDefault();
     if (!email || !password) {
-      notifyFieldsError("🦄 Please fill all The fields!");
+      // notifyFieldsError("🦄 Please fill all The fields!");
+      showErrorToast("Please fill all the fields!");
     } else {
       const adminData = {
         email: email,
@@ -72,10 +49,12 @@ const Login: React.FC = () => {
         if (response) {
           localStorage.setItem("techOutlet", token);
           navigate("/admin/Dashboard");
+          showSuccessToast("Logged in successfully!");
         }
       } catch (error) {
         // console.log(error.message);
-        notifyInvalidError(error.message);
+        // notifyInvalidError(error.message);
+        showErrorToast("Invalid email or password!");
       } finally {
         setIsLoading(false);
       }

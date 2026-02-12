@@ -205,7 +205,8 @@ export default function RepairingRequests() {
 
         setRequests(sorted);
       })
-      .catch((err) => console.log(err));
+      // .catch((err) => console.log(err));
+      // showErrorToast("Failed to fetch repair requests");
   }, []);
 
   return (

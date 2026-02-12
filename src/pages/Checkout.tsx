@@ -133,8 +133,8 @@ const CheckoutPage = () => {
       },
     };
 
-    console.log("===== ORDER DATA =====");
-    console.log(orderDetails);
+    // console.log("===== ORDER DATA =====");
+    // console.log(orderDetails);
   };
 
   return (

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Plus, Pencil, Trash2, X } from "lucide-react";
 import { BASE_URL } from "@/Base_URL/Base_URL";
+import { showErrorToast, showSuccessToast } from "@/lib/toast";
 
 
 interface Service {
@@ -25,7 +26,7 @@ export default function ServicesPage() {
   const fetchServices = async () => {
     const res = await axios.get(`${BASE_URL}/getAllServices`);
     setServices(res.data.message);
-    console.log("services",res.data.message);
+    // console.log("services",res.data.message);
   };
 
   useEffect(() => {
@@ -34,7 +35,7 @@ export default function ServicesPage() {
 
   // ================= CREATE / UPDATE =================
   const handleSubmit = async () => {
-    console.log(formData, "formData");
+    // console.log(formData, "formData");
 
     try {
       if (editingId) {
@@ -42,11 +43,13 @@ export default function ServicesPage() {
           `${BASE_URL}/updateService/${editingId}`,
           formData
         );
+        showSuccessToast("Service updated successfully");
       } else {
         await axios.post(
           `${BASE_URL}/createService`,
           formData
         );
+        showSuccessToast("Service created successfully");
       }
 
       setIsOpen(false);
@@ -54,7 +57,8 @@ export default function ServicesPage() {
       setFormData({ ServiceName: "", price: "" });
       fetchServices();
     } catch (error: any) {
-      alert(error?.response?.data?.message);
+      // alert(error?.response?.data?.message);
+      showErrorToast("An error occurred");
     }
   };
 

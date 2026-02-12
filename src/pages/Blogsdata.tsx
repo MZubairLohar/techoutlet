@@ -135,6 +135,7 @@ import { Button } from "@/components/ui/button";
 import axios from "axios";
 import { BASE_URL } from "@/Base_URL/Base_URL";
 import BlogsFormModal from "@/components/BlogsFormModal";
+import { showErrorToast } from "@/lib/toast";
 
 interface Blog {
   _id: string;
@@ -156,16 +157,17 @@ export default function BlogData() {
     const fetchBlogs = async () => {
       try {
         const res = await axios.get(`${BASE_URL}/getBlogs`);
-        console.log("Blogs Data:", res.data.message || res.data);
+        // console.log("Blogs Data:", res.data.message || res.data);
         const blogsArray = Array.isArray(res.data.message)
           ? res.data.message
           : [];
         setBlogs(blogsArray);
       } catch (error: any) {
-        console.error(
-          "Error fetching blogs:",
-          error.response?.data || error.message,
-        );
+        // console.error(
+        //   "Error fetching blogs:",
+        //   error.response?.data || error.message,
+        // );
+        showErrorToast("Failed to load blogs!");
       } finally {
         setLoading(false);
       }

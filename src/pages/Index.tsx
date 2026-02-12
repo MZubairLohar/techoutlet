@@ -1,12 +1,10 @@
 import { motion } from "framer-motion";
 import { Link, Router, useNavigate } from "react-router-dom";
 import {
-  Smartphone,
   Monitor,
   Battery,
   Zap,
   Droplets,
-  Cpu,
   ArrowRight,
   Shield,
   Award,
@@ -24,6 +22,7 @@ import {
   Clock,
   Star,
 } from "lucide-react";
+import { Smartphone, Apple, BadgeCheck, Cpu, Radio } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -33,6 +32,7 @@ import happyCustomer from "@/assets/happy-customer.jpg";
 import { BASE_URL } from "@/Base_URL/Base_URL";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { showErrorToast } from "@/lib/toast";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -53,12 +53,13 @@ const staggerContainer = {
 };
 
 const brands = [
-  { name: "iPhone", icon: "🍎" },
-  { name: "Samsung", icon: "📱" },
-  { name: "Xiaomi", icon: "📲" },
-  { name: "Oppo", icon: "🔲" },
-  { name: "Vivo", icon: "📳" },
+  { name: "iPhone", icon: Apple },        // Apple brand
+  { name: "Samsung", icon: Smartphone }, // Android phone
+  { name: "Xiaomi", icon: Cpu },         // tech / hardware brand
+  { name: "Oppo", icon: Radio },         // communication device feel
+  { name: "Vivo", icon: BadgeCheck },    // premium / trusted feel
 ];
+
 
 const stats = [
   { icon: Shield, value: "50K+", label: "Repairs Done" },
@@ -127,7 +128,7 @@ const Index = () => {
   const fetchServices = async () => {
     const res = await axios.get(`${BASE_URL}/getAllServices`);
     setServices(res.data.message);
-    console.log("services", res.data.message);
+    // console.log("services", res.data.message);
   };
 
   useEffect(() => {
@@ -182,8 +183,8 @@ const Index = () => {
         message: "",
       });
     } catch (err: any) {
-      console.error(err.response?.data || err.message);
-      alert("Failed to send message");
+      // console.error(err.response?.data || err.message);
+      showErrorToast("Failed to send message");
     }
   };
 
@@ -384,21 +385,26 @@ const Index = () => {
             variants={staggerContainer}
             className="flex flex-wrap justify-center gap-6"
           >
-            {brands.map((brand, i) => (
-              <motion.div
-                key={brand.name}
-                onClick={navigtion}
-                variants={fadeUp}
-                custom={i}
-                whileHover={{ scale: 1.05, y: -4 }}
-                className="flex flex-col items-center gap-2 px-8 py-6 bg-background rounded-2xl shadow-card hover:shadow-soft transition-all cursor-pointer min-w-[140px]"
-              >
-                <span className="text-3xl">{brand.icon}</span>
-                <span className="text-sm font-medium text-foreground">
-                  {brand.name}
-                </span>
-              </motion.div>
-            ))}
+           {brands.map((brand, i) => {
+  const Icon = brand.icon;
+
+  return (
+    <motion.div
+      key={brand.name}
+      onClick={() => navigate("/book")}
+      variants={fadeUp}
+      custom={i}
+      whileHover={{ scale: 1.05, y: -4 }}
+      className="flex flex-col items-center gap-2 px-8 py-6 bg-background rounded-2xl shadow-card hover:shadow-soft transition-all cursor-pointer min-w-[140px]"
+    >
+      <Icon size={32} />
+      <span className="text-sm font-medium text-foreground">
+        {brand.name}
+      </span>
+    </motion.div>
+  );
+})}
+
           </motion.div>
         </div>
       </section>
@@ -585,8 +591,7 @@ const Index = () => {
                 Need a Repair? We've Got You Covered
               </h2>
               <p className="mt-4 text-primary-foreground/80 text-lg max-w-2xl mx-auto">
-                Book your repair in under 2 minutes and get a certified
-                technician at your doorstep.
+                Explore our website for affordable, high-quality repairs, sales of refurbished devices, and premium accessories.
               </p>
               <Link to="/book">
                 <Button

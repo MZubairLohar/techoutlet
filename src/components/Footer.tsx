@@ -31,7 +31,7 @@ const Footer = () => (
         <div>
           <h4 className="font-semibold mb-4">Quick Links</h4>
           <div className="flex flex-col gap-3">
-            {["Home", "Book Repair", "Dashboard", "About Us"].map((item) => (
+            {["Home", "Book Repair", "Contact Us", "About Us"].map((item) => (
               <Link key={item} to="/" className="text-sm text-primary-foreground/60 hover:text-primary-foreground transition-colors">
                 {item}
               </Link>

@@ -205,6 +205,8 @@ import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import axios from "axios";
 import { BASE_URL } from "@/Base_URL/Base_URL";
+import { s } from "node_modules/vite/dist/node/types.d-aGj9QkWt";
+import { showErrorToast } from "@/lib/toast";
 
 interface Blog {
   _id: string;
@@ -242,10 +244,11 @@ export default function BlogPage() {
           : [];
         setBlogs(blogsArray);
       } catch (error: any) {
-        console.error(
-          "Error fetching blogs:",
-          error.response?.data || error.message,
-        );
+        // console.error(
+        //   "Error fetching blogs:",
+        //   error.response?.data || error.message,
+        // );
+        showErrorToast("Failed to load blogs!");
       } finally {
         setLoading(false);
       }

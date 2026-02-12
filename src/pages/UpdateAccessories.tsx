@@ -7,6 +7,7 @@ import EditAccessoryModal from "./EditAccessoryModal";
 import AccessoriesFormModal from "@/components/AccessoriesFormModal";
 import { Button } from "@/components/ui/button";
 import { Edit } from "lucide-react";
+import { showErrorToast, showSuccessToast } from "@/lib/toast";
 
 export default function UpdateAccessories() {
   const [items, setItems] = useState<any[]>([]);
@@ -16,24 +17,26 @@ export default function UpdateAccessories() {
   useEffect(() => {
     const fetchData = async () => {
       const res = await axios.get(`${BASE_URL}/getAccessories`);
-      console.log(res.data.message);
+      // console.log(res.data.message);
       setItems(res.data.message); // your data is in message array
     };
     fetchData();
   }, []);
   const delAccessories = async (id: string) => {
-      console.log("delete id", id);
+      // console.log("delete id", id);
     try {
       await axios.delete(`${BASE_URL}/deleteAccessory/${id}`);
       setItems(items.filter((item) => item._id !== id));
+      showSuccessToast("Accessory deleted successfully");
     } catch (error) {
-      alert("Error deleting accessory");
+      // alert("Error deleting accessory");
+      showErrorToast("Error deleting accessory");
     }
  
   }
   return (
     <div className="p-10">
-      <h1 className="text-3xl font-bold mb-8">Update Accessories</h1>
+      <h1 className="text-3xl font-bold mb-8">Accessories</h1>
       <Button
         onClick={() => setOpen(true)}
         size="sm"

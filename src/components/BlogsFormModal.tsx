@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, ChangeEvent, FormEvent } from "react";
 import { BASE_URL } from "@/Base_URL/Base_URL";
+import { showErrorToast, showSuccessToast } from "@/lib/toast";
 
 interface FormData {
   category: string;
@@ -80,7 +81,7 @@ export default function BlogsFormModal({ isOpen, onClose }: Props) {
       formData.append("content", form.content);
       formData.append("author", form.author);
       formData.append("verified", String(form.verified));
-     console.log(Object.fromEntries(formData.entries()));
+    //  console.log(Object.fromEntries(formData.entries()));
 
       if (form.image) formData.append("image", form.image);
 
@@ -88,16 +89,16 @@ export default function BlogsFormModal({ isOpen, onClose }: Props) {
         headers: { "Content-Type": "multipart/form-data" },
       });
 
-      console.log("Blog Created:", response.data);
-      alert("Blog created successfully!");
+      // console.log("Blog Created:", response.data);
+      showSuccessToast("Blog created successfully!");
 
       setForm({ category: "", title: "", content: "", author: "", image: null, verified: false });
       setPreview(null);
       onClose();
 
     } catch (error: any) {
-      console.error("Error creating blog:", error.response?.data || error.message);
-      alert("Failed to create blog.");
+      // console.error("Error creating blog:", error.response?.data || error.message);
+      showErrorToast("Failed to create blog.");
     } finally {
       setLoading(false);
     }

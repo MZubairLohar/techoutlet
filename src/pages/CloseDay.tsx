@@ -5,6 +5,7 @@ import axios from "axios";
 import { Calendar, Plus, X } from "lucide-react";
 import { motion } from "framer-motion";
 import { BASE_URL } from "@/Base_URL/Base_URL";
+import { showErrorToast, showSuccessToast } from "@/lib/toast";
 
 // const BASE_URL = "http://localhost:5000/api"; // change if needed
 
@@ -19,10 +20,11 @@ export default function ClosedDaysPage() {
   const fetchClosedDays = async () => {
     try {
       const res = await axios.get(`${BASE_URL}/getClosedDays`);
-     console.log("closed days", res.data.message);
+    //  console.log("closed days", res.data.message);
       setClosedDays(res.data.message);
     } catch (err) {
-      console.error(err);
+      // console.error(err);
+      showErrorToast("Error fetching closed days");
     }
   };
 
@@ -45,8 +47,10 @@ export default function ClosedDaysPage() {
       setReason("");
       setOpenModal(false);
       fetchClosedDays();
+      showSuccessToast("Closed day added successfully!");
     } catch (error: any) {
-      alert(error?.response?.data?.message || "Error adding closed day");
+      // alert(error?.response?.data?.message || "Error adding closed day");
+      showErrorToast("Error adding closed day");
     } finally {
       setLoading(false);
     }

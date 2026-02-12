@@ -1,6 +1,7 @@
 import { useState, ChangeEvent, FormEvent } from "react";
 import axios from "axios";
 import { BASE_URL } from "@/Base_URL/Base_URL";
+import { showErrorToast, showSuccessToast } from "@/lib/toast";
 
 interface FormDataType {
   name: string;
@@ -92,9 +93,11 @@ export default function AccessoriesForm() {
         { headers: { "Content-Type": "multipart/form-data" } }
       );
 
-      console.log("Accessory Created:", response.data);
+      // console.log("Accessory Created:", response.data);
+      showSuccessToast("Accessory created successfully!");
     } catch (error: any) {
-      console.log("Error:", error.response?.data || error.message);
+      // console.log("Error:", error.response?.data || error.message);
+      showErrorToast("Failed to create accessory!");
     } finally {
       setLoading(false);
     }

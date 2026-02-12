@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar"; 
 import { useCart } from "@/contexts/CartContext"; 
 import AddToCartModal from "@/components/AddToCartModal";
+import { showErrorToast } from "@/lib/toast";
 
 const categoryColors = {
   charger: "bg-yellow-500/10 text-yellow-600",
@@ -31,14 +32,15 @@ useEffect(() => {
   const fetchAccessories = async () => {
     try {
       const response = await axios.get(`${BASE_URL}/getAccessories`);
-      console.log("Accessories Data:", response.data);
+      // console.log("Accessories Data:", response.data);
 
       // ✅ Correct place of array
       const accessoriesArray = response.data.message;
 
       setItems(Array.isArray(accessoriesArray) ? accessoriesArray : []);
     } catch (error: any) {
-      console.log("Error:", error.response?.data || error.message);
+      // console.log("Error:", error.response?.data || error.message);
+      showErrorToast("Failed to load accessories!");
     } finally {
       setLoading(false);
     }

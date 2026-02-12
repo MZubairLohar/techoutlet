@@ -2,6 +2,7 @@ import { useState, ChangeEvent, FormEvent } from "react";
 import axios from "axios";
 import { BASE_URL } from "@/Base_URL/Base_URL";
 import { Button } from "@/components/ui/button";
+import { showSuccessToast,showErrorToast } from "@/lib/toast";
 
 interface Model {
   name: string;
@@ -66,14 +67,14 @@ export default function BrandsFormModal({ isOpen, onClose }: Props) {
 
       await axios.post(`${BASE_URL}/create`, formData);
 
-      alert("Brand created successfully ✅");
+      showSuccessToast("Brand created successfully");
 
       setBrand("");
       setNumModels(0);
       setModels([]);
       onClose();
     } catch (error: any) {
-      alert(error?.response?.data?.message || "Something went wrong");
+      showErrorToast("Failed to create brand!");
     } finally {
       setLoading(false);
     }

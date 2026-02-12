@@ -13,6 +13,7 @@ import {
 } from "chart.js";
 import axios from "axios";
 import { BASE_URL } from "@/Base_URL/Base_URL";
+import { showErrorToast } from "@/lib/toast";
 
 ChartJS.register(
   CategoryScale,
@@ -35,7 +36,8 @@ useEffect(() => {
       const res = await axios.get(`${BASE_URL}/getDashboardData`);
       setDashboardData(res.data.data);
     } catch (error) {
-      console.error("Error fetching dashboard data:", error);
+      // console.error("Error fetching dashboard data:", error);
+      showErrorToast("Error fetching dashboard data");
     }
   };
 

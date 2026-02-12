@@ -89,106 +89,120 @@ const BookRepair = () => {
     axios
       .get(`${BASE_URL}/brands`)
       .then((res) => {
-        console.log("brands data", res.data.message);
+        // console.log("brands data", res.data.message);
         setData(res.data.message);
       })
       .catch((err) => {
-        console.log("error", err);
+        // console.log("error", err);
+        return showErrorToast("Failed to load brands! Please refresh the page.");
       });
   }, []);
   useEffect(() => {
     axios
       .get(`${BASE_URL}/models/${selectedBrand}`)
       .then((res) => {
-        console.log("models data", res.data.message);
+        // console.log("models data", res.data.message);
         setModels(res.data.message);
       })
       .catch((err) => {
-        console.log("error", err);
+        // console.log("error", err);
+        return showErrorToast("Failed to load models! Please refresh the page.");
       });
   }, [selectedBrand]);
-const [closedDays, setClosedDays] = useState<Date[]>([]);
+  const [closedDays, setClosedDays] = useState<Date[]>([]);
 
-useEffect(() => {
-  axios
-    .get(`${BASE_URL}/getClosedDays`)
-    .then((res) => {
-      const formattedDates = res.data.message.map((item: any) => {
-        const d = new Date(item.date);
-        d.setHours(0, 0, 0, 0); // normalize
-        return d;
+  useEffect(() => {
+    axios
+      .get(`${BASE_URL}/getClosedDays`)
+      .then((res) => {
+        const formattedDates = res.data.message.map((item: any) => {
+          const d = new Date(item.date);
+          d.setHours(0, 0, 0, 0); // normalize
+          return d;
+        });
+
+        setClosedDays(formattedDates);
+      })
+      .catch((err) => {
+        // console.log("error", err);
+        return showErrorToast("Failed to load closed days! Please refresh the page.");
+      });
+  }, []);
+
+  const [dataBooking, setDataBooking] = useState([]);
+  const handleConfirmBooking = () => {
+    // if () return;
+    if (
+      !selectedDate ||
+      !selectedTime ||
+      !customerInfo.name ||
+      !customerInfo.email ||
+      !customerInfo.phone ||
+      !selectedBrand ||
+      !selectedModel
+    )
+      return showErrorToast("Please fill all required fields");
+    // 1️⃣ Date ko YYYY-MM-DD me convert karo
+    const datePart = selectedDate.toISOString().split("T")[0];
+
+    // 2️⃣ Time ko split karo (10:00 AM)
+    const [time, modifier] = selectedTime.split(" ");
+    const [hourStr, minutes] = time.split(":");
+
+    let hourNumber = Number(hourStr); // string → number
+
+    // 3️⃣ 12 hour → 24 hour conversion
+    if (modifier === "PM" && hourNumber !== 12) {
+      hourNumber += 12;
+    }
+
+    if (modifier === "AM" && hourNumber === 12) {
+      hourNumber = 0;
+    }
+
+    // 4️⃣ 2 digit format me convert karo
+    const formattedTime = `${hourNumber
+      .toString()
+      .padStart(2, "0")}:${minutes}:00`;
+
+    // 5️⃣ Final ISO DateTime
+    const finalDateTime = new Date(`${datePart}T${formattedTime}`);
+
+    const bookingData = {
+      brand: selectedBrand,
+      model: selectedModel,
+      issues: selectedIssues,
+      description,
+      bookingDate: finalDateTime, // ✅ MongoDB Date type
+      customerInfo,
+      totalPrice,
+    };
+
+    // console.log("✅ Booking Data:", bookingData);
+    // showSuccessToast("Booking successful! We will contact you soon.");
+    axios
+      .post(`${BASE_URL}/sendRepairingRequest`, {
+        name: customerInfo.name,
+        email: customerInfo.email,
+        phoneNumber: customerInfo.phone,
+        mobileType: `${selectedBrand} ${selectedModel}`,
+        problem: selectedIssues.join(", "),
+        comment: description,
+        AppointmentTime: finalDateTime,
+      })
+      .then((res) => {
+        // console.log("Booking successful", res.data.message);
+        showSuccessToast("Booking successful! We will contact you soon.");
+        setDataBooking(res.data.message);
+      })
+      .catch(() => {
+        // console.log("Booking error", err);
+        showErrorToast("Booking failed! Please try again.");
       });
 
-      setClosedDays(formattedDates);
-    })
-    .catch((err) => {
-      console.log("error", err);
-    });
-}, []);
-
-  const[dataBooking,setDataBooking]=useState([])
-const handleConfirmBooking = () => {
-  // if () return;
-  if(!selectedDate || !selectedTime ||!customerInfo.name || !customerInfo.email || !customerInfo.phone || !selectedBrand || !selectedModel) return showErrorToast("Please fill all required fields");
-  // 1️⃣ Date ko YYYY-MM-DD me convert karo
-  const datePart = selectedDate.toISOString().split("T")[0];
-
-  // 2️⃣ Time ko split karo (10:00 AM)
-  const [time, modifier] = selectedTime.split(" ");
-  const [hourStr, minutes] = time.split(":");
-
-  let hourNumber = Number(hourStr); // string → number
-
-  // 3️⃣ 12 hour → 24 hour conversion
-  if (modifier === "PM" && hourNumber !== 12) {
-    hourNumber += 12;
-  }
-
-  if (modifier === "AM" && hourNumber === 12) {
-    hourNumber = 0;
-  }
-
-  // 4️⃣ 2 digit format me convert karo
-  const formattedTime = `${hourNumber
-    .toString()
-    .padStart(2, "0")}:${minutes}:00`;
-
-  // 5️⃣ Final ISO DateTime
-  const finalDateTime = new Date(`${datePart}T${formattedTime}`);
-
-  const bookingData = {
-    brand: selectedBrand,
-    model: selectedModel,
-    issues: selectedIssues,
-    description,
-    bookingDate: finalDateTime, // ✅ MongoDB Date type
-    customerInfo,
-    totalPrice,
+    // console.log("Booking response", data);
+    next();
   };
-
-  // console.log("✅ Booking Data:", bookingData);
-  showSuccessToast("Booking successful! We will contact you soon.");
-   axios.post(`${BASE_URL}/sendRepairingRequest`, {
-    name: customerInfo.name,
-    email: customerInfo.email,
-    phoneNumber: customerInfo.phone,
-    mobileType: `${selectedBrand} ${selectedModel}`,
-    problem: selectedIssues.join(", "),
-    comment: description,
-    AppointmentTime: finalDateTime,
-  }).then((res) => {
-    // console.log("Booking successful", res.data.message);
-    showSuccessToast("Booking successful! We will contact you soon.");
-    setDataBooking(res.data.message);
-  }).catch(() => {
-    // console.log("Booking error", err);
-    showErrorToast("Booking failed! Please try again.");
-  });
-
-  // console.log("Booking response", data);
-  next();
-};
-
 
   return (
     <div className="min-h-screen bg-background">
@@ -246,7 +260,7 @@ const handleConfirmBooking = () => {
                           onClick={() => {
                             setSelectedBrand(b.brand);
                             setSelectedModel("");
-                            console.log("selected brand", b.brand);
+                            // console.log("selected brand", b.brand);
                           }}
                           className={`p-4 rounded-xl border-2 text-center transition-all ${
                             selectedBrand === b.brand
@@ -287,9 +301,7 @@ const handleConfirmBooking = () => {
                               alt={m.name}
                               className="w-20 h-10 object-contain mb-2"
                             />
-                            <div className="ml-3">
-                            {m.name}{" "}
-                            </div>
+                            <div className="ml-3">{m.name} </div>
                             {m.isAvailable ? (
                               <span className="text-xs text-green-500 ml-2">
                                 Available
@@ -374,20 +386,20 @@ const handleConfirmBooking = () => {
                         onSelect={setSelectedDate}
                         // disabled={(date) => date < new Date()}
                         disabled={(date) => {
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
+                          const today = new Date();
+                          today.setHours(0, 0, 0, 0);
 
-  const checkDate = new Date(date);
-  checkDate.setHours(0, 0, 0, 0);
+                          const checkDate = new Date(date);
+                          checkDate.setHours(0, 0, 0, 0);
 
-  return (
-    checkDate < today ||
-    closedDays.some(
-      (closed) => closed.getTime() === checkDate.getTime()
-    )
-  );
-}}
-
+                          return (
+                            checkDate < today ||
+                            closedDays.some(
+                              (closed) =>
+                                closed.getTime() === checkDate.getTime(),
+                            )
+                          );
+                        }}
                       />
                     </div>
                     <div className="flex-1">
@@ -496,106 +508,106 @@ const handleConfirmBooking = () => {
               )}
 
               {/* Step 6: Summary */}
-             {step === 5 && (
-  <div className="max-w-xl mx-auto">
-    <h2 className="text-xl font-bold text-foreground mb-1">
-      Booking Summary
-    </h2>
-    <p className="text-sm text-muted-foreground mb-4">
-      Review your details before confirmation
-    </p>
+              {step === 5 && (
+                <div className="max-w-xl mx-auto">
+                  <h2 className="text-xl font-bold text-foreground mb-1">
+                    Booking Summary
+                  </h2>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Review your details before confirmation
+                  </p>
 
-    <div className="bg-card border border-border rounded-2xl p-5 shadow-sm">
-      <div className="grid gap-3 text-sm">
-        {[
-          {
-            label: "Device",
-            value: `${selectedBrand} ${selectedModel}`,
-          },
-          { label: "Issues", value: selectedIssues.join(", ") },
-          // { label: "Service", value: serviceType },
-          {
-            label: "Date & Time",
-            value: `${selectedDate?.toLocaleDateString()} • ${selectedTime}`,
-          },
-          { label: "Name", value: customerInfo.name },
-          {
-            label: "Contact",
-            value: `${customerInfo.phone}`,
-          },
-        ].map((item) => (
-          <div
-            key={item.label}
-            className="flex justify-between gap-4"
-          >
-            <span className="text-muted-foreground">
-              {item.label}
-            </span>
-            <span className="font-medium text-foreground text-right truncate">
-              {item.value}
-            </span>
-          </div>
-        ))}
-      </div>
-
-    
-    </div>
-  </div>
-)}
-
+                  <div className="bg-card border border-border rounded-2xl p-5 shadow-sm">
+                    <div className="grid gap-3 text-sm">
+                      {[
+                        {
+                          label: "Device",
+                          value: `${selectedBrand} ${selectedModel}`,
+                        },
+                        { label: "Issues", value: selectedIssues.join(", ") },
+                        // { label: "Service", value: serviceType },
+                        {
+                          label: "Date & Time",
+                          value: `${selectedDate?.toLocaleDateString()} • ${selectedTime}`,
+                        },
+                        { label: "Name", value: customerInfo.name },
+                        {
+                          label: "Contact",
+                          value: `${customerInfo.phone}`,
+                        },
+                      ].map((item) => (
+                        <div
+                          key={item.label}
+                          className="flex justify-between gap-4"
+                        >
+                          <span className="text-muted-foreground">
+                            {item.label}
+                          </span>
+                          <span className="font-medium text-foreground text-right truncate">
+                            {item.value}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
 
               {/* Step 8: Confirmation */}
-            {step === 6 && dataBooking && (
-  <div className="min-h-[60vh] flex items-center justify-center px-2">
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      className="w-full max-w-lg bg-card/80 backdrop-blur-xl border border-border 
+              {step === 6 && dataBooking && (
+                <div className="min-h-[60vh] flex items-center justify-center px-2">
+                  <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    className="w-full max-w-lg bg-card/80 backdrop-blur-xl border border-border 
                  rounded-3xl shadow-2xl p-4 text-center relative overflow-hidden"
-    >
-      {/* Soft Glow Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-primary/10 pointer-events-none" />
+                  >
+                    {/* Soft Glow Background */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-primary/10 pointer-events-none" />
 
-      {/* Success Icon */}
-      <motion.div
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-        transition={{ type: "spring", stiffness: 200, damping: 12 }}
-        className="relative w-24 h-24 rounded-full gradient-accent 
+                    {/* Success Icon */}
+                    <motion.div
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 200,
+                        damping: 12,
+                      }}
+                      className="relative w-24 h-24 rounded-full gradient-accent 
                    flex items-center justify-center mx-auto mb-8 shadow-lg"
-      >
-        <CheckCircle2 className="w-12 h-12 text-primary-foreground" />
-      </motion.div>
+                    >
+                      <CheckCircle2 className="w-12 h-12 text-primary-foreground" />
+                    </motion.div>
 
-      {/* Heading */}
-      <h2 className="relative text-3xl font-bold text-foreground mb-4">
-        Booking Confirmed 🎉
-      </h2>
+                    {/* Heading */}
+                    <h2 className="relative text-3xl font-bold text-foreground mb-4">
+                      Booking Confirmed
+                    </h2>
 
-      {/* Message */}
-      <p className="relative text-muted-foreground mb-4">
-        Your repair has been scheduled successfully.
-      </p>
+                    {/* Message */}
+                    <p className="relative text-muted-foreground mb-4">
+                      Your repair has been scheduled successfully.
+                    </p>
 
-      <p className="relative text-muted-foreground mb-10">
-        You will receive confirmation details via email shortly.
-      </p>
+                    <p className="relative text-muted-foreground mb-10">
+                      You will receive confirmation details via email shortly.
+                    </p>
 
-      {/* Button */}
-      <Link to="/">
-        <Button
-          className="relative rounded-full px-10 py-6 text-base 
+                    {/* Button */}
+                    <Link to="/">
+                      <Button
+                        className="relative rounded-full px-10 py-6 text-base 
                      gradient-accent text-primary-foreground 
                      shadow-lg hover:scale-105 transition-transform duration-300"
-        >
-          Back to Home
-        </Button>
-      </Link>
-    </motion.div>
-  </div>
-)}
-
+                      >
+                        Back to Home
+                      </Button>
+                    </Link>
+                  </motion.div>
+                </div>
+              )}
             </motion.div>
           </AnimatePresence>
 
@@ -619,13 +631,12 @@ const handleConfirmBooking = () => {
                 <ArrowRight className="w-4 h-4 ml-1" />
               </Button> */}
               <Button
-  onClick={step === TOTAL_STEPS - 1 ? handleConfirmBooking : next}
-  className="gradient-primary text-primary-foreground rounded-full px-6 shadow-soft"
->
-  {step === TOTAL_STEPS - 1 ? "Confirm Booking" : "Continue"}
-  <ArrowRight className="w-4 h-4 ml-1" />
-</Button>
-
+                onClick={step === TOTAL_STEPS - 1 ? handleConfirmBooking : next}
+                className="gradient-primary text-primary-foreground rounded-full px-6 shadow-soft"
+              >
+                {step === TOTAL_STEPS - 1 ? "Confirm Booking" : "Continue"}
+                <ArrowRight className="w-4 h-4 ml-1" />
+              </Button>
             </div>
           )}
         </div>

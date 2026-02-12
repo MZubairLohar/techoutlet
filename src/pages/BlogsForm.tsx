@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, ChangeEvent, FormEvent } from "react";
 import { BASE_URL } from "@/Base_URL/Base_URL";
+import { showErrorToast, showSuccessToast } from "@/lib/toast";
 
 interface FormData {
   title: string;
@@ -67,16 +68,16 @@ export default function BlogsForm() {
         },
       });
 
-      console.log("Blog Created:", response.data);
-      alert("Blog created successfully!");
+      // console.log("Blog Created:", response.data);
+      showSuccessToast("Blog created successfully!");
 
       // Reset form
       setForm({ title: "", content: "", author: "", image: null, verified: false });
       setPreview(null);
 
     } catch (error: any) {
-      console.error("Error creating blog:", error.response?.data || error.message);
-      alert("Failed to create blog. Check console for details.");
+      // console.error("Error creating blog:", error.response?.data || error.message);
+      showErrorToast("Failed to create blog!");
     } finally {
       setLoading(false);
     }

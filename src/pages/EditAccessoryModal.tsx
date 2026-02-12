@@ -1,3 +1,4 @@
+import { showSuccessToast } from "@/lib/toast";
 import { useState } from "react";
 
 export default function EditAccessoryModal({ item, onClose }: any) {
@@ -13,7 +14,8 @@ export default function EditAccessoryModal({ item, onClose }: any) {
   };
 
   const handleSubmit = () => {
-    console.log("Updated Data:", form);
+    // console.log("Updated Data:", form);
+    showSuccessToast("Accessory updated successfully!");
     onClose();
   };
 

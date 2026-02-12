@@ -140,6 +140,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { BASE_URL } from "@/Base_URL/Base_URL";
 import { Pencil } from "lucide-react";
+import { showErrorToast, showSuccessToast } from "@/lib/toast";
 
 interface Model {
   name: string;
@@ -176,7 +177,7 @@ export default function Brands() {
     // Refresh models
     const res = await axios.get(`${BASE_URL}/models/${selectedBrand}`);
     setModels(res.data.message);
-
+    showSuccessToast("Model updated successfully!");
     setEditModal(false);
   };
 
@@ -187,7 +188,7 @@ export default function Brands() {
       .then((res) => {
         setBrands(res.data.message); // ["samsung","apple"]
       })
-      .catch((err) => console.log(err));
+      // .catch((err) => console.log(err));
   }, []);
 
   // ✅ Get models of selected brand
@@ -199,7 +200,7 @@ export default function Brands() {
       .then((res) => {
         setModels(res.data.message);
       })
-      .catch((err) => console.log(err));
+      // .catch((err) => console.log(err));
   }, [selectedBrand]);
 
   const deleteModel = async (brand: string, modelName: string) => {
@@ -208,8 +209,10 @@ export default function Brands() {
 
       // UI se bhi remove karo without refresh
       setModels((prev) => prev.filter((m) => m.name !== modelName));
+      showSuccessToast("Model deleted successfully!");
     } catch (error) {
-      console.error("Delete error", error);
+      // console.error("Delete error", error);
+      showErrorToast("Failed to delete model!");
     }
   };
 
