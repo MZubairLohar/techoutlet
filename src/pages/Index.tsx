@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { Link, Router, useNavigate } from "react-router-dom";
 import {
   Monitor,
@@ -388,6 +388,7 @@ const Index = () => {
            {brands.map((brand, i) => {
   const Icon = brand.icon;
 
+
   return (
     <motion.div
       key={brand.name}
@@ -607,7 +608,7 @@ const Index = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 lg:py-28 bg-card">
+      {/* <section className="py-20 lg:py-28 bg-card">
         <div className="container mx-auto px-4 lg:px-8">
           <motion.div
             initial="hidden"
@@ -674,7 +675,84 @@ const Index = () => {
             ))}
           </motion.div>
         </div>
-      </section>
+      </section> */}
+      {/* Testimonials */}
+      
+<section className="py-20 lg:py-28 bg-card">
+  <div className="container mx-auto px-4 lg:px-8">
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      variants={staggerContainer}
+      className="text-center mb-14"
+    >
+      <motion.span
+        variants={fadeUp}
+        className="text-sm font-medium text-primary uppercase tracking-wider"
+      >
+        Testimonials
+      </motion.span>
+
+      <motion.h2
+        variants={fadeUp}
+        custom={1}
+        className="text-3xl lg:text-4xl font-bold mt-3 text-foreground"
+      >
+        What Our Customers Say
+      </motion.h2>
+    </motion.div>
+
+    {/* Scrolling Container */}
+    <div className="overflow-hidden relative">
+      <motion.div
+        variants={marquee}
+        animate="animate"
+        whileHover={{ animationPlayState: "paused" }}
+        className="flex gap-6 "
+      >
+        {[...testimonials, ...testimonials].map((t, i) => (
+          <motion.div
+            key={i}
+            whileHover={{ y: -6 }}
+            className="bg-background rounded-2xl p-6 shadow-card hover:shadow-soft transition-all border border-border/50 min-w-[320px]"
+          >
+            {/* Stars */}
+            <div className="flex gap-1 mb-3">
+              {Array.from({ length: t.rating }).map((_, j) => (
+                <Star
+                  key={j}
+                  className="w-4 h-4 fill-amber-400 text-amber-400"
+                />
+              ))}
+            </div>
+
+            {/* Text */}
+            <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+              {t.text}
+            </p>
+
+            {/* User */}
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-semibold text-sm">
+                {t.name[0]}
+              </div>
+              <div>
+                <div className="font-medium text-sm text-foreground">
+                  {t.name}
+                </div>
+                <div className="text-xs text-muted-foreground">
+                  {t.role}
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        ))}
+      </motion.div>
+    </div>
+  </div>
+</section>
+
 
       {/* Stats */}
       <section className="py-16">
@@ -822,3 +900,16 @@ const Index = () => {
 };
 
 export default Index;
+const marquee: Variants = {
+  animate: {
+    x: ["0%", "-50%"],
+    transition: {
+      x: {
+        repeat: Infinity,
+        repeatType: "loop",
+        duration: 10,
+        ease: "linear",
+      },
+    },
+  },
+};
