@@ -20,6 +20,7 @@ import { Textarea } from "@/components/ui/textarea";
 import Navbar from "@/components/Navbar";
 import axios from "axios";
 import { BASE_URL } from "@/Base_URL/Base_URL";
+import { showErrorToast, showSuccessToast } from "@/lib/toast";
 
 const issues = [
   { name: "Screen Repair", icon: Monitor, price: 49 },
@@ -128,7 +129,7 @@ useEffect(() => {
   const[dataBooking,setDataBooking]=useState([])
 const handleConfirmBooking = () => {
   // if () return;
-  if(!selectedDate || !selectedTime ||!customerInfo.name || !customerInfo.email || !customerInfo.phone || !selectedBrand || !selectedModel) return alert("Please fill all required fields");
+  if(!selectedDate || !selectedTime ||!customerInfo.name || !customerInfo.email || !customerInfo.phone || !selectedBrand || !selectedModel) return showErrorToast("Please fill all required fields");
   // 1️⃣ Date ko YYYY-MM-DD me convert karo
   const datePart = selectedDate.toISOString().split("T")[0];
 
@@ -165,7 +166,8 @@ const handleConfirmBooking = () => {
     totalPrice,
   };
 
-  console.log("✅ Booking Data:", bookingData);
+  // console.log("✅ Booking Data:", bookingData);
+  showSuccessToast("Booking successful! We will contact you soon.");
    axios.post(`${BASE_URL}/sendRepairingRequest`, {
     name: customerInfo.name,
     email: customerInfo.email,
@@ -175,10 +177,12 @@ const handleConfirmBooking = () => {
     comment: description,
     AppointmentTime: finalDateTime,
   }).then((res) => {
-    console.log("Booking successful", res.data.message);
+    // console.log("Booking successful", res.data.message);
+    showSuccessToast("Booking successful! We will contact you soon.");
     setDataBooking(res.data.message);
-  }).catch((err) => {
-    console.log("Booking error", err);
+  }).catch(() => {
+    // console.log("Booking error", err);
+    showErrorToast("Booking failed! Please try again.");
   });
 
   // console.log("Booking response", data);
