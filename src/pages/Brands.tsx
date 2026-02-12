@@ -205,6 +205,7 @@ export default function Brands() {
 
   const deleteModel = async (brand: string, modelName: string) => {
     try {
+      
       await axios.delete(`${BASE_URL}/delete/${brand}/${modelName}`);
 
       // UI se bhi remove karo without refresh
