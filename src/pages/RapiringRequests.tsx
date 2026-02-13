@@ -381,7 +381,7 @@ export default function RepairingRequests() {
             </h2>
             <button
               onClick={() => setCalendarOpen(!calendarOpen)}
-              className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition flex items-center gap-2"
+              className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition flex items-center gap-2"
             >
               <svg
                 className="w-5 h-5"
@@ -428,7 +428,7 @@ export default function RepairingRequests() {
             <span className="text-sm font-medium text-gray-700">
               Showing appointments for:
             </span>
-            <span className="text-sm font-semibold text-blue-700">
+            <span className="text-sm font-semibold text-red-700">
               {formatDate(selectedDate.toISOString())}
             </span>
           </div>

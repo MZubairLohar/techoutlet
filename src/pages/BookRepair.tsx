@@ -215,13 +215,13 @@ const BookRepair = () => {
               <span className="text-sm font-medium text-muted-foreground">
                 Step {step} of {TOTAL_STEPS}
               </span>
-              <span className="text-sm font-medium text-primary">
+              <span className="text-sm font-medium text-red-600">
                 {Math.round((step / TOTAL_STEPS) * 100)}%
               </span>
             </div>
             <div className="w-full h-2 bg-muted rounded-full overflow-hidden">
               <motion.div
-                className="h-full gradient-primary rounded-full"
+               className="h-full bg-gradient-to-r from-red-500 via-red-600 to-red-700 rounded-full"
                 initial={{ width: 0 }}
                 animate={{ width: `${(step / TOTAL_STEPS) * 100}%` }}
                 transition={{ duration: 0.4 }}
@@ -264,12 +264,12 @@ const BookRepair = () => {
                           }}
                           className={`p-4 rounded-xl border-2 text-center transition-all ${
                             selectedBrand === b.brand
-                              ? "border-primary bg-primary/5 shadow-soft"
-                              : "border-border hover:border-primary/30 hover:bg-muted"
+                              ? "border-red-300 bg-red-200 shadow-soft"
+                              : "border-border hover:border-red-300 hover:bg-red-100"
                           }`}
                         >
                           <Smartphone
-                            className={`w-6 h-6 mx-auto mb-2 ${selectedBrand === b.brand ? "text-primary" : "text-muted-foreground"}`}
+                            className={`w-6 h-6 mx-auto mb-2 ${selectedBrand === b.brand ? "text-red-600" : "text-muted-foreground"}`}
                           />
                           <span className="text-xs font-medium">{b.brand}</span>
                         </button>
@@ -292,8 +292,8 @@ const BookRepair = () => {
                             onClick={() => setSelectedModel(m.name)}
                             className={`p-3 w-28 rounded-xl border text-left text-sm transition-all ${
                               selectedModel === m.name
-                                ? "border-primary bg-primary/5 text-primary font-medium"
-                                : "border-border hover:border-primary/30 text-foreground"
+                                ? "border-red-300 bg-red-200 text-red-600 font-medium"
+                                : "border-border hover:border-red-100 text-foreground"
                             } ${!m.isAvailable && "line-through text-red-500 cursor-not-allowed hover:border-border"}`}
                           >
                             <img
@@ -307,7 +307,7 @@ const BookRepair = () => {
                                 Available
                               </span>
                             ) : (
-                              <span className="text-xs text-red-500 ml-2">
+                              <span className="text-xs text-red-600 ml-2">
                                 Unavailable
                               </span>
                             )}
@@ -335,14 +335,14 @@ const BookRepair = () => {
                         onClick={() => toggleIssue(issue.name)}
                         className={`p-4 rounded-xl border-2 text-left flex items-center gap-3 transition-all ${
                           selectedIssues.includes(issue.name)
-                            ? "border-primary bg-primary/5 shadow-soft"
-                            : "border-border hover:border-primary/30"
+                            ? "border-red-400 bg-red-100 shadow-soft"
+                            : "border-border hover:border-red-300 hover:bg-red-100"
                         }`}
                       >
                         <div
                           className={`w-10 h-10 rounded-lg flex items-center justify-center ${
                             selectedIssues.includes(issue.name)
-                              ? "bg-primary/10 text-primary"
+                              ? "bg-red-200 text-red-600"
                               : "bg-muted text-muted-foreground"
                           }`}
                         >
@@ -355,7 +355,7 @@ const BookRepair = () => {
                           {/* <div className="text-xs text-muted-foreground">From ${issue.price}</div> */}
                         </div>
                         {selectedIssues.includes(issue.name) && (
-                          <CheckCircle2 className="w-5 h-5 text-primary ml-auto" />
+                          <CheckCircle2 className="w-5 h-5 text-red-600 ml-auto" />
                         )}
                       </button>
                     ))}
@@ -413,8 +413,8 @@ const BookRepair = () => {
                             onClick={() => setSelectedTime(t)}
                             className={`p-3 rounded-xl border text-sm font-medium transition-all ${
                               selectedTime === t
-                                ? "border-primary bg-primary text-primary-foreground"
-                                : "border-border hover:border-primary/30 text-foreground"
+                                ? "border-red-400 bg-red-200 text-red-600"
+                                : "border-border hover:border-red-300 hover:bg-red-100 text-foreground"
                             }`}
                           >
                             {t}
@@ -632,7 +632,7 @@ const BookRepair = () => {
               </Button> */}
               <Button
                 onClick={step === TOTAL_STEPS - 1 ? handleConfirmBooking : next}
-                className="gradient-primary text-primary-foreground rounded-full px-6 shadow-soft"
+                className="bg-gradient-to-r from-red-500 via-red-600 to-red-700 text-white rounded-full px-6 shadow-soft"
               >
                 {step === TOTAL_STEPS - 1 ? "Confirm Booking" : "Continue"}
                 <ArrowRight className="w-4 h-4 ml-1" />

@@ -189,15 +189,6 @@
 //   );
 // }
 
-
-
-
-
-
-
-
-
-
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ThumbsUp, ThumbsDown, BadgeCheck, X } from "lucide-react";
@@ -207,6 +198,7 @@ import axios from "axios";
 import { BASE_URL } from "@/Base_URL/Base_URL";
 import { s } from "node_modules/vite/dist/node/types.d-aGj9QkWt";
 import { showErrorToast } from "@/lib/toast";
+import Footer from "@/components/Footer";
 
 interface Blog {
   _id: string;
@@ -263,38 +255,34 @@ export default function BlogPage() {
   };
 
   const submitReaction = async () => {
-  if (!email || !selectedBlogId || !reactionType) return;
-  setModalLoading(true);
+    if (!email || !selectedBlogId || !reactionType) return;
+    setModalLoading(true);
 
-  try {
-    const res = await axios.put(
-      `${BASE_URL}/likeDislike/${selectedBlogId}`,
-      {
+    try {
+      const res = await axios.put(`${BASE_URL}/likeDislike/${selectedBlogId}`, {
         email,
         type: reactionType,
-      }
-    );
+      });
 
-    const { likes, dislikes, userReaction } = res.data.data;
+      const { likes, dislikes, userReaction } = res.data.data;
 
-    // ✅ instant UI update
-    setBlogs((prev) =>
-      prev.map((b) =>
-        b._id === selectedBlogId
-          ? { ...b, likes, dislikes, userReaction }
-          : b
-      )
-    );
+      // ✅ instant UI update
+      setBlogs((prev) =>
+        prev.map((b) =>
+          b._id === selectedBlogId
+            ? { ...b, likes, dislikes, userReaction }
+            : b,
+        ),
+      );
 
-    setModalOpen(false);
-    setEmail("");
-  } catch (error: any) {
-    alert("Failed to submit reaction");
-  } finally {
-    setModalLoading(false);
-  }
-};
-
+      setModalOpen(false);
+      setEmail("");
+    } catch (error: any) {
+      alert("Failed to submit reaction");
+    } finally {
+      setModalLoading(false);
+    }
+  };
 
   if (loading) {
     return (
@@ -305,134 +293,136 @@ export default function BlogPage() {
   }
 
   return (
-    <div className="min-h-screen pt-28 px-4 lg:px-12 bg-gradient-to-b from-background to-muted/30">
-      <Navbar />
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="text-center mb-12"
-      >
-        <h1 className="text-4xl font-bold">Repair Tips & Blogs</h1>
-        <p className="text-muted-foreground mt-3">
-          Learn mobile care, maintenance & repair knowledge
-        </p>
-      </motion.div>
-
-<div className="space-y-8">
-  {blogs.map((blog, i) => {
-    const isExpanded = expandedBlogId === blog._id;
-
-    return (
-      <motion.div
-        key={blog._id}
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: i * 0.05 }}
-        className="rounded-2xl bg-card border border-border shadow-md hover:shadow-xl overflow-hidden flex flex-col md:flex-row"
-      >
-        {/* Image LEFT */}
-        <img
-          src={blog.image}
-          alt={blog.title}
-          className="md:w-64 h-52 md:h-auto object-cover"
-        />
-
-        {/* Content RIGHT */}
-        <div className="p-6 flex flex-col flex-1">
-          <div className="flex items-center justify-between">
-            <h3 className="font-bold text-xl">{blog.title}</h3>
-            {blog.verified && (
-              <BadgeCheck className="text-green-500 w-5 h-5" />
-            )}
-          </div>
-
-          {/* Content with Read More */}
-          <p className="text-sm text-muted-foreground mt-3">
-            {isExpanded
-              ? blog.content
-              : blog.content.slice(0, 120) + "..."}
+    <>
+      <div className="min-h-screen pt-28 px-4 lg:px-12 bg-gradient-to-b from-background to-muted/30">
+        <Navbar />
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-center mb-12"
+        >
+          <h1 className="text-4xl font-bold">Repair Tips & Blogs</h1>
+          <p className="text-muted-foreground mt-3">
+            Learn mobile care, maintenance & repair knowledge
           </p>
+        </motion.div>
 
-          <button
-            onClick={() =>
-              setExpandedBlogId(isExpanded ? null : blog._id)
-            }
-            className="text-blue-600 text-sm font-semibold mt-1 w-fit"
-          >
-            {isExpanded ? "Read Less" : "Read More"}
-          </button>
+        <div className="space-y-8">
+          {blogs.map((blog, i) => {
+            const isExpanded = expandedBlogId === blog._id;
 
-          <span className="text-xs text-muted-foreground mt-2">
-            By {blog.author}
-          </span>
+            return (
+              <motion.div
+                key={blog._id}
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.05 }}
+                className="rounded-2xl bg-card border border-border shadow-md hover:shadow-xl overflow-hidden flex flex-col md:flex-row"
+              >
+                {/* Image LEFT */}
+                <img
+                  src={blog.image}
+                  alt={blog.title}
+                  className="md:w-64 h-52 md:h-auto object-cover"
+                />
 
-          {/* Reactions */}
-          <div className="flex gap-3 mt-4">
-            <Button
-              size="sm"
-              variant="default"
-              className={
-                blog.userReaction === "like"
-                  ? "bg-blue-600 text-white"
-                  : ""
-              }
-              onClick={() => openReactionModal(blog._id, "like")}
-            >
-              <ThumbsUp className="w-4 h-4 mr-1" />
-              {blog.likes}
-            </Button>
+                {/* Content RIGHT */}
+                <div className="p-6 flex flex-col flex-1">
+                  <div className="flex items-center justify-between">
+                    <h3 className="font-bold text-xl">{blog.title}</h3>
+                    {blog.verified && (
+                      <BadgeCheck className="text-green-500 w-5 h-5" />
+                    )}
+                  </div>
 
-            <Button
-              size="sm"
-              variant="default"
-              className={
-                blog.userReaction === "dislike"
-                  ? "bg-blue-600 text-white"
-                  : ""
-              }
-              onClick={() => openReactionModal(blog._id, "dislike")}
-            >
-              <ThumbsDown className="w-4 h-4 mr-1" />
-              {blog.dislikes}
-            </Button>
-          </div>
+                  {/* Content with Read More */}
+                  <p className="text-sm text-muted-foreground mt-3">
+                    {isExpanded
+                      ? blog.content
+                      : blog.content.slice(0, 120) + "..."}
+                  </p>
+
+                  <button
+                    onClick={() =>
+                      setExpandedBlogId(isExpanded ? null : blog._id)
+                    }
+                    className="text-red-600 text-sm font-semibold mt-1 w-fit"
+                  >
+                    {isExpanded ? "Read Less" : "Read More"}
+                  </button>
+
+                  <span className="text-xs text-muted-foreground mt-2">
+                    By {blog.author}
+                  </span>
+
+                  {/* Reactions */}
+                  <div className="flex gap-3 mt-4">
+                    <Button
+                      size="sm"
+                      variant="default"
+                      className={
+                        blog.userReaction === "like"
+                          ? "bg-red-100 hover:bg-red-300 text-red-600"
+                          : "bg-red-100 hover:bg-red-300 text-red-600"
+                      }
+                      onClick={() => openReactionModal(blog._id, "like")}
+                    >
+                      <ThumbsUp className="w-4 h-4 mr-1" />
+                      {blog.likes}
+                    </Button>
+
+                    <Button
+                      size="sm"
+                      variant="default"
+                      className={
+                        blog.userReaction === "dislike"
+                          ? "bg-red-100 hover:bg-red-300 text-red-600"
+                          : "bg-red-100 hover:bg-red-300 text-red-600"
+                      }
+                      onClick={() => openReactionModal(blog._id, "dislike")}
+                    >
+                      <ThumbsDown className="w-4 h-4 mr-1" />
+                      {blog.dislikes}
+                    </Button>
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
-      </motion.div>
-    );
-  })}
-</div>
 
-
-      {/* Reaction Modal */}
-      {modalOpen && (
-        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
-          <div className="bg-white p-6 rounded-2xl w-full max-w-md relative">
-            <button
-              className="absolute top-3 right-3 text-gray-500 hover:text-gray-700"
-              onClick={() => setModalOpen(false)}
-            >
-              <X className="w-5 h-5" />
-            </button>
-            <h2 className="text-xl font-bold mb-4">
-              Enter your email to {reactionType}
-            </h2>
-            <input
-              type="email"
-              placeholder="Enter your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="w-full border p-3 rounded-lg mb-4 outline-none focus:ring-2 focus:ring-primary"
-            />
-            <Button
-              onClick={submitReaction}
-              disabled={modalLoading || !email}
-              className="w-full"
-            >
-              {modalLoading ? "Submitting..." : "Submit"}
-            </Button>
+        {/* Reaction Modal */}
+        {modalOpen && (
+          <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
+            <div className="bg-white p-6 rounded-2xl w-full max-w-md relative">
+              <button
+                className="absolute top-3 right-3 text-gray-500 hover:text-gray-700"
+                onClick={() => setModalOpen(false)}
+              >
+                <X className="w-5 h-5" />
+              </button>
+              <h2 className="text-xl font-bold mb-4">
+                Enter your email to {reactionType}
+              </h2>
+              <input
+                type="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full border p-3 rounded-lg mb-4 outline-none focus:ring-2 focus:ring-red-500"
+              />
+              <Button
+                onClick={submitReaction}
+                disabled={modalLoading || !email}
+                className="w-full bg-red-500 hover:bg-red-600 text-white"
+              >
+                {modalLoading ? "Submitting..." : "Submit"}
+              </Button>
+            </div>
           </div>
-        </div>
-      )}
-    </div>
+        )}
+      </div>
+      <Footer />
+    </>
   );
 }

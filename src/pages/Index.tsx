@@ -1269,7 +1269,7 @@ const Index = () => {
                   {[1, 2, 3].map((i) => (
                     <div
                       key={i}
-                      className="w-8 h-8 rounded-full bg-primary/20 border-2 border-background"
+                      className="w-8 h-8 rounded-full bg-red-200 border-2 border-background"
                     />
                   ))}
                 </div>
@@ -1518,7 +1518,7 @@ const Index = () => {
             viewport={{ once: true }}
             className="gradient-primary rounded-3xl p-10 lg:p-16 text-center relative overflow-hidden"
           >
-            <div className="absolute inset-0 bg-black" />
+            <div className="absolute inset-0 bg-[#262626]" />
             <div className="relative z-10">
               <h2 className="text-3xl lg:text-4xl font-bold text-primary-foreground">
                 Need a Repair<span className="text-red-600">?</span> We<span className="text-red-600">'</span>ve Got You Covered
@@ -1703,8 +1703,8 @@ const Index = () => {
                 custom={i}
                 className="text-center p-8 rounded-2xl bg-card shadow-card border border-border/50"
               >
-                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                  <stat.icon className="w-7 h-7 text-primary" />
+                <div className="w-14 h-14 rounded-xl bg-red-100 flex items-center justify-center mx-auto mb-4">
+                  <stat.icon className="w-7 h-7 text-red-600" />
                 </div>
                 <div className="text-3xl font-bold text-foreground">
                   {stat.value}
@@ -1727,7 +1727,7 @@ const Index = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <span className="text-sm font-medium text-primary uppercase tracking-wider">
+              <span className="text-sm font-medium text-red-600 uppercase tracking-wider">
                 Get In Touch
               </span>
               <h2 className="text-3xl lg:text-4xl font-bold mt-3 text-foreground">
@@ -1747,8 +1747,8 @@ const Index = () => {
                     key={text}
                     className="flex items-center gap-3 text-muted-foreground"
                   >
-                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                      <Icon className="w-5 h-5 text-primary" />
+                    <div className="w-10 h-10 rounded-lg bg-red-100 flex items-center justify-center">
+                      <Icon className="w-5 h-5 text-red-600" />
                     </div>
                     <span className="text-sm">{text}</span>
                   </div>

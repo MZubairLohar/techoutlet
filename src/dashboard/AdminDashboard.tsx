@@ -97,12 +97,12 @@ const routes1: RouteItem[] = [
     element: <Brands />,
     icon: <BusinessIcon />, // brands/companies
   },
-  {
-    name: "Accessories",
-    path: "updateAccessories",
-    element: <UpdateAccessories />,
-    icon: <HeadphonesIcon />, // accessories/items
-  },
+  // {
+  //   name: "Accessories",
+  //   path: "updateAccessories",
+  //   element: <UpdateAccessories />,
+  //   icon: <HeadphonesIcon />, // accessories/items
+  // },
   {
     name: "OffDays",
     path: "CloseDay",
@@ -217,14 +217,14 @@ export default function AdminDashboard(): JSX.Element {
             edge="start"
             sx={{
               marginRight: 3,
-              color: "#1976d2",
+              color: "#DC2626",
               ...(open && { display: "none" }),
             }}
           >
             <MenuIcon fontSize="large" />
           </IconButton>
 
-          <Typography variant="h5" noWrap sx={{ flexGrow: 1, fontWeight: 600 }}>
+          <Typography variant="h5" noWrap sx={{ flexGrow: 1, fontWeight: 600,color: "#DC2626" }}>
             TECHOUTLET LTD
           </Typography>
 
@@ -233,8 +233,8 @@ export default function AdminDashboard(): JSX.Element {
               variant="outlined"
               size="small"
               startIcon={<LogoutIcon />}
-              sx={{ color: "#1976d2", borderColor: "#1976d2" }}
-              className="hover:bg-[#307CF5] hover:text-white"
+              sx={{ color: "#DC2626", borderColor: "#DC2626" }}
+              className="hover:bg-[#DC2626] hover:text-white"
               onClick={() => {
                 localStorage.clear();
                 navigate("/");
@@ -265,7 +265,7 @@ export default function AdminDashboard(): JSX.Element {
               />
             </Box>
           )}
-          <IconButton onClick={handleDrawerClose} sx={{ color: "#1976d2" }}>
+          <IconButton onClick={handleDrawerClose} sx={{ color: "#DC2626" }}>
             {theme.direction === "rtl" ? (
               <ChevronRightIcon />
             ) : (
@@ -285,10 +285,10 @@ export default function AdminDashboard(): JSX.Element {
                   borderRadius: 2,
                   my: -0.15,
                   mx: 1,
-                  "&:hover": { backgroundColor: "#e3f2fd" },
+                  "&:hover": { backgroundColor: "#F3D2CC" },
                 }}
               >
-                <ListItemIcon sx={{ color: "#1976d2", minWidth: 40 }}>
+                <ListItemIcon sx={{ color: "#DC2626", minWidth: 40 }}>
                   {React.cloneElement(route.icon, { fontSize: "medium" })}
                 </ListItemIcon>
                 <ListItemText
