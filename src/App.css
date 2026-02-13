@@ -5,6 +5,27 @@
   text-align: center;
 }
 
+.loader-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 9999px;
+  background: white;
+}
+
+.animate-loader {
+  animation: bounce 1.2s infinite ease-in-out;
+}
+
+.delay-0 { animation-delay: 0s; }
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+
+@keyframes bounce {
+  0%, 80%, 100% { transform: scale(0); }
+  40% { transform: scale(1); }
+}
+
+
 .logo {
   height: 6em;
   padding: 1.5em;

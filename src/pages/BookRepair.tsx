@@ -106,7 +106,7 @@ const BookRepair = () => {
       })
       .catch((err) => {
         // console.log("error", err);
-        return showErrorToast("Failed to load models! Please refresh the page.");
+        // return showErrorToast("Failed to load models! Please refresh the page.");
       });
   }, [selectedBrand]);
   const [closedDays, setClosedDays] = useState<Date[]>([]);

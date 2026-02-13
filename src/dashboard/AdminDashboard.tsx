@@ -10,12 +10,12 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
-import { Avatar, Tooltip } from "@mui/material";
 
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import LogoutIcon from "@mui/icons-material/Logout";
+import { Tooltip, Button } from "@mui/material";
 
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
@@ -86,7 +86,7 @@ const routes1: RouteItem[] = [
     icon: <ShoppingCartCheckoutIcon />, // orders/cart
   },
   {
-    name: "Repairing Requests",
+    name: "Appointments",
     path: "RepairingRequests",
     element: <RapiringRequests />,
     icon: <HandymanIcon />, // repair work
@@ -103,13 +103,13 @@ const routes1: RouteItem[] = [
     element: <UpdateAccessories />,
     icon: <HeadphonesIcon />, // accessories/items
   },
-  { 
-    name: "CloseDays",
+  {
+    name: "OffDays",
     path: "CloseDay",
     element: <ClosedDaysPage />,
     icon: <EventBusyIcon />, // closed/unavailable days
   },
-  { 
+  {
     name: "Services",
     path: "Services",
     element: <ServicesPage />,
@@ -228,17 +228,21 @@ export default function AdminDashboard(): JSX.Element {
             TECHOUTLET LTD
           </Typography>
 
-          <Tooltip title="Logout">
-            <IconButton
+          {/* <Tooltip title="Logout"> */}
+            <Button
+              variant="outlined"
+              size="small"
+              startIcon={<LogoutIcon />}
+              sx={{ color: "#1976d2", borderColor: "#1976d2" }}
+              className="hover:bg-[#307CF5] hover:text-white"
               onClick={() => {
                 localStorage.clear();
                 navigate("/");
               }}
-              sx={{ color: "#1976d2" }}
             >
-              <LogoutIcon />
-            </IconButton>
-          </Tooltip>
+              Logout
+            </Button>
+          {/* </Tooltip> */}
         </Toolbar>
       </AppBar>
 
@@ -257,7 +261,7 @@ export default function AdminDashboard(): JSX.Element {
               <img
                 src="/logo.gif"
                 alt="Logo"
-                style={{ width: 80, height: 80, borderRadius: "50%" }}
+                style={{ width: 60, height: 60, borderRadius: "50%" }}
               />
             </Box>
           )}
@@ -279,7 +283,7 @@ export default function AdminDashboard(): JSX.Element {
                 onClick={() => navigateHandler(route.path)}
                 sx={{
                   borderRadius: 2,
-                  my: 0.5,
+                  my: -0.15,
                   mx: 1,
                   "&:hover": { backgroundColor: "#e3f2fd" },
                 }}

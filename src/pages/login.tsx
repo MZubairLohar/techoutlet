@@ -71,7 +71,7 @@ const Login: React.FC = () => {
       >
         <h1 style={styles.title}>Sign in</h1>
         <p style={styles.subtitle}>
-          Access your FixMyPhone dashboard
+          Access your TECHOUTLET LTD dashboard
         </p>
 
         <form onSubmit={handleSubmit} style={styles.form}>

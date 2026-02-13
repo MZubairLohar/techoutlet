@@ -157,7 +157,7 @@ export default function BlogData() {
     const fetchBlogs = async () => {
       try {
         const res = await axios.get(`${BASE_URL}/getBlogs`);
-        // console.log("Blogs Data:", res.data.message || res.data);
+        console.log("Blogs Data:", res.data.message || res.data);
         const blogsArray = Array.isArray(res.data.message)
           ? res.data.message
           : [];
