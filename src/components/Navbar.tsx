@@ -126,7 +126,7 @@ import { Button } from "@/components/ui/button";
 
 const navItems = [
   { label: "Home", path: "/#hero" },
-  // { label: "Accessories", path: "/accessories" },
+  { label: "Accessories", path: "/accessories" },
   { label: "Blogs", path: "/blogs" },
   { label: "Contact", path: "/#contact" },
 ];
@@ -169,7 +169,7 @@ const Navbar = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "glass shadow-soft" : "bg-transparent"
+        scrolled ? "bg-black shadow-soft bg-black" : "bg-black"
       }`}
     >
       <div className="container mx-auto px-4 lg:px-8">
@@ -184,9 +184,10 @@ const Navbar = () => {
             />
             {/* </Box> */}
 
-            <span className="text-xl font-bold text-foreground">
-              <span className="text-primary">TECHOUTLET </span>LTD
-            </span>
+              {/* //text-foreground removed  */}
+            {/* <span className="text-xl font-bold text-red-600"> 
+              <span className="text-primary text-white">TECHOUTLET </span>LTD
+            </span> */}
           </Link>
 
           {/* Desktop Nav */}
@@ -195,10 +196,10 @@ const Navbar = () => {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                className={`px-4 py-2 text-lg text-white font-medium transition-all duration-200 ${
                   location.pathname + location.hash === item.path
-                    ? "text-primary bg-primary/10"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                    ? "text-primary"
+                    : "text-muted-foreground border-transparent hover:text-white hover:border-b-[3px] hover:border-red-600"
                 }`}
               >
                 {item.label}
@@ -209,7 +210,7 @@ const Navbar = () => {
           {/* Desktop Button */}
           <div className="hidden md:flex items-center gap-3">
             <Link to="/book">
-              <Button className="gradient-primary text-primary-foreground rounded-full px-6 shadow-soft hover:shadow-lg transition-shadow">
+              <Button className="bg-red-600 hover:bg-red-600 text-primary-foreground rounded-full px-6 shadow-soft hover:shadow-lg transition-shadow">
                 Book Now
               </Button>
             </Link>
@@ -218,7 +219,7 @@ const Navbar = () => {
           {/* Mobile Toggle */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-muted transition-colors"
+            className="md:hidden p-2 rounded-lg bg-white hover:bg-muted transition-colors"
           >
             {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -232,7 +233,7 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass border-t border-border"
+            className="md:hidden bg-black border-t border-border"
           >
             <div className="container mx-auto px-4 py-4 flex flex-col gap-2">
               {navItems.map((item) => (
@@ -240,10 +241,10 @@ const Navbar = () => {
                   key={item.path}
                   to={item.path}
                   onClick={() => setIsOpen(false)}
-                  className={`px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
+                  className={`px-4 py-3 text-sm font-medium transition-colors ${
                     location.pathname + location.hash === item.path
-                      ? "text-primary bg-primary/10"
-                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                      ? "text-white"
+                      : "text-white hover:text-white border-transparent hover:border-b-[3px] hover:border-red-600 w-28"
                   }`}
                 >
                   {item.label}
@@ -251,7 +252,7 @@ const Navbar = () => {
               ))}
 
               <Link to="/book" onClick={() => setIsOpen(false)}>
-                <Button className="w-full gradient-primary text-primary-foreground rounded-full mt-2">
+                <Button className="w-full bg-red-600 hover:bg-red-600  rounded-full mt-2">
                   Book Now
                 </Button>
               </Link>
