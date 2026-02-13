@@ -1292,54 +1292,55 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Brands */}
-      <section className="py-16 bg-card">
-        <div className="container mx-auto px-4 lg:px-8">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={staggerContainer}
-            className="text-center mb-10"
+    <section className="py-16 bg-card bg-white">
+      <div className="container mx-auto px-4 lg:px-8">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={staggerContainer}
+          className="text-center mb-10"
+        >
+          <motion.p
+            variants={fadeUp}
+            className="text-sm text-red-600 font-medium uppercase tracking-wider"
           >
-            <motion.p
-              variants={fadeUp}
-              className="text-sm text-red-600 font-medium uppercase tracking-wider"
-            >
-              We repair all major brands
-            </motion.p>
-          </motion.div>
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={staggerContainer}
-            className="flex flex-wrap justify-center gap-6"
-          >
-           {brands.map((brand, i) => {
-  const Icon = brand.icon;
+            We repair all major brands
+          </motion.p>
+        </motion.div>
+
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={staggerContainer}
+          className="flex flex-wrap justify-center gap-6"
+        >
+          {brands.map((brand, i) => {
+            const Icon = brand.icon;
+
+            return (
+              <motion.div
+                key={brand.name}
+                onClick={() => navigate("/book")}
+                variants={fadeUp}
+                custom={i}
+                whileHover={{ scale: 1.05, y: -4 }}
+                className="flex flex-col items-center gap-2 px-8 py-6 bg-white rounded-2xl shadow-md hover:shadow-xl transition-all cursor-pointer min-w-[140px]"
+              >
+                <Icon size={32} />
+                <span className="text-sm font-medium">
+                  {brand.name}
+                </span>
+              </motion.div>
+            );
+          })}
+        </motion.div>
+      </div>
+    </section>
 
 
-  return (
-    <motion.div
-      key={brand.name}
-      onClick={() => navigate("/book")}
-      variants={fadeUp}
-      custom={i}
-      whileHover={{ scale: 1.05, y: -4 }}
-      className="flex flex-col items-center gap-2 px-8 py-6 bg-background rounded-2xl shadow-card hover:shadow-soft transition-all cursor-pointer min-w-[140px]"
-    >
-      <Icon size={32} />
-      <span className="text-sm font-medium text-foreground">
-        {brand.name}
-      </span>
-    </motion.div>
-  );
-})}
 
-          </motion.div>
-        </div>
-      </section>
       {/* Repair Types */}
       <section className="py-20 lg:py-28">
         <div className="container mx-auto px-4 lg:px-8">

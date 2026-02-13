@@ -55,20 +55,20 @@ const Footer = () => (
           <h4 className="font-semibold mb-4">Contact</h4>
           <div className="flex flex-col gap-3">
             <div className="flex items-center gap-2 text-sm text-primary-foreground/60">
-              <Mail className="w-4 h-4" /> support@fixmyphone.com
+              <Mail className="w-4 h-4" /> info@techout.uk
             </div>
             <div className="flex items-center gap-2 text-sm text-primary-foreground/60">
-              <Phone className="w-4 h-4" /> +1 (555) 123-4567
+              <Phone className="w-4 h-4" /> 020 8062 0553
             </div>
             <div className="flex items-center gap-2 text-sm text-primary-foreground/60">
-              <MapPin className="w-4 h-4" /> 123 Repair St, Tech City
+              <MapPin className="w-4 h-4" /> 260 Tottenham Ct Rd, London W1T 7 RF
             </div>
           </div>
         </div>
       </div>
 
       <div className="border-t border-primary-foreground/10 mt-12 pt-8 text-center text-sm text-primary-foreground/40">
-        © <span className="text-red-600">2026</span> FixMyPhone. All rights reserved.
+        © <span className="text-red-600">2026</span> TECHOUTLET LTD. All rights reserved.
       </div>
     </div>
   </footer>

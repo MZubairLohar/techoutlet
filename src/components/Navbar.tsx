@@ -126,7 +126,7 @@ import { Button } from "@/components/ui/button";
 
 const navItems = [
   { label: "Home", path: "/#hero" },
-  { label: "Accessories", path: "/accessories" },
+  // { label: "Accessories", path: "/accessories" },
   { label: "Blogs", path: "/blogs" },
   { label: "Contact", path: "/#contact" },
 ];
