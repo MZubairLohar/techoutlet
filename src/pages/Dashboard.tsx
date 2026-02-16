@@ -14,6 +14,7 @@ import {
 import axios from "axios";
 import { BASE_URL } from "@/Base_URL/Base_URL";
 import { showErrorToast } from "@/lib/toast";
+import { Package, ShoppingCart, Wrench, Bell } from "lucide-react";
 
 ChartJS.register(
   CategoryScale,
@@ -23,54 +24,53 @@ ChartJS.register(
   LineElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
 );
 
 export default function Dashboard() {
-
   const [dashboardData, setDashboardData] = useState<any>(null);
 
-useEffect(() => {
-  const fetchDashboardData = async () => {
-    try {
-      const res = await axios.get(`${BASE_URL}/getDashboardData`);
-      setDashboardData(res.data.data);
-    } catch (error) {
-      // console.error("Error fetching dashboard data:", error);
-      showErrorToast("Error fetching dashboard data");
-    }
-  };
+  useEffect(() => {
+    const fetchDashboardData = async () => {
+      try {
+        const res = await axios.get(`${BASE_URL}/getDashboardData`);
+        setDashboardData(res.data.data);
+      } catch (error) {
+        // console.error("Error fetching dashboard data:", error);
+        showErrorToast("Error fetching dashboard data");
+      }
+    };
 
-  fetchDashboardData();
-}, []);
+    fetchDashboardData();
+  }, []);
 
-// 🔥 State nahi — simple variable
-const cards = [
-  {
-    title: "Total Orders",
-    value: dashboardData?.totalAccessoriesOrders ?? 0,
-    color: "bg-blue-500",
-    icon: "📦",
-  },
-  {
-    title: "Total Accessories",
-    value: dashboardData?.totalAccessories ?? 0,
-    color: "bg-green-500",
-    icon: "🛒",
-  },
-  {
-    title: "Repair Requests",
-    value: dashboardData?.totalAppointments ?? 0, // 👈 yeh naam galat tha
-    color: "bg-yellow-500",
-    icon: "🔧",
-  },
-  {
-    title: "Notifications",
-    value: dashboardData?.totalNotifications ?? 0,
-    color: "bg-purple-500",
-    icon: "🔔",
-  },
-];
+  // 🔥 State nahi — simple variable
+  const cards = [
+    {
+      title: "Total Orders",
+      value: dashboardData?.totalAccessoriesOrders ?? 0,
+      color: "bg-blue-500",
+      icon: Package,
+    },
+    {
+      title: "Total Accessories",
+      value: dashboardData?.totalAccessories ?? 0,
+      color: "bg-green-500",
+      icon: ShoppingCart,
+    },
+    {
+      title: "Repair Requests",
+      value: dashboardData?.totalAppointments ?? 0,
+      color: "bg-yellow-500",
+      icon: Wrench,
+    },
+    {
+      title: "Notifications",
+      value: dashboardData?.totalNotifications ?? 0,
+      color: "bg-purple-500",
+      icon: Bell,
+    },
+  ];
 
   // Dummy chart data
   const salesData = {
@@ -110,7 +110,6 @@ const cards = [
       title: { display: true, text: "" },
     },
   };
-  
 
   return (
     <div className="p-8 bg-muted/30 min-h-screen">
@@ -119,18 +118,25 @@ const cards = [
 
       {/* Cards */}
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
-        {cards.map((card, i) => (
-          <div
-            key={i}
-            className={`flex items-center justify-between p-6 rounded-2xl shadow-md hover:shadow-xl transition ${card.color} text-white`}
-          >
-            <div>
-              <h2 className="text-sm font-semibold">{card.title}</h2>
-              <p className="text-2xl font-bold mt-2">{card.value}</p>
+        {cards.map((card, i) => {
+          const Icon = card.icon;
+
+          return (
+            <div
+              key={i}
+              className={`flex items-center justify-between p-6 rounded-2xl shadow-md hover:shadow-xl transition ${card.color} text-white`}
+            >
+              <div>
+                <h2 className="text-sm font-semibold">{card.title}</h2>
+                <p className="text-2xl font-bold mt-2">{card.value}</p>
+              </div>
+
+              <div>
+                <Icon size={36} />
+              </div>
             </div>
-            <div className="text-4xl">{card.icon}</div>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
       {/* Charts */}

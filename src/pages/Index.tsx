@@ -1485,7 +1485,7 @@ const Index = () => {
                   className="w-full h-[450px] object-cover"
                 />
               </div>
-              <motion.div
+              {/* <motion.div
                 animate={{ y: [-8, 8, -8] }}
                 transition={{ duration: 4, repeat: Infinity }}
                 className="absolute -bottom-6 right-6 bg-background rounded-2xl p-5 shadow-card"
@@ -1503,7 +1503,7 @@ const Index = () => {
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </motion.div> */}
             </motion.div>
           </div>
         </div>

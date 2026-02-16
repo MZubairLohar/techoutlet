@@ -79,12 +79,12 @@ const routes1: RouteItem[] = [
     element: <BlogData />,
     icon: <MenuBookIcon />, // reading/blogs
   },
-  {
-    name: "Orders",
-    path: "Orders",
-    element: <Orders />,
-    icon: <ShoppingCartCheckoutIcon />, // orders/cart
-  },
+  // {
+  //   name: "Orders",
+  //   path: "Orders",
+  //   element: <Orders />,
+  //   icon: <ShoppingCartCheckoutIcon />, // orders/cart
+  // },
   {
     name: "Appointments",
     path: "RepairingRequests",
