@@ -224,7 +224,7 @@ export default function BlogData() {
   };
 
   const deleteBlog = async (id: string) => {
-    if (!confirm("Are you sure you want to delete this blog?")) return;
+    // if (!confirm("Are you sure you want to delete this blog?")) return;
 
     try {
       await axios.delete(`${BASE_URL}/deleteBlog/${id}`);

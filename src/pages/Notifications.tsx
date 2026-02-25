@@ -163,7 +163,7 @@ export default function Notifications() {
 
   // Delete notification
   const handleDelete = async (id: string) => {
-    if (!confirm("Are you sure you want to delete this notification?")) return;
+    // if (!confirm("Are you sure you want to delete this notification?")) return;
 
     try {
       await axios.delete(`${BASE_URL}/deleteContact/${id}`);
