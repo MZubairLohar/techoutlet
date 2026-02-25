@@ -55,7 +55,7 @@ const Footer = () => (
           <h4 className="font-semibold mb-4">Contact</h4>
           <div className="flex flex-col gap-3">
             <div className="flex items-center gap-2 text-sm text-primary-foreground/60">
-              <Mail className="w-4 h-4" /> info@techout.uk
+              <Mail className="w-4 h-4" /> info@techoutlet.uk
             </div>
             <div className="flex items-center gap-2 text-sm text-primary-foreground/60">
               <Phone className="w-4 h-4" /> 020 8062 0553

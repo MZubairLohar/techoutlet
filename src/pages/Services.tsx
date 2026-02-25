@@ -315,9 +315,9 @@ export default function ServicesPage() {
               <div>
                 <p className="text-sm text-gray-500">Average Price</p>
                 <p className="text-2xl font-bold text-gray-900 mt-1">
-                  ${services.length > 0 
-                    ? (services.reduce((acc, s) => acc + parseFloat(s.price || "0"), 0) / services.length).toFixed(2)
-                    : "0.00"}
+                  {services.length > 0 
+                    ? `£${(services.reduce((acc, s) => acc + parseFloat(s.price || "0"), 0) / services.length).toFixed(2)}`
+                    : "£0.00"}
                 </p>
               </div>
               <div className="bg-green-100 p-3 rounded-lg">
@@ -332,8 +332,8 @@ export default function ServicesPage() {
                 <p className="text-sm text-gray-500">Price Range</p>
                 <p className="text-2xl font-bold text-gray-900 mt-1">
                   {services.length > 0 
-                    ? `$${Math.min(...services.map(s => parseFloat(s.price || "0")))} - $${Math.max(...services.map(s => parseFloat(s.price || "0")))}`
-                    : "$0 - $0"}
+                    ? `£${Math.min(...services.map(s => parseFloat(s.price || "0")))} - £${Math.max(...services.map(s => parseFloat(s.price || "0")))}`
+                    : "£0 - £0"}
                 </p>
               </div>
               <div className="bg-purple-100 p-3 rounded-lg">
@@ -391,7 +391,7 @@ export default function ServicesPage() {
                   
                   <div className="flex items-baseline gap-1">
                     <span className="text-2xl font-bold text-red-600">
-                      ${priceNum.toFixed(2)}
+                      £{priceNum.toFixed(2)}
                     </span>
                     <span className="text-sm text-gray-500 ml-1">
                       / service
@@ -517,7 +517,7 @@ export default function ServicesPage() {
                     <p className="text-xs text-red-600 font-medium mb-2">Preview</p>
                     <div className="flex justify-between items-center">
                       <span className="text-sm font-medium text-gray-700">{formData.ServiceName}</span>
-                      <span className="text-lg font-bold text-red-600">${parseFloat(formData.price || "0").toFixed(2)}</span>
+                      <span className="text-lg font-bold text-red-600">£{parseFloat(formData.price || "0").toFixed(2)}</span>
                     </div>
                   </div>
                 )}

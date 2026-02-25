@@ -2,12 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import { CartProvider } from "./contexts/CartContext.tsx";
+import WhatsAppButton from "./components/WhatsAppButton";
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
      <React.StrictMode>
     <CartProvider>
       <App />
+      <WhatsAppButton />
     </CartProvider>
   </React.StrictMode>
 );

@@ -1739,7 +1739,7 @@ const Index = () => {
               </p>
               <div className="mt-8 space-y-1">
                 {[
-                  { icon: Mail, text: "info@techout.uk" },
+                  { icon: Mail, text: "info@techoutlet.uk" },
                   { icon: Phone, text: "020 8062 0553" },
                   { icon: MapPin, text: "260 Tottenham Ct Rd, London W1T 7 RF " },
                 ].map(({ icon: Icon, text }) => (
