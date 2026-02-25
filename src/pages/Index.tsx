@@ -1283,7 +1283,7 @@ const Index = () => {
                     ))}
                   </div>
                   <div className="text-xs text-muted-foreground">
-                    4.9/5 Rating
+                    4.8/5 Rating
                   </div>
                 </div>
               </motion.div>
@@ -1687,7 +1687,7 @@ const Index = () => {
 
 
       {/* Stats */}
-      <section className="py-16">
+      {/* <section className="py-16">
         <div className="container mx-auto px-4 lg:px-8">
           <motion.div
             initial="hidden"
@@ -1716,7 +1716,7 @@ const Index = () => {
             ))}
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       {/* Contact */}
       <section id="contact" className="py-20 lg:py-28 bg-card">

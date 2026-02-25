@@ -41,7 +41,7 @@ const Login: React.FC = () => {
       // console.log(adminData, "adminData");
       try {
         const response = await axios.post(`${BASE_URL}/login`, {
-          email: email,
+          email: email.toLowerCase(),
           password: password,
         });
         // console.log(response.data.data.token, "adminLogin");
