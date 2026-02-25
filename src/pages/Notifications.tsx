@@ -139,9 +139,10 @@ export default function Notifications() {
   } | null>(null);
 
   const [replyModal, setReplyModal] = useState<{
-    id: string;
+    _id: string;
     email: string;
     name: string;
+    message: string;
   } | null>(null);
 
   const [replyMessage, setReplyMessage] = useState("");
@@ -412,13 +413,12 @@ export default function Notifications() {
                       <div className="flex items-center gap-2">
                         {/* Reply Button */}
                         <button
-                          onClick={() =>
-                            setReplyModal({
-                              id: notif._id,
-                              email: notif.email,
-                              name: `${notif.firstName} ${notif.lastName}`,
-                            })
-                          }
+                          onClick={() => setReplyModal({
+    _id: notif._id,
+    name: `${notif.firstName} ${notif.lastName}`,
+    email: notif.email,
+    message: notif.message
+  })}
                           className="flex items-center gap-1 px-3 py-1.5 bg-blue-50 text-blue-600 hover:bg-blue-100 rounded-lg transition text-sm font-medium"
                         >
                           <Mail className="w-4 h-4" />
@@ -584,24 +584,30 @@ export default function Notifications() {
 
                 <button
                   disabled={replyLoading}
-                  onClick={async () => {
-                    if (!replyMessage.trim()) return;
+                 onClick={async () => {
+  if (!replyMessage.trim() || !replyModal) return;
 
-                    setReplyLoading(true);
+  try {
+    setReplyLoading(true);
 
-                    // For now only log in console
-                    console.log("Reply Details:", {
-                      to: replyModal.email,
-                      name: replyModal.name,
-                      message: replyMessage,
-                    });
+    await axios.post(`${BASE_URL}/replyToContact`, {
+      email: replyModal.email,
+      replyMessage: replyMessage,
+      userMessage: notifications.find(
+        (n) => n._id === replyModal._id
+      )?.message,
+    });
 
-                    setTimeout(() => {
-                      setReplyLoading(false);
-                      setReplyModal(null);
-                      setReplyMessage("");
-                    }, 1000);
-                  }}
+    showSuccessToast("Reply sent successfully!");
+
+    setReplyModal(null);
+    setReplyMessage("");
+  } catch (error) {
+    showErrorToast("Failed to send reply");
+  } finally {
+    setReplyLoading(false);
+  }
+}}
                   className="px-5 py-2 bg-[#DC2626] text-white rounded-lg hover:bg-red-700 transition flex items-center gap-2 disabled:opacity-60"
                 >
                   {replyLoading ? (
