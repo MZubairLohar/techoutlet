@@ -963,7 +963,7 @@ import happyCustomer from "@/assets/happy-customer.jpg";
 import { BASE_URL } from "@/Base_URL/Base_URL";
 import { useEffect, useState } from "react";
 import axios from "axios";
-// import { showErrorToast } from "@/lib/toast";
+import { showSuccessToast } from "@/lib/toast";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -1105,7 +1105,7 @@ const Index = () => {
         message: form.message,
       });
 
-      alert("Message sent successfully ✅");
+      showSuccessToast("Message sent successfully");
       setForm({
         firstName: "",
         lastName: "",

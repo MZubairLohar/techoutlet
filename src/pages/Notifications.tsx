@@ -549,7 +549,7 @@ export default function Notifications() {
                   setReplyModal(null);
                   setReplyMessage("");
                 }}
-                className="text-white hover:bg-blue-700 p-1 rounded-full transition"
+                className="text-white hover:bg-white hover:text-[#DC2626] p-1 rounded-full transition"
               >
                 <X size={22} />
               </button>
@@ -565,7 +565,7 @@ export default function Notifications() {
                   rows={5}
                   value={replyMessage}
                   onChange={(e) => setReplyMessage(e.target.value)}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#DC2626] focus:outline-none"
                   placeholder="Type your reply here..."
                 />
               </div>
