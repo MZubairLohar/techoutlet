@@ -25,6 +25,8 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import LoaderWrapper from "./components/Loader/wrapper";
 import { LoaderProvider } from "./components/Loader/useLoader";
+import Newbrands from "./pages/Newbrands";
+import Newservices from "./pages/Newservices";
 
 const queryClient = new QueryClient();
 
@@ -45,6 +47,8 @@ const App = () => (
               <Route path="/blogsdata" element={<BlogData />} />
               <Route path="/Checkout" element={<Checkout />} />
               <Route path="/login" element={<Login />} />
+              <Route path="/brands" element={<Newbrands />} />
+              <Route path="/services" element={<Newservices />} />
               {/* <Route path="/admin" element={<AdminDashboard />} /> */}
               <Route path="/technician" element={<TechnicianDashboard />} />
               <Route path="*" element={<NotFound />} />

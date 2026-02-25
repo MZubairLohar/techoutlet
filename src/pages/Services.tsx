@@ -202,7 +202,7 @@
 
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Plus, Pencil, Trash2, X, DollarSign, Wrench } from "lucide-react";
+import { Plus, Pencil, Trash2, X, DollarSign, Wrench, PoundSterling } from "lucide-react";
 import { BASE_URL } from "@/Base_URL/Base_URL";
 import { showErrorToast, showSuccessToast } from "@/lib/toast";
 
@@ -321,7 +321,7 @@ export default function ServicesPage() {
                 </p>
               </div>
               <div className="bg-green-100 p-3 rounded-lg">
-                <DollarSign className="text-green-600" size={24} />
+                <PoundSterling className="text-green-600" size={24} />
               </div>
             </div>
           </div>
@@ -337,7 +337,7 @@ export default function ServicesPage() {
                 </p>
               </div>
               <div className="bg-purple-100 p-3 rounded-lg">
-                <DollarSign className="text-purple-600" size={24} />
+                <PoundSterling className="text-purple-600" size={24} />
               </div>
             </div>
           </div>
@@ -492,7 +492,7 @@ export default function ServicesPage() {
                     Price <span className="text-red-500">*</span>
                   </label>
                   <div className="relative">
-                    <DollarSign className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
+                    <PoundSterling className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
                     <input
                       type="number"
                       step="0.01"

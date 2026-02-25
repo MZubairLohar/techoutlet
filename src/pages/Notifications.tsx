@@ -104,23 +104,19 @@
 //   );
 // }
 
-
-
-
-
-
-
-
-
-
-
-
-
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { BASE_URL } from "@/Base_URL/Base_URL";
-import { Button } from "@/components/ui/button";
-import { Trash2, Mail, Phone, Calendar, User, MessageSquare, Bell, X, ChevronDown, ChevronUp } from "lucide-react";
+import {
+  Trash2,
+  Mail,
+  Phone,
+  Calendar,
+  User,
+  MessageSquare,
+  Bell,
+  X,
+} from "lucide-react";
 import { showErrorToast, showSuccessToast } from "@/lib/toast";
 
 interface Notification {
@@ -136,7 +132,20 @@ interface Notification {
 export default function Notifications() {
   const [notifications, setNotifications] = useState<Notification[]>([]);
   const [expandedMessage, setExpandedMessage] = useState<string | null>(null);
-  const [selectedMessage, setSelectedMessage] = useState<{ id: string; message: string; name: string } | null>(null);
+  const [selectedMessage, setSelectedMessage] = useState<{
+    id: string;
+    message: string;
+    name: string;
+  } | null>(null);
+
+  const [replyModal, setReplyModal] = useState<{
+    id: string;
+    email: string;
+    name: string;
+  } | null>(null);
+
+  const [replyMessage, setReplyMessage] = useState("");
+  const [replyLoading, setReplyLoading] = useState(false);
 
   // Fetch notifications from API
   const fetchNotifications = async () => {
@@ -175,7 +184,7 @@ export default function Notifications() {
     setSelectedMessage({
       id: notif._id,
       message: notif.message,
-      name: `${notif.firstName} ${notif.lastName}`
+      name: `${notif.firstName} ${notif.lastName}`,
     });
   };
 
@@ -196,30 +205,20 @@ export default function Notifications() {
     });
   };
 
-  // Check if message is long
-  const isLongMessage = (message: string) => {
-    return message.length > 100;
-  };
-
-  // Truncate message
-  const truncateMessage = (message: string, maxLength: number = 100) => {
-    if (message.length <= maxLength) return message;
-    return message.substring(0, maxLength) + '...';
-  };
-
   return (
     <div className="min-h-screen bg-gray-50 p-6">
-      
       {/* Header Section */}
       <div className="mb-8">
         <div className="flex justify-between items-center">
           <div>
-            <h1 className="text-2xl font-bold text-gray-900">User Notifications</h1>
+            <h1 className="text-2xl font-bold text-gray-900">
+              User Notifications
+            </h1>
             <p className="text-sm text-gray-500 mt-1">
               Manage and view all contact form submissions
             </p>
           </div>
-          
+
           {/* Stats Badge */}
           <div className="bg-white rounded-lg shadow-sm px-4 py-2 flex items-center gap-3">
             <div className="bg-red-100 p-2 rounded-lg">
@@ -227,7 +226,9 @@ export default function Notifications() {
             </div>
             <div>
               <p className="text-xs text-gray-500">Total</p>
-              <p className="text-lg font-bold text-gray-900">{notifications.length}</p>
+              <p className="text-lg font-bold text-gray-900">
+                {notifications.length}
+              </p>
             </div>
           </div>
         </div>
@@ -238,7 +239,9 @@ export default function Notifications() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-gray-500">Total Messages</p>
-                <p className="text-2xl font-bold text-gray-900 mt-1">{notifications.length}</p>
+                <p className="text-2xl font-bold text-gray-900 mt-1">
+                  {notifications.length}
+                </p>
               </div>
               <div className="bg-red-100 p-3 rounded-lg">
                 <MessageSquare className="text-red-600" size={24} />
@@ -251,7 +254,7 @@ export default function Notifications() {
               <div>
                 <p className="text-sm text-gray-500">Unique Emails</p>
                 <p className="text-2xl font-bold text-gray-900 mt-1">
-                  {new Set(notifications.map(n => n.email)).size}
+                  {new Set(notifications.map((n) => n.email)).size}
                 </p>
               </div>
               <div className="bg-blue-100 p-3 rounded-lg">
@@ -265,7 +268,7 @@ export default function Notifications() {
               <div>
                 <p className="text-sm text-gray-500">Unique Phones</p>
                 <p className="text-2xl font-bold text-gray-900 mt-1">
-                  {new Set(notifications.map(n => n.phoneNumber)).size}
+                  {new Set(notifications.map((n) => n.phoneNumber)).size}
                 </p>
               </div>
               <div className="bg-green-100 p-3 rounded-lg">
@@ -279,9 +282,9 @@ export default function Notifications() {
               <div>
                 <p className="text-sm text-gray-500">Latest</p>
                 <p className="text-lg font-bold text-gray-900 mt-1 truncate">
-                  {notifications.length > 0 
-                    ? formatDate(notifications[0].createdAt).split(',')[0]
-                    : 'No data'}
+                  {notifications.length > 0
+                    ? formatDate(notifications[0].createdAt).split(",")[0]
+                    : "No data"}
                 </p>
               </div>
               <div className="bg-purple-100 p-3 rounded-lg">
@@ -321,14 +324,16 @@ export default function Notifications() {
             <tbody className="bg-white divide-y divide-gray-200">
               {notifications.length > 0 ? (
                 notifications.map((notif, index) => (
-                  <tr 
-                    key={notif._id} 
+                  <tr
+                    key={notif._id}
                     className="hover:bg-gray-50 transition group"
                   >
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <span className="text-sm font-medium text-gray-900">{index + 1}</span>
+                      <span className="text-sm font-medium text-gray-900">
+                        {index + 1}
+                      </span>
                     </td>
-                    
+
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="flex items-center">
                         <div className="flex-shrink-0 h-8 w-8 bg-red-50 rounded-full flex items-center justify-center">
@@ -344,12 +349,14 @@ export default function Notifications() {
                         </div>
                       </div>
                     </td>
-                    
+
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="flex flex-col">
                         <div className="flex items-center text-sm text-gray-600">
                           <Mail className="h-3.5 w-3.5 mr-1 text-gray-400" />
-                          <span className="truncate max-w-[150px]">{notif.email}</span>
+                          <span className="truncate max-w-[150px]">
+                            {notif.email}
+                          </span>
                         </div>
                         <div className="flex items-center text-sm text-gray-600 mt-1">
                           <Phone className="h-3.5 w-3.5 mr-1 text-gray-400" />
@@ -357,43 +364,37 @@ export default function Notifications() {
                         </div>
                       </div>
                     </td>
-                    
+
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="flex items-center text-sm text-gray-600">
                         <Calendar className="h-3.5 w-3.5 mr-1 text-gray-400" />
                         <div className="flex flex-col">
-                          <span>{formatDate(notif.createdAt).split(',')[0]}</span>
+                          <span>
+                            {formatDate(notif.createdAt).split(",")[0]}
+                          </span>
                           <span className="text-xs text-gray-400">
-                            {formatDate(notif.createdAt).split(',')[1]}
+                            {formatDate(notif.createdAt).split(",")[1]}
                           </span>
                         </div>
                       </div>
                     </td>
-                    
+
                     <td className="px-6 py-4 max-w-xs">
                       <div className="text-sm text-gray-600">
                         <div className="flex items-start gap-1">
                           <MessageSquare className="h-3.5 w-3.5 text-gray-400 mt-0.5 flex-shrink-0" />
                           <div className="flex flex-col">
                             {/* Message content with expand/collapse */}
-                            <p className={expandedMessage === notif._id ? "" : "line-clamp-2"}>
+                            <p
+                              className={
+                                expandedMessage === notif._id
+                                  ? ""
+                                  : "line-clamp-2"
+                              }
+                            >
                               {notif.message || "No message"}
                             </p>
-                            
-                            {/* Read more / Read less button for long messages */}
-                            {/* {isLongMessage(notif.message) && (
-                              <button
-                                onClick={() => toggleMessageExpand(notif._id)}
-                                className="text-xs text-red-600 hover:text-red-700 font-medium mt-1 flex items-center gap-1 self-start"
-                              >
-                                {expandedMessage === notif._id ? (
-                                  <>Read less <ChevronUp size={12} /></>
-                                ) : (
-                                  <>Read more <ChevronDown size={12} /></>
-                                )}
-                              </button>
-                            )} */}
-                            
+
                             {/* View full message button */}
                             <button
                               onClick={() => openMessageModal(notif)}
@@ -406,25 +407,50 @@ export default function Notifications() {
                         </div>
                       </div>
                     </td>
-                    
+
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <button
-                        onClick={() => handleDelete(notif._id)}
-                        className="flex items-center gap-1 px-3 py-1.5 bg-red-50 text-red-600 hover:bg-red-100 rounded-lg transition text-sm font-medium"
-                      >
-                        <Trash2 className="w-4 h-4" />
-                        Delete
-                      </button>
+                      <div className="flex items-center gap-2">
+                        {/* Reply Button */}
+                        <button
+                          onClick={() =>
+                            setReplyModal({
+                              id: notif._id,
+                              email: notif.email,
+                              name: `${notif.firstName} ${notif.lastName}`,
+                            })
+                          }
+                          className="flex items-center gap-1 px-3 py-1.5 bg-blue-50 text-blue-600 hover:bg-blue-100 rounded-lg transition text-sm font-medium"
+                        >
+                          <Mail className="w-4 h-4" />
+                          Reply
+                        </button>
+
+                        {/* Delete Button */}
+                        <button
+                          onClick={() => handleDelete(notif._id)}
+                          className="flex items-center gap-1 px-3 py-1.5 bg-red-50 text-red-600 hover:bg-red-100 rounded-lg transition text-sm font-medium"
+                        >
+                          <Trash2 className="w-4 h-4" />
+                          Delete
+                        </button>
+                      </div>
                     </td>
                   </tr>
                 ))
               ) : (
                 <tr>
-                  <td colSpan={6} className="px-6 py-12 text-center text-gray-500">
+                  <td
+                    colSpan={6}
+                    className="px-6 py-12 text-center text-gray-500"
+                  >
                     <div className="flex flex-col items-center">
                       <Bell className="h-12 w-12 text-gray-300 mb-3" />
-                      <p className="text-lg font-medium text-gray-600 mb-1">No notifications found</p>
-                      <p className="text-sm text-gray-400">When users contact you, they will appear here</p>
+                      <p className="text-lg font-medium text-gray-600 mb-1">
+                        No notifications found
+                      </p>
+                      <p className="text-sm text-gray-400">
+                        When users contact you, they will appear here
+                      </p>
                     </div>
                   </td>
                 </tr>
@@ -438,7 +464,8 @@ export default function Notifications() {
           <div className="bg-gray-50 px-6 py-3 border-t border-gray-200">
             <div className="flex justify-between items-center">
               <p className="text-xs text-gray-500">
-                Showing {notifications.length} of {notifications.length} notifications
+                Showing {notifications.length} of {notifications.length}{" "}
+                notifications
               </p>
               <p className="text-xs text-gray-500">
                 Last updated: {new Date().toLocaleDateString()}
@@ -451,13 +478,14 @@ export default function Notifications() {
       {/* Full Message Modal */}
       {selectedMessage && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white w-full max-w-2xl rounded-xl shadow-2xl relative overflow-hidden">
-            
+          <div className="bg-white h-[500px] mt-14 w-full max-w-2xl rounded-xl shadow-2xl relative overflow-hidden">
             {/* Modal Header with Red Theme */}
             <div className="bg-red-600 px-6 py-4 flex justify-between items-center">
               <div className="flex items-center gap-2">
                 <MessageSquare className="text-white" size={20} />
-                <h2 className="text-xl font-semibold text-white">Message from {selectedMessage.name}</h2>
+                <h2 className="text-xl font-semibold text-white">
+                  Message from {selectedMessage.name}
+                </h2>
               </div>
               <button
                 onClick={closeMessageModal}
@@ -468,18 +496,12 @@ export default function Notifications() {
             </div>
 
             {/* Modal Body */}
-            <div className="p-6">
+            <div className="p-6 h-full overflow-y-auto">
               <div className="bg-gray-50 rounded-lg p-5 border border-gray-200">
-                <p className="text-gray-700 whitespace-pre-wrap leading-relaxed">
+                <p className="text-gray-700 leading-relaxed">
                   {selectedMessage.message}
                 </p>
               </div>
-              
-              {/* Message Info */}
-              {/* <div className="mt-4 flex items-center gap-2 text-sm text-gray-500">
-                <MessageSquare size={16} className="text-gray-400" />
-                <span>Message ID: {selectedMessage.id}</span>
-              </div> */}
 
               {/* Actions */}
               <div className="flex justify-end gap-3 mt-6 pt-4 border-t border-gray-200">
@@ -491,7 +513,9 @@ export default function Notifications() {
                 </button>
                 <button
                   onClick={() => {
-                    const notif = notifications.find(n => n._id === selectedMessage.id);
+                    const notif = notifications.find(
+                      (n) => n._id === selectedMessage.id,
+                    );
                     if (notif) {
                       handleDelete(notif._id);
                       closeMessageModal();
@@ -501,6 +525,93 @@ export default function Notifications() {
                 >
                   <Trash2 size={16} />
                   Delete Message
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Reply Modal */}
+      {replyModal && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white w-full max-w-lg rounded-xl shadow-2xl overflow-hidden">
+            {/* Header */}
+            <div className="bg-[#DC2626] px-6 py-4 flex justify-between items-center">
+              <div>
+                <h2 className="text-lg font-semibold text-white">
+                  Reply to {replyModal.name}
+                </h2>
+                <p className="text-xs text-white/80">{replyModal.email}</p>
+              </div>
+              <button
+                onClick={() => {
+                  setReplyModal(null);
+                  setReplyMessage("");
+                }}
+                className="text-white hover:bg-blue-700 p-1 rounded-full transition"
+              >
+                <X size={22} />
+              </button>
+            </div>
+
+            {/* Body */}
+            <div className="p-6 space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Enter message you want to send
+                </label>
+                <textarea
+                  rows={5}
+                  value={replyMessage}
+                  onChange={(e) => setReplyMessage(e.target.value)}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                  placeholder="Type your reply here..."
+                />
+              </div>
+
+              {/* Submit Button */}
+              <div className="flex justify-end gap-2">
+                <button
+                  onClick={() => {
+                    setReplyModal(null);
+                    setReplyMessage("");
+                  }}
+                  className="px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 rounded-lg transition"
+                >
+                  Cancel
+                </button>
+
+                <button
+                  disabled={replyLoading}
+                  onClick={async () => {
+                    if (!replyMessage.trim()) return;
+
+                    setReplyLoading(true);
+
+                    // For now only log in console
+                    console.log("Reply Details:", {
+                      to: replyModal.email,
+                      name: replyModal.name,
+                      message: replyMessage,
+                    });
+
+                    setTimeout(() => {
+                      setReplyLoading(false);
+                      setReplyModal(null);
+                      setReplyMessage("");
+                    }, 1000);
+                  }}
+                  className="px-5 py-2 bg-[#DC2626] text-white rounded-lg hover:bg-red-700 transition flex items-center gap-2 disabled:opacity-60"
+                >
+                  {replyLoading ? (
+                    <>
+                      <svg className="animate-spin h-4 w-4 border-2 border-white border-t-transparent rounded-full" />
+                      Sending...
+                    </>
+                  ) : (
+                    "Send Reply"
+                  )}
                 </button>
               </div>
             </div>

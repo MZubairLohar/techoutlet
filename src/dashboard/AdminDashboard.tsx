@@ -52,6 +52,7 @@ import BusinessIcon from "@mui/icons-material/Business";
 import HeadphonesIcon from "@mui/icons-material/Headphones";
 import EventBusyIcon from "@mui/icons-material/EventBusy";
 import MiscellaneousServicesIcon from "@mui/icons-material/MiscellaneousServices";
+import Newaccessories from "@/pages/Newaccessories";
 
 interface RouteItem {
   name: string;
@@ -103,6 +104,12 @@ const routes1: RouteItem[] = [
   //   element: <UpdateAccessories />,
   //   icon: <HeadphonesIcon />, // accessories/items
   // },
+  {
+    name: "Accessories",
+    path: "Newaccessories",
+    element: <Newaccessories />,
+    icon: <HeadphonesIcon />, // accessories/items
+  },
   {
     name: "OffDays",
     path: "CloseDay",
