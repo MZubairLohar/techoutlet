@@ -61,6 +61,9 @@ const BookRepair = () => {
     address: "",
   });
 
+  const [brandsLoading, setBrandsLoading] = useState(true);
+  const [modelsLoading, setModelsLoading] = useState(false);
+
   const totalPrice = selectedIssues.reduce((sum, issueName) => {
     const issue = issues.find((i) => i.name === issueName);
     return sum + (issue?.price || 0);
@@ -86,29 +89,39 @@ const BookRepair = () => {
   >([]);
 
   useEffect(() => {
+    setBrandsLoading(true);
+
     axios
       .get(`${BASE_URL}/brands`)
       .then((res) => {
-        // console.log("brands data", res.data.message);
         setData(res.data.message);
       })
-      .catch((err) => {
-        // console.log("error", err);
-        return showErrorToast("Failed to load brands! Please refresh the page.");
+      .catch(() => {
+        showErrorToast("Failed to load brands! Please refresh the page.");
+      })
+      .finally(() => {
+        setBrandsLoading(false);
       });
   }, []);
+
   useEffect(() => {
+    if (!selectedBrand) return;
+
+    setModelsLoading(true);
+
     axios
       .get(`${BASE_URL}/models/${selectedBrand}`)
       .then((res) => {
-        // console.log("models data", res.data.message);
         setModels(res.data.message);
       })
-      .catch((err) => {
-        // console.log("error", err);
-        // return showErrorToast("Failed to load models! Please refresh the page.");
+      .catch(() => {
+        showErrorToast("Failed to load models!");
+      })
+      .finally(() => {
+        setModelsLoading(false);
       });
   }, [selectedBrand]);
+
   const [closedDays, setClosedDays] = useState<Date[]>([]);
 
   useEffect(() => {
@@ -125,7 +138,9 @@ const BookRepair = () => {
       })
       .catch((err) => {
         // console.log("error", err);
-        return showErrorToast("Failed to load closed days! Please refresh the page.");
+        return showErrorToast(
+          "Failed to load closed days! Please refresh the page.",
+        );
       });
   }, []);
 
@@ -221,7 +236,7 @@ const BookRepair = () => {
             </div>
             <div className="w-full h-2 bg-muted rounded-full overflow-hidden">
               <motion.div
-               className="h-full bg-gradient-to-r from-red-500 via-red-600 to-red-700 rounded-full"
+                className="h-full bg-gradient-to-r from-red-500 via-red-600 to-red-700 rounded-full"
                 initial={{ width: 0 }}
                 animate={{ width: `${(step / TOTAL_STEPS) * 100}%` }}
                 transition={{ duration: 0.4 }}
@@ -254,26 +269,37 @@ const BookRepair = () => {
                       Brand
                     </label>
                     <div className="grid grid-cols-3 sm:grid-cols-5 gap-3">
-                      {data.map((b) => (
-                        <button
-                          key={b.brand}
-                          onClick={() => {
-                            setSelectedBrand(b.brand);
-                            setSelectedModel("");
-                            // console.log("selected brand", b.brand);
-                          }}
-                          className={`p-4 rounded-xl border-2 text-center transition-all ${
-                            selectedBrand === b.brand
-                              ? "border-red-300 bg-red-200 shadow-soft"
-                              : "border-border hover:border-red-300 hover:bg-red-100"
-                          }`}
-                        >
-                          <Smartphone
-                            className={`w-6 h-6 mx-auto mb-2 ${selectedBrand === b.brand ? "text-red-600" : "text-muted-foreground"}`}
-                          />
-                          <span className="text-xs font-medium">{b.brand}</span>
-                        </button>
-                      ))}
+                      {brandsLoading ? (
+                        <div className="col-span-full flex justify-center py-8">
+                          <div className="w-8 h-8 border-4 border-red-500 border-t-transparent rounded-full animate-spin" />
+                        </div>
+                      ) : (
+                        data.map((b) => (
+                          <button
+                            key={b.brand}
+                            onClick={() => {
+                              setSelectedBrand(b.brand);
+                              setSelectedModel("");
+                            }}
+                            className={`p-4 rounded-xl border-2 text-center transition-all ${
+                              selectedBrand === b.brand
+                                ? "border-red-300 bg-red-200 shadow-soft"
+                                : "border-border hover:border-red-300 hover:bg-red-100"
+                            }`}
+                          >
+                            <Smartphone
+                              className={`w-6 h-6 mx-auto mb-2 ${
+                                selectedBrand === b.brand
+                                  ? "text-red-600"
+                                  : "text-muted-foreground"
+                              }`}
+                            />
+                            <span className="text-xs font-medium">
+                              {b.brand}
+                            </span>
+                          </button>
+                        ))
+                      )}
                     </div>
                   </div>
 
@@ -286,33 +312,42 @@ const BookRepair = () => {
                         Model
                       </label>
                       <div className="grid grid-cols-2 gap-2">
-                        {models.map((m) => (
-                          <button
-                            key={m.name}
-                            onClick={() => setSelectedModel(m.name)}
-                            className={`p-3 w-28 rounded-xl border text-left text-sm transition-all ${
-                              selectedModel === m.name
-                                ? "border-red-300 bg-red-200 text-red-600 font-medium"
-                                : "border-border hover:border-red-100 text-foreground"
-                            } ${!m.isAvailable && "line-through text-red-500 cursor-not-allowed hover:border-border"}`}
-                          >
-                            <img
-                              src={m.image}
-                              alt={m.name}
-                              className="w-20 h-10 object-contain mb-2"
-                            />
-                            <div className="ml-3">{m.name} </div>
-                            {m.isAvailable ? (
-                              <span className="text-xs text-green-500 ml-2">
-                                Available
-                              </span>
-                            ) : (
-                              <span className="text-xs text-red-600 ml-2">
-                                Unavailable
-                              </span>
-                            )}
-                          </button>
-                        ))}
+                        {modelsLoading ? (
+                          <div className="col-span-full flex justify-center py-6">
+                            <div className="w-8 h-8 border-4 border-red-500 border-t-transparent rounded-full animate-spin" />
+                          </div>
+                        ) : (
+                          models.map((m) => (
+                            <button
+                              key={m.name}
+                              onClick={() => setSelectedModel(m.name)}
+                              className={`p-3 w-28 rounded-xl border text-left text-sm transition-all ${
+                                selectedModel === m.name
+                                  ? "border-red-300 bg-red-200 text-red-600 font-medium"
+                                  : "border-border hover:border-red-100 text-foreground"
+                              } ${
+                                !m.isAvailable &&
+                                "line-through text-red-500 cursor-not-allowed hover:border-border"
+                              }`}
+                            >
+                              <img
+                                src={m.image}
+                                alt={m.name}
+                                className="w-20 h-10 object-contain mb-2"
+                              />
+                              <div className="ml-3">{m.name}</div>
+                              {m.isAvailable ? (
+                                <span className="text-xs text-green-500 ml-2">
+                                  Available
+                                </span>
+                              ) : (
+                                <span className="text-xs text-red-600 ml-2">
+                                  Unavailable
+                                </span>
+                              )}
+                            </button>
+                          ))
+                        )}
                       </div>
                     </motion.div>
                   )}
