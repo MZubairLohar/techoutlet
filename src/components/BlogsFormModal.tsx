@@ -465,11 +465,11 @@ export default function BlogsFormModal({ isOpen, onClose }: Props) {
                 className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 transition bg-white"
               >
                 <option value="">Select Category</option>
-                <option value="Repair Guides">🔧 Repair Guides</option>
-                <option value="Troubleshooting">⚡ Troubleshooting</option>
-                <option value="Maintenance Tips">🛠️ Maintenance Tips</option>
-                <option value="Accessories">📱 Accessories</option>
-                <option value="Tech News">📰 Tech News</option>
+                <option value="Repair Guides">Repair Guides</option>
+                <option value="Troubleshooting">Troubleshooting</option>
+                <option value="Maintenance Tips">Maintenance Tips</option>
+                <option value="Accessories">Accessories</option>
+                <option value="Tech News">Tech News</option>
               </select>
             </div>
             

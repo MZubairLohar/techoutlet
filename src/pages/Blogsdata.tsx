@@ -377,20 +377,20 @@ export default function BlogData() {
                 <div className="flex items-center justify-between pt-3 border-t border-gray-100">
                   {/* Like/Dislike Buttons */}
                   <div className="flex items-center gap-2">
-                    <button
-                      onClick={() => react(blog._id, "like")}
-                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gray-50 hover:bg-red-50 text-gray-700 hover:text-red-600 transition"
+                    <div
+                      // onClick={() => react(blog._id, "like")}
+                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gray-100 text-gray-700 transition"
                     >
                       <ThumbsUp size={16} />
                       <span className="text-sm font-medium">{blog.likes}</span>
-                    </button>
-                    <button
-                      onClick={() => react(blog._id, "dislike")}
-                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gray-50 hover:bg-red-50 text-gray-700 hover:text-red-600 transition"
+                    </div>
+                    <div
+                      // onClick={() => react(blog._id, "dislike")}
+                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gray-100 text-gray-700 transition"
                     >
                       <ThumbsDown size={16} />
                       <span className="text-sm font-medium">{blog.dislikes}</span>
-                    </button>
+                    </div>
                   </div>
 
                   {/* Delete Button */}

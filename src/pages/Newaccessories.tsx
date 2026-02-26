@@ -35,7 +35,8 @@ export default function Newaccessories() {
       const res = await axios.get(`${BASE_URL}/getBrandDetails`);
       setBrands(res.data.message);
     } catch (error) {
-      showErrorToast("Failed to fetch brand details");
+    //   showErrorToast("Failed to fetch brand details");
+    return;
     } finally {
       setLoading(false);
     }
