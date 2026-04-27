@@ -130,7 +130,9 @@ const navItems = [
   // { label: "Accessories", path: "/accessories" },
   { label: "Blogs", path: "/blogs" },
   { label: "Brands", path: "/brands" },
-  { label: "Services", path: "/services" },
+  // { label: "Services", path: "/services" },
+  { label: "Phone", path: "/phone" },
+  { label: "Laptop", path: "/laptop" },
   { label: "Contact", path: "/contact" },
 ];
 
