@@ -9,7 +9,8 @@ import Footer from "@/components/Footer";
 interface Service {
   _id: string;
   ServiceName: string;
-  price: string;
+  Description: string;
+  icon : string;
 }
 
 export default function NewServices() {
@@ -22,6 +23,7 @@ export default function NewServices() {
       setLoading(true);
       const res = await axios.get(`${BASE_URL}/getAllServices`);
       setServices(res.data.message);
+      console.log("Fetched services:", res.data.message);
     } catch (error) {
       console.error("Failed to fetch services", error);
     } finally {
@@ -153,7 +155,7 @@ export default function NewServices() {
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
             >
               {services.map((service, index) => {
-                const priceNum = parseFloat(service.price) || 0;
+                // const priceNum = parseFloat(service.price) || 0;
                 
                 return (
                   <motion.div
@@ -170,9 +172,10 @@ export default function NewServices() {
                     
                     <div className="p-6">
                       {/* Icon Circle */}
-                      <div className="w-16 h-16 bg-red-50 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                        <div className="text-red-600">
-                          {getServiceIcon(service.ServiceName, index)}
+                      <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <div className="text-red-600 text-3xl">
+                          {/* {getServiceIcon(service.ServiceName, index)} */}
+                          {service.icon }
                         </div>
                       </div>
 
@@ -181,15 +184,21 @@ export default function NewServices() {
                         {service.ServiceName}
                       </h3>
 
+                       <h3 className="text-xs font-thin text-gray-900 mb-2">
+                        {service.Description}
+                      </h3>
+
+                      
+
                       {/* Price */}
-                      <div className="flex items-baseline gap-1 mb-4">
+                      {/* <div className="flex items-baseline gap-1 mb-4">
                         <span className="text-3xl font-bold text-red-600">
                           £{priceNum.toFixed(2)}
                         </span>
                         <span className="text-sm text-gray-500">
                           / service
                         </span>
-                      </div>
+                      </div> */}
 
                       {/* Divider */}
                       <div className="border-t border-gray-100 my-4"></div>
