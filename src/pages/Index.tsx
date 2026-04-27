@@ -1157,7 +1157,7 @@ const Index = () => {
       {/* Hero Section */}
       <section
         id="hero"
-        className="relative min-h-screen flex items-center pt-20"
+        className="relative xl:min-h-screen flex items-center pt-20"
       >
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-primary/5" />
@@ -1186,13 +1186,13 @@ const Index = () => {
                 Today */}
                 
                 <span className="bg-gradient-to-r from-red-400 via-red-500 to-red-700 bg-clip-text text-transparent">Your Phone Fixed</span> <br />
-                Today<span className="text-red-600">!</span>
+                Today<span className="text-red-500">!</span>
 
               </motion.h1>
               <motion.p
                 variants={fadeUp}
                 custom={2}
-                className="mt-6 text-lg text-muted-foreground max-w-lg leading-relaxed"
+                className="mt-6 text-lg text-muted-foreground xl:max-w-lg leading-relaxed"
               >
                 From cracked screens to software glitches, we handle it all. Quick, affordable, and professional mobile repair — right when you need it.
               </motion.p>
