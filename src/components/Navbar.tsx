@@ -126,11 +126,12 @@ import { Button } from "@/components/ui/button";
 
 const navItems = [
   { label: "Home", path: "/#hero" },
+  { label: "About Us", path: "/aboutus" },
   // { label: "Accessories", path: "/accessories" },
   { label: "Blogs", path: "/blogs" },
   { label: "Brands", path: "/brands" },
   { label: "Services", path: "/services" },
-  { label: "Contact", path: "/#contact" },
+  { label: "Contact", path: "/contact" },
 ];
 
 const Navbar = () => {

@@ -27,6 +27,8 @@ import LoaderWrapper from "./components/Loader/wrapper";
 import { LoaderProvider } from "./components/Loader/useLoader";
 import Newbrands from "./pages/Newbrands";
 import Newservices from "./pages/Newservices";
+import Contact from "./pages/Contact";
+import AboutUs from "./pages/AboutUs";
 
 const queryClient = new QueryClient();
 
@@ -49,6 +51,8 @@ const App = () => (
               <Route path="/login" element={<Login />} />
               <Route path="/brands" element={<Newbrands />} />
               <Route path="/services" element={<Newservices />} />
+               <Route path="/contact" element={<Contact />} />
+                <Route path="/aboutus" element={<AboutUs />} />
               {/* <Route path="/admin" element={<AdminDashboard />} /> */}
               <Route path="/technician" element={<TechnicianDashboard />} />
               <Route path="*" element={<NotFound />} />

@@ -1666,8 +1666,8 @@ const Index = () => {
 
             {/* User */}
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-red-600 flex items-center justify-center text-white font-semibold text-sm">
-                {t.name[0]}
+             <div className="w-10 h-10 rounded-full bg-red-600 flex items-center justify-center text-white font-semibold text-sm">
+              {t.name[0]}
               </div>
               <div>
                 <div className="font-medium text-sm text-foreground">
@@ -1719,7 +1719,7 @@ const Index = () => {
       </section> */}
 
       {/* Contact */}
-      <section id="contact" className="py-20 lg:py-28 bg-card">
+      {/* <section id="contact" className="py-20 lg:py-28 bg-card">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -1755,7 +1755,7 @@ const Index = () => {
                 ))}
               </div>
               <div className="mt-8 rounded-2xl overflow-hidden">
-                {/* <img src={happyCustomer} alt="Happy customer" className="w-full h-64 object-cover rounded-2xl" /> */}
+                {/* <img src={happyCustomer} alt="Happy customer" className="w-full h-64 object-cover rounded-2xl" /> 
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1980.6742975501626!2d-0.13135629999999998!3d51.517439!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761ad8cc23e4a7%3A0x6f9bcd0432a8f965!2s260%20Tottenham%20Court%20Road%2C%20London%20W1T%207RF%2C%20UK!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s"
                   className="h-64 w-full"
@@ -1824,7 +1824,7 @@ const Index = () => {
             </motion.div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <Footer />
     </div>
