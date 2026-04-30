@@ -1,8 +1,7 @@
-import React from "react";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 
 const WhatsAppButton = () => {
-  const phoneNumber = "020 8062 0553"; // without +
+  const phoneNumber = "442080620553"; // without +
   const message = "Hello, I want more information.";
 
   const handleClick = () => {

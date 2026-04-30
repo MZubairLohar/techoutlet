@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import {
-  Smartphone,
   Mail,
   Phone,
   MapPin,
@@ -9,6 +8,14 @@ import {
   Instagram,
   Youtube,
 } from "lucide-react";
+
+ const phoneNumber = "442080620553"; // without +
+  const message = "Hello, I want more information.";
+
+  const handleClick = () => {
+    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(url, "_blank");
+  };
 
 const Footer = () => (
   <footer className="bg-black text-primary-foreground">
@@ -102,8 +109,8 @@ const Footer = () => (
             <div className="flex items-center gap-2 text-sm text-primary-foreground/60">
               <Mail className="w-4 h-4" /> info@techoutlet.uk
             </div>
-            <div className="flex items-center gap-2 text-sm text-primary-foreground/60">
-              <Phone className="w-4 h-4" /> 020 8062 0553
+            <div onClick={handleClick} className="flex cursor-pointer hover:underline items-center gap-2 text-sm text-primary-foreground/60">
+              <Phone className="w-4 h-4" /> +442080620553
             </div>
             <div className="flex items-center gap-2 text-sm text-primary-foreground/60">
               <MapPin className="w-4 h-4" /> 260 Tottenham Ct Rd, London W1T 7

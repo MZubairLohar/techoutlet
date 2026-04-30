@@ -126,14 +126,9 @@ import { Button } from "@/components/ui/button";
 
 const navItems = [
   { label: "Home", path: "/#hero" },
-  { label: "About Us", path: "/aboutus" },
-  // { label: "Accessories", path: "/accessories" },
-  { label: "Blogs", path: "/blogs" },
-  { label: "Brands", path: "/brands" },
-  // { label: "Services", path: "/services" },
-  { label: "Phone", path: "/phone" },
-  { label: "Laptop", path: "/laptop" },
-  { label: "Contact", path: "/contact" },
+  { label: "Phone Repair", path: "/phone" },
+  { label: "Laptop Repair", path: "/laptop" },
+  //  { label: "Contact", path: "/contact" },
 ];
 
 const Navbar = () => {
@@ -189,7 +184,7 @@ const Navbar = () => {
             />
             {/* </Box> */}
 
-              {/* //text-foreground removed  */}
+            {/* //text-foreground removed  */}
             {/* <span className="text-xl font-bold text-red-600"> 
               <span className="text-primary text-white">TECHOUTLET </span>LTD
             </span> */}
@@ -210,6 +205,45 @@ const Navbar = () => {
                 {item.label}
               </Link>
             ))}
+
+            {/* MORE DROPDOWN */}
+            <div className="relative group">
+              <button className="px-4 py-2 text-lg text-white font-medium hover:text-white border-transparent hover:border-b-[3px] hover:border-red-600">
+                More ▾
+              </button>
+
+              {/* Dropdown */}
+              <div className="absolute left-0 top-full mt-2 w-44 bg-black rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                <Link
+                  to="/blogs"
+                  className="block px-4 py-2 text-white hover:bg-red-600 rounded-b-lg"
+                >
+                  Blogs
+                </Link>
+                <Link
+                  to="/aboutus"
+                  className="block px-4 py-2 text-white hover:bg-red-600 rounded-t-lg"
+                >
+                  About Us
+                </Link>
+                <Link
+                  to="/brands"
+                  className="block px-4 py-2 text-white hover:bg-red-600 rounded-b-lg"
+                >
+                  Brands
+                </Link>
+              </div>
+            </div>
+            <Link
+              to="/contact"
+              className={`px-4 py-2 text-lg text-white font-medium transition-all duration-200 ${
+                location.pathname === "/contact"
+                  ? "text-primary"
+                  : "text-muted-foreground border-transparent hover:text-white hover:border-b-[3px] hover:border-red-600"
+              }`}
+            >
+              Contact
+            </Link>
           </nav>
 
           {/* Desktop Button */}
@@ -246,18 +280,48 @@ const Navbar = () => {
                   key={item.path}
                   to={item.path}
                   onClick={() => setIsOpen(false)}
-                  className={`px-4 py-3 text-sm font-medium transition-colors ${
-                    location.pathname + location.hash === item.path
-                      ? "text-white"
-                      : "text-white hover:text-white border-transparent hover:border-b-[3px] hover:border-red-600 w-28"
-                  }`}
+                  className="px-4 py-3 text-sm font-medium text-white hover:border-b-[3px] hover:border-red-600 w-28"
                 >
                   {item.label}
                 </Link>
               ))}
 
+              {/* MORE SECTION */}
+              <div className="mt-2 border-t border-gray-700 pt-2">
+                <p className="px-4 text-xs text-gray-400 mb-2">More</p>
+                <Link
+                  to="/blogs"
+                  onClick={() => setIsOpen(false)}
+                  className="block px-4 py-2 text-white hover:bg-red-600 rounded-md"
+                >
+                  Blogs
+                </Link>
+                <Link
+                  to="/aboutus"
+                  onClick={() => setIsOpen(false)}
+                  className="block px-4 py-2 text-white hover:bg-red-600 rounded-md"
+                >
+                  About Us
+                </Link>
+
+                <Link
+                  to="/brands"
+                  onClick={() => setIsOpen(false)}
+                  className="block px-4 py-2 text-white hover:bg-red-600 rounded-md"
+                >
+                  Brands
+                </Link>
+              </div>
+              <Link
+                to="/contact"
+                onClick={() => setIsOpen(false)}
+                className="block px-4 py-2 text-white hover:bg-red-600 rounded-md"
+              >
+                Contact
+              </Link>
+
               <Link to="/book" onClick={() => setIsOpen(false)}>
-                <Button className="w-full bg-red-600 hover:bg-red-600  rounded-full mt-2">
+                <Button className="w-full bg-red-600 rounded-full mt-2">
                   Book Now
                 </Button>
               </Link>
