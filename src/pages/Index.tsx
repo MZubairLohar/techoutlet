@@ -1157,7 +1157,7 @@ const Index = () => {
       {/* Hero Section */}
       <section
         id="hero"
-        className="relative xl:min-h-screen flex items-center pt-20"
+        className="relative xl:min-h-screen flex items-center pt-32"
       >
 
         <div className="absolute inset-0 z-0">
@@ -1167,7 +1167,9 @@ const Index = () => {
         </div>
 
         <div className="container mx-auto px-4 lg:px-8 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* <div className="grid lg:grid-cols-2 gap-12 items-center"> */}
+          
+<div className="grid lg:grid-cols-2 gap-12 items-start">
             <motion.div
               initial="hidden"
               animate="visible"
@@ -1178,16 +1180,25 @@ const Index = () => {
                 Trusted by 50,000+ customers
               </motion.div> */}
               <motion.h1
-                variants={fadeUp}
-                custom={1}
-                className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight"
-              >
+  variants={fadeUp}
+  custom={1}
+  className="mt-14 text-2xl md:text-2xl lg:text-5xl font-bold text-foreground leading-tight"
+>
                 {/* Book Your <br />
                 <span className="text-gradient">Mobile Repair</span> <br />
                 Today */}
 
-                <span className="bg-gradient-to-r from-red-400 via-red-500 to-red-700 bg-clip-text text-transparent">Laptop Repair Tottenham Court Road | </span> <br />
-                Electronics Store Tottenham Court Road<span className="text-red-500">!</span>
+                {/* <span className="bg-gradient-to-r from-red-400 via-red-500 to-red-700 bg-clip-text text-transparent">Laptop Repair Tottenham Court Road | </span> <br />
+                Electronics Store Tottenham Court Road
+                <span className="text-red-500">!</span> */}
+
+<span className="bg-gradient-to-r from-red-400 via-red-500 to-red-700 bg-clip-text text-transparent">
+   Guaranteed Laptop Repair Central London
+</span> 
+{/* <br /> */}
+    {}  & Premier Electronics Store
+<span className="text-red-500">!</span>
+
 
               </motion.h1>
               <motion.p
@@ -1195,8 +1206,8 @@ const Index = () => {
                 custom={2}
                 className="mt-6 text-lg text-muted-foreground xl:max-w-lg leading-relaxed"
               >
-                Need a fast fix or a new gadget? Find reliable laptop repair on tottenham court road and premium gear all under one roof at our tottenham court road electronics store.
-
+                {/* Need a fast fix or a new gadget? Find reliable laptop repair on tottenham court road and premium gear all under one roof at our tottenham court road electronics store. */}
+TechOutlet is your trusted electronics store and laptop repair Tottenham Court Road specialist, offering everything from MacBook repairs, screen replacement, battery issues, data recovery, and slow computer fixes to quality chargers, cables, adapters, and everyday tech accessories. Our experienced local technicians provide fast diagnosis, honest advice, affordable prices, and reliable solutions so you can repair, replace, and upgrade your devices all in one place. 
 
               </motion.p>
               <motion.div
@@ -1204,6 +1215,38 @@ const Index = () => {
                 custom={3}
                 className="mt-8 flex flex-wrap gap-4"
               >
+<motion.p
+  variants={fadeUp}
+  custom={2}
+  className="mt-6 text-lg text-muted-foreground xl:max-w-lg leading-relaxed"
+>
+  {/* TechOutlet is your trusted electronics store and laptop repair Tottenham Court Road specialist, offering everything from MacBook repairs, screen replacement, battery issues, data recovery, and slow computer fixes to quality chargers, cables, adapters, and everyday tech accessories. Our experienced local technicians provide fast diagnosis, honest advice, affordable prices, and reliable solutions so you can repair, replace, and upgrade your devices all in one place. */}
+</motion.p>
+
+{/* New USPs Section */}
+<motion.ul 
+  variants={fadeUp} 
+  custom={2.5}
+  className="mt-6 grid grid-cols-2 gap-4 text-sm font-semibold text-gray-700"
+>
+  <li>⭐ 5-Star Google Rating</li>
+  <li>⚡ Same-Day Repairs</li>
+  <li>🛠️ Repair + Accessories</li>
+  <li>😊 100% Satisfied customers</li>
+  <li>👨‍🔧 Experienced Technicians</li>
+</motion.ul>
+
+<motion.div
+  variants={fadeUp}
+  custom={3}
+  className="mt-8 flex flex-wrap gap-4"
+>
+  {/* Buttons here */}
+  <button className="px-6 py-2 bg-red-600 text-white rounded-lg">Book a Repair</button>
+  <button className="px-6 py-2 border border-red-600 text-red-600 rounded-lg">Get a Free Quote</button>
+  <button className="px-6 py-2 bg-gray-100 text-gray-800 rounded-lg">Visit Our Store</button>
+</motion.div>
+
                 <Link to="/book">
                   <Button
                     size="lg"
@@ -1263,7 +1306,7 @@ const Index = () => {
                   </div>
                 </div>
               </motion.div> */}
-              <motion.div
+              {/* <motion.div
                 animate={{ y: [5, -5, 5] }}
                 transition={{ duration: 3, repeat: Infinity, delay: 1 }}
                 className="absolute -top-4 -right-4 bg-background rounded-2xl p-4 shadow-card flex items-center gap-3"
@@ -1289,11 +1332,47 @@ const Index = () => {
                     4.8/5 Rating
                   </div>
                 </div>
-              </motion.div>
+              </motion.div> */}
             </motion.div>
           </div>
         </div>
       </section>
+      <a 
+  href="https://maps.app.goo.gl/wsqrkFgK28MZh6eP9" 
+  target="_blank" 
+  rel="noopener noreferrer"
+  className="absolute top-24 right-12 z-40 cursor-pointer hover:scale-105 transition-transform duration-300"
+>
+  <motion.div
+    animate={{ y: [5, -5, 5] }}
+    transition={{ duration: 3, repeat: Infinity, delay: 1 }}
+    className="bg-white rounded-2xl p-4 shadow-xl border border-gray-100 flex items-center gap-3"
+  >
+    {/* <div className="flex -space-x-3">
+      {[1, 2, 3].map((i) => (
+        <div key={i} className="w-8 h-8 rounded-full bg-red-500 border-2 border-white" />
+      ))}
+    </div> */}
+    <div className="w-8 h-8 rounded-full bg-white border-2 border-white flex items-center justify-center shadow-sm">
+  {/* Google SVG Logo */}
+  <svg className="w-4 h-4" viewBox="0 0 24 24">
+    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.19 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+    <path fill="#EA4335" d="M12 4.75c1.6 0 3.04.55 4.18 1.64l3.14-3.14C17.46 1.4 14.97 0 12 0 7.7 0 3.99 2.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+  </svg>
+</div>
+
+    <div>
+      <div className="flex items-center gap-1">
+        {[1, 2, 3, 4, 5].map((i) => (
+          <Star key={i} className="w-3 h-3 fill-amber-400 text-amber-400" />
+        ))}
+      </div>
+      <div className="text-xs font-bold text-gray-700">4.8/5 Rating</div>
+    </div>
+  </motion.div>
+</a>
 
       <section className="py-16 bg-card bg-white">
         <div className="container mx-auto px-4 lg:px-8">
@@ -1405,96 +1484,7 @@ const Index = () => {
           </motion.div>
         </div>
       </section>
-      {/* ==================== NEW SECTION START ==================== */}
-      <section className="py-20 bg-background relative overflow-hidden border-b border-border/50">
-        <div className="container mx-auto px-4 lg:px-8 relative z-10">
-          <div className="grid lg:grid-cols-12 gap-12 items-center">
-
-            {/* Content & Introduction */}
-            <motion.div
-              className="lg:col-span-7"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={staggerContainer}
-            >
-              <motion.h2
-                variants={fadeUp}
-                className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight tracking-tight"
-              >
-                100% Guaranteed Laptop Repair <br />
-                <span className="text-red-500">Central London & Premier Electronics Store</span>
-              </motion.h2>
-
-              <motion.p
-                variants={fadeUp}
-                custom={1}
-                className="mt-6 text-muted-foreground text-base md:text-lg leading-relaxed max-w-3xl"
-              >
-                <strong className="text-foreground font-semibold">TechOutlet</strong> is your trusted electronics store and laptop repair Tottenham Court Road specialist, offering everything from MacBook repairs, screen replacement, battery issues, data recovery, and slow computer fixes to quality chargers, cables, adapters, and everyday tech accessories. Our experienced local technicians provide fast diagnosis, honest advice, affordable prices, and reliable solutions so you can repair, replace, and upgrade your devices all in one place.
-              </motion.p>
-
-              {/* Call to Actions Buttons */}
-              <motion.div
-                variants={fadeUp}
-                custom={2}
-                className="mt-8 flex flex-wrap gap-4"
-              >
-                <Link to="/book">
-                  <Button className="bg-red-500 hover:bg-red-600 text-white rounded-full px-6 h-12 font-medium shadow-soft hover:shadow-lg transition-all">
-                    Book a Repair
-                  </Button>
-                </Link>
-                <a href="#contact">
-                  <Button variant="outline" className="rounded-full px-6 h-12 font-medium border-red-500/30 text-foreground hover:bg-red-505 transition-all">
-                    Get a Free Quote
-                  </Button>
-                </a>
-                <a href="#contact">
-                  <Button variant="ghost" className="rounded-full px-6 h-12 font-medium text-muted-foreground hover:text-foreground transition-all">
-                    Visit Our Store
-                  </Button>
-                </a>
-              </motion.div>
-            </motion.div>
-
-            {/* USP Feature Cards Grid */}
-            <motion.div
-              className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-4"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={staggerContainer}
-            >
-              {[
-                { title: "5-Star Google Rating", desc: "Top-rated tech support & premium trust", badge: "⭐" },
-                { title: "Same-Day Repairs", desc: "Fast diagnosis & lightning-fast turnaround", badge: "⚡" },
-                { title: "Repair + Accessories", desc: "One-stop shop for parts, cables & premium gear", badge: "🔌" },
-                { title: "100% Satisfied Customers", desc: "Guaranteed quality and friendly support", badge: "🤝" },
-                { title: "Experienced Technicians", desc: "Certified local experts for Apple & Windows", badge: "🛠️" }
-              ].map((usp, idx) => (
-                <motion.div
-                  key={usp.title}
-                  variants={fadeUp}
-                  custom={idx}
-                  whileHover={{ y: -4, scale: 1.02 }}
-                  className={`p-5 rounded-2xl bg-card border border-border/60 shadow-card transition-all ${idx === 4 ? "sm:col-span-2" : ""
-                    }`}
-                >
-                  <div className="flex items-center gap-3">
-                    <span className="text-2xl">{usp.badge}</span>
-                    <h4 className="font-bold text-foreground text-sm sm:text-base">{usp.title}</h4>
-                  </div>
-                  <p className="text-xs text-muted-foreground mt-2 leading-relaxed">{usp.desc}</p>
-                </motion.div>
-              ))}
-            </motion.div>
-
-          </div>
-        </div>
-      </section>
-      {/* ==================== NEW SECTION END ==================== */}
-
+   
       {/* How It Works */}
       <section className="py-20 lg:py-28 bg-card">
         <div className="container mx-auto px-4 lg:px-8">
@@ -1602,112 +1592,248 @@ const Index = () => {
       </section>
 
       {/* ==================== WHY CHOOSE US (FIXED & NORMAL SIZE) START ==================== */}
-      <section className="py-20 bg-background relative overflow-hidden border-b border-border/50">
-        <div className="container mx-auto px-4 lg:px-8 relative z-10">
+   <section className="py-20 bg-white">
+  <div className="container mx-auto px-4 lg:px-8">
+    <h2 className="text-4xl font-bold text-center mb-16 text-foreground">
+      Why Choose Our Reliable Laptop Repair Service?
+    </h2>
 
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <motion.span
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-sm font-semibold text-red-500 uppercase tracking-wider bg-red-50 dark:bg-red-950/30 px-4 py-1.5 rounded-full"
-            >
-              Why Choose Us
-            </motion.span>
-            <motion.h2
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="text-3xl md:text-4xl font-bold text-foreground mt-4 tracking-tight"
-            >
-              Our Reliable Laptop Repair Service
-            </motion.h2>
-          </div>
+    {/* Grid layout for first 6 items */}
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+      {/* 1. Free Diagnosis */}
+      <div className="p-6 border rounded-2xl hover:shadow-lg transition-shadow">
+        <h3 className="text-xl font-bold mb-3 text-red-600">Free Diagnosis</h3>
+        <p className="text-muted-foreground"><strong>No Fix, No Fee.</strong> Bring it in. We'll diagnose for free and tell you the exact cost. If you decide not to repair, you pay nothing.</p>
+      </div>
 
-          {/* Features Grid - Normal Size (No Variable Error) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {[
-              { title: "Free Diagnosis", desc: "No fix, no fee. We diagnose for free and tell you the exact cost upfront.", icon: "🔍" },
-              { title: "Same-Day Repair", desc: "70% of jobs completed within 24 hours. Fast, reliable, local service.", icon: "⚡" },
-              { title: "Honest Pricing", desc: "Written quotes before opening a single screw. No surprise charges ever.", icon: "📝" },
-              { title: "Warranty Included", desc: "5-day warranty on all parts and labour. Complete peace of mind.", icon: "🛡️" },
-              { title: "Skilled Techs", desc: "Expert component-level repairs on all major laptop brands.", icon: "🛠️" },
-              { title: "Honest Guidance", desc: "If it's not worth fixing, we'll tell you straight instead of wasting money.", icon: "🤝" },
-              { title: "Genuine Parts", desc: "We use high-grade compatible or OEM parts for long-term durability.", icon: "💎" },
-              { title: "Data Private", desc: "Your data stays private. We don't access files unless it's a recovery job.", icon: "🔒" }
-            ].map((item, idx) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.05 }}
-                whileHover={{ y: -5 }}
-                className="p-5 rounded-2xl bg-card border border-border/60 shadow-sm relative overflow-hidden flex flex-col group min-h-[200px]"
-              >
-                <div className="absolute inset-0 bg-gradient-to-b from-red-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      {/* 2. Same-Day Repair */}
+      <div className="p-6 border rounded-2xl hover:shadow-lg transition-shadow">
+        <h3 className="text-xl font-bold mb-3 text-red-600">Same-Day Repair</h3>
+        <p className="text-muted-foreground">(70% of jobs) Screen replacement, battery, keyboard, etc.—usually done same day if parts are in stock. Liquid damage and motherboard work take 1–2 days.</p>
+      </div>
 
-                <div className="relative z-10">
-                  <div className="w-12 h-12 rounded-xl bg-red-50 dark:bg-red-950/20 flex items-center justify-center text-xl mb-4 border border-red-100 dark:border-red-900/30">
-                    {item.icon}
-                  </div>
-                  <h3 className="font-bold text-foreground text-base mb-2 group-hover:text-red-500 transition-colors">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    {item.desc}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* 3. Honest Pricing */}
+      <div className="p-6 border rounded-2xl hover:shadow-lg transition-shadow">
+        <h3 className="text-xl font-bold mb-3 text-red-600">Honest Pricing</h3>
+        <p className="text-muted-foreground"><strong>Upfront. In Writing.</strong> Before opening a single screw, you get a written quote. No surprise charges. We're not the cheapest—but we're fair.</p>
+      </div>
+
+      {/* 4. Warranty */}
+      <div className="p-6 border rounded-2xl hover:shadow-lg transition-shadow">
+        <h3 className="text-xl font-bold mb-3 text-red-600">Warranty on Every Repair</h3>
+        <p className="text-muted-foreground">We provide warranty on parts and labour. If something fails during the warranty period, we fix it for free.</p>
+      </div>
+
+      {/* 5. Skilled Technicians */}
+      <div className="p-6 border rounded-2xl hover:shadow-lg transition-shadow">
+        <h3 className="text-xl font-bold mb-3 text-red-600">Skilled Technicians</h3>
+        <p className="text-muted-foreground"><strong>Not Trainees.</strong> Our team has years of experience with MacBook logic boards, Windows motherboards, and gaming laptops.</p>
+      </div>
+
+      {/* 6. Honest Guidance */}
+      <div className="p-6 border rounded-2xl hover:shadow-lg transition-shadow">
+        <h3 className="text-xl font-bold mb-3 text-red-600">Repair or Replace?</h3>
+        <p className="text-muted-foreground"><strong>Honest Guidance.</strong> Sometimes the answer is don't repair it. We'll tell you straight and help you find a replacement.</p>
+      </div>
+    </div>
+
+    {/* Center aligned wrapper for the last 2 items */}
+    <div className="flex flex-wrap justify-center gap-8">
+      <div className="p-6 border rounded-2xl hover:shadow-lg transition-shadow w-full md:w-[350px]">
+        <h3 className="text-xl font-bold mb-3 text-red-600">Genuine Parts Only</h3>
+        <p className="text-muted-foreground">OEM or high-grade compatible parts. Not the cheap screens that fail in six months. Your laptop, your choice.</p>
+      </div>
+
+      <div className="p-6 border rounded-2xl hover:shadow-lg transition-shadow w-full md:w-[350px]">
+        <h3 className="text-xl font-bold mb-3 text-red-600">Your Data Stays Private</h3>
+        <p className="text-muted-foreground">We never access personal files unless data recovery is the job. No login credentials needed. Corporate clients sign NDAs.</p>
+      </div>
+    </div>
+  </div>
+</section>
       {/* ==================== WHY CHOOSE US END ==================== */}
 
+<section className="py-20 bg-gray-50">
+  <div className="container mx-auto px-4 lg:px-8">
+    
+    {/* Heading Section */}
+    <div className="text-center max-w-2xl mx-auto mb-16">
+      <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
+        Why We're the Electronics Shop Locals Actually Recommend
+      </h2>
+      <p className="text-lg text-muted-foreground">
+        Repairs are 60% of what we do. The other 40% is the shop itself—and it's not just there to fill the space.
+      </p>
+    </div>
+
+    {/* Items Section */}
+    <div className="bg-white p-8 md:p-12 rounded-3xl border border-gray-100 shadow-sm">
+      <h3 className="text-2xl font-bold mb-8 text-red-600">
+        Stuff People Actually Need, Not Just Stuff That Looks Pretty
+      </h3>
+      <p className="text-gray-600 mb-8 italic">
+        You won't find pointless gadgets on our shelves. What you will find:
+      </p>
+
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-4">
+        {[
+          "Laptop chargers (Apple, Dell, HP, Lenovo, ASUS, Acer)",
+          "HDMI, USB-C, DisplayPort, and VGA cables",
+          "UK travel adapters (perfect for tourists)",
+          "Reliable power banks with honest mAh ratings",
+          "Keyboards and mice (wired, wireless, mechanical)",
+          "External SSDs and hard drives",
+          "Headphones, earbuds, and gaming headsets",
+          "Phone cases, screen protectors, and chargers",
+          "Networking gear (routers, Wi-Fi extenders, Ethernet)"
+        ].map((item, index) => (
+          <div key={index} className="flex items-center gap-3 text-gray-700">
+            <span className="text-red-500 font-bold text-lg">✓</span>
+            <span>{item}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+  </div>
+</section>
+
+{/* yhn sa headind 3 ha */}
+<section className="py-20 bg-white">
+  <div className="container mx-auto px-4 lg:px-8">
+    <div className="grid md:grid-cols-2 gap-8">
+      
+      {/* Price Section */}
+      <div className="p-12 border border-red-200 rounded-3xl bg-white shadow-sm hover:shadow-lg transition-all min-h-[280px] flex flex-col justify-center">
+        <h3 className="text-3xl font-extrabold mb-6 text-red-600 leading-tight">
+          Prices That Make Sense for Real People
+        </h3>
+        <p className="text-lg text-gray-700 leading-relaxed">
+          Students, commuters, and tourists shouldn't pay airport prices in Central London. 
+          Our adapters, cables, and chargers are priced to be reasonable — 
+          not to catch out someone in a hurry.
+        </p>
+      </div>
+
+      {/* Quick Needs Section */}
+      <div className="p-12 border border-red-200 rounded-3xl bg-white shadow-sm hover:shadow-lg transition-all min-h-[280px] flex flex-col justify-center">
+        <h3 className="text-3xl font-extrabold mb-6 text-red-600 leading-tight">
+          Quick Visits for Quick Needs
+        </h3>
+        <p className="text-lg text-gray-700 leading-relaxed">
+          Forgot your charger and got a meeting in 20 minutes? Walk in, grab one, walk out. 
+          No waiting around. That's what a local electronics store on Tottenham Court Road 
+          is supposed to be.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{/* new content */}
+
+<section className="py-20 bg-gray-50">
+  <div className="container mx-auto px-4 lg:px-8">
+    <h2 className="text-4xl font-bold text-center mb-16 text-foreground">
+      Laptop & Computer Repair on Tottenham Court Road
+    </h2>
+
+    <div className="grid md:grid-cols-2 gap-8">
+      
+      {/* 1. All Brands & Models */}
+      <div className="bg-white p-8 rounded-3xl border border-gray-200 shadow-sm">
+        <h3 className="text-2xl font-bold mb-4 text-red-600">Laptop Repair — All Brands</h3>
+        <p className="text-gray-700 mb-4">We diagnose the actual fault instead of guessing. We repair: Apple, Dell, HP, Lenovo, ASUS, Acer, MSI, Razer, Samsung, Microsoft Surface, Chromebooks, and Huawei.</p>
+        <p className="text-sm text-gray-600"><strong>Services:</strong> Cracked screens, failed batteries, dead keyboards, hinges, charging ports, liquid damage, motherboard faults, overheating, and performance issues.</p>
+      </div>
+
+      {/* 2. MacBook Repair */}
+      <div className="bg-white p-8 rounded-3xl border border-gray-200 shadow-sm">
+        <h3 className="text-2xl font-bold mb-4 text-red-600">MacBook & Mac Desktop</h3>
+        <p className="text-gray-700 mb-4">MacBook Air/Pro (Intel + M1–M4). Screen replacements, logic board repair, and liquid damage recovery.</p>
+        <p className="text-red-600 font-bold mb-2">⚠ MacBook Swollen Battery (Fire Risk)</p>
+        <p className="text-sm text-gray-600">Signs: Trackpad lifting, case bulging, excessive heat. We replace them safely, usually same day.</p>
+      </div>
+
+      {/* 3. Gaming & PC Repair */}
+      <div className="bg-white p-8 rounded-3xl border border-gray-200 shadow-sm">
+        <h3 className="text-2xl font-bold mb-4 text-red-600">Gaming Laptops & PC</h3>
+        <p className="text-gray-700">Specialist repair for Alienware, ROG, TUF, Legion, Predator, Razer, MSI. Includes GPU reflow, thermal paste/fan replacement, and high refresh rate panel swaps. Gaming laptops run hot—we know how to handle them.</p>
+      </div>
+
+      {/* 4. Data & Software */}
+      <div className="bg-white p-8 rounded-3xl border border-gray-200 shadow-sm">
+        <h3 className="text-2xl font-bold mb-4 text-red-600">Data, Virus & OS</h3>
+        <ul className="text-sm text-gray-700 space-y-2">
+          <li><strong>Data Recovery:</strong> Failed HDDs/SSDs, accidental deletions, water damage.</li>
+          <li><strong>Virus/Malware:</strong> Thorough removal of pop-ups, ransomware, and spyware.</li>
+          <li><strong>OS Reinstall:</strong> Clean Windows/macOS install to fix BSOD or update loops.</li>
+        </ul>
+      </div>
+
+      {/* 5. Upgrades */}
+      <div className="bg-white p-8 rounded-3xl border border-gray-200 shadow-sm">
+        <h3 className="text-2xl font-bold mb-4 text-red-600">Performance Upgrades</h3>
+        <p className="text-gray-700 mb-2"><strong>SSD Upgrade:</strong> The best investment. Turn a 90-second boot into 12 seconds.</p>
+        <p className="text-gray-700"><strong>RAM Upgrade:</strong> 8GB (standard), 16GB (comfortable), 32GB (for editors/gamers). Same-day installation.</p>
+      </div>
+
+      {/* 6. Corporate */}
+      <div className="bg-white p-8 rounded-3xl border border-gray-200 shadow-sm">
+        <h3 className="text-2xl font-bold mb-4 text-red-600">Business & Corporate</h3>
+        <p className="text-gray-700">We partner with agencies, architecture firms, and media companies in Fitzrovia and Soho. We offer bulk pricing, priority turnaround, account invoicing, NDAs, and secure data handling.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
 
       {/* ==================== PROFESSIONAL BRAND ECOSYSTEM START ==================== */}
-      <section className="py-24 bg-white text-gray-900 border-b border-gray-100">
-        <div className="container mx-auto px-6 lg:px-12">
+      <section className="py-20 bg-white">
+  <div className="container mx-auto px-4 lg:px-8">
+    <div className="text-center mb-16">
+      <h2 className="text-4xl md:text-5xl font-extrabold text-foreground mb-4">
+        Laptop Brands We <span className="text-red-600">Master</span>
+      </h2>
+      <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+        From high-end MacBooks to gaming powerhouses and reliable office laptops, our technicians have the expertise to repair them all.
+      </p>
+    </div>
 
-          {/* Header with US-Style Minimalist Typography */}
-          <div className="mb-20">
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 mb-6">
-              Authorized Service for <br className="hidden md:block" />
-              <span className="text-gray-400">Major Device Ecosystems</span>
-            </h2>
-            <div className="w-20 h-1 bg-black"></div>
-          </div>
-
-          {/* Clean Symmetry Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-gray-200 border border-gray-200">
-            {[
-              { name: "Apple", models: "MacBook, iMac, Mac" },
-              { name: "Dell", models: "XPS, Latitude, Alienware" },
-              { name: "Lenovo", models: "ThinkPad, Legion, Yoga" },
-              { name: "HP", models: "Spectre, EliteBook, Omen" },
-              { name: "ASUS", models: "ZenBook, ROG, TUF" },
-              { name: "Microsoft", models: "Surface Pro, Laptop" },
-              { name: "MSI", models: "Stealth, Raider, Katana" },
-              { name: "Razer", models: "Blade Series (All Gen)" }
-            ].map((brand, i) => (
-              <div key={i} className="bg-white p-8 hover:bg-gray-50 transition-colors duration-300">
-                <h3 className="text-lg font-bold uppercase tracking-widest text-black mb-2">{brand.name}</h3>
-                <p className="text-sm text-gray-500 font-medium">{brand.models}</p>
-              </div>
-            ))}
-          </div>
-
-          {/* Bottom Trust Line */}
-          <div className="mt-16 text-center">
-            <p className="text-sm text-gray-600 italic">
-              "We maintain the highest standards of hardware integrity, using only 100% genuine components."
-            </p>
-          </div>
+    {/* Brand Grid */}
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      {[
+        { brand: "Apple", models: "MacBook Air/Pro (M1-M4), iMac, Mac mini" },
+        { brand: "Dell", models: "Inspiron, XPS, Latitude, Alienware" },
+        { brand: "Lenovo", models: "ThinkPad, IdeaPad, Yoga, Legion" },
+        { brand: "HP", models: "Pavilion, Envy, Spectre, Omen, Victus" },
+        { brand: "Acer", models: "Aspire, Swift, Nitro, Predator" },
+        { brand: "ASUS", models: "ZenBook, VivoBook, ROG, TUF" },
+        { brand: "Samsung", models: "Galaxy Book, Chromebook" },
+        { brand: "Microsoft", models: "Surface Pro, Laptop, Book, Go" },
+        { brand: "MSI", models: "Stealth, Raider, Katana, Modern" },
+        { brand: "Razer", models: "Razer Blade (All Gens)" },
+        { brand: "Google", models: "Pixelbook, Chromebook" },
+        { brand: "Huawei", models: "MateBook Series" },
+      ].map((item, index) => (
+        <div key={index} className="p-6 border border-gray-100 rounded-2xl bg-gray-50 hover:bg-red-50 hover:border-red-200 transition-all duration-300 group">
+          <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-red-600">{item.brand}</h3>
+          <p className="text-sm text-gray-600 leading-relaxed">{item.models}</p>
         </div>
-      </section>
+      ))}
+    </div>
 
+    {/* Call to Action */}
+    <div className="mt-16 text-center p-8 bg-gray-900 rounded-3xl text-white">
+      <h3 className="text-2xl font-bold mb-2">Don't see your brand?</h3>
+      <p className="text-gray-400 mb-6">We work on almost everything. Walk in or call us today!</p>
+      <button className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-xl font-bold transition-all">
+        Call Us Now
+      </button>
+    </div>
+  </div>
+</section>
 
       {/* ==================== REPAIR PROCESS SLIDER SECTION START ==================== */}
       <section className="py-24 bg-background relative overflow-hidden border-b border-border/50">
@@ -1839,164 +1965,207 @@ const Index = () => {
       {/* ==================== REPAIR PROCESS SLIDER SECTION END ==================== */}
 
 
-
-      {/* ==================== LAPTOP & COMPUTER SERVICES SECTION (BOLD & OPTIMIZED) ==================== */}
-<section className="py-12 bg-white border-b border-gray-100 w-full">
-  <div className="w-full px-4 md:px-8 lg:px-16">
-
-    {/* Header Content - Heading Bari Kar Di */}
-    <div className="max-w-3xl mb-12">
-      <span className="text-[11px] font-bold text-red-600 uppercase tracking-[0.2em] bg-red-50 px-4 py-1.5 rounded-full">
-        Our Specialist Services
-      </span>
-      <h2 className="text-3xl md:text-4xl font-black text-gray-950 mt-4 leading-[1.1]">
-        Laptop & Computer Repair <br />
-        <span className="text-red-600">Tottenham Court Road</span>
+{/* common prblems  */}
+<section className="py-20 bg-white">
+  <div className="container mx-auto px-4 lg:px-8">
+    <div className="text-center mb-16">
+      <h2 className="text-4xl font-extrabold text-foreground mb-4">
+        Common Problems We Fix Weekly
       </h2>
+      <p className="text-lg text-muted-foreground">
+        No guessing—just expert, component-level repairs.
+      </p>
     </div>
 
-    {/* Services Grid - Font size barha diya */}
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {/* 1. Screen */}
+      <div className="p-8 border border-gray-100 rounded-3xl bg-gray-50 hover:shadow-lg transition-all">
+        <h3 className="text-xl font-bold mb-3 text-red-600">Laptop Screen Replacement</h3>
+        <p className="text-gray-700 text-sm leading-relaxed">Cracked glass, lines, flickering, or dim images. Most screens £80–£200 fitted (MacBooks higher). Same-day service if in stock.</p>
+      </div>
+
+      {/* 2. Battery */}
+      <div className="p-8 border border-gray-100 rounded-3xl bg-gray-50 hover:shadow-lg transition-all">
+        <h3 className="text-xl font-bold mb-3 text-red-600">Battery & Power</h3>
+        <p className="text-gray-700 text-sm leading-relaxed">Won't charge, drains fast, or stuck at 80%. We fix battery wear or faulty charging circuits. Replacements: £60–£150.</p>
+      </div>
+
+      {/* 3. Charging Port */}
+      <div className="p-8 border border-gray-100 rounded-3xl bg-gray-50 hover:shadow-lg transition-all">
+        <h3 className="text-xl font-bold mb-3 text-red-600">Charging Port / DC Jack</h3>
+        <p className="text-gray-700 text-sm leading-relaxed">Charger wobbles or only works at odd angles? We desolder and fit new ports to prevent motherboard damage.</p>
+      </div>
+
+      {/* 4. Keyboard */}
+      <div className="p-8 border border-gray-100 rounded-3xl bg-gray-50 hover:shadow-lg transition-all">
+        <h3 className="text-xl font-bold mb-3 text-red-600">Keyboard & Trackpad</h3>
+        <p className="text-gray-700 text-sm leading-relaxed">Dead keys, sticky spills, or unresponsive trackpads. Includes MacBook butterfly/scissor switch repairs. Usually same-day.</p>
+      </div>
+
+      {/* 5. Liquid Damage */}
+      <div className="p-8 border border-gray-100 rounded-3xl bg-gray-50 hover:shadow-lg transition-all">
+        <h3 className="text-xl font-bold mb-3 text-red-600">Liquid Damage</h3>
+        <p className="text-gray-700 text-sm leading-relaxed">Switch off immediately! We ultrasonically clean boards to stop corrosion. Higher success rate if caught early.</p>
+      </div>
+
+      {/* 6. Motherboard */}
+      <div className="p-8 border border-gray-100 rounded-3xl bg-gray-50 hover:shadow-lg transition-all">
+        <h3 className="text-xl font-bold mb-3 text-red-600">Motherboard / Logic Board</h3>
+        <p className="text-gray-700 text-sm leading-relaxed">No power or random shutdowns? We diagnose component-level faults, saving you £300–£800 on full board replacements.</p>
+      </div>
+
+      {/* 7. Overheating */}
+      <div className="p-8 border border-gray-100 rounded-3xl bg-gray-50 hover:shadow-lg transition-all">
+        <h3 className="text-xl font-bold mb-3 text-red-600">Overheating & Fans</h3>
+        <p className="text-gray-700 text-sm leading-relaxed">Sounds like a hairdryer? Cleaning + repaste drops temps 15–25°C. Usually same-day.</p>
+      </div>
+
+      {/* 8. Performance/HDD */}
+      <div className="p-8 border border-gray-100 rounded-3xl bg-gray-50 hover:shadow-lg transition-all">
+        <h3 className="text-xl font-bold mb-3 text-red-600">Slow Laptop & HDD/SSD</h3>
+        <p className="text-gray-700 text-sm leading-relaxed">Fixing bottlenecks, malware, and slow OS. HDD to SSD upgrades turn a 90-second boot into 12 seconds!</p>
+      </div>
+
+      {/* 9. Hinge */}
+      <div className="p-8 border border-gray-100 rounded-3xl bg-gray-50 hover:shadow-lg transition-all">
+        <h3 className="text-xl font-bold mb-3 text-red-600">Hinge & Chassis</h3>
+        <p className="text-gray-700 text-sm leading-relaxed">Cracked hinges spread fast! Don't let a small crack turn into a £300 repair. Fix it early.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{/* what causes a laptop to fail */}
+<section className="py-20 bg-gray-50">
+  <div className="container mx-auto px-4 lg:px-8">
+    
+    {/* Heading Section */}
+    <div className="max-w-3xl mb-16">
+      <h2 className="text-4xl font-extrabold text-foreground mb-6">
+        What Causes a Laptop to Stop Working?
+      </h2>
+      <p className="text-xl text-muted-foreground">
+        After years of opening these things up, here’s the truth about why laptops fail. 
+        Knowing the cause is the first step to a lasting repair.
+      </p>
+    </div>
+
+    {/* Causes Grid */}
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
       {[
-        { title: "Laptop Repair", icon: "💻", desc: "Cracked screens, battery swaps, hinges & liquid damage." },
-        { title: "MacBook Specialist", icon: "🍎", desc: "M-Series & Intel logic boards, screen & storage upgrades." },
-        { title: "PC & Desktop", icon: "🖥️", desc: "Troubleshooting, no-power, boot loops & hardware faults." },
-        { title: "Gaming Systems", icon: "🎮", desc: "GPU reflow, high-grade thermal paste & cooling fans." },
-        { title: "SSD & RAM", icon: "🚀", desc: "Fast upgrades: 90s boot times down to 12 seconds." },
-        { title: "Data Recovery", icon: "🔒", desc: "Failed drives, malware removal & secure file recovery." }
-      ].map((item, idx) => (
-        <div key={idx} className="p-6 rounded-2xl bg-gray-50 border border-gray-100 hover:border-red-400 hover:shadow-lg transition-all duration-300">
-          <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center text-xl mb-5 border border-gray-100 shadow-sm">
-            {item.icon}
+        { title: "Excessive Heat", desc: "Dust clogs fans and thermal paste dries out, causing components to degrade." },
+        { title: "Old Batteries", desc: "Lithium-ion cells naturally lose capacity after 3–4 years and may start to swell." },
+        { title: "Liquid Spills", desc: "Even a tiny splash can cause hidden corrosion that destroys the board over weeks." },
+        { title: "Damaged Ports", desc: "Repeatedly yanking the charging cable creates internal stress and connectivity issues." },
+        { title: "Failing Storage", desc: "HDDs wear out mechanically, while SSDs eventually reach their electrical write-limit." },
+        { title: "Hinge Damage", desc: "Small cracks in the chassis spread rapidly, eventually separating the screen from the base." },
+        { title: "Malware & Software", desc: "Bad code slows performance and can corrupt your OS, making it feel 'dead'." },
+        { title: "Power Surges", desc: "Using cheap, non-certified chargers can send harmful spikes that fry your motherboard." },
+        { title: "Drops & Impacts", desc: "Even a minor fall can crack delicate internal solder joints, causing random failures." },
+      ].map((item, index) => (
+        <div key={index} className="bg-white p-8 rounded-3xl border border-gray-200 shadow-sm hover:border-red-500 transition-all group">
+          <div className="w-10 h-10 bg-red-100 text-red-600 rounded-full flex items-center justify-center font-bold mb-4 group-hover:bg-red-600 group-hover:text-white transition-colors">
+            {index + 1}
           </div>
-          <h3 className="font-extrabold text-base text-gray-950 mb-2">{item.title}</h3>
-          <p className="text-xs font-medium text-gray-600 leading-relaxed">
-            {item.desc}
-          </p>
+          <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+          <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
         </div>
       ))}
     </div>
 
-    {/* Footer Info Bar */}
-    <div className="mt-10 p-6 rounded-2xl border border-red-100 bg-red-50/50 flex flex-col sm:flex-row justify-between items-center gap-4">
-      <p className="text-xs font-semibold text-gray-800">
-        <strong className="text-gray-950">Business Services:</strong> Bulk repair, priority turnaround & direct invoicing for agencies.
+  </div>
+</section>
+
+{/* why you need professional repair */}
+<section className="py-20 bg-white">
+  <div className="container mx-auto px-4 lg:px-8">
+    
+    <div className="text-center max-w-3xl mx-auto mb-16">
+      <h2 className="text-4xl font-extrabold text-foreground mb-6">
+        Professional Repair vs. DIY
+      </h2>
+      <p className="text-lg text-gray-600">
+        Expert guidance to help you decide when to fix it yourself, and when to bring it to the pros.
       </p>
-      <a href="#contact" className="text-[11px] font-bold px-6 py-3 bg-red-600 text-white rounded-xl hover:bg-red-700 transition-all shadow-md shadow-red-200 whitespace-nowrap">
-        Ask About Agreements
-      </a>
+    </div>
+
+    <div className="grid md:grid-cols-2 gap-8 mb-20">
+      {/* DIY Section */}
+      <div className="p-8 border border-green-200 bg-green-50 rounded-3xl">
+        <h3 className="text-xl font-bold text-green-700 mb-4">✅ Safe to Do Yourself</h3>
+        <ul className="space-y-3 text-gray-700">
+          <li>• Restart your device</li>
+          <li>• Try a different charger</li>
+          <li>• Run malware scans</li>
+          <li>• Free up storage space</li>
+          <li>• Update your Operating System</li>
+          <li>• Test on an external monitor</li>
+          <li>• Back up your important files</li>
+          <li>• Gentle keyboard cleaning</li>
+        </ul>
+      </div>
+
+      {/* Pro Section */}
+      <div className="p-8 border border-red-200 bg-red-50 rounded-3xl">
+        <h3 className="text-xl font-bold text-red-700 mb-4">🛠️ Leave to Technicians</h3>
+        <ul className="space-y-3 text-gray-700">
+          <li>• Opening the laptop casing</li>
+          <li>• Battery or screen replacement</li>
+          <li>• Liquid damage remediation</li>
+          <li>• Complex motherboard work</li>
+          <li>• Professional data recovery</li>
+        </ul>
+        <p className="mt-6 text-sm text-red-800 font-medium italic">
+          *Pro-Tip: Wrong diagnosis leads to the wrong part, wasted money, and further damage.
+        </p>
+      </div>
+    </div>
+
+    {/* Decision Table */}
+    <div className="max-w-4xl mx-auto">
+      <h3 className="text-3xl font-bold mb-8 text-center">Should You Repair or Buy New?</h3>
+      <div className="overflow-hidden rounded-3xl border border-gray-200">
+        <table className="w-full text-left">
+          <thead className="bg-gray-100">
+            <tr>
+              <th className="p-5 font-bold">Situation</th>
+              <th className="p-5 font-bold">Our Honest Recommendation</th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-gray-200">
+            {[
+              { s: "Broken screen on a good laptop", r: "Repair — usually £80–£200" },
+              { s: "Slow laptop with old HDD", r: "SSD Upgrade — best value upgrade" },
+              { s: "Battery no longer holds charge", r: "Battery replacement — £60–£150" },
+              { s: "Severe motherboard damage (7+ yrs old)", r: "Replace — costs exceed value" },
+              { s: "Important data on failing drive", r: "Diagnose first — data priority" },
+              { s: "Laptop under 4 years old", r: "Almost always worth repairing" },
+              { s: "Repair cost > 60–70% of new", r: "Consider replacement" },
+              { s: "Liquid damage (High-spec)", r: "Free diagnosis — often saveable" },
+            ].map((row, i) => (
+              <tr key={i} className="hover:bg-gray-50 transition-colors">
+                <td className="p-5 text-gray-700">{row.s}</td>
+                <td className="p-5 font-bold text-red-600">{row.r}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p className="text-center mt-8 text-gray-500 font-medium">
+        We'll never push a repair that doesn't make sense. If buying new is the better call, we'll say so.
+      </p>
     </div>
 
   </div>
 </section>
 
 
-      {/* ==================== WHY LAPTOPS FAIL - GRID SECTION ==================== */}
-      <section className="py-20 bg-muted/30 border-y border-border/50">
 
-        <div className="container mx-auto px-4 mb-12 text-center">
-          <span className="text-xs font-black text-red-500 uppercase tracking-[0.2em] bg-red-500/10 px-4 py-1 rounded-full">
-            The Engineering Reality
-          </span>
-          <h2 className="text-3xl md:text-5xl font-black mt-6 tracking-tight">Why Laptops Actually Fail</h2>
-        </div>
 
-        {/* Clean Grid Layout - No Slider, No Duplicates */}
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full max-w-6xl mx-auto">
-            {[
-              { icon: "🔥", title: "Excessive Heat", desc: "Dust clogs cooling, thermal paste dries out, causing critical degradation." },
-              { icon: "🔋", title: "Aging Batteries", desc: "Cells lose capacity over 3-4 years, risking internal gas buildup." },
-              { icon: "💧", title: "Liquid Spills", desc: "Even a tiny splash silently corrodes motherboard traces over weeks." },
-              { icon: "🔌", title: "Damaged Ports", desc: "Yanking cables breaks delicate internal solder pads. We fit new jacks." },
-              { icon: "💾", title: "Failing Drive", desc: "Mechanical HDDs wear down; SSDs wear out electrically. Backup now." },
-              { icon: "🗜️", title: "Hinge Damage", desc: "Minor structural cracks spread, ripping screens from the base." },
-              { icon: "🦠", title: "Malware/Bloat", desc: "Background processes mimic hardware failure and bloat system OS." },
-              { icon: "⚡", title: "Power Surges", desc: "Non-certified chargers send unstable ripples, killing board rails." },
-              // { icon: "🛠️", title: "Structural Impact", desc: "Small falls crack micro-solder joints beneath the main chips." }
-            ].map((item, idx) => (
-              <div
-                key={idx}
-                className="w-full p-6 rounded-2xl bg-card border border-border hover:border-red-500/50 transition-all shadow-sm flex flex-col items-center text-center"
-              >
-                <div className="text-4xl mb-4">{item.icon}</div>
-                <h3 className="font-bold text-sm mb-2">{item.title}</h3>
-                <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-      {/* ==================== WHY LAPTOPS FAIL - END ==================== */}
+     
 
-      {/* ==================== DIY VS REPAIR & DECISION MATRIX (UPDATED FONT) ==================== */}
-      <section className="py-10 bg-card/30 relative overflow-hidden">
-        <div className="container mx-auto px-4 max-w-6xl">
-
-          {/* Section Header */}
-          <div className="text-center mb-8">
-            <span className="text-[11px] font-black text-red-500 uppercase tracking-[0.2em] bg-red-500/10 px-4 py-1 rounded-full">
-              Decision Matrix
-            </span>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-foreground mt-4 tracking-tight">
-              DIY or Professional? <span className="text-red-500">Decide Smartly.</span>
-            </h2>
-          </div>
-
-          {/* Split Cards */}
-          <div className="grid md:grid-cols-2 gap-8 mb-8">
-
-            {/* Safe to DIY */}
-            <div className="p-6 rounded-2xl bg-background border border-emerald-500/20 shadow-sm">
-              <h3 className="text-base font-bold mb-2">Safe to DIY</h3>
-              <p className="text-xs text-muted-foreground mb-4">Start with these steps before visiting the lab.</p>
-              <div className="flex flex-wrap gap-2">
-                {["Restart", "Change Charger", "Scan Malware", "Clear Cache", "Check Updates"].map((item) => (
-                  <span key={item} className="px-3 py-1 text-[11px] font-bold bg-emerald-500/10 text-emerald-600 rounded-full">{item}</span>
-                ))}
-              </div>
-            </div>
-
-            {/* Leave to Pros */}
-            <div className="p-6 rounded-2xl bg-background border border-red-500/20 shadow-sm">
-              <h3 className="text-base font-bold mb-2">Leave to Pros</h3>
-              <p className="text-xs text-muted-foreground mb-4">Don't risk your hardware with trial-and-error.</p>
-              <div className="flex flex-wrap gap-2">
-                {["Micro-soldering", "Liquid Damage", "Hinge Repair", "Data Recovery"].map((item) => (
-                  <span key={item} className="px-3 py-1 text-[11px] font-bold bg-red-500/10 text-red-500 rounded-full">{item}</span>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Matrix Grid */}
-          <div className="max-w-5xl mx-auto">
-            <h3 className="text-lg font-bold mb-4">Repair vs Replace: The Logic</h3>
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-              {[
-                { sit: "Screen Break", action: "Repair", desc: "Worth it if <5 yrs old." },
-                { sit: "Slow System", action: "SSD Upgrade", desc: "Instant performance boost." },
-                { sit: "Motherboard", action: "Replace", desc: "If repair > 60% value." },
-                { sit: "Liquid Spill", action: "Urgent Fix", desc: "Stop! Flush now." }
-              ].map((item, i) => (
-                // Line 2009: Card wrapper
-                <div key={i} className="p-8 rounded-2xl bg-card border border-border flex flex-col justify-center">
-
-                  {/* Line 2010: Label */}
-                  <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider">{item.sit}</p>
-
-                  {/* Line 2011: Main Action */}
-                  <h4 className="font-black text-lg my-2">{item.action}</h4>
-
-                  {/* Line 2012: Description */}
-                  <p className="text-sm text-muted-foreground leading-normal">{item.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
+     
       {/* ==================== CYBER LAB TOOLS & RETAIL HUB START ==================== */}
       <section className="py-24 bg-background relative overflow-hidden border-b border-border/50">
 
@@ -2049,75 +2218,12 @@ const Index = () => {
             </div>
           </section>
 
-         {/* ==================== COMMON ISSUES & SERVICES SECTION (ENLARGED) ==================== */}
-<section className="py-24 bg-background w-full">
-  <div className="container mx-auto px-6 max-w-7xl">
-
-    {/* Section 1: Common Issues We Master */}
-    <div className="mb-20">
-      <div className="text-center mb-12">
-        <span className="text-xs font-bold text-red-500 uppercase tracking-[0.2em] bg-red-50 px-6 py-2 rounded-full">
-          Diagnostic Lab Services
-        </span>
-        <h2 className="text-5xl font-black text-foreground mt-6">Common Issues We Master</h2>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {[
-          { title: "Screen Replacement", price: "From £80", desc: "Cracked glass, lines, or flickering." },
-          { title: "Battery Replacement", price: "From £60", desc: "Fast drainage or won't hold charge." },
-          { title: "Charging Port Fix", price: "Expert Level", desc: "Loose DC jacks or USB-C ports." },
-          { title: "Keyboard/Trackpad", price: "OEM Parts", desc: "Spill damage or unresponsive keys." },
-          { title: "Liquid Recovery", price: "Urgent", desc: "Professional ultrasonic cleaning." },
-          { title: "Motherboard Repair", price: "Logic Board", desc: "Micro-soldering and no-power." },
-          { title: "Overheating/Fans", price: "15-25°C Drop", desc: "Deep cleaning/repasting." },
-          { title: "SSD Upgrades", price: "Speed Boost", desc: "Faster boot and data recovery." },
-          { title: "Hinge Repair", price: "Structural", desc: "Fixing chassis and hinge cracks." }
-        ].map((item, idx) => (
-          <button key={idx} className="border border-border p-8 flex flex-col items-center text-center hover:border-red-500 hover:bg-red-50/50 transition-all w-full rounded-2xl shadow-sm">
-            <span className="text-xs font-bold uppercase text-red-500 mb-2 tracking-wider">{item.price}</span>
-            <h3 className="text-lg font-black text-foreground mb-2">{item.title}</h3>
-            <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
-          </button>
-        ))}
-      </div>
-    </div>
-
-    {/* Section 2: Expert Technical Services */}
-    <div className="border-t border-border pt-20">
-      <div className="text-center mb-12">
-        <h2 className="text-5xl font-black text-foreground">Expert Technical Services</h2>
-        <p className="text-muted-foreground text-lg mt-4">Professional diagnostics for your laptop, desktop & gaming rig.</p>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {[
-          { title: "Laptop & MacBook", items: ["All Brands (Apple, Dell, HP, etc.)", "Logic Board Repair (M1-M4)", "Swollen Battery Swap", "Screen & Hinge Fix"] },
-          { title: "Gaming & PC", items: ["Thermal/Fan Servicing", "GPU Reflow & Overclocking", "Boot Loops & Power Faults", "ROG, Alienware, MSI Expert"] },
-          { title: "Data & Software", items: ["Emergency Data Recovery", "Malware & Virus Cleanup", "Clean OS Install", "System Migration"] },
-          { title: "Upgrades & B2B", items: ["HDD to SSD Upgrades", "RAM Expansion", "Bulk Business Repair", "Account Invoicing"] }
-        ].map((category, idx) => (
-          <div key={idx} className="p-8 rounded-3xl border border-border bg-card">
-            <h3 className="font-black text-xs text-red-500 mb-6 uppercase tracking-[0.2em]">{category.title}</h3>
-            <ul className="space-y-4 text-sm text-muted-foreground">
-              {category.items.map((item, i) => (
-                <li key={i} className="flex gap-3 items-center">
-                  <span className="text-emerald-500 font-bold">✓</span> {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
-    </div>
-
-  </div>
-</section>
+       
 
           {/* ==================== PART 2: THE MODERN RETAIL HUB ==================== */}
           <div>
             {/* Main Title Head */}
-            <div className="max-w-3xl mx-auto text-center mb-16">
+            {/* <div className="max-w-3xl mx-auto text-center mb-16">
               <span className="text-xs font-bold text-emerald-500 uppercase tracking-widest bg-emerald-50 dark:bg-emerald-950/20 px-3 py-1 rounded-md">
                 Walk In Anytime
               </span>
@@ -2128,41 +2234,41 @@ const Index = () => {
               <p className="text-xs md:text-sm text-muted-foreground mt-2 max-w-md mx-auto">
                 Drop by our storefront for premium tech upgrades, hybrid office setups, and fast travel fixes.
               </p>
-            </div>
+            </div> */}
 
             {/* Clean Split Showcase Grid */}
             <div className="grid md:grid-cols-2 gap-4 max-w-5xl mx-auto">
               {[
-                {
-                  category: "Laptop & PC Accessories",
-                  icon: "💻",
-                  items: "USB-C multi-hubs, ergonomic laptop stands, active cooling pads, high-res webcams, and comprehensive docking stations for hybrid home-office working setups."
-                },
-                {
-                  category: "Keyboards & Mice",
-                  icon: "⌨️",
-                  items: "Official Logitech, Keychron, and Apple peripherals. Reliable budget options for daily tasks alongside gaming mechanical setups for heavy typists."
-                },
-                {
-                  category: "Audio, Video & Cables",
-                  icon: "🔌",
-                  items: "High-speed HDMI 2.1, DisplayPort cables, multi-protocol USB-C to HDMI adapters, legacy VGA conversions, and robust multi-port converter adapters."
-                },
-                {
-                  category: "Headphones & Earphones",
-                  icon: "🎧",
-                  items: "Budget wired earphones for £10, premium wireless Bluetooth earbuds, studio headsets, and active noise-cancelling tech built for the noisy Tube commute."
-                },
-                {
-                  category: "Power Banks & UK Adapters",
-                  icon: "🇬🇧",
-                  items: "Perfect for tourists! Verified UK plug adapters straight off the Elizabeth Line. Honest, strictly rated power capacities (no fake 50,000mAh claims)."
-                },
-                {
-                  category: "Mobile & Storage Media",
-                  icon: "📸",
-                  items: "Drop-proof cases, tempered glass, fast chargers, MagSafe gear, premium Lightning lines, and ultra-speed SD/microSD cards with multi-adapters."
-                }
+                // {
+                //   category: "Laptop & PC Accessories",
+                //   icon: "💻",
+                //   items: "USB-C multi-hubs, ergonomic laptop stands, active cooling pads, high-res webcams, and comprehensive docking stations for hybrid home-office working setups."
+                // },
+                // {
+                //   category: "Keyboards & Mice",
+                //   icon: "⌨️",
+                //   items: "Official Logitech, Keychron, and Apple peripherals. Reliable budget options for daily tasks alongside gaming mechanical setups for heavy typists."
+                // },
+                // {
+                //   category: "Audio, Video & Cables",
+                //   icon: "🔌",
+                //   items: "High-speed HDMI 2.1, DisplayPort cables, multi-protocol USB-C to HDMI adapters, legacy VGA conversions, and robust multi-port converter adapters."
+                // },
+                // {
+                //   category: "Headphones & Earphones",
+                //   icon: "🎧",
+                //   items: "Budget wired earphones for £10, premium wireless Bluetooth earbuds, studio headsets, and active noise-cancelling tech built for the noisy Tube commute."
+                // },
+                // {
+                //   category: "Power Banks & UK Adapters",
+                //   icon: "🇬🇧",
+                //   items: "Perfect for tourists! Verified UK plug adapters straight off the Elizabeth Line. Honest, strictly rated power capacities (no fake 50,000mAh claims)."
+                // },
+                // {
+                //   category: "Mobile & Storage Media",
+                //   icon: "📸",
+                //   items: "Drop-proof cases, tempered glass, fast chargers, MagSafe gear, premium Lightning lines, and ultra-speed SD/microSD cards with multi-adapters."
+                // }
               ].map((shop, sIdx) => (
                 <div
                   key={sIdx}
@@ -2186,109 +2292,24 @@ const Index = () => {
                     </p>
                   </div>
                 </div>
+              
               ))}
             </div>
 
             {/* Quick Informative Bottom Bar */}
-            <div className="mt-12 text-center">
+            {/* <div className="mt-12 text-center">
               <span className="inline-flex items-center gap-2 text-xs font-mono text-muted-foreground bg-muted/50 border border-border px-4 py-2 rounded-xl">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
                 Need something specific? Walk in directly—we are fully stocked weekly.
               </span>
-            </div>
+            </div> */}
 
           </div>
         </div>
       </section>
       {/* ==================== CYBER LAB TOOLS & RETAIL HUB END ==================== */}
 
-    {/* ==================== WHY LOCALS RECOMMEND US (BALANCED & RESPONSIVE) ==================== */}
-<section className="py-16 bg-background w-full overflow-hidden">
-  <div className="w-full px-6 md:px-12 max-w-7xl mx-auto">
-
-    {/* Header */}
-    <div className="mb-10">
-      <h2 className="text-3xl md:text-5xl font-black text-foreground tracking-tight leading-tight">
-        Why We're the Electronics Shop <br />
-        <span className="text-red-500">Locals Actually Recommend</span>
-      </h2>
-      <p className="text-sm md:text-base text-muted-foreground mt-3 max-w-xl">
-        Repairs are 60% of what we do. The other 40% is the shop itself.
-      </p>
-    </div>
-
-    {/* Grid Items */}
-    <div className="mb-8">
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-        {[
-          "Laptop Chargers", "Cables", "UK Adapters",
-          "Power Banks", "Keyboards & Mice", "SSDs/HDDs",
-          "Headphones", "Cases & Glass", "Networking Gear"
-        ].map((item, i) => (
-          <div key={i} className="flex items-center gap-3 p-4 bg-card rounded-xl border border-border/60 hover:border-red-500/30 transition-all">
-            <span className="text-emerald-500 text-[10px]">✓</span>
-            <span className="text-xs md:text-sm font-semibold text-foreground">{item}</span>
-          </div>
-        ))}
-      </div>
-    </div>
-
-    {/* Bottom Cards */}
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <div className="p-6 rounded-2xl bg-foreground text-background">
-        <h3 className="font-bold text-base mb-1">Prices That Make Sense</h3>
-        <p className="text-xs text-gray-400">Reasonable pricing for locals & students.</p>
-      </div>
-      <div className="p-6 rounded-2xl bg-red-500/10 border border-red-500/20">
-        <h3 className="font-bold text-base text-foreground mb-1">Quick Visits</h3>
-        <p className="text-xs text-muted-foreground">Meeting in 20 mins? Walk in & walk out.</p>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-      {/* ==================== WHAT CAUSES A LAPTOP TO STOP WORKING? (CLEAN & SIMPLE) ==================== */}
-<section className="py-14 bg-background w-full overflow-hidden border-t border-border/90">
-  <div className="w-full px-6 max-w-6xl mx-auto">
-
-    {/* Header */}
-    <div className="mb-10 text-center md:text-left">
-      <h2 className="text-3xl md:text-4xl font-black text-foreground">What Causes a Laptop to Stop Working?</h2>
-      <p className="text-sm text-muted-foreground mt-3">After years of opening these things up, here's the truth about why laptops fail:</p>
-    </div>
-
-    {/* Issues Grid */}
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
-      {[
-        { t: "Heat Issues", d: "Dust, dry thermal paste, hot CPU/GPU." },
-        { t: "Old Batteries", d: "Lithium cells lose capacity and swell." },
-        { t: "Liquid Spills", d: "Small splashes corrode the board." },
-        { t: "Charging Ports", d: "Yanking cables cracks the port." },
-        { t: "Failing Storage", d: "HDDs wear out; SSDs fail." },
-        { t: "Hinge Damage", d: "Small cracks spread to frame." },
-        { t: "Malware/Software", d: "System bloat and corruption." },
-        { t: "Power Surges", d: "Cheap chargers fry the board." },
-        { t: "Drops & Impacts", d: "Cracks internal solder joints." }
-      ].map((fail, i) => (
-        <div key={i} className="p-5 rounded-2xl bg-card border border-border/60 hover:border-red-500/50 transition-all flex items-start gap-4">
-          <div className="text-lg mt-0.5">⚠️</div>
-          <div>
-            <h4 className="font-bold text-sm text-foreground">{fail.t}</h4>
-            <p className="text-xs text-muted-foreground mt-1 leading-relaxed">{fail.d}</p>
-          </div>
-        </div>
-      ))}
-    </div>
-
-    {/* Footer CTA */}
-    <div className="p-8 bg-foreground text-background rounded-2xl text-center">
-      <h4 className="text-lg font-bold">Seeing these signs?</h4>
-      <p className="text-sm opacity-90 mt-2 max-w-lg mx-auto">Don't wait for failure. A quick professional service prevents a costly motherboard repair.</p>
-    </div>
-
-  </div>
-</section>
+  
 
       {/* ==================== FINAL BOOK YOUR REPAIR CTA (UNIFIED UI) ==================== */}
       <section className="py-14 bg-background w-full">
