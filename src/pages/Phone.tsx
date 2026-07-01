@@ -1,134 +1,1994 @@
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import { motion } from "framer-motion";
+import { fadeUp, staggerContainer } from "./Index";
+import { Button } from "../components/ui/button";
+import { useState } from "react";
+import {
+  ArrowRight,
+  MapPin,
+  Phone as PhoneIcon,
+  MessageCircle,
+  CalendarDays,
+  Clock3,
+  Plus,
+  Minus,
+} from "lucide-react";
 import { Link } from "react-router-dom";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
-const Phone = () => {
-  const services = [
+export default function Phone() {
+  const [openFAQ, setOpenFAQ] = useState<number | null>();
+
+  const phoneFaqs = [
     {
-      ServiceName: "Screen Replacement",
-      Description:
-        "We replace broken or damaged mobile screens with high-quality original or compatible displays for all major smartphone brands.",
-      icon: "📱",
+      question:
+        "Is there an affordable phone repair shop on Tottenham Court Road?",
+      answer:
+        "Yes, that's us. We price repairs fairly. No hidden charges. Upfront quotes on everything. We're not the cheapest on the market, but we're not expensive either. We're competitive and transparent.",
     },
     {
-      ServiceName: "Battery Replacement",
-      Description:
-        "We install new batteries to fix fast draining, overheating, or low backup issues in smartphones.",
-      icon: "🔋",
+      question: "How quick is your phone repair service really?",
+      answer:
+        "Most repairs take 30 to 60 minutes. Screen replacements, battery swaps, charging port fixes — typically done while you wait. Some jobs take longer, like water damage recovery or logic board repairs. We'll tell you the timeline upfront before you commit.",
     },
     {
-      ServiceName: "Charging Port Repair",
-      Description:
-        "We repair or replace faulty charging ports to fix charging issues and loose connections.",
-      icon: "🔌",
+      question:
+        "Do you repair Samsung and Google Pixel phones as well as iPhones?",
+      answer:
+        "Absolutely. Samsung Galaxy phones, Google Pixel devices, and pretty much any major brand. iPhone is common, but we're experienced across the board. Whatever phone you've got, we can usually help.",
     },
     {
-      ServiceName: "Speaker & Microphone Repair",
-      Description:
-        "We fix speaker and microphone problems including low sound, no sound, or call voice issues.",
-      icon: "🔊",
+      question: "Do you fix Chinese phone brands?",
+      answer:
+        "Yes. OnePlus, Xiaomi, Oppo, Huawei — we've worked on them. We might need to source parts for less common models, but we don't turn people away based on brand.",
     },
     {
-      ServiceName: "Camera Repair",
-      Description:
-        "We repair front and rear camera issues like blur images, camera not opening, or hardware failure.",
-      icon: "📷",
+      question: "Are your replacement parts actually genuine?",
+      answer:
+        "For screens and batteries, we use genuine or OEM-equivalent components. That means proper quality, proper longevity. Not counterfeit. Not knock-offs. The real deal.",
     },
     {
-      ServiceName: "Water Damage Repair",
-      Description:
-        "We clean and repair water-damaged phones to recover and restore device functionality.",
-      icon: "💧",
+      question: "Can you recover my data if my phone is water-damaged?",
+      answer:
+        "Possibly. Water damage recovery is complex. Sometimes we can dry out the device and it works fine. Sometimes the data survives but the phone doesn't. Sometimes both are lost. It depends on how quickly you bring it in and what actually got damaged. Best approach: bring it in immediately if it gets wet.",
     },
     {
-      ServiceName: "Software Update & Flashing",
-      Description:
-        "We update or reinstall mobile software to fix bugs, lag, hanging, or system errors.",
-      icon: "⚙️",
+      question: "What warranty do you offer on repairs?",
+      answer:
+        "We provide a full warranty on every repair we complete. That covers the work and the parts we install. If something goes wrong within the warranty period, we fix it. The specific length depends on the repair, and we explain it when you pick up your phone.",
     },
     {
-      ServiceName: "FRP Lock Removal",
-      Description:
-        "We safely remove Google FRP lock or forgotten screen lock issues from Android devices.",
-      icon: "🔓",
-    },
-    {
-      ServiceName: "Virus Removal",
-      Description:
-        "We remove malware and harmful apps to improve mobile speed and security.",
-      icon: "🦠",
-    },
-    {
-      ServiceName: "Network Issue Repair",
-      Description:
-        "We fix SIM detection issues, no signal problems, and mobile network errors.",
-      icon: "📶",
-    },
-    {
-      ServiceName: "Motherboard Repair",
-      Description:
-        "Advanced repair for dead or severely damaged phones at the motherboard level.",
-      icon: "🧠",
-    },
-    {
-      ServiceName: "Data Recovery",
-      Description:
-        "We recover lost or deleted photos, videos, contacts, and other important data.",
-      icon: "🔄",
+      question: "Do you handle software issues or just hardware?",
+      answer:
+        "Mostly hardware. We can help with basic software troubleshooting. If your phone is frozen or slow, we'll look at it. But major software repairs — data recovery from corrupted files, or extensive debugging — those aren't our primary service. We'll give you honest advice about whether it's something we can help with.",
     },
   ];
 
   return (
-    <div className="bg-white">
+    <div className="min-h-screen bg-background overflow-hidden">
       <Navbar />
+      <section
+        id="hero"
+        className="relative xl:min-h-screen flex items-center pt-32 overflow-hidden"
+      >
+        {/* Background */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-red-50" />
+          <div className="absolute top-20 right-0 w-[500px] h-[500px] rounded-full bg-red-500/10 blur-3xl" />
+          <div className="absolute bottom-10 left-0 w-[350px] h-[350px] rounded-full bg-red-300/10 blur-3xl" />
+        </div>
 
-      {/* Heading */}
-      <div className="text-center mt-24 px-4">
-        <h1 className="text-3xl md:text-4xl font-bold text-red-600">
-          Phone Repair Services
-        </h1>
-        <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
-          We offer expert phone repair services for all major brands. Whether
-          it's a cracked screen, battery replacement, or water damage, our
-          skilled technicians have you covered.
-        </p>
-      </div>
-
-      {/* Services Grid */}
-      <div className="mt-12 px-4 md:px-10 lg:px-20 pb-16">
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {services.map((service, index) => (
-            <div
-              key={index}
-              className="bg-white border border-red-100 rounded-2xl p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col"
+        <div className="container mx-auto px-4 lg:px-8 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Left */}
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={staggerContainer}
             >
-              {/* Icon */}
-              <div className="text-4xl mb-4">{service.icon}</div>
+              <motion.h1
+                variants={fadeUp}
+                custom={1}
+                className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
+              >
+                <span className="bg-gradient-to-r from-red-500 via-red-600 to-red-700 bg-clip-text text-transparent">
+                  Mobile Phone Repair
+                </span>
+                <br />
+                Tottenham Court Road London
+              </motion.h1>
 
-              {/* Title */}
-              <h3 className="text-lg font-semibold text-gray-800 mb-2">
-                {service.ServiceName}
+              <motion.p
+                variants={fadeUp}
+                custom={2}
+                className="mt-6 text-lg text-muted-foreground max-w-xl leading-8"
+              >
+                Fast repairs by certified technicians for all major smartphone
+                brands. Whether it's a cracked screen, battery replacement,
+                charging issue or water damage, most repairs are completed in
+                just <strong>30–60 minutes.</strong>
+              </motion.p>
+
+              {/* Trust Cards */}
+              {/* <motion.div
+              variants={fadeUp}
+              custom={3}
+              className="mt-8 grid grid-cols-2 gap-4"
+            >
+              <div className="rounded-2xl border bg-white shadow-sm hover:shadow-lg transition p-5">
+                <div className="text-3xl mb-3">⭐</div>
+                <h4 className="font-semibold">Google Rated</h4>
+              </div>
+
+              <div className="rounded-2xl border bg-white shadow-sm hover:shadow-lg transition p-5">
+                <div className="text-3xl mb-3">💷</div>
+                <h4 className="font-semibold">Affordable Pricing</h4>
+              </div>
+
+              <div className="rounded-2xl border bg-white shadow-sm hover:shadow-lg transition p-5">
+                <div className="text-3xl mb-3">⏱</div>
+                <h4 className="font-semibold">Repairs in 30–60 Minutes</h4>
+              </div>
+
+              <div className="rounded-2xl border bg-white shadow-sm hover:shadow-lg transition p-5">
+                <div className="text-3xl mb-3">📱</div>
+                <h4 className="font-semibold">All Major Brands Supported</h4>
+              </div>
+            </motion.div> */}
+
+              <motion.ul
+                variants={fadeUp}
+                custom={2.5}
+                className="mt-6 grid grid-cols-2 gap-4 text-sm font-semibold text-gray-700"
+              >
+                <li>⭐ Google Rated</li>
+                <li>📍 Affordable Pricing</li>
+                <li>⏱ Most Repairs in 30–60 Minutes </li>
+                <li>📱 All Major Brands Supported</li>
+              </motion.ul>
+
+              {/* Buttons */}
+
+              <motion.div
+                variants={fadeUp}
+                custom={4}
+                className="mt-10 flex flex-wrap gap-4"
+              >
+                <Link to="/book">
+                  <Button
+                    size="lg"
+                    className="rounded-full bg-red-600 hover:bg-red-700 px-8 h-14"
+                  >
+                    Book a Repair
+                    <ArrowRight className="ml-2 w-5 h-5" />
+                  </Button>
+                </Link>
+
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="rounded-full border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white h-14 px-8"
+                >
+                  Call Now
+                </Button>
+              </motion.div>
+            </motion.div>
+
+            {/* Right */}
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, x: 50 }}
+              animate={{ opacity: 1, scale: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="relative"
+            >
+              <div className="overflow-hidden rounded-3xl shadow-2xl">
+                <img
+                  src="/phone-hero.png"
+                  alt="Mobile Phone Repair Tottenham Court Road"
+                  className="w-full h-[550px] object-cover"
+                />
+              </div>
+
+              {/* Floating Card */}
+
+              <div className="absolute bottom-6 left-8 bg-white rounded-2xl shadow-xl px-4 py-3">
+                <h3 className="text-2xl font-bold text-red-600">30–60 Min</h3>
+
+                <p className="text-xs text-gray-500">Most Repairs Completed</p>
+              </div>
+
+              {/* Floating Rating */}
+
+              {/* <div className="absolute top-8 right-8 bg-white rounded-2xl shadow-xl px-5 py-4">
+              <div className="flex items-center gap-2">
+                <span className="text-yellow-500 text-xl">★★★★★</span>
+              </div>
+
+              <p className="font-semibold">Google Rated</p>
+            </div> */}
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-0 lg:py-0 bg-white">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-14 items-center">
+            {/* Content */}
+            {/* <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={staggerContainer}
+            >
+              <motion.h2
+                variants={fadeUp}
+                className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-foreground"
+              >
+                Your Phone's Broken and You Need It Fixed Today
+                <br />
+                <span className="bg-gradient-to-r from-red-500 via-red-600 to-red-700 bg-clip-text text-transparent">
+                  Here's What We Do
+                </span>
+              </motion.h2>
+
+              <motion.p
+                variants={fadeUp}
+                className="mt-8 text-lg leading-8 text-muted-foreground"
+              >
+                Look, we get it. Your phone screen just shattered. Or maybe it
+                won't charge anymore. Or worse, it took a dive into your coffee.
+                The panic is real. You're thinking about the cost, the time
+                without your device, whether the data's actually gone. Between
+                you and me, that's exactly what we hear every single day walking
+                into our repair centre on Tottenham Court Road.
+              </motion.p>
+
+              <motion.p
+                variants={fadeUp}
+                className="mt-6 text-lg leading-8 text-muted-foreground"
+              >
+                Here's the thing though: you don't need to panic. A broken phone
+                doesn't have to mean replacing the entire device or waiting two
+                weeks for a manufacturer repair. We fix phones — all kinds of
+                phones — quickly, affordably, and properly. We're talking
+                same-day service on most repairs, genuine parts, certified
+                technicians, and no hidden fees sneaking onto your bill. This is
+                what we do. This is what we've been doing for years right here
+                in the heart of Central London.
+              </motion.p>
+
+              <motion.p
+                variants={fadeUp}
+                className="mt-6 text-lg leading-8 text-muted-foreground"
+              >
+                If you're looking for a trusted mobile phone repair shop on
+                Tottenham Court Road, you've landed in the right place. Keep
+                reading. We'll walk you through exactly how we work, what we
+                fix, and why choosing us makes sense.
+              </motion.p>
+            </motion.div> */}
+
+            {/* Image */}
+            {/* <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="relative"
+            >
+              <div className="overflow-hidden rounded-3xl shadow-2xl">
+                <img
+                  src="/phone-repair-technician.jpg"
+                  alt="Professional Mobile Phone Repair"
+                  className="w-full h-[550px] object-cover"
+                />
+              </div>
+            </motion.div> */}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-10 lg:py-20">
+        <div className="container mx-auto px-4 lg:px-8">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="max-w-5xl mx-auto text-center"
+          >
+            {/* Heading */}
+            <motion.h2
+              variants={fadeUp}
+              className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-foreground"
+            >
+              Your Phone's Broken and You Need It Fixed Today
+              <br />
+              <span className="bg-gradient-to-r from-red-500 via-red-600 to-red-700 bg-clip-text text-transparent">
+                Here's What We Do
+              </span>
+            </motion.h2>
+
+            {/* Divider */}
+            <motion.div
+              variants={fadeUp}
+              className="w-24 h-1 bg-red-600 rounded-full mx-auto mt-8 mb-12"
+            />
+
+            {/* Paragraph 1 */}
+            <motion.p
+              variants={fadeUp}
+              className="text-lg leading-8 text-muted-foreground"
+            >
+              Look, we get it. Your phone screen just shattered. Or maybe it
+              won't charge anymore. Or worse, it took a dive into your coffee.
+              The panic is real. You're thinking about the cost, the time
+              without your device, whether the data's actually gone. Between you
+              and me, that's exactly what we hear every single day walking into
+              our repair centre on Tottenham Court Road.
+            </motion.p>
+
+            {/* Paragraph 2 */}
+            <motion.p
+              variants={fadeUp}
+              className="mt-8 text-lg leading-8 text-muted-foreground"
+            >
+              Here's the thing though: you don't need to panic. A broken phone
+              doesn't have to mean replacing the entire device or waiting two
+              weeks for a manufacturer repair. We fix phones — all kinds of
+              phones — quickly, affordably, and properly. We're talking same-day
+              service on most repairs, genuine parts, certified technicians, and
+              no hidden fees sneaking onto your bill. This is what we do. This
+              is what we've been doing for years right here in the heart of
+              Central London.
+            </motion.p>
+
+            {/* Paragraph 3 */}
+            <motion.p
+              variants={fadeUp}
+              className="mt-8 text-lg leading-8 text-muted-foreground"
+            >
+              If you're looking for a trusted mobile phone repair shop on
+              Tottenham Court Road, you've landed in the right place. Keep
+              reading. We'll walk you through exactly how we work, what we fix,
+              and why choosing us makes sense.
+            </motion.p>
+
+            {/* Optional Trust Highlights */}
+            <motion.div
+              variants={fadeUp}
+              className="mt-14 flex flex-wrap justify-center gap-4"
+            >
+              <div className="rounded-full border border-red-200 bg-red-50 px-5 py-3 text-sm font-semibold text-red-600">
+                ⚡ Same-Day Repairs
+              </div>
+
+              <div className="rounded-full border border-red-200 bg-red-50 px-5 py-3 text-sm font-semibold text-red-600">
+                🛠 Certified Technicians
+              </div>
+
+              <div className="rounded-full border border-red-200 bg-red-50 px-5 py-3 text-sm font-semibold text-red-600">
+                📱 All Major Brands
+              </div>
+
+              <div className="rounded-full border border-red-200 bg-red-50 px-5 py-3 text-sm font-semibold text-red-600">
+                ✅ Genuine Parts
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="py-10 lg:py-20 bg-muted/20">
+        <div className="container mx-auto px-4 lg:px-8">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="text-center max-w-4xl mx-auto mb-16"
+          >
+            <motion.h2
+              variants={fadeUp}
+              className="text-3xl md:text-4xl lg:text-5xl font-bold"
+            >
+              Why Choose <span className="text-red-600">TECH OUTLET LTD</span>{" "}
+              for Mobile Phone Repair{" "}
+              <span className="text-red-600">Tottenham Court Road ?</span>
+            </motion.h2>
+          </motion.div>
+
+          <div className="grid lg:grid-cols-12 gap-12">
+            {/*
+      <motion.div
+        initial={{ opacity: 0, x: -40 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="lg:col-span-5"
+      >
+        <div className="sticky top-28 overflow-hidden rounded-3xl shadow-2xl">
+          <img
+            src="/why-phone-repair.jpg"
+            alt="Mobile Phone Repair Technician"
+            className="w-full h-[700px] object-cover"
+          />
+        </div>
+      </motion.div>
+      */}
+
+            <motion.div
+              variants={staggerContainer}
+              className="lg:col-span-12 space-y-8 display: grid grid-cols-1 md:grid-cols-2 gap-8"
+            >
+              <motion.div
+                variants={fadeUp}
+                className="bg-white rounded-3xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300"
+              >
+                <h3 className="text-2xl font-bold text-foreground mb-6">
+                  Quick Phone Repair on Tottenham Court Road.
+                </h3>
+
+                <p className="text-lg leading-8 text-muted-foreground">
+                  Honestly, this is what sets us apart from a lot of
+                  competitors. When you bring your phone in, we don't disappear
+                  into a back room for three days. We diagnose the problem right
+                  in front of you, explain what's wrong, give you a price, and
+                  get started. Most screen replacements, battery swaps, and
+                  charging port repairs take us 30 to 60 minutes. You can grab a
+                  coffee, handle some errands, or just sit down and relax. Your
+                  device comes back working.
+                </p>
+
+                <p className="mt-6 text-lg leading-8 text-muted-foreground">
+                  We understand your phone isn't just a phone. It's how you stay
+                  in touch with family, manage your work, pay bills, navigate
+                  the city. We treat every repair like it matters, because it
+                  does.
+                </p>
+              </motion.div>
+              {/* Card 2 */}
+              <motion.div
+                variants={fadeUp}
+                className="bg-white rounded-3xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300"
+              >
+                <h3 className="text-2xl font-bold text-foreground mb-6">
+                  Certified & Experienced Mobile Technicians
+                </h3>
+
+                <p className="text-lg leading-8 text-muted-foreground">
+                  We're not a chain with rotating technicians who've been
+                  trained for three weeks. Our mobile technicians have genuine
+                  experience with phone repairs. We handle everything from
+                  straightforward screen replacements to micro-soldering logic
+                  board work. We've worked on thousands of devices across every
+                  major brand — iPhones, Samsung Galaxy models, Google Pixels,
+                  and plenty of others.
+                </p>
+
+                <p className="mt-6 text-lg leading-8 text-muted-foreground">
+                  Your phone's in capable hands. That's not marketing speak.
+                  That's just a fact.
+                </p>
+              </motion.div>
+
+              {/* Card 3 */}
+              <motion.div
+                variants={fadeUp}
+                className="bg-white rounded-3xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300"
+              >
+                <h3 className="text-2xl font-bold text-foreground mb-6">
+                  Genuine and High-Quality Replacement Parts
+                </h3>
+
+                <p className="text-lg leading-8 text-muted-foreground">
+                  This one matters more than people think. There's a lot of
+                  counterfeit parts floating around. Cheap screens that fail in
+                  three months. Knock-off batteries that swell up and damage
+                  your device. We use genuine components. Full stop. It costs us
+                  more. That's okay. Your repair needs to last.
+                </p>
+              </motion.div>
+
+              {/* Card 4 */}
+              <motion.div
+                variants={fadeUp}
+                className="bg-white rounded-3xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300"
+              >
+                <h3 className="text-2xl font-bold text-foreground mb-6">
+                  Most Affordable Pricing in Central London — No Hidden Fees
+                </h3>
+
+                <p className="text-lg leading-8 text-muted-foreground">
+                  We price our repairs competitively. Really competitive. You
+                  won't find hidden diagnostic fees or surprise charges tacked
+                  on at checkout. We quote you upfront. You know exactly what
+                  you're paying before we start. If the price doesn't work for
+                  you, we say so. No pressure.
+                </p>
+              </motion.div>
+
+              {/* Card 5 */}
+
+              <motion.div
+                variants={fadeUp}
+                className="bg-white rounded-3xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300"
+              >
+                <h3 className="text-2xl font-bold text-foreground mb-6">
+                  Located in the Heart of London
+                </h3>
+
+                <p className="text-lg leading-8 text-muted-foreground">
+                  Tottenham Court Road isn't just convenient. It's central.
+                  Whether you're in Soho, Bloomsbury, Fitzrovia, Covent Garden,
+                  Holborn, or anywhere else nearby, getting to us is
+                  straightforward. It's not an hour's journey to the suburbs.
+                  You're already here.
+                </p>
+              </motion.div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-10 lg:py-20 bg-background">
+        <div className="container mx-auto px-4 lg:px-8">
+          {/* Heading */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="max-w-4xl mx-auto text-center"
+          >
+            <motion.h2
+              variants={fadeUp}
+              className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground"
+            >
+              Real Repairs, Real Results{" "}
+              <span className="text-red-600">Before and After</span>
+            </motion.h2>
+
+            <motion.p
+              variants={fadeUp}
+              className="mt-8 text-lg leading-8 text-muted-foreground"
+            >
+              Every day we transform broken, unusable phones back into working
+              devices. Cracked screens that looked hopeless. Waterlogged devices
+              everyone thought were done for. Batteries that had given up
+              charging. They come in damaged and they leave repaired. We usually
+              keep photos of our work. That's how confident we are in the
+              quality.
+            </motion.p>
+          </motion.div>
+
+          {/* Gallery */}
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mx-auto gap-8 max-w-6xl"
+          >
+            <motion.div variants={fadeUp}>
+              <div className="overflow-hidden rounded-3xl shadow-lg">
+                <img
+                  src="/repair-1.png"
+                  alt="Phone Repair Before and After"
+                  className="w-full h-60 object-cover hover:scale-105 transition duration-500"
+                />
+              </div>
+            </motion.div>
+
+            <motion.div variants={fadeUp}>
+              <div className="overflow-hidden rounded-3xl shadow-lg">
+                <img
+                  src="/repair-2.png"
+                  alt="Battery Replacement"
+                  className="w-full h-60 object-cover hover:scale-105 transition duration-500"
+                />
+              </div>
+            </motion.div>
+
+            <motion.div variants={fadeUp}>
+              <div className="overflow-hidden rounded-3xl shadow-lg">
+                <img
+                  src="/repair-3.png"
+                  alt="Mobile Phone Repair"
+                  className="w-full h-60 object-cover hover:scale-105 transition duration-500"
+                />
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="py-10 lg:py-20 bg-muted/20">
+        <div className="container mx-auto px-4 lg:px-8">
+          {/* Heading */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="text-center max-w-4xl mx-auto mb-16"
+          >
+            <motion.h2
+              variants={fadeUp}
+              className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground"
+            >
+              Our Mobile Phone Repair Services
+            </motion.h2>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            // className="grid lg:grid-cols-2 gap-8"
+            className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-8"
+            // className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-8"
+          >
+            {/* Card 1 */}
+            <motion.div
+              variants={fadeUp}
+              className="bg-white rounded-3xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300"
+            >
+              <h3 className="text-2xl font-bold text-foreground mb-6">
+                phone screen repair tottenham court road
               </h3>
 
-              {/* Description */}
-              <p className="text-sm text-gray-500 mb-6 flex-grow">
-                {service.Description}
+              {/* <p className="text-lg leading-8 text-muted-foreground"> */}
+              <p className="text-sm leading-6 text-muted-foreground max-w-prose">
+                Screen damage is the most common repair we handle. Whether it's
+                a spider-web crack across the display or a shattered corner, we
+                can fix it. Screen installation is straightforward when you know
+                what you're doing. We source genuine or OEM-equivalent displays
+                and swap them carefully. Your phone looks and feels new again.
+                It usually takes us 45 minutes or so.
+              </p>
+            </motion.div>
+
+            {/* Card 2 */}
+            <motion.div
+              variants={fadeUp}
+              className="bg-white rounded-3xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300"
+            >
+              <h3 className="text-2xl font-bold text-foreground mb-6">
+                Battery Replacement & Upgrades
+              </h3>
+
+              <p className="text-sm leading-6 text-muted-foreground max-w-prose">
+                Battery age. After a couple of years, your phone starts dying at
+                20 percent charge. It's frustrating. We replace batteries
+                regularly. A fresh battery can give your device another year or
+                two of comfortable use. Significantly cheaper than buying a new
+                phone.
+              </p>
+            </motion.div>
+            {/* Card 3 */}
+            <motion.div
+              variants={fadeUp}
+              className="bg-white rounded-3xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300"
+            >
+              <h3 className="text-2xl font-bold text-foreground mb-6">
+                Charging Port & Connection Repair
+              </h3>
+
+              <p className="text-sm leading-6 text-muted-foreground max-w-prose">
+                Your phone won't charge, or charges only when you hold the cable
+                at a weird angle. That's typically a charging port problem.
+                Sometimes it's just loose debris. Sometimes it's actual port
+                damage. We clean what we can. If replacement is needed, we
+                handle it. Either way, you're back to normal charging.
+              </p>
+            </motion.div>
+
+            {/* Card 4 */}
+            <motion.div
+              variants={fadeUp}
+              className="bg-white rounded-3xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300"
+            >
+              <h3 className="text-2xl font-bold text-foreground mb-6">
+                Water & Liquid Damage Repair
+              </h3>
+
+              <p className="text-sm leading-6 text-muted-foreground max-w-prose">
+                Your phone took a splash in the pool. Or the rain caught you off
+                guard. Or it fell into a drink. Water damage repair depends on
+                what happened and how fast you act. The sooner you bring it in,
+                the better. We clean and dry the circuits, check for corrosion,
+                and see what we can salvage. Sometimes we catch it early and
+                everything works fine. Sometimes we can't save the device.
+                Usually we land somewhere in between.
+              </p>
+            </motion.div>
+            {/* Card 5 */}
+            <motion.div
+              variants={fadeUp}
+              className="bg-white rounded-3xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300"
+            >
+              <h3 className="text-2xl font-bold text-foreground mb-6">
+                Rear Glass & Back Panel Replacement
+              </h3>
+
+              <p className="text-sm leading-6 text-muted-foreground max-w-prose">
+                A cracked back panel isn't just cosmetic. It can damage internal
+                components and compromise water resistance. We replace rear
+                glass and back panels to restore your device to working
+                condition.
+              </p>
+            </motion.div>
+
+            {/* Card 6 */}
+            <motion.div
+              variants={fadeUp}
+              className="bg-white rounded-3xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300"
+            >
+              <h3 className="text-2xl font-bold text-foreground mb-6">
+                Logic Board & Micro-Soldering Repairs
+              </h3>
+
+              <p className="text-sm leading-6 text-muted-foreground max-w-prose">
+                This is advanced work. It's also expensive. But sometimes it's
+                the difference between a repair and a complete loss. Logic board
+                repairs involve identifying which component failed, carefully
+                removing it, and soldering it back into place or replacing it
+                with a matching part. Not every technician does this work. We
+                do.
+              </p>
+            </motion.div>
+            {/* Card 7 */}
+            <motion.div
+              variants={fadeUp}
+              className="bg-white rounded-3xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300"
+            >
+              <h3 className="text-2xl font-bold text-foreground mb-6">
+                Data Recovery & Backup Transfers
+              </h3>
+
+              <p className="text-sm leading-6 text-muted-foreground max-w-prose">
+                Your phone's physically damaged but it might still power on. Or
+                maybe it's just locked and you've forgotten the pin. Data
+                recovery and transfer helps you get your files, photos, and
+                information off the damaged device and onto a new one. Peace of
+                mind when you need it.
+              </p>
+            </motion.div>
+
+            {/* Card 8 */}
+            <motion.div
+              variants={fadeUp}
+              className="bg-white rounded-3xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300"
+            >
+              <h3 className="text-2xl font-bold text-foreground mb-6">
+                Camera & Lens Replacements
+              </h3>
+
+              <p className="text-sm leading-6 text-muted-foreground max-w-prose">
+                Dropped your phone and now the camera doesn't focus. Or the lens
+                is cracked and photos look fuzzy. We replace camera modules and
+                lenses. Back to taking clear shots.
+              </p>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="py-10 lg:py-20 bg-background">
+        <div className="container mx-auto px-4 lg:px-8">
+          {/* Heading */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="text-center max-w-4xl mx-auto mb-16"
+          >
+            <motion.h2
+              variants={fadeUp}
+              className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground"
+            >
+              Our Repair Process{" "}
+              <span className="text-red-600">From Drop-Off to Done</span>
+            </motion.h2>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="max-w-6xl mx-auto  grid md:grid-cols-2 gap-8"
+          >
+            {/* Step 1 */}
+            <motion.div
+              variants={fadeUp}
+              whileHover={{ y: -8 }}
+              transition={{ duration: 0.25 }}
+              className="group relative bg-white rounded-3xl p-5 border border-gray-100 shadow-md hover:shadow-2xl hover:border-red-200 transition-all duration-300 "
+            >
+              <div className="absolute -top-5 left-8 w-14 h-14 rounded-full bg-red-600 text-white flex items-center justify-center text-xl font-bold shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 group-hover:bg-red-700">
+                1
+              </div>
+
+              <h3 className="mt-8 text-xl font-bold text-foreground mb-6 transition-colors duration-300 group-hover:text-red-600">
+                Free Diagnostic Check
+              </h3>
+
+              <p className="text-[13px] leading-7 text-muted-foreground transition-colors duration-300 group-hover:text-gray-700">
+                You bring the phone in. We run a quick diagnostic. We tell you
+                what's actually wrong and what it'll cost to fix. No mystery. No
+                "bring it back in two days and we'll let you know." We know
+                right away, in most cases.
+              </p>
+            </motion.div>
+
+            {/* Step 2 */}
+            <motion.div
+              variants={fadeUp}
+              whileHover={{ y: -8 }}
+              transition={{ duration: 0.25 }}
+              className="group relative bg-white rounded-3xl p-5 border border-gray-100 shadow-md hover:shadow-2xl hover:border-red-200 transition-all duration-300"
+            >
+              <div className="absolute -top-5 left-8 w-14 h-14 rounded-full bg-red-600 text-white flex items-center justify-center text-xl font-bold shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 group-hover:bg-red-700">
+                2
+              </div>
+
+              <h3 className="mt-8 text-xl font-bold text-foreground mb-6 transition-colors duration-300 group-hover:text-red-600">
+                Upfront, No-Obligation Quote
+              </h3>
+
+              <p className="text-[13px] leading-7 text-muted-foreground transition-colors duration-300 group-hover:text-gray-700">
+                We give you a price. You decide. If you want to move forward,
+                great. If not, there's no charge for the diagnosis. Your choice.
+              </p>
+            </motion.div>
+
+            {/* Step 3 */}
+            <motion.div
+              variants={fadeUp}
+              whileHover={{ y: -8 }}
+              transition={{ duration: 0.25 }}
+              className="group relative bg-white rounded-3xl p-5 border border-gray-100 shadow-md hover:shadow-2xl hover:border-red-200 transition-all duration-300"
+            >
+              <div className="absolute -top-5 left-8 w-14 h-14 rounded-full bg-red-600 text-white flex items-center justify-center text-xl font-bold shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 group-hover:bg-red-700">
+                3
+              </div>
+
+              <h3 className="mt-8 text-xl font-bold text-foreground mb-6 transition-colors duration-300 group-hover:text-red-600">
+                Quick Repair
+              </h3>
+
+              <p className="text-[13px] leading-7 text-muted-foreground transition-colors duration-300 group-hover:text-gray-700">
+                We start work. We use proper tools, proper parts, and proper
+                process. We're not rushing. We're being efficient. There's a
+                difference.
+              </p>
+            </motion.div>
+
+            {/* Step 4 */}
+            <motion.div
+              variants={fadeUp}
+              whileHover={{ y: -8 }}
+              transition={{ duration: 0.25 }}
+              className="group relative bg-white rounded-3xl p-5 border border-gray-100 shadow-md hover:shadow-2xl hover:border-red-200 transition-all duration-300"
+            >
+              <div className="absolute -top-5 left-8 w-14 h-14 rounded-full bg-red-600 text-white flex items-center justify-center text-xl font-bold shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 group-hover:bg-red-700">
+                4
+              </div>
+
+              <h3 className="mt-8 text-xl font-bold text-foreground mb-6 transition-colors duration-300 group-hover:text-red-600">
+                Quality Test & Warranty Activation
+              </h3>
+
+              <p className="text-[13px] leading-7 text-muted-foreground transition-colors duration-300 group-hover:text-gray-700">
+                Once the repair is done, we test the device thoroughly. The
+                screen responds properly. The battery holds charge. The phone
+                powers on and off cleanly. Everything's working as intended.
+                Then we activate the warranty on your repair. You're covered.
+              </p>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* <section className="py-3 lg:py-10 bg-muted/20">
+        <div className="container mx-auto px-4 lg:px-8">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="max-w-5xl mx-auto"
+          >
+            <motion.h2
+              variants={fadeUp}
+              className="text-center text-3xl md:text-4xl lg:text-5xl font-bold text-foreground"
+            >
+              Why Do Mobile Phones Stop Working?
+            </motion.h2>
+
+            <motion.div
+              variants={fadeUp}
+              className="mt-12 rounded-3xl bg-white border border-gray-100 shadow-lg p-8 lg:p-10"
+            >
+              <p className="text-[15px] leading-8 text-muted-foreground">
+                Honestly, phones break for pretty straightforward reasons. Drops
+                and impacts cause screen cracks and internal component damage.
+                Water exposure corrodes circuits. Batteries degrade with time
+                and charging cycles. Software conflicts or corrupted files can
+                lock you out. Components fail from regular wear and tear.
+                Charging ports wear out from constant plugging and unplugging.
               </p>
 
-              {/* Button */}
-              <Link to="/book">
-                <button className="w-full border-2 border-red-600 text-red-600 py-2 rounded-full hover:bg-red-600 hover:text-white transition-all">
-                  Book Now
-                </button>
-              </Link>
-            </div>
-          ))}
+              <div className="my-8 h-px bg-gray-200" />
+
+              <p className="text-[15px] leading-8 text-muted-foreground">
+                Most of the time it's one of these. Sometimes it's a
+                combination. The important thing is that most of these problems
+                are fixable. That's what we're here for.
+              </p>
+            </motion.div>
+          </motion.div>
         </div>
-      </div>
+      </section> */}
+      <section className="py-10 lg:py-20 bg-background">
+        <div className="container mx-auto px-4 lg:px-8">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="max-w-4xl mx-auto text-center"
+          >
+            <motion.h2
+              variants={fadeUp}
+              className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground"
+            >
+              Why Do Mobile Phones Stop Working?
+            </motion.h2>
+
+            <motion.div
+              variants={fadeUp}
+              className="w-24 h-1 bg-red-600 rounded-full mx-auto mt-6 mb-12"
+            />
+
+            <motion.p
+              variants={fadeUp}
+              className="text-lg leading-8 text-muted-foreground"
+            >
+              Honestly, phones break for pretty straightforward reasons. Drops
+              and impacts cause screen cracks and internal component damage.
+              Water exposure corrodes circuits. Batteries degrade with time and
+              charging cycles. Software conflicts or corrupted files can lock
+              you out. Components fail from regular wear and tear. Charging
+              ports wear out from constant plugging and unplugging.
+            </motion.p>
+
+            <motion.p
+              variants={fadeUp}
+              className="mt-8 text-lg leading-8 text-muted-foreground"
+            >
+              Most of the time it's one of these. Sometimes it's a combination.
+              The important thing is that most of these problems are fixable.
+              That's what we're here for.
+            </motion.p>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="py-10 lg:py-20 bg-muted/20">
+        <div className="container mx-auto px-4 lg:px-8">
+          {/* Heading */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="text-center max-w-4xl mx-auto mb-16"
+          >
+            <motion.h2
+              variants={fadeUp}
+              className="text-2xl md:text-4xl lg:text-5xl font-bold text-foreground"
+            >
+              How to Identify the Problem With Your Phone
+            </motion.h2>
+          </motion.div>
+
+          {/* Table */}
+          <motion.div
+            variants={fadeUp}
+            className="max-w-4xl mx-auto overflow-hidden rounded-3xl border border-gray-200 shadow-sm bg-white"
+          >
+            <table className="w-full text-left border-collapse">
+              <thead className="bg-gray-100 text-black">
+                <tr>
+                  <th className="px-8 py-5 text-center text-lg font-semibold">
+                    What's Happening
+                  </th>
+                  <th className="px-8 py-5 text-center text-lg font-semibold">
+                    Likely Cause
+                  </th>
+                </tr>
+              </thead>
+
+              <tbody className="divide-y  divide-gray-200">
+                <tr className="hover:bg-red-50 transition-colors duration-300">
+                  <td className="px-8 py-5 font-medium">
+                    Black screen but phone vibrates
+                  </td>
+                  <td className="px-8 py-5 text-muted-foreground">
+                    Battery drained or screen failure
+                  </td>
+                </tr>
+
+                <tr className="hover:bg-red-50 transition-colors duration-300">
+                  <td className="px-8 py-5 font-medium">
+                    Won't charge even with charger
+                  </td>
+                  <td className="px-8 py-5 text-muted-foreground">
+                    Charging port damage or battery failure
+                  </td>
+                </tr>
+
+                <tr className="hover:bg-red-50 transition-colors duration-300">
+                  <td className="px-8 py-5 font-medium">
+                    Cracks on screen or back
+                  </td>
+                  <td className="px-8 py-5 text-muted-foreground">
+                    Impact or drop damage
+                  </td>
+                </tr>
+
+                <tr className="hover:bg-red-50 transition-colors duration-300">
+                  <td className="px-8 py-5 font-medium">
+                    Phone hot to the touch
+                  </td>
+                  <td className="px-8 py-5 text-muted-foreground">
+                    Battery overheating or software issue
+                  </td>
+                </tr>
+
+                <tr className="hover:bg-red-50 transition-colors duration-300">
+                  <td className="px-8 py-5 font-medium">
+                    Water inside the screen
+                  </td>
+                  <td className="px-8 py-5 text-muted-foreground">
+                    Water or liquid exposure
+                  </td>
+                </tr>
+
+                <tr className="hover:bg-red-50 transition-colors duration-300">
+                  <td className="px-8 py-5 font-medium">
+                    Phone unresponsive or freezes
+                  </td>
+                  <td className="px-8 py-5 text-muted-foreground">
+                    Software corruption or low storage
+                  </td>
+                </tr>
+
+                <tr className="hover:bg-red-50 transition-colors duration-300">
+                  <td className="px-8 py-5 font-medium">
+                    Speaker or microphone not working
+                  </td>
+                  <td className="px-8 py-5 text-muted-foreground">
+                    Speaker/mic component failure
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </motion.div>
+
+          {/* <motion.p
+            variants={fadeUp}
+            className="max-w-3xl mx-auto mt-10 text-center text-lg leading-8 text-muted-foreground"
+          >
+            If you're seeing any of these, bring it in. We'll pinpoint exactly
+            what's wrong.
+          </motion.p> */}
+          <motion.div className="mt-12 text-center">
+            <span className="inline-flex items-center gap-2 text-xs font-mono text-muted-foreground bg-muted/50 border border-border px-4 py-2 rounded-xl">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
+              If you're seeing any of these, bring it in. We'll pinpoint exactly
+              what's wrong.
+            </span>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="py-10 lg:py-20 bg-background">
+        <div className="container mx-auto px-4 lg:px-8">
+          {/* Heading */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="text-center max-w-4xl mx-auto mb-20"
+          >
+            <motion.h2
+              variants={fadeUp}
+              className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground"
+            >
+              The Real Cost of Ignoring a Broken Phone
+            </motion.h2>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="max-w-5xl mx-auto relative"
+          >
+            {/* Vertical Line */}
+            <div className="absolute left-4 top-0 bottom-0 w-[2px] bg-red-200 hidden md:block" />
+
+            {/* Item 1 */}
+            <motion.div variants={fadeUp} className="relative md:pl-16 pb-12">
+              <div className="hidden md:flex absolute left-0 top-1 w-8 h-8 rounded-full bg-red-600 items-center justify-center text-white font-bold">
+                1
+              </div>
+
+              <h3 className="text-2xl font-bold text-foreground mb-4">
+                Risk of Total Data Loss
+              </h3>
+
+              <p className="text-[15px] leading-7 text-muted-foreground">
+                Your phone contains photos, messages, contacts, and financial
+                information. If the device fails completely and you haven't
+                backed anything up, that's gone. We've seen people lose years of
+                irreplaceable memories because they waited too long to repair.
+              </p>
+            </motion.div>
+
+            {/* Item 2 */}
+            <motion.div variants={fadeUp} className="relative md:pl-16 pb-12">
+              <div className="hidden md:flex absolute left-0 top-1 w-8 h-8 rounded-full bg-red-600 items-center justify-center text-white font-bold">
+                2
+              </div>
+
+              <h3 className="text-2xl font-bold text-foreground mb-4">
+                Health & Safety Hazards
+              </h3>
+
+              <p className="text-[15px] leading-7 text-muted-foreground">
+                A degraded battery can swell, overheat, or even rupture. A
+                damaged charging port with exposed metal is a shock hazard.
+                Using a damaged device around water is risky. These aren't just
+                inconveniences. They're actual safety issues.
+              </p>
+            </motion.div>
+
+            {/* Item 3 */}
+            <motion.div variants={fadeUp} className="relative md:pl-16 pb-12">
+              <div className="hidden md:flex absolute left-0 top-1 w-8 h-8 rounded-full bg-red-600 items-center justify-center text-white font-bold">
+                3
+              </div>
+
+              <h3 className="text-2xl font-bold text-foreground mb-4">
+                Psychological Stress & Anxiety
+              </h3>
+
+              <p className="text-[15px] leading-7 text-muted-foreground">
+                Being without your phone is stressful in modern life. You're cut
+                off from family, work, navigation, emergency services. The
+                longer you go without a working device, the more anxiety builds.
+                Quick repair fixes this quickly.
+              </p>
+            </motion.div>
+
+            {/* Item 4 */}
+            <motion.div variants={fadeUp} className="relative md:pl-16 pb-12">
+              <div className="hidden md:flex absolute left-0 top-1 w-8 h-8 rounded-full bg-red-600 items-center justify-center text-white font-bold">
+                4
+              </div>
+
+              <h3 className="text-2xl font-bold text-foreground mb-4">
+                Eye Strain & Vision Problems
+              </h3>
+
+              <p className="text-[15px] leading-7 text-muted-foreground">
+                A cracked screen forces you to squint or tilt your head at
+                awkward angles. Over time, this causes real eye strain and
+                headaches. Your eyesight matters.
+              </p>
+            </motion.div>
+
+            {/* Item 5 */}
+            <motion.div variants={fadeUp} className="relative md:pl-16">
+              <div className="hidden md:flex absolute left-0 top-1 w-8 h-8 rounded-full bg-red-600 items-center justify-center text-white font-bold">
+                5
+              </div>
+
+              <h3 className="text-2xl font-bold text-foreground mb-4">
+                Professional & Work Disruption
+              </h3>
+
+              <p className="text-[15px] leading-7 text-muted-foreground">
+                Your phone is often your professional tool. No device means
+                missed messages, missed deadlines, missed opportunities. Jobs
+                don't wait around for you to get your phone repaired. Every day
+                without a working device is a day of disruption.
+              </p>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="py-10 lg:py-20 bg-muted/20">
+        <div className="container mx-auto px-4 lg:px-8">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="max-w-7xl mx-auto"
+          >
+            {/* Heading */}
+            <motion.div
+              variants={fadeUp}
+              className="text-center max-w-4xl mx-auto mb-16"
+            >
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
+                Which Mobile Phone Brands & Models Do We Repair?
+              </h2>
+            </motion.div>
+
+            <div className="grid lg:grid-cols-2 gap-16 items-start">
+              {/* Left Side - Brands */}
+              <motion.div variants={fadeUp} className="space-y-10">
+                {/* Apple */}
+                <div className="border-l-4 border-red-600 pl-6">
+                  <h3 className="text-2xl font-bold mb-4">
+                    Apple (iPhone Series)
+                  </h3>
+
+                  <p className="text-[15px] leading-7 text-muted-foreground">
+                    iPhone 12, 13, 14, 15 and all older models. We handle all of
+                    them. Screen repairs, battery swaps, water damage, charging
+                    issues, camera problems. All of it.
+                  </p>
+                </div>
+
+                {/* Samsung */}
+                <div className="border-l-4 border-red-600 pl-6">
+                  <h3 className="text-2xl font-bold mb-4">
+                    Samsung (Galaxy Series)
+                  </h3>
+
+                  <p className="text-[15px] leading-7 text-muted-foreground">
+                    Galaxy S-series, Galaxy A-series, Galaxy Z flip and fold
+                    devices. Samsung makes diverse phones and we repair all of
+                    them regularly. Very common repair work for us.
+                  </p>
+                </div>
+
+                {/* Google */}
+                <div className="border-l-4 border-red-600 pl-6">
+                  <h3 className="text-2xl font-bold mb-4">
+                    Other Brands We Fix
+                  </h3>
+
+                  <p className="text-[15px] leading-7 text-muted-foreground">
+                    Look, we don't turn away phones. We've worked on OnePlus,
+                    Huawei, Oppo, and other brands. If there's a repair we can
+                    reasonably do, we do it. If it's something outside our
+                    scope, we'll tell you honestly.
+                  </p>
+                </div>
+              </motion.div>
+
+              {/* Right Side */}
+              <motion.div variants={fadeUp} className="space-y-10">
+                {/* Motorola */}
+                <div className="border-l-4 border-red-600 pl-6">
+                  <h3 className="text-2xl font-bold mb-4">Motorola & Xiaomi</h3>
+
+                  <p className="text-[15px] leading-7 text-muted-foreground">
+                    Less common than Apple and Samsung in our area, but we
+                    absolutely service them. We've got the parts and the
+                    experience.
+                  </p>
+                </div>
+
+                {/* Other Brands */}
+                <div className="border-l-4 border-red-600 pl-6">
+                  <h3 className="text-2xl font-bold mb-4"> Google Pixel</h3>
+
+                  <p className="text-[15px] leading-7 text-muted-foreground">
+                    Pixel 6, 7, 8, and earlier generations. Pixel phones have
+                    grown in popularity and we see plenty of them. Screen
+                    damage, battery issues, port repairs — we handle the lot.
+                  </p>
+                </div>
+
+                {/* Optional Image */}
+
+                {/*                 
+          <div className="overflow-hidden rounded-3xl shadow-xl">
+            <img
+              src="/phone-brands.jpg"
+              alt="Mobile Phone Brands We Repair"
+              className="w-full h-[320px] object-cover"
+            />
+          </div>
+          */}
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="py-10 lg:py-20 bg-background">
+        <div className="container mx-auto px-4 lg:px-8">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center"
+          >
+            {/* Left Content */}
+            <motion.div variants={fadeUp}>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
+                Common Mobile Phone Problems We Fix
+              </h2>
+
+              <div className="w-24 h-1 bg-red-600 rounded-full mt-6 mb-8" />
+
+              <p className="text-[15px] leading-8 text-muted-foreground">
+                We've seen basically every problem you can imagine. Cracked
+                screens. Dead batteries. Water damage. Software issues. Charging
+                failures. Speaker problems. Microphone failures. Camera
+                malfunctions. Slow performance from storage issues. Overheating.
+                Unresponsive touch screens. The list goes on.
+              </p>
+
+              <p className="mt-8 text-[15px] leading-8 text-muted-foreground">
+                Here's what matters: if it's a physical component failure, we
+                can probably fix it. If it's software, we can usually help or
+                point you in the right direction. If it's something rare or
+                unusual, we'll give you honest advice about whether it's worth
+                fixing or if you should consider a replacement.
+              </p>
+            </motion.div>
+
+            {/* Right Image */}
+
+            <motion.div variants={fadeUp}>
+              <div className="overflow-hidden rounded-3xl shadow-2xl">
+                <img
+                  src="/common-phone-problem.png"
+                  alt="Common Mobile Phone Problems"
+                  className="w-full h-[500px] object-cover hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="py-10 lg:py-20 bg-muted/20">
+        <div className="container mx-auto px-4 lg:px-8">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center"
+          >
+            {/* Left Content */}
+            <motion.div variants={fadeUp}>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
+                The Tools & Technology We Use
+              </h2>
+
+              <div className="w-24 h-1 bg-red-600 rounded-full mt-6 mb-8" />
+
+              <p className="text-[15px] leading-8 text-muted-foreground">
+                We use proper diagnostic equipment. Micro-soldering stations for
+                board-level work. Precision tools for screen and component
+                replacement. Testing software to verify repairs before you
+                leave. Parts sourcing from verified suppliers. All of this costs
+                money and requires expertise. It's why you don't see every
+                repair shop doing logic board fixes or water damage recovery.
+                We've invested in the right tools because doing it right
+                matters.
+              </p>
+            </motion.div>
+
+            {/* Right Side */}
+
+            <motion.div variants={fadeUp}>
+              <div className="rounded-3xl border border-red-100 bg-white p-8 shadow-xl">
+                <div className="space-y-6">
+                  <div className="flex items-center gap-4">
+                    <div className="w-3 h-3 rounded-full bg-red-600"></div>
+                    <span className="text-lg font-medium">
+                      Professional Diagnostic Equipment
+                    </span>
+                  </div>
+
+                  <div className="flex items-center gap-4">
+                    <div className="w-3 h-3 rounded-full bg-red-600"></div>
+                    <span className="text-lg font-medium">
+                      Micro-Soldering Stations
+                    </span>
+                  </div>
+
+                  <div className="flex items-center gap-4">
+                    <div className="w-3 h-3 rounded-full bg-red-600"></div>
+                    <span className="text-lg font-medium">
+                      Precision Repair Tools
+                    </span>
+                  </div>
+
+                  <div className="flex items-center gap-4">
+                    <div className="w-3 h-3 rounded-full bg-red-600"></div>
+                    <span className="text-lg font-medium">
+                      Device Testing Software
+                    </span>
+                  </div>
+
+                  <div className="flex items-center gap-4">
+                    <div className="w-3 h-3 rounded-full bg-red-600"></div>
+                    <span className="text-lg font-medium">
+                      Verified Replacement Parts
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Optional Image */}
+
+            {/*
+      <motion.div variants={fadeUp}>
+        <div className="overflow-hidden rounded-3xl shadow-2xl">
+          <img
+            src="/repair-tools.jpg"
+            alt="Professional Mobile Phone Repair Tools"
+            className="w-full h-[500px] object-cover hover:scale-105 transition-transform duration-500"
+          />
+        </div>
+      </motion.div>
+      */}
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="py-10 lg:py-20 bg-background">
+        <div className="container mx-auto px-4 lg:px-8">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="max-w-6xl mx-auto"
+          >
+            {/* Heading */}
+            <motion.div variants={fadeUp} className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
+                Why Choose Us Over Manufacturer and Cheap Repair Shops?
+              </h2>
+            </motion.div>
+
+            {/* Comparison Table */}
+            <motion.div
+              variants={fadeUp}
+              className="overflow-hidden rounded-3xl border border-gray-200 shadow-xl"
+            >
+              {/* Header */}
+              <div className="grid grid-cols-4 bg-gray-100 text-black font-semibold text-center">
+                <div className="p-5 border-r border-gray-300">Factor</div>
+
+                <div className="p-5 border-r border-gray-300">
+                  Repair With Us
+                </div>
+
+                <div className="p-5 border-r border-gray-300">
+                  Manufacturer Repair
+                </div>
+
+                <div className="p-5">Unverified Shops</div>
+              </div>
+
+              {/* Row 1 */}
+              <div className="grid grid-cols-4 text-center border-b border-gray-200 hover:bg-red-50 transition-colors duration-300">
+                <div className="p-5 font-semibold">Cost</div>
+
+                <div className="p-5">Affordable, transparent</div>
+
+                <div className="p-5">Very expensive</div>
+
+                <div className="p-5">Cheap but risky</div>
+              </div>
+
+              {/* Row 2 */}
+              <div className="grid grid-cols-4 text-center border-b border-gray-200 hover:bg-red-50 transition-colors duration-300">
+                <div className="p-5 font-semibold">Time</div>
+
+                <div className="p-5">30–60 mins (usually)</div>
+
+                <div className="p-5">5–14 days</div>
+
+                <div className="p-5">Unpredictable</div>
+              </div>
+
+              {/* Row 3 */}
+              <div className="grid grid-cols-4 text-center border-b border-gray-200 hover:bg-red-50 transition-colors duration-300">
+                <div className="p-5 font-semibold">Parts Quality</div>
+
+                <div className="p-5">Genuine OEM-equivalent</div>
+
+                <div className="p-5">Original only</div>
+
+                <div className="p-5">Often counterfeit</div>
+              </div>
+
+              {/* Row 4 */}
+              <div className="grid grid-cols-4 text-center border-b border-gray-200 hover:bg-red-50 transition-colors duration-300">
+                <div className="p-5 font-semibold">Warranty</div>
+
+                <div className="p-5">Full repair warranty</div>
+
+                <div className="p-5">Limited coverage</div>
+
+                <div className="p-5">Little to no warranty</div>
+              </div>
+
+              {/* Row 5 */}
+              <div className="grid grid-cols-4 text-center hover:bg-red-50 transition-colors duration-300">
+                <div className="p-5 font-semibold">Location</div>
+
+                <div className="p-5">Tottenham Court Road, Central London</div>
+
+                <div className="p-5">Manufacturer center</div>
+
+                <div className="p-5">Varies widely</div>
+              </div>
+            </motion.div>
+
+            {/* Bottom Text */}
+            <motion.p
+              variants={fadeUp}
+              className="max-w-4xl mx-auto mt-10 text-center text-lg leading-8 text-muted-foreground"
+            >
+              When you break down the options, it's pretty clear. Manufacturer
+              repair is slow and expensive. Unverified shops are cheap but
+              unreliable. We're the middle ground where quality actually lives.
+            </motion.p>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="py-10 lg:py-20 bg-muted/20">
+        <div className="container mx-auto px-4 lg:px-8">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center"
+          >
+            {/* Left Content */}
+            <motion.div variants={fadeUp}>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
+                Real Customers,{" "}
+                <span className="text-red-600">Real Results</span>
+              </h2>
+
+              <div className="w-24 h-1 bg-red-600 rounded-full mt-6 mb-8" />
+
+              <p className="text-[15px] leading-8 text-muted-foreground">
+                We fix phones for students, professionals, families, and
+                tourists. Someone drops their phone the week before an exam.
+                Someone's charging port fails during a business trip. Someone's
+                toddler gets hold of their phone. Real people, real problems,
+                real fixes. Thats why we are the best phone repair tottenham
+                court road repairing center, We've handled thousands of repairs
+                over the years. Nearly all of them walk out satisfied.
+              </p>
+            </motion.div>
+
+            {/* Optional Image */}
+
+            <motion.div variants={fadeUp}>
+              <div className="overflow-hidden rounded-3xl shadow-2xl">
+                <img
+                  src="/happy-customers.jpg"
+                  alt="Happy customers receiving repaired phones"
+                  className="w-full h-[500px] object-cover hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="py-10 lg:py-20 bg-background">
+        <div className="container mx-auto px-4 lg:px-8">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="max-w-6xl mx-auto"
+          >
+            {/* Heading */}
+            <motion.div variants={fadeUp} className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
+                What Our Customers Tell Us
+              </h2>
+
+              <div className="w-24 h-1 bg-red-600 rounded-full mx-auto mt-6" />
+            </motion.div>
+
+            {/* Testimonials */}
+            <motion.div variants={fadeUp} className="grid md:grid-cols-3 gap-8">
+              {/* Testimonial 1 */}
+              <div className="group bg-white border border-gray-100 rounded-3xl p-8 shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border-red-200">
+                <div className="text-5xl text-red-600 leading-none mb-6">“</div>
+
+                <p className="text-[15px] leading-7 text-muted-foreground italic">
+                  "I thought my phone was done for. Brought it in, fixed it in
+                  an hour, perfect condition. Can't fault it."
+                </p>
+
+                <div className="mt-6 pt-6 border-t border-gray-100">
+                  <span className="font-semibold text-foreground">
+                    — satisfied customer
+                  </span>
+                </div>
+              </div>
+
+              {/* Testimonial 2 */}
+              <div className="group bg-white border border-gray-100 rounded-3xl p-8 shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border-red-200">
+                <div className="text-5xl text-red-600 leading-none mb-6">“</div>
+
+                <p className="text-[15px] leading-7 text-muted-foreground italic">
+                  "No hidden fees. They quoted 60 quid and it was 60 quid.
+                  That's rare these days."
+                </p>
+
+                <div className="mt-6 pt-6 border-t border-gray-100">
+                  <span className="font-semibold text-foreground">
+                    — another happy repair
+                  </span>
+                </div>
+              </div>
+
+              {/* Testimonial 3 */}
+              <div className="group bg-white border border-gray-100 rounded-3xl p-8 shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border-red-200">
+                <div className="text-5xl text-red-600 leading-none mb-6">“</div>
+
+                <p className="text-[15px] leading-7 text-muted-foreground italic">
+                  "They explained exactly what was wrong and why the fix would
+                  work. It felt like talking to someone who actually knew what
+                  they were doing."
+                </p>
+
+                <div className="mt-6 pt-6 border-t border-gray-100">
+                  <span className="font-semibold text-foreground">
+                    — customer feedback
+                  </span>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Bottom Text */}
+            <motion.p
+              variants={fadeUp}
+              className="max-w-3xl mx-auto mt-12 text-center text-lg leading-8 text-muted-foreground"
+            >
+              These aren't marketing testimonials. These are the kinds of things
+              we actually hear.
+            </motion.p>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="py-10 lg:py-20 bg-muted/20">
+        <div className="container mx-auto px-4 lg:px-8">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center"
+          >
+            {/* Left Content */}
+            <motion.div variants={fadeUp}>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
+                Areas We Serve Near Tottenham Court Road
+              </h2>
+
+              <div className="w-24 h-1 bg-red-600 rounded-full mt-6 mb-8" />
+
+              <p className="text-[15px] leading-8 text-muted-foreground">
+                We're located on Tottenham Court Road itself. That puts us in a
+                prime spot to serve Soho, Bloomsbury, Fitzrovia, Covent Garden,
+                Holborn, and all of Central London. Whether you're working in
+                the area, shopping nearby, or living locally, getting to us is
+                convenient. We see customers from across London, but we're
+                especially accessible if you're in these neighborhoods.
+              </p>
+            </motion.div>
+
+            {/* Optional Image */}
+
+            <motion.div variants={fadeUp}>
+              <div className="overflow-hidden rounded-3xl shadow-2xl">
+                <img
+                  src="/tottenham-court-road-map.jpg"
+                  alt="Areas We Serve Near Tottenham Court Road"
+                  className="w-full h-[500px] object-cover hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="py-10 lg:py-20 bg-background">
+        <div className="container mx-auto px-4 lg:px-8">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="max-w-6xl mx-auto"
+          >
+            <motion.div
+              variants={fadeUp}
+              className="rounded-[32px] p-10 md:p-16 shadow-2xl overflow-hidden relative"
+            >
+              {/* Background Blur */}
+              <div className="absolute -top-20 -right-20 w-72 h-72 rounded-full bg-white/10 blur-3xl" />
+              <div className="absolute -bottom-20 -left-20 w-72 h-72 rounded-full bg-white/10 blur-3xl" />
+
+              <div className="relative z-10">
+                {/* Heading */}
+                <motion.h2
+                  variants={fadeUp}
+                  className="text-3xl md:text-4xl lg:text-5xl font-bold text-center"
+                >
+                  Book Your Repair Appointment
+                </motion.h2>
+
+                <motion.div
+                  variants={fadeUp}
+                  className="w-24 h-1 bg-white rounded-full mx-auto mt-6 mb-12"
+                />
+
+                {/* Contact Details */}
+                <div className="grid md:grid-cols-2 gap-8 text-lg">
+                  <motion.div variants={fadeUp} className="space-y-6">
+                    <div className="flex items-start gap-4">
+                      <MapPin className="w-6 h-6 mt-1 flex-shrink-0" />
+                      <p>
+                        <strong>Address:</strong> Tottenham Court Road, London,
+                        UK
+                      </p>
+                    </div>
+
+                    <div className="flex items-start gap-4">
+                      <PhoneIcon className="w-6 h-6 mt-1 flex-shrink-0" />
+                      <p>
+                        <strong>Call us:</strong> Reach out by phone to discuss
+                        your repair
+                      </p>
+                    </div>
+
+                    <div className="flex items-start gap-4">
+                      <MessageCircle className="w-6 h-6 mt-1 flex-shrink-0" />
+                      <p>
+                        <strong>WhatsApp:</strong> Quick messages for initial
+                        questions
+                      </p>
+                    </div>
+                  </motion.div>
+
+                  <motion.div variants={fadeUp} className="space-y-6">
+                    <div className="flex items-start gap-4">
+                      <CalendarDays className="w-6 h-6 mt-1 flex-shrink-0" />
+                      <p>
+                        <strong>Online Booking:</strong> Check availability and
+                        book a time that works
+                      </p>
+                    </div>
+
+                    <div className="flex items-start gap-4">
+                      <Clock3 className="w-6 h-6 mt-1 flex-shrink-0" />
+                      <p>
+                        <strong>Opening Hours:</strong> [Your hours — adjust as
+                        needed]
+                      </p>
+                    </div>
+                  </motion.div>
+                </div>
+
+                {/* Bottom Text */}
+                <motion.p
+                  variants={fadeUp}
+                  className="mt-12 text-center text-lg md:text-xl leading-8 max-w-3xl mx-auto"
+                >
+                  We're ready when you are. Bring the phone in or contact us
+                  first. Either way, we'll get you sorted.
+                </motion.p>
+
+                {/* CTA Buttons */}
+                <motion.div
+                  variants={fadeUp}
+                  className="mt-12 flex flex-wrap justify-center gap-5"
+                >
+                  <Link to="/book">
+                    <Button
+                      size="lg"
+                      className="bg-red-600 text-white hover:bg-red-700 rounded-full px-8 h-14 font-semibold"
+                    >
+                      Book a Repair
+                    </Button>
+                  </Link>
+
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="border-2 border-red-600 text-red-600 bg-transparent hover:bg-red-600 hover:text-white font-semibold rounded-full px-8 h-14"
+                  >
+                    Contact Us
+                  </Button>
+                </motion.div>
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="py-10 lg:py-20 bg-muted/20">
+        <div className="container mx-auto px-4 lg:px-8">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="max-w-5xl mx-auto"
+          >
+            {/* Heading */}
+            <motion.div variants={fadeUp} className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
+                Frequently Asked Questions
+              </h2>
+
+              <div className="w-24 h-1 bg-red-600 rounded-full mx-auto mt-6" />
+            </motion.div>
+
+            {/* FAQs */}
+
+            <div className="space-y-5">
+              {phoneFaqs.map((faq, index) => (
+                <motion.div
+                  key={index}
+                  variants={fadeUp}
+                  className="bg-white rounded-2xl border border-gray-200 shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl"
+                >
+                  <button
+                    onClick={() => setOpenFAQ(openFAQ === index ? null : index)}
+                    className="w-full flex items-center justify-between text-left px-8 py-6"
+                  >
+                    <h3 className="text-lg md:text-xl font-semibold text-foreground pr-6">
+                      {faq.question}
+                    </h3>
+
+                    <div className="w-10 h-10 rounded-full bg-red-600 text-white flex items-center justify-center flex-shrink-0 transition-transform duration-300">
+                      {openFAQ === index ? (
+                        <Minus className="w-5 h-5" />
+                      ) : (
+                        <Plus className="w-5 h-5" />
+                      )}
+                    </div>
+                  </button>
+
+                  <div
+                    className={`grid transition-all duration-500 ease-in-out ${
+                      openFAQ === index ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                    }`}
+                  >
+                    <div className="overflow-hidden">
+                      <div className="px-8 pb-6 text-muted-foreground leading-8 text-[15px]">
+                        {faq.answer}
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="py-20 lg:py-28 bg-background">
+        <div className="container mx-auto px-4 lg:px-8">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="max-w-5xl mx-auto text-center"
+          >
+            <motion.h2
+              variants={fadeUp}
+              className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground"
+            >
+              Your Trusted Mobile Phone Repair Experts in Central London
+            </motion.h2>
+
+            <motion.div
+              variants={fadeUp}
+              className="w-24 h-1 bg-red-600 rounded-full mx-auto mt-6 mb-10"
+            />
+
+            <motion.p
+              variants={fadeUp}
+              className="text-[15px] leading-8 text-muted-foreground"
+            >
+              Your phone getting damaged is stressful. Figuring out where to get
+              it fixed shouldn’t be. We provide Mobile Phone Repair Tottenham
+              Court Road services that are straightforward, experienced, and
+              genuinely focused on getting your device working properly again.
+              We don’t disappear you into long waits. We don’t charge you
+              surprise fees. We don’t use cheap, dodgy parts.
+            </motion.p>
+
+            <motion.p
+              variants={fadeUp}
+              className="mt-8 text-[15px] leading-8 text-muted-foreground font-medium"
+            >
+              We fix phones. We do it well. We do it fairly. That’s the whole
+              story.
+            </motion.p>
+
+            <motion.p
+              variants={fadeUp}
+              className="mt-8 text-[15px] leading-8 text-muted-foreground"
+            >
+              If you’re in Tottenham Court Road or nearby in Central London and
+              your phone needs fixing, come see us. We’ll take care of you.
+            </motion.p>
+
+            {/* CTA Buttons */}
+            <motion.div
+              variants={fadeUp}
+              className="mt-12 flex flex-wrap justify-center gap-5"
+            >
+              <Link to="/book">
+                <Button
+                  size="lg"
+                  className="rounded-full bg-red-600 hover:bg-red-700 text-white px-8 h-14"
+                >
+                  Book a Repair
+                </Button>
+              </Link>
+
+              <Button
+                size="lg"
+                variant="outline"
+                className="rounded-full border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white px-8 h-14"
+              >
+                Contact Us
+              </Button>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
 
       <Footer />
     </div>
   );
-};
-
-export default Phone;
+}

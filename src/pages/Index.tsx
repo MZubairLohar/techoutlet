@@ -941,7 +941,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { showSuccessToast } from "@/lib/toast";
 
-const fadeUp = {
+export const fadeUp = {
   hidden: { opacity: 0, y: 30 },
   visible: (i: number = 0) => ({
     opacity: 1,
@@ -954,7 +954,7 @@ const fadeUp = {
   }),
 };
 
-const staggerContainer = {
+export const staggerContainer = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.08 } },
 };
@@ -1371,7 +1371,7 @@ const Index = () => {
         </motion.div>
       </a>
 
-      <section className="py-16 bg-card bg-white">
+      {/* <section className="py-16 bg-card bg-white">
         <div className="container mx-auto px-4 lg:px-8">
           <motion.div
             initial="hidden"
@@ -1414,10 +1414,10 @@ const Index = () => {
             })}
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       {/* Repair Types */}
-      <section className="py-20 lg:py-28">
+      {/* <section className="py-20 lg:py-28">
         <div className="container mx-auto px-4 lg:px-8">
           <motion.div
             initial="hidden"
@@ -1480,12 +1480,12 @@ const Index = () => {
                 <h3 className="font-semibold text-foreground text-sm">
                   {type.name}
                 </h3>
-                {/* <p className="text-xs text-muted-foreground mt-1">{type.price}</p> */}
+                <p className="text-xs text-muted-foreground mt-1">{type.price}</p>
               </motion.div>
             ))}
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       {/* How It Works */}
       <section className="py-20 lg:py-28 bg-card">
@@ -2790,8 +2790,14 @@ const Index = () => {
               {
                 icon: "📞",
                 title: "Call or WhatsApp",
-                desc: "📞 [Phone] \n 💬 [WhatsApp]",
-                tag: "Call / WhatsApp",
+                desc: (
+                <>
+                📞 [Phone] 
+                <br/>
+                 💬 [WhatsApp]
+                 </>
+                 ),
+                tag: "Call / WhatsApp"
               },
               {
                 icon: "⚡",
