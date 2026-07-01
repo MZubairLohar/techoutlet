@@ -1602,7 +1602,7 @@ export default function Phone() {
             <motion.div variants={fadeUp}>
               <div className="overflow-hidden rounded-3xl shadow-2xl">
                 <img
-                  src="/happy-customers.jpg"
+                  src="/happy-customers.png"
                   alt="Happy customers receiving repaired phones"
                   className="w-full h-[500px] object-cover hover:scale-105 transition-transform duration-500"
                 />
@@ -1726,7 +1726,7 @@ export default function Phone() {
             <motion.div variants={fadeUp}>
               <div className="overflow-hidden rounded-3xl shadow-2xl">
                 <img
-                  src="/tottenham-court-road-map.jpg"
+                  src="/happy-customers.png"
                   alt="Areas We Serve Near Tottenham Court Road"
                   className="w-full h-[500px] object-cover hover:scale-105 transition-transform duration-500"
                 />
