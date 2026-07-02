@@ -2100,12 +2100,13 @@ const Index = () => {
       </section>
 
       {/* ==================== REPAIR PROCESS SLIDER SECTION START ==================== */}
-      <section className="py-24 bg-background relative overflow-hidden border-b border-border/50">
-        {/* Soft Background Lab Radials */}
+
+      {/* <section className="py-24 bg-background relative overflow-hidden border-b border-border/50">
+        
         <div className="absolute top-1/2 right-0 w-72 h-72 bg-red-500/[0.02] rounded-full blur-3xl pointer-events-none" />
 
         <div className="container mx-auto px-4 lg:px-8 relative z-10">
-          {/* Section Title with Desktop Navigation Controls */}
+          
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
             <div className="max-w-xl">
               <span className="text-xs font-bold text-red-500 uppercase tracking-widest bg-red-50 dark:bg-red-950/30 px-3 py-1 rounded-md">
@@ -2120,7 +2121,6 @@ const Index = () => {
               </h2>
             </div>
 
-            {/* Carousel Trigger Paddles */}
             <div className="hidden sm:flex items-center gap-2">
               <button
                 onClick={() => {
@@ -2143,7 +2143,7 @@ const Index = () => {
             </div>
           </div>
 
-          {/* Native Horizontal Pipeline Scroll Wrapper */}
+         
           <div
             id="process-slider"
             className="flex gap-6 overflow-x-auto pb-8 scrollbar-none snap-x snap-mandatory scroll-smooth relative"
@@ -2192,11 +2192,11 @@ const Index = () => {
                 transition={{ delay: idx * 0.05, duration: 0.4 }}
                 className="min-w-[290px] sm:min-w-[340px] max-w-[350px] h-[250px] snap-start p-6 rounded-2xl bg-card border border-border/70 shadow-sm relative overflow-hidden group flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:border-red-500/20 hover:shadow-md shrink-0"
               >
-                {/* Top Linear Laser Accent Layer */}
+                
                 <div className="absolute top-0 left-0 right-0 h-[2.5px] bg-red-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
 
                 <div>
-                  {/* Header Block: Light Minimal Step Tracker */}
+                  
                   <div className="flex justify-between items-center mb-6">
                     <span className="text-4xl font-black text-red-500/10 dark:text-red-500/[0.04] group-hover:text-red-500/25 transition-colors tracking-tighter font-mono select-none">
                       {item.step}
@@ -2209,16 +2209,14 @@ const Index = () => {
                     </div>
                   </div>
 
-                  {/* Content Stream */}
                   <h3 className="font-extrabold text-foreground text-base md:text-lg mb-2.5 group-hover:text-red-500 transition-colors tracking-tight">
                     {item.title}
                   </h3>
-                  {/* <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">
-                    {item.desc}
-                  </p> */}
+                 
+                 
                 </div>
 
-                {/* Bottom Interactive Tail */}
+                
                 <div className="flex justify-end pt-2 border-t border-border/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <span className="text-[10px] font-mono font-bold tracking-wider text-red-500/70">
                     NEXT_STEP_DATA // →
@@ -2228,7 +2226,41 @@ const Index = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
+      <section className="py-20 lg:py-24 bg-background">
+  <div className="container mx-auto px-4 lg:px-8">
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      variants={staggerContainer}
+      className="max-w-5xl mx-auto text-center"
+    >
+      <motion.h2
+        variants={fadeUp}
+        className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-foreground"
+      >
+        Our 6-Step Laptop Repair
+        <br />
+        <span className="bg-gradient-to-r from-red-500 via-red-600 to-red-700 bg-clip-text text-transparent">
+          Tottenham Court Road Process Works
+        </span>
+      </motion.h2>
+
+      <motion.div
+        variants={fadeUp}
+        className="w-24 h-1 bg-red-600 rounded-full mx-auto mt-6 mb-10"
+      />
+
+      <motion.p
+        variants={fadeUp}
+        className="text-lg leading-8 text-muted-foreground text-left"
+      >
+        Tell us the problem (walk in, call, WhatsApp, or form).Free Diagnosis. We test and explain.Clear Written Quote. No hidden costs.Repair by a real technician (same person who diagnosed).Full testing (charging, display, USB ports, Wi-Fi, Bluetooth, camera, speakers, keyboard, trackpad, battery health, temperature).Collection with warranty paperwork and aftercare tips.
+      </motion.p>
+    </motion.div>
+  </div>
+</section>
       {/* ==================== REPAIR PROCESS SLIDER SECTION END ==================== */}
 
       {/* common prblems  */}
