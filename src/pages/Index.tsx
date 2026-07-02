@@ -927,9 +927,20 @@ import {
   Phone,
   MapPin,
   CheckCircle2,
+  UserCog,
+  Wrench,
 } from "lucide-react";
 import { Smile, ShieldCheck, BadgeDollarSign, Clock, Star } from "lucide-react";
-import { Smartphone, Apple, BadgeCheck, Cpu, Radio } from "lucide-react";
+import {
+  Smartphone,
+  Apple,
+  Laptop,
+  HardDrive,
+  BadgeCheck,
+  Cpu,
+  Radio,
+} from "lucide-react";
+import { SiDell, SiHp, SiLenovo, SiAsus, SiAcer } from "react-icons/si";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -965,6 +976,18 @@ const brands = [
   { name: "Xiaomi", icon: Cpu }, // tech / hardware brand
   { name: "Oppo", icon: Radio }, // communication device feel
   { name: "Vivo", icon: BadgeCheck }, // premium / trusted feel
+
+  //  { icon: Laptop, name: "Dell" },
+  //   { icon: Monitor, name: "HP" },
+  //   { icon: Laptop, name: "Lenovo" },
+  //   { icon: Cpu, name: "ASUS" },
+  //   { icon: HardDrive, name: "Acer" },
+
+  { icon: SiDell, name: "Dell" },
+  { icon: SiHp, name: "HP" },
+  { icon: SiLenovo, name: "Lenovo" },
+  { icon: SiAsus, name: "ASUS" },
+  { icon: SiAcer, name: "Acer" },
 ];
 
 const stats = [
@@ -1096,32 +1119,32 @@ const Index = () => {
 
   const repairTypes = [
     {
-      name: "Stay Happy",
-      icon: Smile, // happiness / satisfaction
+      name: "5-Star Google Rating",
+      icon: Star, // happiness / satisfaction
       price: "From $49",
       color: "bg-primary/10 text-primary",
     },
     {
-      name: "Certified Grade-A Parts",
-      icon: ShieldCheck, // certified / trusted / quality
+      name: "Same-Day Repairs",
+      icon: Zap, // certified / trusted / quality
       price: "From $29",
       color: "bg-accent/10 text-accent",
     },
     {
-      name: "Best Price Guaranteed",
-      icon: BadgeDollarSign, // best price / money value
+      name: "Repair + Accessories",
+      icon: Wrench, // best price / money value
       price: "From $25",
       color: "bg-amber-100 text-amber-600",
     },
     {
-      name: "Same-Day Repair",
-      icon: Clock, // speed / same day
+      name: "100% Satisfied Customers",
+      icon: Smile, // speed / same day
       price: "From $59",
       color: "bg-sky-100 text-sky-600",
     },
     {
-      name: "Excellent Rated On Trustpilot",
-      icon: Star, // rating / reviews
+      name: "Experienced Technicians",
+      icon: UserCog, // rating / reviews
       price: "From $19",
       color: "bg-purple-100 text-purple-600",
     },
@@ -1132,7 +1155,7 @@ const Index = () => {
       {/* Hero Section */}
       <section
         id="hero"
-        className="relative xl:min-h-screen flex items-center pt-32"
+        className="relative pt-40 pb-10 lg:pt-50 lg:pb-15 flex items-center"
       >
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-primary/5" />
@@ -1156,7 +1179,7 @@ const Index = () => {
               <motion.h1
                 variants={fadeUp}
                 custom={1}
-                className="mt-14 text-2xl md:text-2xl lg:text-5xl font-bold text-foreground leading-tight"
+                className="text-2xl md:text-2xl lg:text-5xl font-bold text-foreground leading-tight"
               >
                 {/* Book Your <br />
                 <span className="text-gradient">Mobile Repair</span> <br />
@@ -1200,7 +1223,7 @@ const Index = () => {
                 </motion.p>
 
                 {/* New USPs Section */}
-                <motion.ul
+                {/* <motion.ul
                   variants={fadeUp}
                   custom={2.5}
                   className="mt-6 grid grid-cols-2 gap-4 text-sm font-semibold text-gray-700"
@@ -1210,7 +1233,7 @@ const Index = () => {
                   <li>🛠️ Repair + Accessories</li>
                   <li>😊 100% Satisfied customers</li>
                   <li>👨‍🔧 Experienced Technicians</li>
-                </motion.ul>
+                </motion.ul> */}
 
                 <motion.div
                   variants={fadeUp}
@@ -1218,25 +1241,29 @@ const Index = () => {
                   className="mt-8 flex flex-wrap gap-4"
                 >
                   {/* Buttons here */}
-                  <button className="px-6 py-2 bg-red-600 text-white rounded-lg">
-                    Book a Repair
-                  </button>
+                  <Link to="/book">
+                    <button className="px-6 py-2 bg-red-600 text-white rounded-lg">
+                      Book a Repair
+                    </button>
+                  </Link>
+
                   <button className="px-6 py-2 border border-red-600 text-red-600 rounded-lg">
-                    Get a Free Quote
+                    Get a Call
                   </button>
+
                   <button className="px-6 py-2 bg-gray-100 text-gray-800 rounded-lg">
-                    Visit Our Store
+                    Accessories
                   </button>
                 </motion.div>
 
-                <Link to="/book">
+                {/* <Link to="/book">
                   <Button
                     size="lg"
                     className="border-[2px] border-red-600 bg-transparent text-red-600 rounded-full px-8 shadow-soft hover:shadow-lg hover:bg-red-600 hover:text-white transition-all text-base h-14"
                   >
                     Book Now <ArrowRight className="w-5 h-5 ml-1" />
                   </Button>
-                </Link>
+                </Link> */}
                 {/* <Button size="lg" variant="outline" className="rounded-full px-8 h-14 text-base">
                   View Pricing
                 </Button> */}
@@ -1273,6 +1300,11 @@ const Index = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-foreground/30 to-transparent" />
               </div>
+
+
+
+
+
               {/* <motion.div
                 animate={{ y: [-5, 5, -5] }}
                 transition={{ duration: 3, repeat: Infinity }}
@@ -1318,7 +1350,10 @@ const Index = () => {
             </motion.div>
           </div>
         </div>
+        
       </section>
+      
+
       <a
         href="https://maps.app.goo.gl/wsqrkFgK28MZh6eP9"
         target="_blank"
@@ -1371,7 +1406,81 @@ const Index = () => {
         </motion.div>
       </a>
 
-      {/* <section className="py-16 bg-card bg-white">
+      {/* Repair Types */}
+      <section className="pt-10 lg:pt-18 pb-10 lg:pb-20">
+        <div className="container mx-auto px-4 lg:px-8">
+          {/* <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="text-center mb-14"
+          >
+            <motion.span
+              variants={fadeUp}
+              className="text-sm font-medium text-red-600 uppercase tracking-wider"
+            >
+              Our Services
+            </motion.span>
+            <motion.h2
+              variants={fadeUp}
+              custom={1}
+              className="text-3xl lg:text-4xl font-bold mt-3 text-foreground"
+            >
+              Why Choose Tech<span className="text-red-600">-</span>Outlet
+              Repairs<span className="text-red-600">?</span>
+            </motion.h2>
+            <motion.p
+              variants={fadeUp}
+              custom={2}
+              className="mt-4 text-muted-foreground max-w-6xl mx-auto"
+            >
+              Phones, tablets, or laptops giving you trouble? We'll repair it.
+              Send us your phone from anywhere in the UK or visit us our shop,
+              and we'll fix it fast. Book online for free, whether you've got a
+              broken iPad, laptop, or mobile phone, our expert team fixes it all
+              and post it back to you on the same day. Free send-back delivery
+              across London, Essex, and the entire UK! We don't just repair – we
+              rescue your tech, providing lightning-fast service with a smile.
+              From screen repair, battery replacements to software issues we've
+              got you covered with guaranteed quality and friendly support.
+            </motion.p>
+          </motion.div> */}
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="grid grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-6"
+          >
+            {repairTypes.map((type, i) => (
+              <motion.div
+                key={type.name}
+                variants={fadeUp}
+                custom={i}
+                whileHover={{ scale: 1.03, y: -6 }}
+                className="bg-background rounded-2xl p-6 shadow-card hover:shadow-soft transition-all cursor-pointer group border border-border/50"
+              >
+                <div
+                  className={`w-14 h-14 rounded-xl ${type.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}
+                >
+                  <type.icon className="w-7 h-7 " />
+                </div>
+                <h3 className="font-semibold text-foreground text-sm">
+                  {type.name}
+                </h3>
+                {/* <p className="text-xs text-muted-foreground mt-1">
+                  {type.price}
+                </p> */}
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Brainds */}
+      <section className="py-16 bg-card bg-white">
         <div className="container mx-auto px-4 lg:px-8">
           <motion.div
             initial="hidden"
@@ -1414,78 +1523,7 @@ const Index = () => {
             })}
           </motion.div>
         </div>
-      </section> */}
-
-      {/* Repair Types */}
-      {/* <section className="py-20 lg:py-28">
-        <div className="container mx-auto px-4 lg:px-8">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={staggerContainer}
-            className="text-center mb-14"
-          >
-            <motion.span
-              variants={fadeUp}
-              className="text-sm font-medium text-red-600 uppercase tracking-wider"
-            >
-              Our Services
-            </motion.span>
-            <motion.h2
-              variants={fadeUp}
-              custom={1}
-              className="text-3xl lg:text-4xl font-bold mt-3 text-foreground"
-            >
-              Why Choose Tech<span className="text-red-600">-</span>Outlet
-              Repairs<span className="text-red-600">?</span>
-            </motion.h2>
-            <motion.p
-              variants={fadeUp}
-              custom={2}
-              className="mt-4 text-muted-foreground max-w-6xl mx-auto"
-            >
-              Phones, tablets, or laptops giving you trouble? We'll repair it.
-              Send us your phone from anywhere in the UK or visit us our shop,
-              and we'll fix it fast. Book online for free, whether you've got a
-              broken iPad, laptop, or mobile phone, our expert team fixes it all
-              and post it back to you on the same day. Free send-back delivery
-              across London, Essex, and the entire UK! We don't just repair – we
-              rescue your tech, providing lightning-fast service with a smile.
-              From screen repair, battery replacements to software issues we've
-              got you covered with guaranteed quality and friendly support.
-            </motion.p>
-          </motion.div>
-
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={staggerContainer}
-            className="grid grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-6"
-          >
-            {repairTypes.map((type, i) => (
-              <motion.div
-                key={type.name}
-                variants={fadeUp}
-                custom={i}
-                whileHover={{ scale: 1.03, y: -6 }}
-                className="bg-background rounded-2xl p-6 shadow-card hover:shadow-soft transition-all cursor-pointer group border border-border/50"
-              >
-                <div
-                  className={`w-14 h-14 rounded-xl ${type.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}
-                >
-                  <type.icon className="w-7 h-7 " />
-                </div>
-                <h3 className="font-semibold text-foreground text-sm">
-                  {type.name}
-                </h3>
-                <p className="text-xs text-muted-foreground mt-1">{type.price}</p>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section> */}
+      </section>
 
       {/* How It Works */}
       <section className="py-20 lg:py-28 bg-card">
@@ -2791,13 +2829,13 @@ const Index = () => {
                 icon: "📞",
                 title: "Call or WhatsApp",
                 desc: (
-                <>
-                📞 [Phone] 
-                <br/>
-                 💬 [WhatsApp]
-                 </>
-                 ),
-                tag: "Call / WhatsApp"
+                  <>
+                    📞 [Phone]
+                    <br />
+                    💬 [WhatsApp]
+                  </>
+                ),
+                tag: "Call / WhatsApp",
               },
               {
                 icon: "⚡",
