@@ -971,11 +971,11 @@ export const staggerContainer = {
 };
 
 const brands = [
-  { name: "iPhone", icon: Apple }, // Apple brand
-  { name: "Samsung", icon: Smartphone }, // Android phone
-  { name: "Xiaomi", icon: Cpu }, // tech / hardware brand
-  { name: "Oppo", icon: Radio }, // communication device feel
-  { name: "Vivo", icon: BadgeCheck }, // premium / trusted feel
+  // { name: "iPhone", icon: Apple }, // Apple brand
+  // { name: "Samsung", icon: Smartphone }, // Android phone
+  // { name: "Xiaomi", icon: Cpu }, // tech / hardware brand
+  // { name: "Oppo", icon: Radio }, // communication device feel
+  // { name: "Vivo", icon: BadgeCheck }, // premium / trusted feel
 
   //  { icon: Laptop, name: "Dell" },
   //   { icon: Monitor, name: "HP" },
@@ -983,11 +983,11 @@ const brands = [
   //   { icon: Cpu, name: "ASUS" },
   //   { icon: HardDrive, name: "Acer" },
 
-  { icon: SiDell, name: "Dell" },
-  { icon: SiHp, name: "HP" },
-  { icon: SiLenovo, name: "Lenovo" },
-  { icon: SiAsus, name: "ASUS" },
-  { icon: SiAcer, name: "Acer" },
+  // { icon: SiDell, name: "Dell" },
+  // { icon: SiHp, name: "HP" },
+  // { icon: SiLenovo, name: "Lenovo" },
+  // { icon: SiAsus, name: "ASUS" },
+  // { icon: SiAcer, name: "Acer" },
 ];
 
 const stats = [
@@ -1489,12 +1489,12 @@ const Index = () => {
             variants={staggerContainer}
             className="text-center mb-10"
           >
-            <motion.p
+            {/* <motion.p
               variants={fadeUp}
               className="text-sm text-red-600 font-medium uppercase tracking-wider"
             >
               We repair all major brands
-            </motion.p>
+            </motion.p> */}
           </motion.div>
 
           <motion.div
@@ -2997,7 +2997,7 @@ const Index = () => {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-12 items-start">
             {/* Left Column: Location & Accessibility (Red Accents) */}
-            <motion.div
+            {/* <motion.div
               className="lg:col-span-6 space-y-6"
               initial="hidden"
               whileInView="visible"
@@ -3066,7 +3066,7 @@ const Index = () => {
                   </strong>
                 </p>
               </motion.div>
-            </motion.div>
+            </motion.div> */}
 
             {/* Right Column: Trust Card (Red Gradient Button & Borders) */}
             <motion.div
@@ -3079,7 +3079,7 @@ const Index = () => {
               {/* Subtle top edge red accent line */}
               <div className="absolute top-0 left-0 right-0 h-1 bg-red-600"></div>
 
-              <div>
+              {/* <div>
                 <motion.span
                   variants={fadeUp}
                   className="text-sm font-semibold text-red-600 uppercase tracking-wider"
@@ -3095,18 +3095,18 @@ const Index = () => {
                     Work, Studies, and Memories
                   </span>
                 </motion.h3>
-              </div>
+              </div> */}
 
-              <motion.p
+              {/* <motion.p
                 variants={fadeUp}
                 className="text-muted-foreground leading-relaxed text-sm md:text-base"
               >
                 A laptop isn't just a laptop. It's the dissertation that's three
                 weeks late. The wedding photos that aren't backed up. The client
                 presentation is due tomorrow morning.
-              </motion.p>
+              </motion.p> */}
 
-              <motion.p
+              {/* <motion.p
                 variants={fadeUp}
                 className="text-muted-foreground leading-relaxed text-sm md:text-base"
               >
@@ -3114,9 +3114,9 @@ const Index = () => {
                 we're the cheapest in London (we are fair), but because we tell
                 them the truth about their device, fix it properly, and stand
                 behind the work.
-              </motion.p>
+              </motion.p> */}
 
-              <motion.div
+              {/* <motion.div
                 variants={fadeUp}
                 className="pt-5 border-t border-border/80 flex flex-wrap gap-4 items-center justify-between"
               >
@@ -3142,7 +3142,7 @@ const Index = () => {
                     Before & After Photos
                   </a>
                 </div>
-              </motion.div>
+              </motion.div> */}
             </motion.div>
           </div>
         </div>
