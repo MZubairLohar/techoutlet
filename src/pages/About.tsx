@@ -1,3 +1,10 @@
+// meta data for about page
+export const metadata = {
+  title: "Mobile Phone Repair Tottenham Court Road | Fast Same-Day Fixes",
+  description: "Need mobile phone repair on Tottenham Court Road? Visit our phone shop Tottenham Court Road for fast, affordable screen & battery repairs today",
+};
+
+
 import { motion } from "framer-motion";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
