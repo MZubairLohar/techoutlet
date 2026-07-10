@@ -128,6 +128,7 @@ const navItems = [
   { label: "Home", path: "/#hero" },
   { label: "Phone Repair", path: "/phone" },
   { label: "Laptop Repair", path: "/laptop" },
+  { label: "About", path: "/about" },
   //  { label: "Contact", path: "/contact" },
 ];
 
@@ -244,6 +245,16 @@ const Navbar = () => {
             >
               Contact
             </Link>
+            {/* <Link
+              to="/about"
+              className={`px-4 py-2 text-lg text-white font-medium transition-all duration-200 ${
+                location.pathname === "/about"
+                  ? "text-primary"
+                  : "text-muted-foreground border-transparent hover:text-white hover:border-b-[3px] hover:border-red-600"
+              }`}
+            >
+              About
+            </Link> */}
           </nav>
 
           {/* Desktop Button */}

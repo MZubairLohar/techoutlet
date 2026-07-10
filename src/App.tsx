@@ -31,6 +31,7 @@ import Contact from "./pages/Contact";
 import AboutUs from "./pages/AboutUs";
 import Phone from "./pages/Phone";
 import Laptop from "./pages/Laptop";
+import About from "./pages/About";
 
 
 const queryClient = new QueryClient();
@@ -57,6 +58,7 @@ const App = () => (
                <Route path="/contact" element={<Contact />} />
                 <Route path="/aboutus" element={<AboutUs />} />
                 <Route path="/phone" element={<Phone />} />
+                <Route path="/about" element={<About />} />
                 <Route path="/laptop" element={<Laptop />} />
               {/* <Route path="/admin" element={<AdminDashboard />} /> */}
               <Route path="/technician" element={<TechnicianDashboard />} />
