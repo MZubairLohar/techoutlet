@@ -1767,34 +1767,33 @@ const Index = () => {
           {/* Heading Section */}
           <div className="text-center max-w-2xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-              Why We're the Electronics shop Locals Actually Recommend
-            </h2>
+              Why We're the Electronics shop Locals Actually
+              Recommend            </h2>
             <p className="text-lg text-muted-foreground">
-              Repairs are 60% of what we do. The other 40% is the shop
-              itself—and it's not just there to fill the space.
+              Repairs are 60% of what we do. The other 40% is the shop itself — and it's not just there to
+              fill the space.
             </p>
           </div>
 
           {/* Items Section */}
           <div className="bg-white p-8 md:p-12 rounded-3xl border border-gray-100 shadow-sm">
             <h3 className="text-2xl font-bold mb-8 text-red-600">
-              Stuff People Actually Need, Not Just Stuff That Looks Pretty
-            </h3>
+              Delivering genuine utility, not just aesthetic appeal             </h3>
             <p className="text-gray-600 mb-8 italic">
-              You won't find pointless gadgets on our shelves. What you will
-              find:
+              You won't find Useless devices and gadgets on our shelves.You will find your tech solution
+              on our store:
             </p>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-4">
               {[
-                "Laptop chargers for nearly every brand (Apple, Dell, HP, Lenovo, ASUS, Acer)",
-                "HDMI, USB-C, DisplayPort, and VGA cables",
+                "Laptop chargers:All major brands and models (Apple, Dell, HP, Lenovo, ASUS, Acer)",
+                "HDMI, USB-C,VGA cables and  DisplayPort",
                 "UK travel adapters (huge for tourists getting off the Elizabeth Line)",
                 "Power banks with proper mAh ratings, not the inflated ones",
-                "Keyboards and mice — wired, wireless, mechanical",
-                "External SSDs and hard drives",
+                "Keyboards and mice — wired, wireless, mechanical ",
+                "Back-up hardware and SSDs",
                 "Headphones, earbuds, and gaming headsets",
-                "Phone cases, screen protectors, and chargers",
+                "Chargers , Phone cases & screen protectors",
                 "Networking gear — routers, Wi-Fi extenders, Ethernet cables",
               ].map((item, index) => (
                 <div
