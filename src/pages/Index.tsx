@@ -2363,8 +2363,8 @@ const Index = () => {
               What Causes a Laptop to Stop Working?
             </h2>
             <p className="text-xl text-muted-foreground">
-              After years of opening these things up, here's the truth about why
-              laptops fail:
+              After years of opening these things up, here's the truth about why laptops fail:
+
             </p>
           </div>
 
@@ -2373,31 +2373,31 @@ const Index = () => {
             {[
               {
                 title: "Heat",
-                desc: " dust clogs the fans, thermal paste dries out, the CPU and GPU run too hot, and components degrade faster.",
+                desc: "dust clogs the fans, thermal paste dries out, the CPU and GPU run too hot, and components degrade faster",
               },
               {
                 title: "Old Batteries",
-                desc: "lithium-ion cells lose capacity over 3–4 years, then swell.",
+                desc: " lithium-ion cells lose capacity over 3–4 years, then swell",
               },
               {
                 title: "Liquid Spills",
-                desc: "even a small splash corrodes the board over weeks.",
+                desc: "even a small splash corrodes the board over weeks",
               },
               {
                 title: "Damaged charging Ports",
-                desc: "repeatedly yanking the cable out at an angle.",
+                desc: "repeatedly yanking the cable out at an angle",
               },
               {
                 title: "Failing Storage",
-                desc: " HDDs wear mechanically, SSDs wear electrically.",
+                desc: " HDDs wear mechanically, SSDs wear electrically",
               },
               {
                 title: "Hinge Damage",
-                desc: " usually starts as a small crack and spreads.",
+                desc: "usually starts as a small crack and spreads",
               },
               {
                 title: "Malware and bad Software",
-                desc: " slows things down and sometimes corrupts the OS.",
+                desc: "slows things down and sometimes corrupts the OS",
               },
               {
                 title: "Power Surges",
@@ -2405,7 +2405,7 @@ const Index = () => {
               },
               {
                 title: "Drops and Impacts",
-                desc: "even a small fall can crack solder joints.",
+                desc: "even a small fall can crack solder joints",
               },
             ].map((item, index) => (
               <div
