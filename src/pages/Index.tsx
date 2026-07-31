@@ -2002,7 +2002,7 @@ const Index = () => {
               {
                 brand: "Apple",
                 models:
-                  "MacBook Air, MacBook Pro (Intel, M1, M2, M3, M4), iMac, Mac mini, Mac Studio",
+                  "MacBook Pro MacBook Air, (Intel, M1, M2, M3, M4), iMac, Mac Studio, Mac mini. ",
               },
               {
                 brand: "Dell",
@@ -2014,7 +2014,7 @@ const Index = () => {
               },
               {
                 brand: "HP",
-                models: "Pavilion, Envy, Spectre, EliteBook Omen, Victus",
+                models: "Pavilion, Envy, Spectre, EliteBook, Omen, Victus ",
               },
               {
                 brand: "Acer",
@@ -2022,20 +2022,20 @@ const Index = () => {
               },
               {
                 brand: "ASUS",
-                models: "ZenBook, VivoBook, ROG, TUF, ExpertBook",
+                models: "ZenBook, VivoBook, ROG, TUF, ExpertBook ",
               },
-              { brand: "Samsung", models: "Galaxy Book, Chromebook" },
+              { brand: "Samsung", models: "Galaxy & Chromebook" },
               {
                 brand: "Microsoft",
                 models:
-                  "Surface Pro,  Surface Laptop, Surface Book, Surface Go",
+                  "Surface Pro, Surface Book, Surface Laptop & Surface Go ",
               },
               {
                 brand: "MSI",
-                models: "Stealth, Raider, Katana, Cyborg, Modern, Prestige",
+                models: "Stealth, Raider, Katana, Cyborg & Modern, Prestige ",
               },
-              { brand: "Razer", models: "Razer Blade (All Generations)" },
-              { brand: "Google", models: "Pixelbook, Chromebook" },
+              { brand: "Razer", models: "Razer Blade (all generations)" },
+              { brand: "Google", models: "Pixelbook , Chromebook" },
               { brand: "Huawei", models: "MateBook Series" },
             ].map((item, index) => (
               <div
