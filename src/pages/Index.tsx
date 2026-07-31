@@ -2056,7 +2056,7 @@ const Index = () => {
           <div className="mt-16 text-center p-8 bg-gray-900 rounded-3xl text-white">
             <h3 className="text-2xl font-bold mb-2">Don't see your brand?</h3>
             <p className="text-gray-400 mb-6">
-              Walk in or call. We work on almost everything
+              Don't see your brand? Walk in or call. We work on almost everything
             </p>
             <button className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-xl font-bold transition-all">
               Call Us Now
@@ -2206,11 +2206,10 @@ const Index = () => {
               variants={fadeUp}
               className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-foreground"
             >
-              Our 6-Step Laptop Repair
-              <br />
+              Our 6 Repair laptop repair <br />
               <span className="bg-gradient-to-r from-red-500 via-red-600 to-red-700 bg-clip-text text-transparent">
-                Tottenham Court Road Process Works
-              </span>
+                Tottenham Court Road
+                Process Works                             </span>
             </motion.h2>
 
             <motion.div
@@ -2222,8 +2221,14 @@ const Index = () => {
               variants={fadeUp}
               className="text-lg leading-8 text-muted-foreground text-left"
             >
-              Tell us the problem (walk in, call, WhatsApp, or form).Free Diagnosis. We test and explain.Clear Written Quote. No hidden costs.Repair by a real technician (same person who diagnosed).Full testing (charging, display, USB ports, Wi-Fi, Bluetooth, camera, speakers, keyboard, trackpad, battery health, temperature).Collection with warranty paperwork and aftercare tips.
-            </motion.p>
+              Step 1 — Tell us the problem (walk in, call, WhatsApp, or form).
+              Step 2 — Free diagnosis. We test and explain
+              Step 3 — Clear written quote. No hidden costs.
+              Step 4 — Talk directly to the expert repairing your laptop—from the first check-up to the final
+              fix.
+              Step 5 — Our technicians will be testing (camera, speakers, keyboard, trackpad, USB ports,
+              charging, display, Wi-Fi, Bluetooth, battery health, temperature of your device).
+              Step 6 — Collection with warranty paperwork and aftercare tips.            </motion.p>
           </motion.div>
         </div>
       </section>
@@ -2236,21 +2241,17 @@ const Index = () => {
             <h2 className="text-4xl font-extrabold text-foreground mb-4">
               Common Problems We Fix Weekly
             </h2>
-            <p className="text-lg text-muted-foreground">
-              No guessing—just expert, component-level repairs.
-            </p>
+
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* 1. Screen */}
             <div className="p-8 border border-gray-100 rounded-3xl bg-gray-50 hover:shadow-lg transition-all">
               <h3 className="text-xl font-bold mb-3 text-red-600">
-                Laptop Screen Replacement
-              </h3>
+                Laptop Screen Replacement               </h3>
               <p className="text-gray-700 text-sm leading-relaxed">
-                Cracked glass, lines across display, half black, flickering, dim
-                image. Most screens £80–£200 fitted (MacBooks higher because
-                assembly is bonded). Same-day if in stock.
+                Cracked glass, lines across display, half black, flickering, dim image. Most screens £80–£200 fitted (MacBooks higher because assembly is bonded). Same-day if in stock.
+
               </p>
             </div>
 
@@ -2260,9 +2261,8 @@ const Index = () => {
                 Battery & Power Problems
               </h3>
               <p className="text-gray-700 text-sm leading-relaxed">
-                Won't charge, drains in minutes, only works plugged in, won't
-                charge past 80%. Usually battery wear, faulty charger, or
-                charging circuit fault. Battery replacement £60–£150.
+                Won't charge, drains in minutes, only works plugged in, won't charge past 80%. Usually battery wear, faulty charger, or charging circuit fault. Battery replacement £60–£150.
+
               </p>
             </div>
 
@@ -2272,8 +2272,8 @@ const Index = () => {
                 Charging Port / DC Jack Repair
               </h3>
               <p className="text-gray-700 text-sm leading-relaxed">
-                Can only charge at odd angles, charger falls out, USB-C wobbles.
-                We desolder and fit new. Prevents further motherboard damage.
+                Can only charge at odd angles, charger falls out, USB-C wobbles. We desolder and fit new. Prevents further motherboard damage.
+
               </p>
             </div>
 
@@ -2283,9 +2283,8 @@ const Index = () => {
                 Keyboard & Trackpad issues
               </h3>
               <p className="text-gray-700 text-sm leading-relaxed">
-                Dead keys, sticky keyboard after spill, trackpad won't click.
-                Includes MacBook butterfly and scissor switch replacements.
-                Usually same-day.
+                We can usually fix most of these issues on the same day . Dead keys, sticky keyboard after spill, trackpad won't click. Includes MacBook butterfly and scissor switch replacements.
+
               </p>
             </div>
 
@@ -2295,9 +2294,8 @@ const Index = () => {
                 Liquid Damage (Water, Coffee, Tea)
               </h3>
               <p className="text-gray-700 text-sm leading-relaxed">
-                Switch off immediately, don't charge, bring in fast. Corrosion
-                spreads over days and weeks. We ultrasonically clean boards.
-                Higher success rate if caught early.
+                Spilled something? like (Water, Coffee, Tea) Turn your laptop off right away, do not charge it, and bring it to us as fast as you can. Corrosion doesn't happen instantly—it slowly spreads over days and weeks, so getting it cleaned early saves your motherboard
+
               </p>
             </div>
 
@@ -2307,21 +2305,18 @@ const Index = () => {
                 Motherboard / Logic Board Repair
               </h3>
               <p className="text-gray-700 text-sm leading-relaxed">
-                No power, random shutdowns, USB port faults, won't charge. We
-                diagnose component-level faults under microscope instead of
-                selling full board replacement (saves £300–£800).
+                No power, random shutdowns, USB port faults, won't charge. We diagnose component-level faults under microscope instead of selling full board replacement (saves £300–£800).
+
               </p>
             </div>
 
             {/* 7. Overheating */}
             <div className="p-8 border border-gray-100 rounded-3xl bg-gray-50 hover:shadow-lg transition-all">
               <h3 className="text-xl font-bold mb-3 text-red-600">
-                Overheating & Fan issues
-              </h3>
+                Fan Issues & Overheating              </h3>
               <p className="text-gray-700 text-sm leading-relaxed">
-                Sounds like hairdryer, shuts down under load, excessive heat.
-                Dust clogs fans, thermal paste dries out. Cleaning + repaste
-                drops temps 15–25°C. Usually same-day.
+                shuts down under load & Sounds like hairdryer, Extreme heat.Dust buildup blocking the air , thermal paste dries out. Cleaning + repaste drops temps 15–25°C. Usually same-day.
+
               </p>
             </div>
             {/* 7. slow laptop */}
@@ -2330,9 +2325,8 @@ const Index = () => {
                 Slow Laptop Repair Tottenham Court Road
               </h3>
               <p className="text-gray-700 text-sm leading-relaxed">
-                Usually multiple causes: full storage, low RAM, malware,
-                outdated OS, dust-clogged fans causing thermal throttling. We
-                diagnose the actual bottleneck instead of guessing.
+                Usually multiple causes: full storage, low RAM, malware, outdated OS, dust-clogged fans causing thermal throttling. We diagnose the actual bottleneck instead of guessing.
+
               </p>
             </div>
 
@@ -2342,9 +2336,8 @@ const Index = () => {
                 Hard Drive Failure / SSD Failure
               </h3>
               <p className="text-gray-700 text-sm leading-relaxed">
-                Clicking drive, SSD not detected, won't boot. Back up data
-                immediately. HDD to SSD upgrade is the best upgrade—90-second
-                boot becomes 12 seconds.
+                Clicking drive, SSD not detected, won't boot. Back up data immediately. HDD to SSD upgrade is the best upgrade—90-second boot becomes 12 seconds.
+
               </p>
             </div>
 
@@ -2354,8 +2347,7 @@ const Index = () => {
                 Hinge & Chassis Damage
               </h3>
               <p className="text-gray-700 text-sm leading-relaxed">
-                Cracked hinge spreads fast, screen separates from base. A small
-                crack becomes £300 repair if ignored. Urgent to fix it early.
+                Cracked hinge spreads fast, screen separates from base. A small crack becomes £300 repair if ignored. Urgent to fix it early.
               </p>
             </div>
           </div>
