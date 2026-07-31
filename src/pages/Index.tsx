@@ -1816,24 +1816,23 @@ const Index = () => {
             {/* Price Section */}
             <div className="p-12 border border-red-200 rounded-3xl bg-white shadow-sm hover:shadow-lg transition-all min-h-[280px] flex flex-col justify-center">
               <h3 className="text-3xl font-extrabold mb-6 text-red-600 leading-tight">
-                Prices That Make Sense for Real People
+                Reasonable Prices that fit your actual budget
               </h3>
               <p className="text-lg text-gray-700 leading-relaxed">
-                Students, commuters, and tourists shouldn't pay airport prices
-                in Central London. Our adapters, cables, and chargers are priced
-                to be reasonable — not to catch out someone in a hurry.
+                Students, commuters, and tourists shouldn't pay airport prices in Central London. Our
+                adapters, cables, and chargers are priced to be reasonable — not to catch out someone in a
+                hurry.
               </p>
             </div>
 
             {/* Quick Needs Section */}
             <div className="p-12 border border-red-200 rounded-3xl bg-white shadow-sm hover:shadow-lg transition-all min-h-[280px] flex flex-col justify-center">
               <h3 className="text-3xl font-extrabold mb-6 text-red-600 leading-tight">
-                Quick Visits for Quick Needs
-              </h3>
+                Quick Visits for Quick Needs              </h3>
               <p className="text-lg text-gray-700 leading-relaxed">
-                Forgot your charger and got a meeting in 20 minutes? Walk in,
-                grab one, walk out. No waiting around. That's what a local
-                electronics store Tottenham court road london is supposed to be.
+                Left your charger at home and have a meeting in 20 minutes? Visit our store, grab your
+                charger, and attend your meeting. No waiting around. That's what a local electronics store
+                on Tottenham Court Road, London,, is meant to be
               </p>
             </div>
           </div>
@@ -1845,78 +1844,75 @@ const Index = () => {
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4 lg:px-8">
           <h2 className="text-4xl font-bold text-center mb-16 text-foreground">
-            Laptop & Computer Repair on Tottenham Court Road
+            Laptop and Computer Repair tottenham court road
           </h2>
 
           <div className="grid md:grid-cols-2 gap-8">
             {/* 1. All Brands & Models */}
             <div className="bg-white p-8 rounded-3xl border border-gray-200 shadow-sm">
               <h3 className="text-2xl font-bold mb-4 text-red-600">
-                Laptop Repair — All Brands
+                Laptop Repair — All Brands & Models
+
               </h3>
               <p className="text-gray-700 mb-4">
-                Cracked screens, failed batteries, dead keyboards, snapped
-                hinges, broken charging ports, liquid damage, motherboard
-                faults, overheating, random shutdowns, slow performance from SSD
-                failure. Screen replacement, battery swaps, keyboard repair,
-                charging port repair, SSD upgrades, RAM upgrades, thermal
-                servicing, HDD to SSD upgrades.
+                We handle every kind of laptop issue, no matter the make or model. Here is what we can
+                help with: failed batteries, dead keyboards, snapped hinges,cracked screens, broken
+                charging ports, liquid damage, motherboard faults, overheating, random shutdowns, slow
+                performance from SSD failure. Battery swaps, keyboard repair, Screen
+                replacement,charging port repair, RAM upgrades, SSD upgrades, thermal servicing, HDD to
+                SSD upgrades.
+                We repair all makes and models such as , Dell, Acer, MSI, Razer,HP, Lenovo, ASUS,
+                Chromebooks, Huawei, Samsung, Microsoft Surface. Whether it's a student's Inspiron from
+                UCL, a designer's XPS from Fitzrovia, a business ThinkPad, or a gaming ROG from
+                Bloomsbury, we diagnose the actual fault instead of guessing.
               </p>
-              <p className="text-sm text-gray-600">
-                We repair Apple, Dell, HP, Lenovo, ASUS, Acer, MSI, Razer,
-                Samsung, Microsoft Surface, Chromebooks, Huawei. Whether it's a
-                student's Inspiron from UCL, a designer's XPS from Fitzrovia, a
-                business ThinkPad, or a gaming ROG from Bloomsbury, we diagnose
-                the actual fault instead of guessing.
-              </p>
+
             </div>
 
             {/* 2. MacBook Repair */}
             <div className="bg-white p-8 rounded-3xl border border-gray-200 shadow-sm">
               <h3 className="text-2xl font-bold mb-4 text-red-600">
-                MacBook Repair Tottenham Court Road
+                MacBook Repair on Tottenham Court Road
               </h3>
               <p className="text-gray-700 mb-4">
-                MacBook Air and Pro (Intel + M1/M2/M3/M4). Screen replacements,
-                battery swaps (including swollen batteries), logic board repair,
-                keyboard replacement, USB-C port repair, liquid damage recovery,
-                SSD upgrades.
+                Whether it’s an Air or a Pro, Intel-powered or the newest M1 to M4 chip, we know MacBooks
+                inside out. Bring your device to us for precise screen swaps, fresh batteries (including
+                swollen ones), or loose USB-C port repairs. We’re also highly experienced in complex logic
+                board fixes, SSD storage upgrades, and reviving Macs after liquid spills. No appointment
+                needed—just bring it in.
               </p>
               <p className="text-red-600 font-bold mb-2">
-                ⚠ MacBook Swollen Battery (Fire Risk)
+                MacBook Swollen Battery — Fire Risk.
               </p>
               <p className="text-sm text-gray-600">
-                Signs: trackpad lifting, case bulging, laptop won't close flat,
-                excessive heat, shortened battery life. Bring it in immediately.
-                We replace them safely, usually on the same day.
+                Signs: trackpad lifting, case bulging, laptop won't close flat, excessive heat, shortened
+                battery life. Bring it in immediately. We replace them safely, usually on the same day.
               </p>
               <p className="text-red-600 font-bold mb-2">
                 Apple Mac Desktop Repair tottenham court road
               </p>
               <p className="text-sm text-gray-600">
-                iMac, Mac mini, Mac Studio—macOS problems, storage upgrades,
-                system migration, performance issues.
+                iMac, Mac mini, Mac Studio—macOS problems, storage upgrades, system migration,
+                performance issues.
               </p>
               <p className="text-red-600 font-bold mb-2">
                 PC & Desktop Computer Repair tottenham court road
               </p>
               <p className="text-sm text-gray-600">
-                No power, boot loops, Windows corruption, hardware faults,
-                thermal issues, RAM upgrade
+                No power, boot loops, Windows corruption, hardware faults, thermal issues, RAM upgrades.
+
               </p>
             </div>
 
             {/* 3. Gaming & PC Repair */}
             <div className="bg-white p-8 rounded-3xl border border-gray-200 shadow-sm">
               <h3 className="text-2xl font-bold mb-4 text-red-600">
-                Gaming Laptops & PC Repair
+                Gaming Laptop & PC Repair Repair tottenham court road
               </h3>
               <p className="text-gray-700">
-                Alienware, ROG, TUF, Legion, Predator, Razer Blade, MSI
-                Stealth/Raider. GPU reflow, thermal paste replacement, fan
-                replacement, high refresh rate panel swaps, overclocking
-                instability diagnosis, RAM/storage upgrades. Gaming laptops run
-                hot and need specialist knowledge.
+                Our technicians also have hands-on experience with gaming PCs such as  Alienware, TUF ,
+                Legion, Predator, Razer Blade,  ROG, MSI. GPU reflow, fan replacement,  thermal paste
+                replacement, panel swaps, overclocking issues,& RAM upgrades.
               </p>
             </div>
 
@@ -1926,26 +1922,26 @@ const Index = () => {
                 Data Recovery Services
               </h3>
               <p className="text-gray-700">
-                Failed HDDs, dead SSDs, corrupted file systems, accidental
-                deletions, formatted drives, water damage, external drives. We
-                diagnose first and tell you what's realistically recoverable.
-                Success depends on failure type—mechanical drives that clicked
-                for weeks are harder than SSDs that just died. Emergency data
-                recovery available for urgent business situations.
+                Failed HDDs, dead SSDs, corrupted file systems, accidental deletions, formatted drives,
+                water damage, external drives. We diagnose first and tell you what's realistically
+                recoverable. Success depends on failure type—mechanical drives that clicked for weeks are
+                harder than SSDs that just died. Emergency data recovery available for urgent business
+                situations.
               </p>
 
               <ul className="text-sm text-gray-700 space-y-2">
                 <li>
-                  <strong>Virus, Malware & Spyware Removal:</strong> Pop-ups,
-                  browser redirects, ransomware, slow system performance, fake
-                  antivirus warnings. We remove thoroughly, not just quick scans
-                  that miss infections. Includes Windows Defender, Malwarebytes,
-                  and manual removal if needed.
+                  <strong>Bug & virus clean
+                  </strong>
+                  Say goodbye to annoying ads , browser redirects, slow system performance,
+                  ransomware,fake antivirus warnings. We remove Completely , not just quick scans that miss
+                  infections. Includes Windows Defender, Malwarebytes, and manual removal if needed.
                 </li>
                 <li>
-                  <strong>Windows & macOS Reinstallation</strong> Boot errors,
-                  blue screen of death (BSOD), Windows update loops, corrupted
-                  OS. Files backed up first. Clean install restores performance.
+                  <strong>Windows & macOS Reinstallation
+                  </strong> Boot errors,
+                  Boot errors, blue screen of death (BSOD), Windows update loops, corrupted OS. Files
+                  backed up first. Clean install restores performance.
                 </li>
                 {/* <li>
                   <strong>OS Reinstall:</strong> Clean Windows/macOS install to
@@ -1957,16 +1953,15 @@ const Index = () => {
             {/* 5. Upgrades */}
             <div className="bg-white p-8 rounded-3xl border border-gray-200 shadow-sm">
               <h3 className="text-2xl font-bold mb-4 text-red-600">
-                SSD Upgrade
+                SSD Upgrade — Best Laptop Investment
               </h3>
               <p className="text-gray-700 mb-2">
-                <strong>Best Laptop Investment</strong> Swap old HDD for SSD.
-                Old laptop feels new again. 90-second boot becomes 12 seconds.
+                Swap old HDD for SSD. Old laptop feels new again. 90-second boot becomes 12 seconds.
                 Improves responsiveness across the board. Hundreds completed.
               </p>
               <p className="text-gray-700">
-                <strong>RAM Memory Upgrade:</strong> 8GB minimum for modern
-                multitasking. 16GB comfortable place. 32GB for designers, video
+                <strong>RAM Memory Upgrade
+                </strong> 8GB minimum for modern multitasking. 16GB comfortable place. 32GB for designers, video
                 editors, gamers. Same-day installation.
               </p>
             </div>
