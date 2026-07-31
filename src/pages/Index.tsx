@@ -1668,82 +1668,69 @@ const Index = () => {
             {/* 1. Free Diagnosis */}
             <div className="p-6 border rounded-2xl hover:shadow-lg transition-shadow">
               <h3 className="text-xl font-bold mb-3 text-red-600">
-                Free Diagnosis
+                Free Diagnosis — No Fix, No Fee
               </h3>
               <p className="text-muted-foreground">
-                <strong>No Fix, No Fee.</strong> Bring it in. We'll diagnose for
-                free and tell you the exact cost. If you decide not to repair,
-                you pay nothing.
+                Bring it in. We'll diagnose for free and tell you the exact
+                cost. If you decide not to repair it, you don't need to pay anything.
               </p>
             </div>
 
             {/* 2. Same-Day Repair */}
             <div className="p-6 border rounded-2xl hover:shadow-lg transition-shadow">
               <h3 className="text-xl font-bold mb-3 text-red-600">
-                Same-Day Repair
-              </h3>
+                Same-Day Repair (70% of jobs)               </h3>
               <p className="text-muted-foreground">
-                <strong>(70% of jobs)</strong> Screen replacement, battery,
-                keyboard, charging port, SSD upgrade, RAM upgrade, virus
-                removal, macOS reinstall—usually done same day if parts are in
-                stock. Liquid damage, motherboard work, and data recovery take
-                1– 2 days. We give realistic timelines, not sales pitches.
+                Screen replacement, battery, keyboard, charging port,
+                SSD upgrade, RAM upgrade, virus removal, macOS reinstall—usually done same day if
+                parts are in stock. motherboard work,data recovery and  Liquid damage 1– 2  days. We give
+                realistic timelines, not sales pitches.
               </p>
             </div>
 
             {/* 3. Honest Pricing */}
             <div className="p-6 border rounded-2xl hover:shadow-lg transition-shadow">
               <h3 className="text-xl font-bold mb-3 text-red-600">
-                Honest Pricing
-              </h3>
+                Honest Pricing. Upfront. In Writing              </h3>
               <p className="text-muted-foreground">
-                <strong>Upfront. In Writing.</strong> Before opening a single
-                screw, you get a written quote. No surprise charges halfway
-                through. We're not the cheapest—genuine parts and skilled labour
-                cost more. But we're fair.
+                Before opening a single screw, you get a written
+                quote. No surprise charges halfway through. We're not the cheapest—genuine parts and
+                skilled labour cost more. But we're fair.
               </p>
             </div>
 
             {/* 4. Warranty */}
             <div className="p-6 border rounded-2xl hover:shadow-lg transition-shadow">
               <h3 className="text-xl font-bold mb-3 text-red-600">
-                Warranty on Every Repair
-              </h3>
+                Warranty on Every Repair              </h3>
               <p className="text-muted-foreground">
-                [5 days] warranty on parts and labour. If something fails during
-                warranty, we fix it for free.
+                we are providing warranty on parts and labour. If something
+                fails during warranty, we fix it for free.
               </p>
             </div>
 
             {/* 5. Skilled Technicians */}
             <div className="p-6 border rounded-2xl hover:shadow-lg transition-shadow">
               <h3 className="text-xl font-bold mb-3 text-red-600">
-                Skilled Technicians
+                Skilled Technicians — Not Trainees
               </h3>
               <p className="text-muted-foreground">
-                <strong>Not Trainees.</strong> Our team has years of hands-on
-                experience with <strong>MacBook logic boards</strong> (Intel,
-                M1, M2, M3, M4),{" "}
-                <strong>
-                  Windows motherboards, liquid damage cleanup, data recovery,
-                  and gaming laptop repair.
-                </strong>{" "}
-                We diagnose at component level instead of selling full board
-                replacements.
+                Our team has years of hands-on experience with
+                MacBook logic boards (Intel, M1, M2, M3, M4), Windows motherboards, liquid damage
+                cleanup, data recovery, and gaming laptop repair. We diagnose at component level
+                instead of selling full board replacements.
               </p>
             </div>
 
             {/* 6. Honest Guidance */}
             <div className="p-6 border rounded-2xl hover:shadow-lg transition-shadow">
               <h3 className="text-xl font-bold mb-3 text-red-600">
-                Repair or Replace?
+                Repair or Replace? Honest Guidance
               </h3>
               <p className="text-muted-foreground">
-                <strong>Honest Guidance.</strong> Sometimes the answer is don't
-                repair it. If an 8-year-old laptop has a failed motherboard,
-                we'll tell you straight and help you find a sensible
-                replacement. That honesty costs us repair jobs—it's also why
-                people send friends.
+                e Sometimes the answer is don't repair it. If an
+                8-year-old laptop has a failed motherboard, we'll tell you straight and help you find a sensible
+                replacement. That honesty costs us repair jobs—it's also why people send friends.
               </p>
             </div>
           </div>
@@ -1765,10 +1752,9 @@ const Index = () => {
                 Your Data Stays Private
               </h3>
               <p className="text-muted-foreground">
-                We never access personal files unless data recovery is the job.
-                No login credentials needed for most repairs. For corporate
-                clients, we sign NDAs. Old drives are wiped to secure standards
-                before disposal.
+                We never access personal files unless data recovery is the job. No
+                login credentials needed for most repairs. For corporate clients, we sign NDAs. Old drives
+                are wiped to secure standards before disposal.
               </p>
             </div>
           </div>
