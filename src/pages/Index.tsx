@@ -1187,11 +1187,13 @@ const Index = () => {
                 {/* <span className="bg-gradient-to-r from-red-400 via-red-500 to-red-700 bg-clip-text text-transparent">Laptop Repair Tottenham Court Road | </span> <br />
                 Electronics Store Tottenham Court Road
                 <span className="text-red-500">!</span> */}
-                <span className="bg-gradient-to-r from-red-400 via-red-500 to-red-700 bg-clip-text text-transparent">
-                  100% Guaranteed Laptop Repair Central London
-                </span>
+                <h1 className="bg-gradient-to-r from-red-400 via-red-500 to-red-700 bg-clip-text text-transparent">
+                  100% Guaranteed Laptop Repair
+                  Central London & Trusted Electronics
+                  Store
+                </h1>
                 {/* <br /> */}
-                {} & Premier Electronics Store
+                { } & Premier Electronics Store
                 <span className="text-red-500">!</span>
               </motion.h1>
               <motion.p
@@ -1200,14 +1202,12 @@ const Index = () => {
                 className="mt-6 text-lg text-muted-foreground xl:max-w-lg leading-relaxed"
               >
                 {/* Need a fast fix or a new gadget? Find reliable laptop repair on tottenham court road and premium gear all under one roof at our tottenham court road electronics store. */}
-                TechOutlet is your trusted electronics store and laptop repair
-                Tottenham Court Road specialist, offering everything from
-                MacBook repairs, screen replacement, battery issues, data
-                recovery, and slow computer fixes to quality chargers, cables,
-                adapters, and everyday tech accessories. Our experienced local
-                technicians provide fast diagnosis, honest advice, affordable
-                prices, and reliable solutions so you can repair, replace, and
-                upgrade your devices all in one place.
+                TechOutlet is your trusted electronics store and laptop repair Tottenham Court Road
+                specialist, offering everything from MacBook repairs,battery issues,  screen replacement,
+                data recovery, and slow computer fixes to quality chargers, adapters, cables, and everyday
+                tech accessories. Our experienced local technicians provide fast assessment , honest
+                advice, affordable prices, and reliable solutions so you can repair, replace, and upgrade your
+                devices all in one place.
               </motion.p>
               <motion.div
                 variants={fadeUp}
@@ -1350,9 +1350,9 @@ const Index = () => {
             </motion.div>
           </div>
         </div>
-        
+
       </section>
-      
+
 
       <a
         href="https://maps.app.goo.gl/wsqrkFgK28MZh6eP9"
@@ -1539,7 +1539,8 @@ const Index = () => {
                 We Fix, Any Device
               </span>
               <h2 className="text-3xl lg:text-4xl font-bold mt-3 text-foreground">
-                Your Local Laptop Repair Experts on Tottenham Court Road
+                Your Local Laptop Repair Technicians on
+                Tottenham Court Road
                 {/* <span className="text-red-600">&</span> IPad
                 Repair Services in London{" "}
                 <span className="text-red-600">&</span> UK */}
@@ -1581,47 +1582,32 @@ const Index = () => {
                 >
                   <div>
                     <p className="text-sm text-muted-foreground mt-1">
-                      Located directly on{" "}
-                      <strong>
-                        Tottenham Court Road near Tottenham Court Road Station
-                      </strong>{" "}
-                      (Elizabeth Line + Northern Line), we're one of Central
-                      London's most accessible repair shops. If you're coming
-                      from <strong>Goodge Street</strong> (5 min),{" "}
-                      <strong>Warren Street</strong> (14 mins ),{" "}
-                      <strong> Oxford Circus </strong>(10 mins ),{" "}
-                      <strong>
-                        Bloomsbury, Fitzrovia, Soho, Covent Garden, or Holborn,
-                      </strong>{" "}
-                      —you're close enough to walk over.
+                      Located directly on Tottenham Court Road near Tottenham Court Road Station (Elizabeth
+                      Line + Northern Line), we're one of Central London's most accessible repair shops. If you're
+                      coming from Goodge Street (5 min), Warren Street (14 mins ), Oxford Circus (10 mins ),
+                      Bloomsbury, Fitzrovia, Soho, Covent Garden, or Holborn, —you're close enough to walk
+                      over.
                     </p>
                     <p className="text-sm text-muted-foreground mt-1">
-                      Most people walk in without an appointment. Drop us a
-                      WhatsApp or call to check part availability first if you
-                      prefer. Either way:{" "}
-                      <strong>
-                        no diagnostic fee, no pressure, no hidden charges.
-                      </strong>
+                      Most people walk in without an appointment. Drop us a WhatsApp or call to check part
+                      availability first if you prefer. Either way: no diagnostic fee, no pressure, no hidden
+                      charges.
                     </p>
                     <h3 className="text-2xl lg:text-3xl font-bold mt-3 text-foreground">
                       People Trust Us With Their Work, Studies, and Memories
                     </h3>
                     <p className="text-sm text-muted-foreground mt-1">
-                      A laptop isn't just a laptop. It's the dissertation that's
-                      three weeks late. The wedding photos that aren't backed
-                      up. The client presentation is due tomorrow morning.
+                      A laptop isn't just a laptop. It's the dissertation that's three weeks late. The wedding photos
+                      that aren't backed up. The client presentation is due tomorrow morning.
                     </p>
                     <p className="text-sm">
-                      We get that. Most of our customers come back to us not
-                      because we're the cheapest in London we are fair , but
-                      because we tell them the truth about their device, fix it
-                      properly, and stand behind the work.
+                      We get that. Most of our customers come back to us not because we're the cheapest in
+                      London we are fair , but because we tell them the truth about their device, fix it properly, and
+                      stand behind the work.
+                      Have a look at our Google reviews., and check out our before-and-after photos further down
+                      the page. These are  proof of our work which is professionally done by our technicians.
                     </p>
-                    <p className="text-sm">
-                      Have a look at our Google reviews. Then have a look at our
-                      before-and-after photos further down the page. The proof
-                      is in the work, not the marketing.
-                    </p>
+
                   </div>
                 </motion.div>
               </div>
@@ -2228,39 +2214,39 @@ const Index = () => {
         </div>
       </section> */}
       <section className="py-20 lg:py-24 bg-background">
-  <div className="container mx-auto px-4 lg:px-8">
-    <motion.div
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-      variants={staggerContainer}
-      className="max-w-5xl mx-auto text-center"
-    >
-      <motion.h2
-        variants={fadeUp}
-        className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-foreground"
-      >
-        Our 6-Step Laptop Repair
-        <br />
-        <span className="bg-gradient-to-r from-red-500 via-red-600 to-red-700 bg-clip-text text-transparent">
-          Tottenham Court Road Process Works
-        </span>
-      </motion.h2>
+        <div className="container mx-auto px-4 lg:px-8">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="max-w-5xl mx-auto text-center"
+          >
+            <motion.h2
+              variants={fadeUp}
+              className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-foreground"
+            >
+              Our 6-Step Laptop Repair
+              <br />
+              <span className="bg-gradient-to-r from-red-500 via-red-600 to-red-700 bg-clip-text text-transparent">
+                Tottenham Court Road Process Works
+              </span>
+            </motion.h2>
 
-      <motion.div
-        variants={fadeUp}
-        className="w-24 h-1 bg-red-600 rounded-full mx-auto mt-6 mb-10"
-      />
+            <motion.div
+              variants={fadeUp}
+              className="w-24 h-1 bg-red-600 rounded-full mx-auto mt-6 mb-10"
+            />
 
-      <motion.p
-        variants={fadeUp}
-        className="text-lg leading-8 text-muted-foreground text-left"
-      >
-        Tell us the problem (walk in, call, WhatsApp, or form).Free Diagnosis. We test and explain.Clear Written Quote. No hidden costs.Repair by a real technician (same person who diagnosed).Full testing (charging, display, USB ports, Wi-Fi, Bluetooth, camera, speakers, keyboard, trackpad, battery health, temperature).Collection with warranty paperwork and aftercare tips.
-      </motion.p>
-    </motion.div>
-  </div>
-</section>
+            <motion.p
+              variants={fadeUp}
+              className="text-lg leading-8 text-muted-foreground text-left"
+            >
+              Tell us the problem (walk in, call, WhatsApp, or form).Free Diagnosis. We test and explain.Clear Written Quote. No hidden costs.Repair by a real technician (same person who diagnosed).Full testing (charging, display, USB ports, Wi-Fi, Bluetooth, camera, speakers, keyboard, trackpad, battery health, temperature).Collection with warranty paperwork and aftercare tips.
+            </motion.p>
+          </motion.div>
+        </div>
+      </section>
       {/* ==================== REPAIR PROCESS SLIDER SECTION END ==================== */}
 
       {/* common prblems  */}
