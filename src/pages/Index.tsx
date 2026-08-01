@@ -2872,12 +2872,10 @@ const Index = () => {
             {/* Student Priority */}
             <div className="border border-black p-8 bg-black text-white rounded-2xl">
               <h3 className="text-xl font-bold mb-4">
-                Same-Day Student Repair in <small>Tottenham Court Road</small>
+                Same-Day Student Repair in <small>Tottenham Court Roady</small>
               </h3>
               <p className="text-sm text-gray-300 leading-relaxed mb-6">
-                Deadline tomorrow? Laptop broken? Walk in. We'll prioritise
-                students from UCL, SOAS, Birkbeck, UAL, LSE, and King's. Bring
-                student ID for our small student discount.
+                We know how stressful university deadlines are. If your laptop breaks at the worst possible time, just walk in. We always help students from UCL, SOAS, Birkbeck, UAL, LSE, and King's first. Bring your student ID and we’ll give you a friendly discount.
               </p>
               <div className="text-xs font-bold uppercase tracking-widest border border-white px-4 py-2 inline-block">
                 Walk-in Ready
@@ -2890,9 +2888,8 @@ const Index = () => {
                 Emergency Business Repair in <small>Tottenham Court Road</small>
               </h3>
               <p className="text-sm text-gray-600 leading-relaxed mb-6">
-                Pitch at 4pm and laptop dead? Call us first thing—we'll keep a
-                slot open. Local agencies and consultancies rely on our fast
-                turnaround.
+                Pitch us at 4pm and laptop dead? Call us first thing — we'll keep a slot open. Most local agencies and consultancies have our number saved.
+
               </p>
               <button className="text-sm font-bold border-b border-black">
                 CALL FOR SLOT →
