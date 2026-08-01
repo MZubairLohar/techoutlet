@@ -1177,9 +1177,7 @@ const Index = () => {
                   Central London & Trusted Electronics
                   Store
                 </h1>
-                {/* <br /> */}
-                { } & Premier Electronics Store
-                <span className="text-red-500">!</span>
+
               </motion.h1>
               <motion.p
                 variants={fadeUp}
