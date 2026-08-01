@@ -2429,10 +2429,7 @@ const Index = () => {
             <h2 className="text-4xl font-extrabold text-foreground mb-6">
               When You Need Professional Repair vs DIY
             </h2>
-            <p className="text-lg text-gray-600">
-              Expert guidance to help you decide when to fix it yourself, and
-              when to bring it to the pros.
-            </p>
+
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 mb-20">
@@ -2441,16 +2438,10 @@ const Index = () => {
               <h3 className="text-xl font-bold text-green-700 mb-4">
                 ✅ Safe to Do Yourself
               </h3>
-              <ul className="space-y-3 text-gray-700">
-                <li>• Restart</li>
-                <li>• Try different charger</li>
-                <li>• Malware scans</li>
-                <li>• Free up storage</li>
-                <li>• Update OS</li>
-                <li>• Test on an external monitor</li>
-                <li>• Back up files</li>
-                <li>• Gentle keyboard cleaning</li>
-              </ul>
+              <p className="text-gray-700">
+                Restart your device or try a different charger, free up storage, back up files, update OS,malware scan, test on external monitor and gentle keyboard cleaning.
+
+              </p>
             </div>
 
             {/* Pro Section */}
@@ -2458,16 +2449,12 @@ const Index = () => {
               <h3 className="text-xl font-bold text-red-700 mb-4">
                 🛠️ Leave to Technicians
               </h3>
-              <ul className="space-y-3 text-gray-700">
-                <li>• Opening laptop</li>
-                <li>• Battery/screen replacement</li>
-                <li>• Liquid damage </li>
-                <li>• Motherboard work</li>
-                <li>• Data recovery</li>
-              </ul>
+              <p className="text-gray-700">
+                if laptop needs Opening, motherboard work, data recovery. battery/screen replacement & liquid damage.
+
+              </p>
               <p className="mt-6 text-sm text-red-800 font-medium italic">
-                *Professional saves Money: Wrong diagnosis leads to the wrong
-                part, wasted money, and further damage.
+                Professional Saves Money: If someone gets the problem wrong, they buy the wrong part. That wastes your money and can ruin your laptop even more. A real expert check and  tells you the exact problem and saves your money.
               </p>
             </div>
           </div>
@@ -2512,17 +2499,17 @@ const Index = () => {
                       r: "Almost always worth repairing",
                     },
                     {
-                      s: "Repair cost  60–70% of replacement",
+                      s: "Repair cost over 60–70% of replacement",
                       r: "Consider replacement",
                     },
                     {
-                      s: "Liquid damage on a High-spec laptop",
+                      s: "Liquid damage on a high-spec laptop",
                       r: "Free diagnosis — often saveable, sometimes not",
                     },
                   ].map((row, i) => (
                     <tr key={i} className="hover:bg-gray-50 transition-colors">
                       <td className="p-5 text-gray-700">{row.s}</td>
-                      <td className="p-5 font-bold text-red-600">{row.r}</td>
+                      <td className="p-5 fonfeat t-bold text-red-600">{row.r}</td>
                     </tr>
                   ))}
                 </tbody>
