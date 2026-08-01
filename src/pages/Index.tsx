@@ -1,20 +1,23 @@
-// import { motion, Variants } from "framer-motion";
-// import { Link, Router, useNavigate } from "react-router-dom";
-// import {
-//   Monitor,
-//   Battery,
-//   Zap,
-//   Droplets,
-//   ArrowRight,
-//   Shield,
-//   Award,
-//   Users,
-//   ChevronRight,
-//   Mail,
-//   Phone,
-//   MapPin,
-//   CheckCircle2,
-// } from "lucide-react";
+import { motion, Variants } from "framer-motion";
+import { Link, useNavigate } from "react-router-dom";
+import {
+  Monitor,
+  Battery,
+  Droplets,
+  ArrowRight,
+  Shield,
+  Award,
+  Users,
+  ChevronRight,
+  Mail,
+  Phone,
+  MapPin,
+  CheckCircle2,
+  UserCog,
+  Zap,
+  Wrench,
+  CheckCircle,
+} from "lucide-react";
 // import {
 //   Smile,
 //   ShieldCheck,
@@ -911,25 +914,7 @@
 //   },
 // };
 
-import { motion, Variants } from "framer-motion";
-import { Link, Router, useNavigate } from "react-router-dom";
-import {
-  Monitor,
-  Battery,
-  Zap,
-  Droplets,
-  ArrowRight,
-  Shield,
-  Award,
-  Users,
-  ChevronRight,
-  Mail,
-  Phone,
-  MapPin,
-  CheckCircle2,
-  UserCog,
-  Wrench,
-} from "lucide-react";
+// Duplicate import block removed – imports are defined at the top of the file.
 import { Smile, ShieldCheck, BadgeDollarSign, Clock, Star } from "lucide-react";
 import {
   Smartphone,
@@ -2217,18 +2202,30 @@ const Index = () => {
               className="w-24 h-1 bg-red-600 rounded-full mx-auto mt-6 mb-10"
             />
 
-            <motion.p
-              variants={fadeUp}
-              className="text-lg leading-8 text-muted-foreground text-left"
-            >
-              Step 1 — Tell us the problem (walk in, call, WhatsApp, or form).
-              Step 2 — Free diagnosis. We test and explain
-              Step 3 — Clear written quote. No hidden costs.
-              Step 4 — Talk directly to the expert repairing your laptop—from the first check-up to the final
-              fix.
-              Step 5 — Our technicians will be testing (camera, speakers, keyboard, trackpad, USB ports,
-              charging, display, Wi-Fi, Bluetooth, battery health, temperature of your device).
-              Step 6 — Collection with warranty paperwork and aftercare tips.            </motion.p>
+            <motion.div variants={fadeUp} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                { icon: Zap, title: "Step 1", description: "Tell us the problem (walk in, call, WhatsApp, or form)." },
+                { icon: Wrench, title: "Step 2", description: "Free diagnosis. We test and explain." },
+                { icon: CheckCircle, title: "Step 3", description: "Clear written quote. No hidden costs." },
+                { icon: Zap, title: "Step 4", description: "Talk directly to the expert repairing your laptop—from the first check‑up to the final fix." },
+                { icon: Wrench, title: "Step 5", description: "Our technicians will be testing (camera, speakers, keyboard, trackpad, USB ports, charging, display, Wi‑Fi, Bluetooth, battery health, temperature of your device)." },
+                { icon: CheckCircle, title: "Step 6", description: "Collection with warranty paperwork and aftercare tips." },
+              ].map((step, index) => {
+                const Icon = step.icon;
+                return (
+                  <div key={index} className="flex flex-col items-center text-center p-4 bg-white rounded-xl shadow-sm ">
+                    <div className="bg-red-600/10 rounded-full p-4 mb-3">
+                      <Icon className="w-6 h-6 text-red-600" />
+                    </div>
+                    <h4 className="text-sm font-medium text-red-600 mb-2">{step.title}</h4>
+                    <p className="text-base text-foreground mb-4">{step.description}</p>
+                    <div className="w-full h-1 bg-red-600/5 rounded-full">
+                      <div className="h-full bg-red-600" style={{ width: `${((index + 1) / 6) * 100}%` }} />
+                    </div>
+                  </div>
+                );
+              })}
+            </motion.div>
           </motion.div>
         </div>
       </section>
@@ -2377,15 +2374,15 @@ const Index = () => {
               },
               {
                 title: "Old Batteries",
-                desc: " lithium-ion cells lose capacity over 3–4 years, then swell",
+                desc: "  lithium-ion cells lose capacity over 3–4 years, then swell",
               },
               {
                 title: "Liquid Spills",
-                desc: "even a small splash corrodes the board over weeks",
+                desc: " even a small splash corrodes the board over weeks",
               },
               {
                 title: "Damaged charging Ports",
-                desc: "repeatedly yanking the cable out at an angle",
+                desc: " repeatedly yanking the cable out at an angle",
               },
               {
                 title: "Failing Storage",
@@ -2397,7 +2394,7 @@ const Index = () => {
               },
               {
                 title: "Malware and bad Software",
-                desc: "slows things down and sometimes corrupts the OS",
+                desc: " slows things down and sometimes corrupts the OS",
               },
               {
                 title: "Power Surges",
