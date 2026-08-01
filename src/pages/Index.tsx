@@ -2563,7 +2563,7 @@ const Index = () => {
                   {
                     num: "03",
                     title: "Microscopes",
-                    desc: "Board-level component diagnosis",
+                    desc: "Board-level component diagnosis.",
                   },
                   {
                     num: "04",
