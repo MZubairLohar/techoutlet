@@ -2611,10 +2611,7 @@ const Index = () => {
                 Electronics Accessories <br />
                 <span className="text-red-500">& Gadgets</span>
               </h2>
-              <p className="text-xs md:text-sm text-muted-foreground mt-2 max-w-md mx-auto">
-                Drop by our storefront for premium tech upgrades, hybrid office
-                setups, and fast travel fixes.
-              </p>
+
             </div>
 
             {/* Clean Split Showcase Grid */}
@@ -2624,7 +2621,7 @@ const Index = () => {
                   category: "Laptop & PC Accessories",
                   icon: "💻",
                   items:
-                    "USB hubs, laptop stands, cooling pads, webcams, external SSDs, docking stations for hybrid working.",
+                    "USB hubs, cooling pads, laptop stands, external SSDs, webcams, docking stations for hybrid working.",
                 },
                 {
                   category: "Keyboards & Mice",
@@ -2636,25 +2633,25 @@ const Index = () => {
                   category: "Audio, Video & Cables",
                   icon: "🔌",
                   items:
-                    "HDMI 2.1, DisplayPort, USB-C to HDMI, VGA adapters for older monitors, USB-C hubs with everything you need.",
+                    "USB-C to HDMI,HDMI 2.1,VGA adapters for older monitors,DisplayPort, USB-C hubs with everything you need",
                 },
                 {
                   category: "Headphones & Earphones",
                   icon: "🎧",
                   items:
-                    "Wired earbuds for £10, premium Bluetooth options, gaming headsets, noise-cancelling for the Tube commute.",
+                    "Whether you need basic £10 earbuds, pro gaming headsets, or noise-cancelling for your noisy daily travel, we’ve got the perfect fit.",
                 },
                 {
                   category: "Power Banks & UK Adapters",
                   icon: "🇬🇧",
                   items:
-                    "This is where tourists save themselves. UK plug adapters from the moment you step off the Elizabeth Line — we've got the right one. Power banks rated honestly (no 50,000mAh nonsense).",
+                    "This is where tourists save themselves. UK plug adapters from the moment you step off the Elizabeth Line —We also stock power banks with real, honest capacities—none of those cheap, fake '50,000mAh' bricks that die on your first day out",
                 },
                 {
                   category: "Mobile Phone & Camera Accessories",
                   icon: "📸",
                   items:
-                    "Cases, screen protectors, fast chargers,  MagSafe options, Lightning and USB-C cables..SD cards, microSD with adapters, USB-C card.",
+                    "Cases, screen protectors, fast chargers,  MagSafe options, Lightning and USB-C cables..SD cards, microSD with adapters, USB-C card",
                 },
               ].map((shop, sIdx) => (
                 <div
@@ -2715,6 +2712,9 @@ const Index = () => {
             <h2 className="text-3xl md:text-5xl font-black text-foreground tracking-tight">
               Real Repair <span className="text-red-500">Cases</span>
             </h2>
+            <p className="mt-6 text-sm text-red-800 font-medium italic">
+              Note: these are attached for an example add real case studies from GMB/GBP
+            </p>
           </div>
 
           {/* Cases */}
