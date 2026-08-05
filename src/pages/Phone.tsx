@@ -33,7 +33,7 @@ export default function Phone() {
       question:
         "Is there an affordable phone repair shop on Tottenham Court Road?",
       answer:
-        "Yes, that's us. We price repairs fairly. No hidden charges. Upfront quotes on everything. We're not the cheapest on the market, but we're not expensive either. We're competitive and transparent.",
+        "Yes, TECH OUTLET LTD  is the best affordable phone repair shop on Tottenham Court Road London . We price repairs fairly. No hidden charges. Upfront quotes on everything. We're not the cheapest on the market, but we're not very expensive either. We're competitive and transparent.",
     },
     {
       question: "How quick is your phone repair service really?",
@@ -44,7 +44,7 @@ export default function Phone() {
       question:
         "Do you repair Samsung and Google Pixel phones as well as iPhones?",
       answer:
-        "Absolutely. Samsung Galaxy phones, Google Pixel devices, and pretty much any major brand. iPhone is common, but we're experienced across the board. Whatever phone you've got, we can usually help.",
+        "Absolutely. At TECH OUTLET LTD we repair  Samsung Galaxy phones, Google Pixel devices, and pretty much any major brand. iPhone is common, but we're experienced across the board. Whatever phone you've got, we can usually help.",
     },
     {
       question: "Do you fix Chinese phone brands?",
@@ -54,7 +54,7 @@ export default function Phone() {
     {
       question: "Are your replacement parts actually genuine?",
       answer:
-        "For screens and batteries, we use genuine or OEM-equivalent components. That means proper quality, proper longevity. Not counterfeit. Not knock-offs. The real deal.",
+        "Our all parts are actually genuine For screens and batteries, we use genuine or OEM-equivalent components. That means proper quality, proper longevity. Not counterfeit. Not knock-offs. The real deal.",
     },
     {
       question: "Can you recover my data if my phone is water-damaged?",
@@ -69,8 +69,8 @@ export default function Phone() {
     {
       question: "Do you handle software issues or just hardware?",
       answer:
-        "Mostly hardware. We can help with basic software troubleshooting. If your phone is frozen or slow, we'll look at it. But major software repairs — data recovery from corrupted files, or extensive debugging — those aren't our primary service. We'll give you honest advice about whether it's something we can help with.",
-    },
+        "We handle both. We can help with software troubleshooting and hardware issues. If your phone is slow or  frozen,or  major software repairs, data recovery from corrupted files, or extensive debugging we'll look at it. "
+    }
   ];
 
   return (
@@ -1182,9 +1182,7 @@ export default function Phone() {
                     </h3>
 
                     <p className="text-[15px] leading-7 text-muted-foreground">
-                      iPhone 12, 13, 14, 15 and all older models. We handle all of
-                      them. Screen repairs, battery swaps, water damage, charging
-                      issues, camera problems. All of it.
+                      We fix all iPhones—from the very first model to the newest iPhone 17 Pro Max . Screen repairs, battery swaps, water damage, charging issues, camera problems. All of it.
                     </p>
                   </div>
 
@@ -1195,23 +1193,18 @@ export default function Phone() {
                     </h3>
 
                     <p className="text-[15px] leading-7 text-muted-foreground">
-                      Galaxy S-series, Galaxy A-series, Galaxy Z flip and fold
-                      devices. Samsung makes diverse phones and we repair all of
-                      them regularly. Very common repair work for us.
+                      We fix all Samsung Galaxy phones—from  Galaxy S-series, Galaxy A-series, Galaxy Z flip and fold devices. Samsung makes diverse phones and we repair all of them regularly. Very common repair work for us.
                     </p>
                   </div>
 
                   {/* Google */}
                   <div className="border-l-4 border-red-600 pl-6">
                     <h3 className="text-2xl font-bold mb-4">
-                      Other Brands We Fix
+                      Google Pixel
                     </h3>
 
                     <p className="text-[15px] leading-7 text-muted-foreground">
-                      Look, we don't turn away phones. We've worked on OnePlus,
-                      Huawei, Oppo, and other brands. If there's a repair we can
-                      reasonably do, we do it. If it's something outside our
-                      scope, we'll tell you honestly.
+                      We repair Pixel 6, 7, 8, and earlier generations. Pixel phones have grown in popularity and we see plenty of them. Screen damage, battery issues, port repairs — we handle the lot.
                     </p>
                   </div>
                 </motion.div>
@@ -1223,20 +1216,17 @@ export default function Phone() {
                     <h3 className="text-2xl font-bold mb-4">Motorola & Xiaomi</h3>
 
                     <p className="text-[15px] leading-7 text-muted-foreground">
-                      Less common than Apple and Samsung in our area, but we
-                      absolutely service them. We've got the parts and the
-                      experience.
+                      Less common than Apple and Samsung in our area, but we absolutely service them. We've got the parts and the experience.
+
                     </p>
                   </div>
 
                   {/* Other Brands */}
                   <div className="border-l-4 border-red-600 pl-6">
-                    <h3 className="text-2xl font-bold mb-4"> Google Pixel</h3>
+                    <h3 className="text-2xl font-bold mb-4">Other Brands We Fix</h3>
 
                     <p className="text-[15px] leading-7 text-muted-foreground">
-                      Pixel 6, 7, 8, and earlier generations. Pixel phones have
-                      grown in popularity and we see plenty of them. Screen
-                      damage, battery issues, port repairs — we handle the lot.
+                      Look, we don't turn away phones. We can fix all brands and models such as OnePlus, Huawei, Oppo,Vivo, and many other brands. If your phone can be fixed, we will do it. If it's outside our service limits, we'll tell you truthfully."
                     </p>
                   </div>
 
@@ -1275,19 +1265,13 @@ export default function Phone() {
                 <div className="w-24 h-1 bg-red-600 rounded-full mt-6 mb-8" />
 
                 <p className="text-[15px] leading-8 text-muted-foreground">
-                  We've seen basically every problem you can imagine. Cracked
-                  screens. Dead batteries. Water damage. Software issues. Charging
-                  failures. Speaker problems. Microphone failures. Camera
-                  malfunctions. Slow performance from storage issues. Overheating.
-                  Unresponsive touch screens. The list goes on.
+                  We've seen basically every problem you can imagine. Cracked screens. Dead batteries. Water damage. Software issues. Charging failures. Speaker problems. Microphone failures. Camera malfunctions. Slow performance from storage issues. Overheating. Unresponsive touch screens. If your device isn't working right, chances are we can fix it today.
+
                 </p>
 
                 <p className="mt-8 text-[15px] leading-8 text-muted-foreground">
-                  Here's what matters: if it's a physical component failure, we
-                  can probably fix it. If it's software, we can usually help or
-                  point you in the right direction. If it's something rare or
-                  unusual, we'll give you honest advice about whether it's worth
-                  fixing or if you should consider a replacement.
+                  Here's what matters: if it's a physical component failure, we can probably fix it. If it's software, we can usually help or point you in the right direction. If it's something rare or unusual, we'll give you honest advice about whether it's worth fixing or if you should consider a replacement.
+
                 </p>
               </motion.div>
 
@@ -1324,14 +1308,8 @@ export default function Phone() {
                 <div className="w-24 h-1 bg-red-600 rounded-full mt-6 mb-8" />
 
                 <p className="text-[15px] leading-8 text-muted-foreground">
-                  We use proper diagnostic equipment. Micro-soldering stations for
-                  board-level work. Precision tools for screen and component
-                  replacement. Testing software to verify repairs before you
-                  leave. Parts sourcing from verified suppliers. All of this costs
-                  money and requires expertise. It's why you don't see every
-                  repair shop doing logic board fixes or water damage recovery.
-                  We've invested in the right tools because doing it right
-                  matters.
+                  We use proper diagnostic equipment. Micro-soldering stations for board-level work. Precision tools for screen and component replacement. Testing software to verify repairs before you leave. Parts sourcing from verified suppliers. All of this costs money and requires expertise. It's why you don't see every repair shop doing logic board fixes or water damage recovery. We've invested in the right tools because doing it right matters.
+
                 </p>
               </motion.div>
 
@@ -1519,13 +1497,8 @@ export default function Phone() {
                 <div className="w-24 h-1 bg-red-600 rounded-full mt-6 mb-8" />
 
                 <p className="text-[15px] leading-8 text-muted-foreground">
-                  We fix phones for students, professionals, families, and
-                  tourists. Someone drops their phone the week before an exam.
-                  Someone's charging port fails during a business trip. Someone's
-                  toddler gets hold of their phone. Real people, real problems,
-                  real fixes. Thats why we are the best phone repair tottenham
-                  court road repairing center, We've handled thousands of repairs
-                  over the years. Nearly all of them walk out satisfied.
+                  We fix phones for students, professionals, families, and tourists. Someone drops their phone the week before an exam. Someone's charging port fails during a business trip. Someone's toddler gets hold of their phone. Real people, real problems, real fixes. That's why we are the best phone repair tottenham court road repairing center, We've handled thousands of repairs over the years. Nearly all of them walk out satisfied.
+
                 </p>
               </motion.div>
 
@@ -1569,8 +1542,7 @@ export default function Phone() {
                   <div className="text-5xl text-red-600 leading-none mb-6">“</div>
 
                   <p className="text-[15px] leading-7 text-muted-foreground italic">
-                    "I thought my phone was done for. Brought it in, fixed it in
-                    an hour, perfect condition. Can't fault it."
+                    "I thought my phone was done for. Brought it in, fixed it in an hour, perfect condition. Can't fault it"
                   </p>
 
                   <div className="mt-6 pt-6 border-t border-gray-100">
@@ -1585,8 +1557,7 @@ export default function Phone() {
                   <div className="text-5xl text-red-600 leading-none mb-6">“</div>
 
                   <p className="text-[15px] leading-7 text-muted-foreground italic">
-                    "No hidden fees. They quoted 60 quid and it was 60 quid.
-                    That's rare these days."
+                    "No hidden fees. They quoted 60 quid and it was 60 quid. That's rare these days." — another happy repair"
                   </p>
 
                   <div className="mt-6 pt-6 border-t border-gray-100">
@@ -1601,9 +1572,7 @@ export default function Phone() {
                   <div className="text-5xl text-red-600 leading-none mb-6">“</div>
 
                   <p className="text-[15px] leading-7 text-muted-foreground italic">
-                    "They explained exactly what was wrong and why the fix would
-                    work. It felt like talking to someone who actually knew what
-                    they were doing."
+                    "They explained exactly what was wrong and why the fix would work. It felt like talking to someone who actually knew what they were doing."
                   </p>
 
                   <div className="mt-6 pt-6 border-t border-gray-100">
@@ -1644,12 +1613,8 @@ export default function Phone() {
                 <div className="w-24 h-1 bg-red-600 rounded-full mt-6 mb-8" />
 
                 <p className="text-[15px] leading-8 text-muted-foreground">
-                  We're located on Tottenham Court Road itself. That puts us in a
-                  prime spot to serve Soho, Bloomsbury, Fitzrovia, Covent Garden,
-                  Holborn, and all of Central London. Whether you're working in
-                  the area, shopping nearby, or living locally, getting to us is
-                  convenient. We see customers from across London, but we're
-                  especially accessible if you're in these neighborhoods.
+                  We're located on Tottenham Court Road itself. That puts us in a prime spot to serve Soho, Bloomsbury, Fitzrovia, Covent Garden, Holborn, and all of Central London. Whether you're working in the area, shopping nearby, or living locally, getting to us is convenient. We see customers from across London, but we're especially accessible if you're in these neighborhoods.
+
                 </p>
               </motion.div>
 
@@ -1731,8 +1696,8 @@ export default function Phone() {
                       <div className="flex items-start gap-4">
                         <CalendarDays className="w-6 h-6 mt-1 flex-shrink-0" />
                         <p>
-                          <strong>Online Booking:</strong> Check availability and
-                          book a time that works
+                          <strong>Online Booking:</strong> Check availability and book a time that works
+
                         </p>
                       </div>
 
