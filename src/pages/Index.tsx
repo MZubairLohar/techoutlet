@@ -1136,7 +1136,7 @@ const Index = () => {
   ];
   return (
     <div className="min-h-screen bg-background overflow-hidden">
-      <link rel="canonical" href="https://techoutlet.uk/" />
+      <link rel="canonical" href="https://www.techoutlet.uk/" />
       <Navbar />
       {/* Hero Section */}
       <section

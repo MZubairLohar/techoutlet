@@ -1,7 +1,7 @@
 // meta data for about page
 export const metadata = {
-  title: "Mobile Phone Repair Tottenham Court Road | Fast Same-Day Fixes",
-  description: "Need mobile phone repair on Tottenham Court Road? Visit our phone shop Tottenham Court Road for fast, affordable screen & battery repairs today",
+    title: "Mobile Phone Repair Tottenham Court Road | Fast Same-Day Fixes",
+    description: "Need mobile phone repair on Tottenham Court Road? Visit our phone shop Tottenham Court Road for fast, affordable screen & battery repairs today",
 };
 
 
@@ -21,6 +21,7 @@ const staggerContainer = {
 export default function About() {
     return (
         <div className="min-h-screen bg-background overflow-hidden">
+            <link rel="canonical" href="https://www.techoutlet.uk/about" />
             <Navbar />
 
             {/* 1. About Hero Section */}
@@ -326,7 +327,7 @@ export default function About() {
                 </div>
             </section>
 
-            <Footer/>
+            <Footer />
         </div>
     );
 }

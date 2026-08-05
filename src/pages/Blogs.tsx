@@ -296,6 +296,8 @@ export default function BlogPage() {
     <>
       <div className="min-h-screen pt-28 px-4 lg:px-12 bg-gradient-to-b from-background to-muted/30">
         <Navbar />
+        <link rel="canonical" href="https://techoutlet.uk/blogs" />
+
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}

@@ -77,7 +77,7 @@ export default function Phone() {
     <>
       <title>Mobile Phone Repair Tottenham Court Road | Fast Same-Day repairs</title>
       <meta name="description" content="Need mobile phone repair on Tottenham Court Road? Visit our phone shop Tottenham Court Road for fast, affordable screen & battery repairs today." />
-
+      <link rel="canonical" href="https://www.techoutlet.uk/phone" />
       <div className="min-h-screen bg-background overflow-hidden">
         <Navbar />
         <section
