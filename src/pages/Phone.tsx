@@ -198,8 +198,10 @@ export default function Phone() {
               >
                 <div className="overflow-hidden rounded-3xl shadow-2xl">
                   <img
-                    src="/phone-hero.png"
-                    alt="Mobile Phone Repair Tottenham Court Road"
+                    src="/mobile-phone-repair-tottenham-court-road-.jpg.webp"
+                    alt="Disassembled smartphone components laid out on a work mat for mobile phone repair Tottenham Court Road. (106 characters)
+
+"
                     className="w-full h-[550px] object-cover"
                   />
                 </div>
@@ -551,8 +553,8 @@ export default function Phone() {
               <motion.div variants={fadeUp}>
                 <div className="overflow-hidden rounded-3xl shadow-lg">
                   <img
-                    src="/repair-1.png"
-                    alt="Phone Repair Before and After"
+                    src="/samsung-s23-ultra-battery-replacement-tottenham-court-road.jpg.webp"
+                    alt="Disassembled Galaxy phone parts next to fully assembled working device for Samsung phone repair Tottenham Court Road."
                     className="w-full h-60 object-cover hover:scale-105 transition duration-500"
                   />
                 </div>
@@ -561,8 +563,8 @@ export default function Phone() {
               <motion.div variants={fadeUp}>
                 <div className="overflow-hidden rounded-3xl shadow-lg">
                   <img
-                    src="/repair-2.png"
-                    alt="Battery Replacement"
+                    src="/iphone-repair-tottenham-court-road-before-after.jpg.webp"
+                    alt="Shattered iPhone display next to fully fixed screen for phone screen repair Tottenham Court Road. "
                     className="w-full h-60 object-cover hover:scale-105 transition duration-500"
                   />
                 </div>
@@ -571,8 +573,8 @@ export default function Phone() {
               <motion.div variants={fadeUp}>
                 <div className="overflow-hidden rounded-3xl shadow-lg">
                   <img
-                    src="/repair-3.png"
-                    alt="Mobile Phone Repair"
+                    src="/phone-screen-repair-tottenham-court-road-before-after.jpg.webp"
+                    alt="Scratched smartphone screen next to fully powered-on restored display for iPhone repair Tottenham Court Road. "
                     className="w-full h-60 object-cover hover:scale-105 transition duration-500"
                   />
                 </div>
