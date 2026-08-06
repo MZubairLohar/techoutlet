@@ -125,9 +125,9 @@ import { Menu, X, Smartphone, Box } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const navItems = [
-  { label: "Home", path: "/#hero" },
+  { label: "Home", path: "/" },
   { label: "Phone Repair", path: "/phone" },
-  { label: "Laptop Repair", path: "/laptop" },
+  { label: 'Accessories', path: '/accessories' },
   { label: "About", path: "/about" },
   //  { label: "Contact", path: "/contact" },
 ];
@@ -169,9 +169,8 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-black shadow-soft" : "bg-black"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-black shadow-soft" : "bg-black"
+        }`}
     >
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
@@ -197,51 +196,32 @@ const Navbar = () => {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`px-4 py-2 text-lg text-white font-medium transition-all duration-200 ${
-                  location.pathname + location.hash === item.path
-                    ? "text-primary"
-                    : "text-muted-foreground border-transparent hover:text-white hover:border-b-[3px] hover:border-red-600"
-                }`}
+                className={`px-4 py-2 text-lg text-white font-medium transition-all duration-200 ${location.pathname + location.hash === item.path
+                  ? "text-primary"
+                  : "text-muted-foreground border-transparent hover:text-white hover:border-b-[3px] hover:border-red-600"
+                  }`}
               >
                 {item.label}
               </Link>
             ))}
 
-            {/* MORE DROPDOWN */}
-            <div className="relative group">
-              <button className="px-4 py-2 text-lg text-white font-medium hover:text-white border-transparent hover:border-b-[3px] hover:border-red-600">
-                More ▾
-              </button>
 
-              {/* Dropdown */}
-              <div className="absolute left-0 top-full mt-2 w-44 bg-black rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                <Link
-                  to="/blogs"
-                  className="block px-4 py-2 text-white hover:bg-red-600 rounded-b-lg"
-                >
-                  Blogs
-                </Link>
-                <Link
-                  to="/aboutus"
-                  className="block px-4 py-2 text-white hover:bg-red-600 rounded-t-lg"
-                >
-                  About Us
-                </Link>
-                <Link
-                  to="/brands"
-                  className="block px-4 py-2 text-white hover:bg-red-600 rounded-b-lg"
-                >
-                  Brands
-                </Link>
-              </div>
-            </div>
+            <Link
+              to="/blogs"
+              className={`px-4 py-2 text-lg text-white font-medium transition-all duration-200 ${location.pathname === "/contact"
+                ? "text-primary"
+                : "text-muted-foreground border-transparent hover:text-white hover:border-b-[3px] hover:border-red-600"
+                }`}
+            >
+              Blog
+            </Link>
+
             <Link
               to="/contact"
-              className={`px-4 py-2 text-lg text-white font-medium transition-all duration-200 ${
-                location.pathname === "/contact"
-                  ? "text-primary"
-                  : "text-muted-foreground border-transparent hover:text-white hover:border-b-[3px] hover:border-red-600"
-              }`}
+              className={`px-4 py-2 text-lg text-white font-medium transition-all duration-200 ${location.pathname === "/contact"
+                ? "text-primary"
+                : "text-muted-foreground border-transparent hover:text-white hover:border-b-[3px] hover:border-red-600"
+                }`}
             >
               Contact
             </Link>

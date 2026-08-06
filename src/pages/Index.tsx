@@ -1,20 +1,23 @@
-// import { motion, Variants } from "framer-motion";
-// import { Link, Router, useNavigate } from "react-router-dom";
-// import {
-//   Monitor,
-//   Battery,
-//   Zap,
-//   Droplets,
-//   ArrowRight,
-//   Shield,
-//   Award,
-//   Users,
-//   ChevronRight,
-//   Mail,
-//   Phone,
-//   MapPin,
-//   CheckCircle2,
-// } from "lucide-react";
+import { motion, Variants } from "framer-motion";
+import { Link, useNavigate } from "react-router-dom";
+import {
+  Monitor,
+  Battery,
+  Droplets,
+  ArrowRight,
+  Shield,
+  Award,
+  Users,
+  ChevronRight,
+  Mail,
+  Phone,
+  MapPin,
+  CheckCircle2,
+  UserCog,
+  Zap,
+  Wrench,
+  CheckCircle,
+} from "lucide-react";
 // import {
 //   Smile,
 //   ShieldCheck,
@@ -911,25 +914,7 @@
 //   },
 // };
 
-import { motion, Variants } from "framer-motion";
-import { Link, Router, useNavigate } from "react-router-dom";
-import {
-  Monitor,
-  Battery,
-  Zap,
-  Droplets,
-  ArrowRight,
-  Shield,
-  Award,
-  Users,
-  ChevronRight,
-  Mail,
-  Phone,
-  MapPin,
-  CheckCircle2,
-  UserCog,
-  Wrench,
-} from "lucide-react";
+// Duplicate import block removed – imports are defined at the top of the file.
 import { Smile, ShieldCheck, BadgeDollarSign, Clock, Star } from "lucide-react";
 import {
   Smartphone,
@@ -1151,6 +1136,7 @@ const Index = () => {
   ];
   return (
     <div className="min-h-screen bg-background overflow-hidden">
+      <link rel="canonical" href="https://www.techoutlet.uk/" />
       <Navbar />
       {/* Hero Section */}
       <section
@@ -1187,12 +1173,12 @@ const Index = () => {
                 {/* <span className="bg-gradient-to-r from-red-400 via-red-500 to-red-700 bg-clip-text text-transparent">Laptop Repair Tottenham Court Road | </span> <br />
                 Electronics Store Tottenham Court Road
                 <span className="text-red-500">!</span> */}
-                <span className="bg-gradient-to-r from-red-400 via-red-500 to-red-700 bg-clip-text text-transparent">
-                  100% Guaranteed Laptop Repair Central London
-                </span>
-                {/* <br /> */}
-                {} & Premier Electronics Store
-                <span className="text-red-500">!</span>
+                <h1 className="bg-gradient-to-r from-red-400 via-red-500 to-red-700 bg-clip-text text-transparent">
+                  100% Guaranteed Laptop Repair
+                  Central London & Trusted Electronics
+                  Store
+                </h1>
+
               </motion.h1>
               <motion.p
                 variants={fadeUp}
@@ -1200,14 +1186,12 @@ const Index = () => {
                 className="mt-6 text-lg text-muted-foreground xl:max-w-lg leading-relaxed"
               >
                 {/* Need a fast fix or a new gadget? Find reliable laptop repair on tottenham court road and premium gear all under one roof at our tottenham court road electronics store. */}
-                TechOutlet is your trusted electronics store and laptop repair
-                Tottenham Court Road specialist, offering everything from
-                MacBook repairs, screen replacement, battery issues, data
-                recovery, and slow computer fixes to quality chargers, cables,
-                adapters, and everyday tech accessories. Our experienced local
-                technicians provide fast diagnosis, honest advice, affordable
-                prices, and reliable solutions so you can repair, replace, and
-                upgrade your devices all in one place.
+                TechOutlet is your trusted electronics store and laptop repair Tottenham Court Road
+                specialist, offering everything from MacBook repairs,battery issues,  screen replacement,
+                data recovery, and slow computer fixes to quality chargers, adapters, cables, and everyday
+                tech accessories. Our experienced local technicians provide fast assessment , honest
+                advice, affordable prices, and reliable solutions so you can repair, replace, and upgrade your
+                devices all in one place.
               </motion.p>
               <motion.div
                 variants={fadeUp}
@@ -1242,18 +1226,22 @@ const Index = () => {
                 >
                   {/* Buttons here */}
                   <Link to="/book">
-                    <button className="px-6 py-2 bg-red-600 text-white rounded-lg">
+                    <button className="px-6 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors">
                       Book a Repair
                     </button>
                   </Link>
 
-                  <button className="px-6 py-2 border border-red-600 text-red-600 rounded-lg">
-                    Get a Call
-                  </button>
+                  <a href="tel:02080620553">
+                    <button className="px-6 py-2 border border-red-600 text-red-600 rounded-lg hover:bg-red-600 hover:text-white transition-colors">
+                      Get a Call
+                    </button>
+                  </a>
 
-                  <button className="px-6 py-2 bg-gray-100 text-gray-800 rounded-lg">
-                    Accessories
-                  </button>
+                  <Link to="/accessories">
+                    <button className="px-6 py-2 bg-gray-100 text-gray-800 rounded-lg hover:bg-gray-200 transition-colors">
+                      Accessories
+                    </button>
+                  </Link>
                 </motion.div>
 
                 {/* <Link to="/book">
@@ -1292,11 +1280,11 @@ const Index = () => {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="relative lg:block md:block sm:block"
             >
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+              <div className="relative rounded-3xl  overflow-hidden shadow-2xl">
                 <img
-                  src="/hero-pic.jpg"
-                  alt="Mobile phone repair"
-                  className="w-full h-[500px] object-cover"
+                  src="/laptop-repair-tottenham-court-road..webp"
+                  alt=" Close-up of a technician's hands repairing an open laptop motherboard, using specialized tools in our TECH OUTLET LTD London workshop on Tottenham Court Road. "
+                  className="w-full h-[350px] object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-foreground/30 to-transparent" />
               </div>
@@ -1350,9 +1338,9 @@ const Index = () => {
             </motion.div>
           </div>
         </div>
-        
+
       </section>
-      
+
 
       <a
         href="https://maps.app.goo.gl/wsqrkFgK28MZh6eP9"
@@ -1407,7 +1395,7 @@ const Index = () => {
       </a>
 
       {/* Repair Types */}
-      <section className="pt-10 lg:pt-18 pb-10 lg:pb-20">
+      <section className="pt-10 lg:pt-18 pb-10 lg:pb-0">
         <div className="container mx-auto px-4 lg:px-8">
           {/* <motion.div
             initial="hidden"
@@ -1539,7 +1527,8 @@ const Index = () => {
                 We Fix, Any Device
               </span>
               <h2 className="text-3xl lg:text-4xl font-bold mt-3 text-foreground">
-                Your Local Laptop Repair Experts on Tottenham Court Road
+                Your Local Laptop Repair Technicians on
+                Tottenham Court Road
                 {/* <span className="text-red-600">&</span> IPad
                 Repair Services in London{" "}
                 <span className="text-red-600">&</span> UK */}
@@ -1581,47 +1570,32 @@ const Index = () => {
                 >
                   <div>
                     <p className="text-sm text-muted-foreground mt-1">
-                      Located directly on{" "}
-                      <strong>
-                        Tottenham Court Road near Tottenham Court Road Station
-                      </strong>{" "}
-                      (Elizabeth Line + Northern Line), we're one of Central
-                      London's most accessible repair shops. If you're coming
-                      from <strong>Goodge Street</strong> (5 min),{" "}
-                      <strong>Warren Street</strong> (14 mins ),{" "}
-                      <strong> Oxford Circus </strong>(10 mins ),{" "}
-                      <strong>
-                        Bloomsbury, Fitzrovia, Soho, Covent Garden, or Holborn,
-                      </strong>{" "}
-                      —you're close enough to walk over.
+                      Located directly on Tottenham Court Road near Tottenham Court Road Station (Elizabeth
+                      Line + Northern Line), we're one of Central London's most accessible repair shops. If you're
+                      coming from Goodge Street (5 min), Warren Street (14 mins ), Oxford Circus (10 mins ),
+                      Bloomsbury, Fitzrovia, Soho, Covent Garden, or Holborn, —you're close enough to walk
+                      over.
                     </p>
                     <p className="text-sm text-muted-foreground mt-1">
-                      Most people walk in without an appointment. Drop us a
-                      WhatsApp or call to check part availability first if you
-                      prefer. Either way:{" "}
-                      <strong>
-                        no diagnostic fee, no pressure, no hidden charges.
-                      </strong>
+                      Most people walk in without an appointment. Give us a call to check part
+                      availability first if you prefer. Either way: no diagnostic fee, no pressure, no hidden
+                      charges.
                     </p>
                     <h3 className="text-2xl lg:text-3xl font-bold mt-3 text-foreground">
                       People Trust Us With Their Work, Studies, and Memories
                     </h3>
                     <p className="text-sm text-muted-foreground mt-1">
-                      A laptop isn't just a laptop. It's the dissertation that's
-                      three weeks late. The wedding photos that aren't backed
-                      up. The client presentation is due tomorrow morning.
+                      A laptop isn't just a laptop. It's the dissertation that's three weeks late. The wedding photos
+                      that aren't backed up. The client presentation is due tomorrow morning.
                     </p>
                     <p className="text-sm">
-                      We get that. Most of our customers come back to us not
-                      because we're the cheapest in London we are fair , but
-                      because we tell them the truth about their device, fix it
-                      properly, and stand behind the work.
+                      We get that. Most of our customers come back to us not because we're the cheapest in
+                      London we are fair , but because we tell them the truth about their device, fix it properly, and
+                      stand behind the work.
+                      Have a look at our Google reviews., and check out our before-and-after photos further down
+                      the page. These are  proof of our work which is professionally done by our technicians.
                     </p>
-                    <p className="text-sm">
-                      Have a look at our Google reviews. Then have a look at our
-                      before-and-after photos further down the page. The proof
-                      is in the work, not the marketing.
-                    </p>
+
                   </div>
                 </motion.div>
               </div>
@@ -1641,9 +1615,9 @@ const Index = () => {
             >
               <div className="rounded-3xl overflow-hidden shadow-2xl">
                 <img
-                  src="/outlet-pic.jpeg"
-                  alt="Repair process"
-                  className="w-full h-[650px] object-cover"
+                  src="/laptop-repair-central-london-macbook-workbench.jp.webp"
+                  alt="Silver Apple MacBook Pro sitting open on a repair workbench with precision tools at TECH OUTLET LTD  in Central London."
+                  className="w-full h-[700px] object-cover"
                 />
               </div>
               {/* <motion.div
@@ -1682,82 +1656,69 @@ const Index = () => {
             {/* 1. Free Diagnosis */}
             <div className="p-6 border rounded-2xl hover:shadow-lg transition-shadow">
               <h3 className="text-xl font-bold mb-3 text-red-600">
-                Free Diagnosis
+                Free Diagnosis — No Fix, No Fee
               </h3>
               <p className="text-muted-foreground">
-                <strong>No Fix, No Fee.</strong> Bring it in. We'll diagnose for
-                free and tell you the exact cost. If you decide not to repair,
-                you pay nothing.
+                Bring it in. We'll diagnose for free and tell you the exact
+                cost. If you decide not to repair it, you don't need to pay anything.
               </p>
             </div>
 
             {/* 2. Same-Day Repair */}
             <div className="p-6 border rounded-2xl hover:shadow-lg transition-shadow">
               <h3 className="text-xl font-bold mb-3 text-red-600">
-                Same-Day Repair
-              </h3>
+                Same-Day Repair (70% of jobs)               </h3>
               <p className="text-muted-foreground">
-                <strong>(70% of jobs)</strong> Screen replacement, battery,
-                keyboard, charging port, SSD upgrade, RAM upgrade, virus
-                removal, macOS reinstall—usually done same day if parts are in
-                stock. Liquid damage, motherboard work, and data recovery take
-                1– 2 days. We give realistic timelines, not sales pitches.
+                Screen replacement, battery, keyboard, charging port,
+                SSD upgrade, RAM upgrade, virus removal, macOS reinstall—usually done same day if
+                parts are in stock. motherboard work,data recovery and  Liquid damage 1– 2  days. We give
+                realistic timelines, not sales pitches.
               </p>
             </div>
 
             {/* 3. Honest Pricing */}
             <div className="p-6 border rounded-2xl hover:shadow-lg transition-shadow">
               <h3 className="text-xl font-bold mb-3 text-red-600">
-                Honest Pricing
-              </h3>
+                Honest Pricing. Upfront. In Writing              </h3>
               <p className="text-muted-foreground">
-                <strong>Upfront. In Writing.</strong> Before opening a single
-                screw, you get a written quote. No surprise charges halfway
-                through. We're not the cheapest—genuine parts and skilled labour
-                cost more. But we're fair.
+                Before opening a single screw, you get a written
+                quote. No surprise charges halfway through. We're not the cheapest—genuine parts and
+                skilled labour cost more. But we're fair.
               </p>
             </div>
 
             {/* 4. Warranty */}
             <div className="p-6 border rounded-2xl hover:shadow-lg transition-shadow">
               <h3 className="text-xl font-bold mb-3 text-red-600">
-                Warranty on Every Repair
-              </h3>
+                Warranty on Every Repair              </h3>
               <p className="text-muted-foreground">
-                [5 days] warranty on parts and labour. If something fails during
-                warranty, we fix it for free.
+                we are providing warranty on parts and labour. If something
+                fails during warranty, we fix it for free.
               </p>
             </div>
 
             {/* 5. Skilled Technicians */}
             <div className="p-6 border rounded-2xl hover:shadow-lg transition-shadow">
               <h3 className="text-xl font-bold mb-3 text-red-600">
-                Skilled Technicians
+                Skilled Technicians — Not Trainees
               </h3>
               <p className="text-muted-foreground">
-                <strong>Not Trainees.</strong> Our team has years of hands-on
-                experience with <strong>MacBook logic boards</strong> (Intel,
-                M1, M2, M3, M4),{" "}
-                <strong>
-                  Windows motherboards, liquid damage cleanup, data recovery,
-                  and gaming laptop repair.
-                </strong>{" "}
-                We diagnose at component level instead of selling full board
-                replacements.
+                Our team has years of hands-on experience with
+                MacBook logic boards (Intel, M1, M2, M3, M4), Windows motherboards, liquid damage
+                cleanup, data recovery, and gaming laptop repair. We diagnose at component level
+                instead of selling full board replacements.
               </p>
             </div>
 
             {/* 6. Honest Guidance */}
             <div className="p-6 border rounded-2xl hover:shadow-lg transition-shadow">
               <h3 className="text-xl font-bold mb-3 text-red-600">
-                Repair or Replace?
+                Repair or Replace? Honest Guidance
               </h3>
               <p className="text-muted-foreground">
-                <strong>Honest Guidance.</strong> Sometimes the answer is don't
-                repair it. If an 8-year-old laptop has a failed motherboard,
-                we'll tell you straight and help you find a sensible
-                replacement. That honesty costs us repair jobs—it's also why
-                people send friends.
+                e Sometimes the answer is don't repair it. If an
+                8-year-old laptop has a failed motherboard, we'll tell you straight and help you find a sensible
+                replacement. That honesty costs us repair jobs—it's also why people send friends.
               </p>
             </div>
           </div>
@@ -1779,10 +1740,9 @@ const Index = () => {
                 Your Data Stays Private
               </h3>
               <p className="text-muted-foreground">
-                We never access personal files unless data recovery is the job.
-                No login credentials needed for most repairs. For corporate
-                clients, we sign NDAs. Old drives are wiped to secure standards
-                before disposal.
+                We never access personal files unless data recovery is the job. No
+                login credentials needed for most repairs. For corporate clients, we sign NDAs. Old drives
+                are wiped to secure standards before disposal.
               </p>
             </div>
           </div>
@@ -1795,34 +1755,33 @@ const Index = () => {
           {/* Heading Section */}
           <div className="text-center max-w-2xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-              Why We're the Electronics shop Locals Actually Recommend
-            </h2>
+              Why We're the Electronics shop Locals Actually
+              Recommend            </h2>
             <p className="text-lg text-muted-foreground">
-              Repairs are 60% of what we do. The other 40% is the shop
-              itself—and it's not just there to fill the space.
+              Repairs are 60% of what we do. The other 40% is the shop itself — and it's not just there to
+              fill the space.
             </p>
           </div>
 
           {/* Items Section */}
           <div className="bg-white p-8 md:p-12 rounded-3xl border border-gray-100 shadow-sm">
             <h3 className="text-2xl font-bold mb-8 text-red-600">
-              Stuff People Actually Need, Not Just Stuff That Looks Pretty
-            </h3>
+              Delivering genuine utility, not just aesthetic appeal             </h3>
             <p className="text-gray-600 mb-8 italic">
-              You won't find pointless gadgets on our shelves. What you will
-              find:
+              You won't find Useless devices and gadgets on our shelves.You will find your tech solution
+              on our store:
             </p>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-4">
               {[
-                "Laptop chargers for nearly every brand (Apple, Dell, HP, Lenovo, ASUS, Acer)",
-                "HDMI, USB-C, DisplayPort, and VGA cables",
+                "Laptop chargers:All major brands and models (Apple, Dell, HP, Lenovo, ASUS, Acer)",
+                "HDMI, USB-C,VGA cables and  DisplayPort",
                 "UK travel adapters (huge for tourists getting off the Elizabeth Line)",
                 "Power banks with proper mAh ratings, not the inflated ones",
-                "Keyboards and mice — wired, wireless, mechanical",
-                "External SSDs and hard drives",
+                "Keyboards and mice — wired, wireless, mechanical ",
+                "Back-up hardware and SSDs",
                 "Headphones, earbuds, and gaming headsets",
-                "Phone cases, screen protectors, and chargers",
+                "Chargers , Phone cases & screen protectors",
                 "Networking gear — routers, Wi-Fi extenders, Ethernet cables",
               ].map((item, index) => (
                 <div
@@ -1845,24 +1804,23 @@ const Index = () => {
             {/* Price Section */}
             <div className="p-12 border border-red-200 rounded-3xl bg-white shadow-sm hover:shadow-lg transition-all min-h-[280px] flex flex-col justify-center">
               <h3 className="text-3xl font-extrabold mb-6 text-red-600 leading-tight">
-                Prices That Make Sense for Real People
+                Reasonable Prices that fit your actual budget
               </h3>
               <p className="text-lg text-gray-700 leading-relaxed">
-                Students, commuters, and tourists shouldn't pay airport prices
-                in Central London. Our adapters, cables, and chargers are priced
-                to be reasonable — not to catch out someone in a hurry.
+                Students, commuters, and tourists shouldn't pay airport prices in Central London. Our
+                adapters, cables, and chargers are priced to be reasonable — not to catch out someone in a
+                hurry.
               </p>
             </div>
 
             {/* Quick Needs Section */}
             <div className="p-12 border border-red-200 rounded-3xl bg-white shadow-sm hover:shadow-lg transition-all min-h-[280px] flex flex-col justify-center">
               <h3 className="text-3xl font-extrabold mb-6 text-red-600 leading-tight">
-                Quick Visits for Quick Needs
-              </h3>
+                Quick Visits for Quick Needs              </h3>
               <p className="text-lg text-gray-700 leading-relaxed">
-                Forgot your charger and got a meeting in 20 minutes? Walk in,
-                grab one, walk out. No waiting around. That's what a local
-                electronics store Tottenham court road london is supposed to be.
+                Left your charger at home and have a meeting in 20 minutes? Visit our store, grab your
+                charger, and attend your meeting. No waiting around. That's what a local electronics store
+                on Tottenham Court Road, London,, is meant to be
               </p>
             </div>
           </div>
@@ -1874,78 +1832,75 @@ const Index = () => {
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4 lg:px-8">
           <h2 className="text-4xl font-bold text-center mb-16 text-foreground">
-            Laptop & Computer Repair on Tottenham Court Road
+            Laptop and Computer Repair tottenham court road
           </h2>
 
           <div className="grid md:grid-cols-2 gap-8">
             {/* 1. All Brands & Models */}
             <div className="bg-white p-8 rounded-3xl border border-gray-200 shadow-sm">
               <h3 className="text-2xl font-bold mb-4 text-red-600">
-                Laptop Repair — All Brands
+                Laptop Repair — All Brands & Models
+
               </h3>
               <p className="text-gray-700 mb-4">
-                Cracked screens, failed batteries, dead keyboards, snapped
-                hinges, broken charging ports, liquid damage, motherboard
-                faults, overheating, random shutdowns, slow performance from SSD
-                failure. Screen replacement, battery swaps, keyboard repair,
-                charging port repair, SSD upgrades, RAM upgrades, thermal
-                servicing, HDD to SSD upgrades.
+                We handle every kind of laptop issue, no matter the make or model. Here is what we can
+                help with: failed batteries, dead keyboards, snapped hinges,cracked screens, broken
+                charging ports, liquid damage, motherboard faults, overheating, random shutdowns, slow
+                performance from SSD failure. Battery swaps, keyboard repair, Screen
+                replacement,charging port repair, RAM upgrades, SSD upgrades, thermal servicing, HDD to
+                SSD upgrades.
+                We repair all makes and models such as , Dell, Acer, MSI, Razer,HP, Lenovo, ASUS,
+                Chromebooks, Huawei, Samsung, Microsoft Surface. Whether it's a student's Inspiron from
+                UCL, a designer's XPS from Fitzrovia, a business ThinkPad, or a gaming ROG from
+                Bloomsbury, we diagnose the actual fault instead of guessing.
               </p>
-              <p className="text-sm text-gray-600">
-                We repair Apple, Dell, HP, Lenovo, ASUS, Acer, MSI, Razer,
-                Samsung, Microsoft Surface, Chromebooks, Huawei. Whether it's a
-                student's Inspiron from UCL, a designer's XPS from Fitzrovia, a
-                business ThinkPad, or a gaming ROG from Bloomsbury, we diagnose
-                the actual fault instead of guessing.
-              </p>
+
             </div>
 
             {/* 2. MacBook Repair */}
             <div className="bg-white p-8 rounded-3xl border border-gray-200 shadow-sm">
               <h3 className="text-2xl font-bold mb-4 text-red-600">
-                MacBook Repair Tottenham Court Road
+                MacBook Repair on Tottenham Court Road
               </h3>
               <p className="text-gray-700 mb-4">
-                MacBook Air and Pro (Intel + M1/M2/M3/M4). Screen replacements,
-                battery swaps (including swollen batteries), logic board repair,
-                keyboard replacement, USB-C port repair, liquid damage recovery,
-                SSD upgrades.
+                Whether it’s an Air or a Pro, Intel-powered or the newest M1 to M4 chip, we know MacBooks
+                inside out. Bring your device to us for precise screen swaps, fresh batteries (including
+                swollen ones), or loose USB-C port repairs. We’re also highly experienced in complex logic
+                board fixes, SSD storage upgrades, and reviving Macs after liquid spills. No appointment
+                needed—just bring it in.
               </p>
               <p className="text-red-600 font-bold mb-2">
-                ⚠ MacBook Swollen Battery (Fire Risk)
+                MacBook Swollen Battery — Fire Risk.
               </p>
               <p className="text-sm text-gray-600">
-                Signs: trackpad lifting, case bulging, laptop won't close flat,
-                excessive heat, shortened battery life. Bring it in immediately.
-                We replace them safely, usually on the same day.
+                Signs: trackpad lifting, case bulging, laptop won't close flat, excessive heat, shortened
+                battery life. Bring it in immediately. We replace them safely, usually on the same day.
               </p>
               <p className="text-red-600 font-bold mb-2">
                 Apple Mac Desktop Repair tottenham court road
               </p>
               <p className="text-sm text-gray-600">
-                iMac, Mac mini, Mac Studio—macOS problems, storage upgrades,
-                system migration, performance issues.
+                iMac, Mac mini, Mac Studio—macOS problems, storage upgrades, system migration,
+                performance issues.
               </p>
               <p className="text-red-600 font-bold mb-2">
                 PC & Desktop Computer Repair tottenham court road
               </p>
               <p className="text-sm text-gray-600">
-                No power, boot loops, Windows corruption, hardware faults,
-                thermal issues, RAM upgrade
+                No power, boot loops, Windows corruption, hardware faults, thermal issues, RAM upgrades.
+
               </p>
             </div>
 
             {/* 3. Gaming & PC Repair */}
             <div className="bg-white p-8 rounded-3xl border border-gray-200 shadow-sm">
               <h3 className="text-2xl font-bold mb-4 text-red-600">
-                Gaming Laptops & PC Repair
+                Gaming Laptop & PC Repair Repair tottenham court road
               </h3>
               <p className="text-gray-700">
-                Alienware, ROG, TUF, Legion, Predator, Razer Blade, MSI
-                Stealth/Raider. GPU reflow, thermal paste replacement, fan
-                replacement, high refresh rate panel swaps, overclocking
-                instability diagnosis, RAM/storage upgrades. Gaming laptops run
-                hot and need specialist knowledge.
+                Our technicians also have hands-on experience with gaming PCs such as  Alienware, TUF ,
+                Legion, Predator, Razer Blade,  ROG, MSI. GPU reflow, fan replacement,  thermal paste
+                replacement, panel swaps, overclocking issues,& RAM upgrades.
               </p>
             </div>
 
@@ -1955,26 +1910,26 @@ const Index = () => {
                 Data Recovery Services
               </h3>
               <p className="text-gray-700">
-                Failed HDDs, dead SSDs, corrupted file systems, accidental
-                deletions, formatted drives, water damage, external drives. We
-                diagnose first and tell you what's realistically recoverable.
-                Success depends on failure type—mechanical drives that clicked
-                for weeks are harder than SSDs that just died. Emergency data
-                recovery available for urgent business situations.
+                Failed HDDs, dead SSDs, corrupted file systems, accidental deletions, formatted drives,
+                water damage, external drives. We diagnose first and tell you what's realistically
+                recoverable. Success depends on failure type—mechanical drives that clicked for weeks are
+                harder than SSDs that just died. Emergency data recovery available for urgent business
+                situations.
               </p>
 
               <ul className="text-sm text-gray-700 space-y-2">
                 <li>
-                  <strong>Virus, Malware & Spyware Removal:</strong> Pop-ups,
-                  browser redirects, ransomware, slow system performance, fake
-                  antivirus warnings. We remove thoroughly, not just quick scans
-                  that miss infections. Includes Windows Defender, Malwarebytes,
-                  and manual removal if needed.
+                  <strong>Bug & virus clean
+                  </strong>
+                  Say goodbye to annoying ads , browser redirects, slow system performance,
+                  ransomware,fake antivirus warnings. We remove Completely , not just quick scans that miss
+                  infections. Includes Windows Defender, Malwarebytes, and manual removal if needed.
                 </li>
                 <li>
-                  <strong>Windows & macOS Reinstallation</strong> Boot errors,
-                  blue screen of death (BSOD), Windows update loops, corrupted
-                  OS. Files backed up first. Clean install restores performance.
+                  <strong>Windows & macOS Reinstallation
+                  </strong> Boot errors,
+                  Boot errors, blue screen of death (BSOD), Windows update loops, corrupted OS. Files
+                  backed up first. Clean install restores performance.
                 </li>
                 {/* <li>
                   <strong>OS Reinstall:</strong> Clean Windows/macOS install to
@@ -1986,16 +1941,15 @@ const Index = () => {
             {/* 5. Upgrades */}
             <div className="bg-white p-8 rounded-3xl border border-gray-200 shadow-sm">
               <h3 className="text-2xl font-bold mb-4 text-red-600">
-                SSD Upgrade
+                SSD Upgrade — Best Laptop Investment
               </h3>
               <p className="text-gray-700 mb-2">
-                <strong>Best Laptop Investment</strong> Swap old HDD for SSD.
-                Old laptop feels new again. 90-second boot becomes 12 seconds.
+                Swap old HDD for SSD. Old laptop feels new again. 90-second boot becomes 12 seconds.
                 Improves responsiveness across the board. Hundreds completed.
               </p>
               <p className="text-gray-700">
-                <strong>RAM Memory Upgrade:</strong> 8GB minimum for modern
-                multitasking. 16GB comfortable place. 32GB for designers, video
+                <strong>RAM Memory Upgrade
+                </strong> 8GB minimum for modern multitasking. 16GB comfortable place. 32GB for designers, video
                 editors, gamers. Same-day installation.
               </p>
             </div>
@@ -2036,7 +1990,7 @@ const Index = () => {
               {
                 brand: "Apple",
                 models:
-                  "MacBook Air, MacBook Pro (Intel, M1, M2, M3, M4), iMac, Mac mini, Mac Studio",
+                  "MacBook Pro MacBook Air, (Intel, M1, M2, M3, M4), iMac, Mac Studio, Mac mini. ",
               },
               {
                 brand: "Dell",
@@ -2048,7 +2002,7 @@ const Index = () => {
               },
               {
                 brand: "HP",
-                models: "Pavilion, Envy, Spectre, EliteBook Omen, Victus",
+                models: "Pavilion, Envy, Spectre, EliteBook, Omen, Victus ",
               },
               {
                 brand: "Acer",
@@ -2056,20 +2010,20 @@ const Index = () => {
               },
               {
                 brand: "ASUS",
-                models: "ZenBook, VivoBook, ROG, TUF, ExpertBook",
+                models: "ZenBook, VivoBook, ROG, TUF, ExpertBook ",
               },
-              { brand: "Samsung", models: "Galaxy Book, Chromebook" },
+              { brand: "Samsung", models: "Galaxy & Chromebook" },
               {
                 brand: "Microsoft",
                 models:
-                  "Surface Pro,  Surface Laptop, Surface Book, Surface Go",
+                  "Surface Pro, Surface Book, Surface Laptop & Surface Go ",
               },
               {
                 brand: "MSI",
-                models: "Stealth, Raider, Katana, Cyborg, Modern, Prestige",
+                models: "Stealth, Raider, Katana, Cyborg & Modern, Prestige ",
               },
-              { brand: "Razer", models: "Razer Blade (All Generations)" },
-              { brand: "Google", models: "Pixelbook, Chromebook" },
+              { brand: "Razer", models: "Razer Blade (all generations)" },
+              { brand: "Google", models: "Pixelbook , Chromebook" },
               { brand: "Huawei", models: "MateBook Series" },
             ].map((item, index) => (
               <div
@@ -2090,11 +2044,13 @@ const Index = () => {
           <div className="mt-16 text-center p-8 bg-gray-900 rounded-3xl text-white">
             <h3 className="text-2xl font-bold mb-2">Don't see your brand?</h3>
             <p className="text-gray-400 mb-6">
-              Walk in or call. We work on almost everything
+              Don't see your brand? Walk in or call. We work on almost everything
             </p>
-            <button className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-xl font-bold transition-all">
-              Call Us Now
-            </button>
+            <a href="tel:+442080620553">
+              <button className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-xl font-bold transition-all">
+                Call Us Now
+              </button>
+            </a>
           </div>
         </div>
       </section>
@@ -2228,39 +2184,122 @@ const Index = () => {
         </div>
       </section> */}
       <section className="py-20 lg:py-24 bg-background">
-  <div className="container mx-auto px-4 lg:px-8">
-    <motion.div
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-      variants={staggerContainer}
-      className="max-w-5xl mx-auto text-center"
-    >
-      <motion.h2
-        variants={fadeUp}
-        className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-foreground"
-      >
-        Our 6-Step Laptop Repair
-        <br />
-        <span className="bg-gradient-to-r from-red-500 via-red-600 to-red-700 bg-clip-text text-transparent">
-          Tottenham Court Road Process Works
-        </span>
-      </motion.h2>
+        <div className="container mx-auto px-4 lg:px-8">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="max-w-5xl mx-auto text-center"
+          >
+            <motion.h2
+              variants={fadeUp}
+              className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-foreground"
+            >
+              Our 6 Repair laptop repair <br />
+              <span className="bg-gradient-to-r from-red-500 via-red-600 to-red-700 bg-clip-text text-transparent">
+                Tottenham Court Road
+                Process Works                             </span>
+            </motion.h2>
 
-      <motion.div
-        variants={fadeUp}
-        className="w-24 h-1 bg-red-600 rounded-full mx-auto mt-6 mb-10"
-      />
+            <motion.div
+              variants={fadeUp}
+              className="w-24 h-1 bg-red-600 rounded-full mx-auto mt-6 mb-10"
+            />
 
-      <motion.p
-        variants={fadeUp}
-        className="text-lg leading-8 text-muted-foreground text-left"
-      >
-        Tell us the problem (walk in, call, WhatsApp, or form).Free Diagnosis. We test and explain.Clear Written Quote. No hidden costs.Repair by a real technician (same person who diagnosed).Full testing (charging, display, USB ports, Wi-Fi, Bluetooth, camera, speakers, keyboard, trackpad, battery health, temperature).Collection with warranty paperwork and aftercare tips.
-      </motion.p>
-    </motion.div>
-  </div>
-</section>
+            <motion.div variants={fadeUp} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                { icon: Zap, title: "Step 1", description: "Tell us the problem (walk in, call, WhatsApp, or form)." },
+                { icon: Wrench, title: "Step 2", description: "Free diagnosis. We test and explain." },
+                { icon: CheckCircle, title: "Step 3", description: "Clear written quote. No hidden costs." },
+                { icon: Zap, title: "Step 4", description: "Talk directly to the expert repairing your laptop—from the first check‑up to the final fix." },
+                { icon: Wrench, title: "Step 5", description: "Our technicians will be testing (camera, speakers, keyboard, trackpad, USB ports, charging, display, Wi‑Fi, Bluetooth, battery health, temperature of your device)." },
+                { icon: CheckCircle, title: "Step 6", description: "Collection with warranty paperwork and aftercare tips." },
+              ].map((step, index) => {
+                const Icon = step.icon;
+                return (
+                  <div key={index} className="flex flex-col items-center text-center p-4 bg-white rounded-xl shadow-sm ">
+                    <div className="bg-red-600/10 rounded-full p-4 mb-3">
+                      <Icon className="w-6 h-6 text-red-600" />
+                    </div>
+                    <h4 className="text-sm font-medium text-red-600 mb-2">{step.title}</h4>
+                    <p className="text-base text-foreground mb-4">{step.description}</p>
+                    <div className="w-full h-1 bg-red-600/5 rounded-full">
+                      <div className="h-full bg-red-600" style={{ width: `${((index + 1) / 6) * 100}%` }} />
+                    </div>
+                  </div>
+                );
+              })}
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="py-10 lg:py-20 bg-background">
+        <div className="container mx-auto px-4 lg:px-8">
+          {/* Heading */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="max-w-4xl mx-auto text-center"
+          >
+            <motion.h2
+              variants={fadeUp}
+              className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground"
+            >
+              Real Laptop Repairs, Real Results — {" "}
+              <span className="text-red-600">Before and After</span>
+            </motion.h2>
+
+
+          </motion.div>
+
+          {/* Gallery */}
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mx-auto gap-8 max-w-6xl"
+          >
+            <motion.div variants={fadeUp}>
+              <div className="overflow-hidden rounded-3xl shadow-lg">
+                <img
+                  src="/laptop-keyboard-frame-repair-tottenham-court-road.jpg.jpg"
+                  alt="Before and after view of a cracked laptop keyboard frame and palmrest casing restored at TECH OUTLET LTD on Tottenham Court Road. "
+                  className="w-full h-60 object-cover hover:scale-105 transition duration-500"
+                />
+              </div>
+            </motion.div>
+
+            <motion.div variants={fadeUp}>
+              <div className="overflow-hidden rounded-3xl shadow-lg">
+                <img
+                  src="/Broken-laptop-repair-tottenham-court-road-before-after-.jpg.webp"
+                  alt="Before and after comparison of a broken chassis and hinge fixed at our laptop repair shop on Tottenham Court Road in London. 
+"
+                  className="w-full h-60 object-cover hover:scale-105 transition duration-500"
+                />
+              </div>
+            </motion.div>
+
+            <motion.div variants={fadeUp}>
+              <div className="overflow-hidden rounded-3xl shadow-lg">
+                <img
+                  src="/laptop-screen-repair-tottenham-court-road-london-before-after.jpg.jpg"
+                  alt="Before and after comparison of a cracked Acer laptop display replaced with a clear new panel for laptop screen repair on Tottenham Court Road in London. 
+
+"
+                  className="w-full h-60 object-cover hover:scale-105 transition duration-500"
+                />
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
       {/* ==================== REPAIR PROCESS SLIDER SECTION END ==================== */}
 
       {/* common prblems  */}
@@ -2270,21 +2309,17 @@ const Index = () => {
             <h2 className="text-4xl font-extrabold text-foreground mb-4">
               Common Problems We Fix Weekly
             </h2>
-            <p className="text-lg text-muted-foreground">
-              No guessing—just expert, component-level repairs.
-            </p>
+
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* 1. Screen */}
             <div className="p-8 border border-gray-100 rounded-3xl bg-gray-50 hover:shadow-lg transition-all">
               <h3 className="text-xl font-bold mb-3 text-red-600">
-                Laptop Screen Replacement
-              </h3>
+                Laptop Screen Replacement               </h3>
               <p className="text-gray-700 text-sm leading-relaxed">
-                Cracked glass, lines across display, half black, flickering, dim
-                image. Most screens £80–£200 fitted (MacBooks higher because
-                assembly is bonded). Same-day if in stock.
+                Cracked glass, lines across display, half black, flickering, dim image. Most screens £80–£200 fitted (MacBooks higher because assembly is bonded). Same-day if in stock.
+
               </p>
             </div>
 
@@ -2294,9 +2329,8 @@ const Index = () => {
                 Battery & Power Problems
               </h3>
               <p className="text-gray-700 text-sm leading-relaxed">
-                Won't charge, drains in minutes, only works plugged in, won't
-                charge past 80%. Usually battery wear, faulty charger, or
-                charging circuit fault. Battery replacement £60–£150.
+                Won't charge, drains in minutes, only works plugged in, won't charge past 80%. Usually battery wear, faulty charger, or charging circuit fault. Battery replacement £60–£150.
+
               </p>
             </div>
 
@@ -2306,8 +2340,8 @@ const Index = () => {
                 Charging Port / DC Jack Repair
               </h3>
               <p className="text-gray-700 text-sm leading-relaxed">
-                Can only charge at odd angles, charger falls out, USB-C wobbles.
-                We desolder and fit new. Prevents further motherboard damage.
+                Can only charge at odd angles, charger falls out, USB-C wobbles. We desolder and fit new. Prevents further motherboard damage.
+
               </p>
             </div>
 
@@ -2317,9 +2351,8 @@ const Index = () => {
                 Keyboard & Trackpad issues
               </h3>
               <p className="text-gray-700 text-sm leading-relaxed">
-                Dead keys, sticky keyboard after spill, trackpad won't click.
-                Includes MacBook butterfly and scissor switch replacements.
-                Usually same-day.
+                We can usually fix most of these issues on the same day . Dead keys, sticky keyboard after spill, trackpad won't click. Includes MacBook butterfly and scissor switch replacements.
+
               </p>
             </div>
 
@@ -2329,9 +2362,8 @@ const Index = () => {
                 Liquid Damage (Water, Coffee, Tea)
               </h3>
               <p className="text-gray-700 text-sm leading-relaxed">
-                Switch off immediately, don't charge, bring in fast. Corrosion
-                spreads over days and weeks. We ultrasonically clean boards.
-                Higher success rate if caught early.
+                Spilled something? like (Water, Coffee, Tea) Turn your laptop off right away, do not charge it, and bring it to us as fast as you can. Corrosion doesn't happen instantly—it slowly spreads over days and weeks, so getting it cleaned early saves your motherboard
+
               </p>
             </div>
 
@@ -2341,21 +2373,18 @@ const Index = () => {
                 Motherboard / Logic Board Repair
               </h3>
               <p className="text-gray-700 text-sm leading-relaxed">
-                No power, random shutdowns, USB port faults, won't charge. We
-                diagnose component-level faults under microscope instead of
-                selling full board replacement (saves £300–£800).
+                No power, random shutdowns, USB port faults, won't charge. We diagnose component-level faults under microscope instead of selling full board replacement (saves £300–£800).
+
               </p>
             </div>
 
             {/* 7. Overheating */}
             <div className="p-8 border border-gray-100 rounded-3xl bg-gray-50 hover:shadow-lg transition-all">
               <h3 className="text-xl font-bold mb-3 text-red-600">
-                Overheating & Fan issues
-              </h3>
+                Fan Issues & Overheating              </h3>
               <p className="text-gray-700 text-sm leading-relaxed">
-                Sounds like hairdryer, shuts down under load, excessive heat.
-                Dust clogs fans, thermal paste dries out. Cleaning + repaste
-                drops temps 15–25°C. Usually same-day.
+                shuts down under load & Sounds like hairdryer, Extreme heat.Dust buildup blocking the air , thermal paste dries out. Cleaning + repaste drops temps 15–25°C. Usually same-day.
+
               </p>
             </div>
             {/* 7. slow laptop */}
@@ -2364,9 +2393,8 @@ const Index = () => {
                 Slow Laptop Repair Tottenham Court Road
               </h3>
               <p className="text-gray-700 text-sm leading-relaxed">
-                Usually multiple causes: full storage, low RAM, malware,
-                outdated OS, dust-clogged fans causing thermal throttling. We
-                diagnose the actual bottleneck instead of guessing.
+                Usually multiple causes: full storage, low RAM, malware, outdated OS, dust-clogged fans causing thermal throttling. We diagnose the actual bottleneck instead of guessing.
+
               </p>
             </div>
 
@@ -2376,9 +2404,8 @@ const Index = () => {
                 Hard Drive Failure / SSD Failure
               </h3>
               <p className="text-gray-700 text-sm leading-relaxed">
-                Clicking drive, SSD not detected, won't boot. Back up data
-                immediately. HDD to SSD upgrade is the best upgrade—90-second
-                boot becomes 12 seconds.
+                Clicking drive, SSD not detected, won't boot. Back up data immediately. HDD to SSD upgrade is the best upgrade—90-second boot becomes 12 seconds.
+
               </p>
             </div>
 
@@ -2388,8 +2415,7 @@ const Index = () => {
                 Hinge & Chassis Damage
               </h3>
               <p className="text-gray-700 text-sm leading-relaxed">
-                Cracked hinge spreads fast, screen separates from base. A small
-                crack becomes £300 repair if ignored. Urgent to fix it early.
+                Cracked hinge spreads fast, screen separates from base. A small crack becomes £300 repair if ignored. Urgent to fix it early.
               </p>
             </div>
           </div>
@@ -2405,8 +2431,8 @@ const Index = () => {
               What Causes a Laptop to Stop Working?
             </h2>
             <p className="text-xl text-muted-foreground">
-              After years of opening these things up, here's the truth about why
-              laptops fail:
+              After years of opening these things up, here's the truth about why laptops fail:
+
             </p>
           </div>
 
@@ -2415,31 +2441,31 @@ const Index = () => {
             {[
               {
                 title: "Heat",
-                desc: " dust clogs the fans, thermal paste dries out, the CPU and GPU run too hot, and components degrade faster.",
+                desc: "dust clogs the fans, thermal paste dries out, the CPU and GPU run too hot, and components degrade faster",
               },
               {
                 title: "Old Batteries",
-                desc: "lithium-ion cells lose capacity over 3–4 years, then swell.",
+                desc: "  lithium-ion cells lose capacity over 3–4 years, then swell",
               },
               {
                 title: "Liquid Spills",
-                desc: "even a small splash corrodes the board over weeks.",
+                desc: " even a small splash corrodes the board over weeks",
               },
               {
                 title: "Damaged charging Ports",
-                desc: "repeatedly yanking the cable out at an angle.",
+                desc: " repeatedly yanking the cable out at an angle",
               },
               {
                 title: "Failing Storage",
-                desc: " HDDs wear mechanically, SSDs wear electrically.",
+                desc: " HDDs wear mechanically, SSDs wear electrically",
               },
               {
                 title: "Hinge Damage",
-                desc: " usually starts as a small crack and spreads.",
+                desc: "usually starts as a small crack and spreads",
               },
               {
                 title: "Malware and bad Software",
-                desc: " slows things down and sometimes corrupts the OS.",
+                desc: " slows things down and sometimes corrupts the OS",
               },
               {
                 title: "Power Surges",
@@ -2447,7 +2473,7 @@ const Index = () => {
               },
               {
                 title: "Drops and Impacts",
-                desc: "even a small fall can crack solder joints.",
+                desc: "even a small fall can crack solder joints",
               },
             ].map((item, index) => (
               <div
@@ -2474,10 +2500,7 @@ const Index = () => {
             <h2 className="text-4xl font-extrabold text-foreground mb-6">
               When You Need Professional Repair vs DIY
             </h2>
-            <p className="text-lg text-gray-600">
-              Expert guidance to help you decide when to fix it yourself, and
-              when to bring it to the pros.
-            </p>
+
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 mb-20">
@@ -2486,16 +2509,10 @@ const Index = () => {
               <h3 className="text-xl font-bold text-green-700 mb-4">
                 ✅ Safe to Do Yourself
               </h3>
-              <ul className="space-y-3 text-gray-700">
-                <li>• Restart</li>
-                <li>• Try different charger</li>
-                <li>• Malware scans</li>
-                <li>• Free up storage</li>
-                <li>• Update OS</li>
-                <li>• Test on an external monitor</li>
-                <li>• Back up files</li>
-                <li>• Gentle keyboard cleaning</li>
-              </ul>
+              <p className="text-gray-700">
+                Restart your device or try a different charger, free up storage, back up files, update OS,malware scan, test on external monitor and gentle keyboard cleaning.
+
+              </p>
             </div>
 
             {/* Pro Section */}
@@ -2503,16 +2520,12 @@ const Index = () => {
               <h3 className="text-xl font-bold text-red-700 mb-4">
                 🛠️ Leave to Technicians
               </h3>
-              <ul className="space-y-3 text-gray-700">
-                <li>• Opening laptop</li>
-                <li>• Battery/screen replacement</li>
-                <li>• Liquid damage </li>
-                <li>• Motherboard work</li>
-                <li>• Data recovery</li>
-              </ul>
+              <p className="text-gray-700">
+                if laptop needs Opening, motherboard work, data recovery. battery/screen replacement & liquid damage.
+
+              </p>
               <p className="mt-6 text-sm text-red-800 font-medium italic">
-                *Professional saves Money: Wrong diagnosis leads to the wrong
-                part, wasted money, and further damage.
+                Professional Saves Money: If someone gets the problem wrong, they buy the wrong part. That wastes your money and can ruin your laptop even more. A real expert check and  tells you the exact problem and saves your money.
               </p>
             </div>
           </div>
@@ -2557,17 +2570,17 @@ const Index = () => {
                       r: "Almost always worth repairing",
                     },
                     {
-                      s: "Repair cost  60–70% of replacement",
+                      s: "Repair cost over 60–70% of replacement",
                       r: "Consider replacement",
                     },
                     {
-                      s: "Liquid damage on a High-spec laptop",
+                      s: "Liquid damage on a high-spec laptop",
                       r: "Free diagnosis — often saveable, sometimes not",
                     },
                   ].map((row, i) => (
                     <tr key={i} className="hover:bg-gray-50 transition-colors">
                       <td className="p-5 text-gray-700">{row.s}</td>
-                      <td className="p-5 font-bold text-red-600">{row.r}</td>
+                      <td className="p-5 fonfeat t-bold text-red-600">{row.r}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -2621,7 +2634,7 @@ const Index = () => {
                   {
                     num: "03",
                     title: "Microscopes",
-                    desc: "Board-level component diagnosis",
+                    desc: "Board-level component diagnosis.",
                   },
                   {
                     num: "04",
@@ -2669,10 +2682,7 @@ const Index = () => {
                 Electronics Accessories <br />
                 <span className="text-red-500">& Gadgets</span>
               </h2>
-              <p className="text-xs md:text-sm text-muted-foreground mt-2 max-w-md mx-auto">
-                Drop by our storefront for premium tech upgrades, hybrid office
-                setups, and fast travel fixes.
-              </p>
+
             </div>
 
             {/* Clean Split Showcase Grid */}
@@ -2682,7 +2692,7 @@ const Index = () => {
                   category: "Laptop & PC Accessories",
                   icon: "💻",
                   items:
-                    "USB hubs, laptop stands, cooling pads, webcams, external SSDs, docking stations for hybrid working.",
+                    "USB hubs, cooling pads, laptop stands, external SSDs, webcams, docking stations for hybrid working.",
                 },
                 {
                   category: "Keyboards & Mice",
@@ -2694,25 +2704,25 @@ const Index = () => {
                   category: "Audio, Video & Cables",
                   icon: "🔌",
                   items:
-                    "HDMI 2.1, DisplayPort, USB-C to HDMI, VGA adapters for older monitors, USB-C hubs with everything you need.",
+                    "USB-C to HDMI,HDMI 2.1,VGA adapters for older monitors,DisplayPort, USB-C hubs with everything you need",
                 },
                 {
                   category: "Headphones & Earphones",
                   icon: "🎧",
                   items:
-                    "Wired earbuds for £10, premium Bluetooth options, gaming headsets, noise-cancelling for the Tube commute.",
+                    "Whether you need basic £10 earbuds, pro gaming headsets, or noise-cancelling for your noisy daily travel, we’ve got the perfect fit.",
                 },
                 {
                   category: "Power Banks & UK Adapters",
                   icon: "🇬🇧",
                   items:
-                    "This is where tourists save themselves. UK plug adapters from the moment you step off the Elizabeth Line — we've got the right one. Power banks rated honestly (no 50,000mAh nonsense).",
+                    "This is where tourists save themselves. UK plug adapters from the moment you step off the Elizabeth Line —We also stock power banks with real, honest capacities—none of those cheap, fake '50,000mAh' bricks that die on your first day out",
                 },
                 {
                   category: "Mobile Phone & Camera Accessories",
                   icon: "📸",
                   items:
-                    "Cases, screen protectors, fast chargers,  MagSafe options, Lightning and USB-C cables..SD cards, microSD with adapters, USB-C card.",
+                    "Cases, screen protectors, fast chargers,  MagSafe options, Lightning and USB-C cables..SD cards, microSD with adapters, USB-C card",
                 },
               ].map((shop, sIdx) => (
                 <div
@@ -2773,6 +2783,7 @@ const Index = () => {
             <h2 className="text-3xl md:text-5xl font-black text-foreground tracking-tight">
               Real Repair <span className="text-red-500">Cases</span>
             </h2>
+
           </div>
 
           {/* Cases */}
@@ -2843,7 +2854,7 @@ const Index = () => {
               {/* <span className="text-red-500">Laptop Repair?</span> */}
             </h2>
             <p className="text-sm text-muted-foreground mt-2">
-              Walk in, call, or WhatsApp for a free comprehensive diagnosis and
+              Walk in or call for a free comprehensive diagnosis and
               honest pricing.
             </p>
           </div>
@@ -2854,20 +2865,20 @@ const Index = () => {
               {
                 icon: "📍",
                 title: "Walk-In",
-                desc: "[Your Address], Tottenham Court Road, London, [Postcode] Open [Days] · [Hours]",
+                desc: "260 Tottenham Court Road, London W1T 7RF. Open Mon-Sat 8AM-6PM",
                 tag: "TCR, London · Mon-Sat",
               },
               {
                 icon: "📞",
-                title: "Call or WhatsApp",
+                title: "Direct Phone Call",
                 desc: (
                   <>
-                    📞 [Phone]
+                    📞 02080620553
                     <br />
-                    💬 [WhatsApp]
+                    ⚡ Fast estimate over the phone
                   </>
                 ),
-                tag: "Call / WhatsApp",
+                tag: "Call 02080620553",
               },
               {
                 icon: "⚡",
@@ -2878,7 +2889,7 @@ const Index = () => {
               {
                 icon: "📋",
                 title: "Or Book Appointment",
-                desc: "Message for a fixed time slot.",
+                desc: "Book online for a fixed repair time slot.",
                 tag: "Fixed Time Slots Available",
               },
             ].map((item, i) => (
@@ -2906,8 +2917,7 @@ const Index = () => {
           <div className="text-center">
             <div className="inline-flex items-center gap-2 text-[10px] font-bold text-foreground bg-card border border-border px-4 py-2 rounded-full shadow-sm">
               🛡️ <strong>Need repair on Tottenham Court Road today?</strong>{" "}
-              Walk in. Call. WhatsApp. Free diagnosis, honest quote, fast
-              repair.
+              Walk in or call us. Free diagnosis, honest quote, fast repair.
             </div>
           </div>
         </div>
@@ -2930,12 +2940,10 @@ const Index = () => {
             {/* Student Priority */}
             <div className="border border-black p-8 bg-black text-white rounded-2xl">
               <h3 className="text-xl font-bold mb-4">
-                Same-Day Student Repair in <small>Tottenham Court Road</small>
+                Same-Day Student Repair in <small>Tottenham Court Roady</small>
               </h3>
               <p className="text-sm text-gray-300 leading-relaxed mb-6">
-                Deadline tomorrow? Laptop broken? Walk in. We'll prioritise
-                students from UCL, SOAS, Birkbeck, UAL, LSE, and King's. Bring
-                student ID for our small student discount.
+                We know how stressful university deadlines are. If your laptop breaks at the worst possible time, just walk in. We always help students from UCL, SOAS, Birkbeck, UAL, LSE, and King's first. Bring your student ID and we’ll give you a friendly discount.
               </p>
               <div className="text-xs font-bold uppercase tracking-widest border border-white px-4 py-2 inline-block">
                 Walk-in Ready
@@ -2948,9 +2956,8 @@ const Index = () => {
                 Emergency Business Repair in <small>Tottenham Court Road</small>
               </h3>
               <p className="text-sm text-gray-600 leading-relaxed mb-6">
-                Pitch at 4pm and laptop dead? Call us first thing—we'll keep a
-                slot open. Local agencies and consultancies rely on our fast
-                turnaround.
+                Pitch us at 4pm and laptop dead? Call us first thing — we'll keep a slot open. Most local agencies and consultancies have our number saved.
+
               </p>
               <button className="text-sm font-bold border-b border-black">
                 CALL FOR SLOT →
@@ -2978,16 +2985,18 @@ const Index = () => {
           <div className="mt-12 p-8 bg-gray-50 flex flex-col md:flex-row justify-between items-center border border-gray-100">
             <div className="mb-4 md:mb-0">
               <h4 className="font-bold text-lg">
-                Call or WhatsApp Before You Travel
+                Call Us Before You Travel
               </h4>
               <p className="text-sm text-gray-600">
-                Save the trip. Send us the model and the fault — we'll check
+                Save the trip. Call us with your model and fault — we'll check
                 parts before you set off.
               </p>
             </div>
-            <button className="px-8 py-3 bg-black text-white font-bold text-sm hover:bg-gray-800 transition-all">
-              WHATSAPP US NOW
-            </button>
+            <a href="tel:02080620553">
+              <button className="px-8 py-3 bg-black text-white font-bold text-sm hover:bg-gray-800 transition-all rounded-lg">
+                CALL US NOW
+              </button>
+            </a>
           </div>
         </div>
       </section>
@@ -3203,18 +3212,18 @@ const Index = () => {
           <div className="mt-12 p-8 rounded-3xl bg-red-500 flex flex-col md:flex-row items-center justify-between gap-6 text-white">
             <div>
               <h4 className="text-2xl font-black">
-                Call or WhatsApp Before You Travel
+                Call Us Before You Travel
               </h4>
               <p className="opacity-90">
-                Save the trip. Send us the model and the fault—we'll check parts
+                Save the trip. Give us a call with your model and fault—we'll check parts
                 before you set off.
               </p>
             </div>
             <a
-              href="https://wa.me/YOUR_NUMBER"
+              href="tel:02080620553"
               className="px-8 py-4 bg-white text-red-600 font-bold rounded-full hover:scale-105 transition-transform whitespace-nowrap"
             >
-              Message Us Now
+              Call Us Now
             </a>
           </div>
         </div>
