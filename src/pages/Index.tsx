@@ -1226,18 +1226,22 @@ const Index = () => {
                 >
                   {/* Buttons here */}
                   <Link to="/book">
-                    <button className="px-6 py-2 bg-red-600 text-white rounded-lg">
+                    <button className="px-6 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors">
                       Book a Repair
                     </button>
                   </Link>
 
-                  <button className="px-6 py-2 border border-red-600 text-red-600 rounded-lg">
-                    Get a Call
-                  </button>
+                  <a href="tel:02080620553">
+                    <button className="px-6 py-2 border border-red-600 text-red-600 rounded-lg hover:bg-red-600 hover:text-white transition-colors">
+                      Get a Call
+                    </button>
+                  </a>
 
-                  <button className="px-6 py-2 bg-gray-100 text-gray-800 rounded-lg">
-                    Accessories
-                  </button>
+                  <Link to="/accessories">
+                    <button className="px-6 py-2 bg-gray-100 text-gray-800 rounded-lg hover:bg-gray-200 transition-colors">
+                      Accessories
+                    </button>
+                  </Link>
                 </motion.div>
 
                 {/* <Link to="/book">
@@ -2224,6 +2228,78 @@ const Index = () => {
                   </div>
                 );
               })}
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="py-10 lg:py-20 bg-background">
+        <div className="container mx-auto px-4 lg:px-8">
+          {/* Heading */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="max-w-4xl mx-auto text-center"
+          >
+            <motion.h2
+              variants={fadeUp}
+              className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground"
+            >
+              Real Laptop Repairs, Real Results — {" "}
+              <span className="text-red-600">Before and After</span>
+            </motion.h2>
+
+            <motion.p
+              variants={fadeUp}
+              className="mt-8 text-lg leading-8 text-muted-foreground"
+            >
+              Every day we transform broken, unusable phones back into working devices. Cracked screens that looked hopeless. Waterlogged devices everyone thought were done for. Batteries that had given up charging. They come in damaged and they leave repaired. We usually keep photos of our work. That's how confident we are in the quality.
+
+            </motion.p>
+          </motion.div>
+
+          {/* Gallery */}
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mx-auto gap-8 max-w-6xl"
+          >
+            <motion.div variants={fadeUp}>
+              <div className="overflow-hidden rounded-3xl shadow-lg">
+                <img
+                  src="/laptop-keyboard-frame-repair-tottenham-court-road.jpg.jpg"
+                  alt="Before and after view of a cracked laptop keyboard frame and palmrest casing restored at TECH OUTLET LTD on Tottenham Court Road. "
+                  className="w-full h-60 object-cover hover:scale-105 transition duration-500"
+                />
+              </div>
+            </motion.div>
+
+            <motion.div variants={fadeUp}>
+              <div className="overflow-hidden rounded-3xl shadow-lg">
+                <img
+                  src="/Broken-laptop-repair-tottenham-court-road-before-after-.jpg.webp"
+                  alt="Before and after comparison of a broken chassis and hinge fixed at our laptop repair shop on Tottenham Court Road in London. 
+"
+                  className="w-full h-60 object-cover hover:scale-105 transition duration-500"
+                />
+              </div>
+            </motion.div>
+
+            <motion.div variants={fadeUp}>
+              <div className="overflow-hidden rounded-3xl shadow-lg">
+                <img
+                  src="/laptop-screen-repair-tottenham-court-road-london-before-after.jpg.jpg"
+                  alt="Before and after comparison of a cracked Acer laptop display replaced with a clear new panel for laptop screen repair on Tottenham Court Road in London. 
+
+"
+                  className="w-full h-60 object-cover hover:scale-105 transition duration-500"
+                />
+              </div>
             </motion.div>
           </motion.div>
         </div>

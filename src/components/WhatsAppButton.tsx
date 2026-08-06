@@ -20,7 +20,7 @@ const WhatsAppButton = () => {
         aria-label="Call Now"
       >
         <PhoneIcon />
-        <span className="ml-2">Call Now - free Estimate</span>
+        <span className="ml-2 font-semibold">Call Now - free Estimate</span>
       </button>
     </>
   );

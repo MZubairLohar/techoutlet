@@ -1,4 +1,4 @@
-import { Mail, Phone, Building2, Facebook, Instagram, Twitter, Youtube } from "lucide-react";
+import { Mail, Phone, Building2, Facebook, Instagram, Twitter, Youtube, Linkedin } from "lucide-react";
 
 const Footer = () => {
   const handleCall = () => {
@@ -71,8 +71,7 @@ const Footer = () => {
                 {[
                   { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
                   { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
-                  { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
-                  { icon: Youtube, href: "https://youtube.com", label: "Youtube" },
+                  { icon: Linkedin, href: "https://youtube.com", label: "Linkdin" },
                 ].map(({ icon: Icon, href, label }) => (
                   <a
                     key={label}
