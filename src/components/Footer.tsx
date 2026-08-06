@@ -9,13 +9,13 @@ import {
   Youtube,
 } from "lucide-react";
 
- const phoneNumber = "442080620553"; // without +
-  const message = "Hello, I want more information.";
+const phoneNumber = "442080620553"; // without +
+const message = "Hello, I want more information.";
 
-  const handleClick = () => {
-    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-    window.open(url, "_blank");
-  };
+const handleClick = () => {
+  const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+  window.open(url, "_blank");
+};
 
 const Footer = () => (
   <footer className="bg-black text-primary-foreground">
@@ -110,7 +110,7 @@ const Footer = () => (
               <Mail className="w-4 h-4" /> info@techoutlet.uk
             </div>
             <div onClick={handleClick} className="flex cursor-pointer hover:underline items-center gap-2 text-sm text-primary-foreground/60">
-              <Phone className="w-4 h-4" /> +442080620553
+              <Phone className="w-4 h-4" /> 02080620553
             </div>
             <div className="flex items-center gap-2 text-sm text-primary-foreground/60">
               <MapPin className="w-4 h-4" /> 260 Tottenham Ct Rd, London W1T 7
