@@ -91,7 +91,7 @@ const Contact = () => {
               <div className="mt-8 space-y-1">
                 {[
                   { icon: Mail, text: "info@techoutlet.uk" },
-                  { icon: Phone, text: "+442080620553" },
+                  { icon: Phone, text: "02080620553" },
                   { icon: MapPin, text: "260 Tottenham Ct Rd, London W1T 7 RF " },
                 ].map(({ icon: Icon, text }) => (
                   <div
