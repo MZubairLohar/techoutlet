@@ -125,7 +125,7 @@ import { Menu, X, Smartphone, Box } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const navItems = [
-  { label: "Home", path: "/#hero" },
+  { label: "Home", path: "/" },
   { label: "Phone Repair", path: "/phone" },
   { label: 'Accessories', path: '/accessories' },
   { label: "About", path: "/about" },

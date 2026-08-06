@@ -1276,11 +1276,11 @@ const Index = () => {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="relative lg:block md:block sm:block"
             >
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+              <div className="relative rounded-3xl  overflow-hidden shadow-2xl">
                 <img
-                  src="/hero-pic.jpg"
-                  alt="Mobile phone repair"
-                  className="w-full h-[500px] object-cover"
+                  src="/laptop-repair-tottenham-court-road..webp"
+                  alt=" Close-up of a technician's hands repairing an open laptop motherboard, using specialized tools in our TECH OUTLET LTD London workshop on Tottenham Court Road. "
+                  className="w-full h-[350px] object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-foreground/30 to-transparent" />
               </div>
@@ -1391,7 +1391,7 @@ const Index = () => {
       </a>
 
       {/* Repair Types */}
-      <section className="pt-10 lg:pt-18 pb-10 lg:pb-20">
+      <section className="pt-10 lg:pt-18 pb-10 lg:pb-0">
         <div className="container mx-auto px-4 lg:px-8">
           {/* <motion.div
             initial="hidden"
@@ -1611,9 +1611,9 @@ const Index = () => {
             >
               <div className="rounded-3xl overflow-hidden shadow-2xl">
                 <img
-                  src="/outlet-pic.jpeg"
-                  alt="Repair process"
-                  className="w-full h-[650px] object-cover"
+                  src="/laptop-repair-central-london-macbook-workbench.jp.webp"
+                  alt="Silver Apple MacBook Pro sitting open on a repair workbench with precision tools at TECH OUTLET LTD  in Central London."
+                  className="w-full h-[700px] object-cover"
                 />
               </div>
               {/* <motion.div
@@ -2711,9 +2711,7 @@ const Index = () => {
             <h2 className="text-3xl md:text-5xl font-black text-foreground tracking-tight">
               Real Repair <span className="text-red-500">Cases</span>
             </h2>
-            <p className="mt-6 text-sm text-red-800 font-medium italic">
-              Note: these are attached for an example add real case studies from GMB/GBP
-            </p>
+
           </div>
 
           {/* Cases */}
