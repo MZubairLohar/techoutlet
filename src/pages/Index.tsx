@@ -1577,7 +1577,7 @@ const Index = () => {
                       over.
                     </p>
                     <p className="text-sm text-muted-foreground mt-1">
-                      Most people walk in without an appointment. Drop us a WhatsApp or call to check part
+                      Most people walk in without an appointment. Give us a call to check part
                       availability first if you prefer. Either way: no diagnostic fee, no pressure, no hidden
                       charges.
                     </p>
@@ -2852,7 +2852,7 @@ const Index = () => {
               {/* <span className="text-red-500">Laptop Repair?</span> */}
             </h2>
             <p className="text-sm text-muted-foreground mt-2">
-              Walk in, call, or WhatsApp for a free comprehensive diagnosis and
+              Walk in or call for a free comprehensive diagnosis and
               honest pricing.
             </p>
           </div>
@@ -2863,20 +2863,20 @@ const Index = () => {
               {
                 icon: "📍",
                 title: "Walk-In",
-                desc: "[Your Address], Tottenham Court Road, London, [Postcode] Open [Days] · [Hours]",
+                desc: "260 Tottenham Court Road, London W1T 7RF. Open Mon-Sat 8AM-6PM",
                 tag: "TCR, London · Mon-Sat",
               },
               {
                 icon: "📞",
-                title: "Call or WhatsApp",
+                title: "Direct Phone Call",
                 desc: (
                   <>
-                    📞 [Phone]
+                    📞 02080620553
                     <br />
-                    💬 [WhatsApp]
+                    ⚡ Fast estimate over the phone
                   </>
                 ),
-                tag: "Call / WhatsApp",
+                tag: "Call 02080620553",
               },
               {
                 icon: "⚡",
@@ -2887,7 +2887,7 @@ const Index = () => {
               {
                 icon: "📋",
                 title: "Or Book Appointment",
-                desc: "Message for a fixed time slot.",
+                desc: "Book online for a fixed repair time slot.",
                 tag: "Fixed Time Slots Available",
               },
             ].map((item, i) => (
@@ -2915,8 +2915,7 @@ const Index = () => {
           <div className="text-center">
             <div className="inline-flex items-center gap-2 text-[10px] font-bold text-foreground bg-card border border-border px-4 py-2 rounded-full shadow-sm">
               🛡️ <strong>Need repair on Tottenham Court Road today?</strong>{" "}
-              Walk in. Call. WhatsApp. Free diagnosis, honest quote, fast
-              repair.
+              Walk in or call us. Free diagnosis, honest quote, fast repair.
             </div>
           </div>
         </div>
@@ -2984,16 +2983,18 @@ const Index = () => {
           <div className="mt-12 p-8 bg-gray-50 flex flex-col md:flex-row justify-between items-center border border-gray-100">
             <div className="mb-4 md:mb-0">
               <h4 className="font-bold text-lg">
-                Call or WhatsApp Before You Travel
+                Call Us Before You Travel
               </h4>
               <p className="text-sm text-gray-600">
-                Save the trip. Send us the model and the fault — we'll check
+                Save the trip. Call us with your model and fault — we'll check
                 parts before you set off.
               </p>
             </div>
-            <button className="px-8 py-3 bg-black text-white font-bold text-sm hover:bg-gray-800 transition-all">
-              WHATSAPP US NOW
-            </button>
+            <a href="tel:02080620553">
+              <button className="px-8 py-3 bg-black text-white font-bold text-sm hover:bg-gray-800 transition-all rounded-lg">
+                CALL US NOW
+              </button>
+            </a>
           </div>
         </div>
       </section>
@@ -3209,20 +3210,18 @@ const Index = () => {
           <div className="mt-12 p-8 rounded-3xl bg-red-500 flex flex-col md:flex-row items-center justify-between gap-6 text-white">
             <div>
               <h4 className="text-2xl font-black">
-                Call or WhatsApp Before You Travel
+                Call Us Before You Travel
               </h4>
               <p className="opacity-90">
-                Save the trip. Send us the model and the fault—we'll check parts
+                Save the trip. Give us a call with your model and fault—we'll check parts
                 before you set off.
               </p>
             </div>
             <a
-              href="https://wa.me/442080620553"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="tel:02080620553"
               className="px-8 py-4 bg-white text-red-600 font-bold rounded-full hover:scale-105 transition-transform whitespace-nowrap"
             >
-              Message Us Now
+              Call Us Now
             </a>
           </div>
         </div>
