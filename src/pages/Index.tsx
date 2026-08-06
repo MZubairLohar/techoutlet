@@ -2046,9 +2046,11 @@ const Index = () => {
             <p className="text-gray-400 mb-6">
               Don't see your brand? Walk in or call. We work on almost everything
             </p>
-            <button className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-xl font-bold transition-all">
-              Call Us Now
-            </button>
+            <a href="tel:+442080620553">
+              <button className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-xl font-bold transition-all">
+                Call Us Now
+              </button>
+            </a>
           </div>
         </div>
       </section>
