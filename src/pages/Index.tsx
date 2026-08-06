@@ -2251,13 +2251,7 @@ const Index = () => {
               <span className="text-red-600">Before and After</span>
             </motion.h2>
 
-            <motion.p
-              variants={fadeUp}
-              className="mt-8 text-lg leading-8 text-muted-foreground"
-            >
-              Every day we transform broken, unusable phones back into working devices. Cracked screens that looked hopeless. Waterlogged devices everyone thought were done for. Batteries that had given up charging. They come in damaged and they leave repaired. We usually keep photos of our work. That's how confident we are in the quality.
 
-            </motion.p>
           </motion.div>
 
           {/* Gallery */}
@@ -3223,7 +3217,9 @@ const Index = () => {
               </p>
             </div>
             <a
-              href="https://wa.me/YOUR_NUMBER"
+              href="https://wa.me/442080620553"
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-8 py-4 bg-white text-red-600 font-bold rounded-full hover:scale-105 transition-transform whitespace-nowrap"
             >
               Message Us Now
