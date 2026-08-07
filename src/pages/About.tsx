@@ -21,6 +21,9 @@ const staggerContainer = {
 export default function About() {
     return (
         <div className="min-h-screen bg-background overflow-hidden">
+            <title>Best Electronic Shop | Laptop & Mobile Repair Experts | TECH OUTLET LTD</title>
+            <meta name="description" content="Tottenham Court Road-based laptop repair experts offering quick mobile fixes and premium tech accessories. Book your repair or visit our shop today!
+" />
             <link rel="canonical" href="https://www.techoutlet.uk/about" />
             <Navbar />
 
