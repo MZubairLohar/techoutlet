@@ -1137,6 +1137,10 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background overflow-hidden">
       <link rel="canonical" href="https://www.techoutlet.uk/" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>laptop repair tottenham court road | Electronics store tottenham court road</title>
+      <meta name="description" content="Top-rated laptop repair on Tottenham Court Road. Your trusted Tottenham court road electronics store for quick & reliable tech fixes,Visit us today!
+"/>
       <Navbar />
       {/* Hero Section */}
       <section
