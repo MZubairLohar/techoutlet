@@ -15,10 +15,7 @@ const Footer = () => {
               ABOUT US
             </h3>
             <p className="text-primary-foreground/70 text-sm md:text-[15px] leading-relaxed">
-              <span className="font-bold text-red-500">
-                TechOutlet Ltd
-              </span>{" "}
-              is your local, certified mobile repair specialist in Central London. Our mission is simple: fast, reliable, photo-proven repairs, premium quality parts, and peace of mind for all your devices.
+              TECH OUTLET LTD is your local electronics store specializing in fast laptop repair on Tottenham Court Road and expert mobile servicing. We work right in the heart of Central London — so we know the panic of a dropped screen on the way to the tube or a dead MacBook right before a deadline. While we keep essential tech in stock, our main focus is simple: clear upfront pricing, zero technical jargon, and same-day repairs that get you back on track without the stress.
             </p>
           </div>
 
