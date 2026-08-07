@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { BASE_URL } from "@/Base_URL/Base_URL";
-import { motion } from "framer-motion"; 
-import { ShoppingCart, ShieldCheck } from "lucide-react"; 
-import { Button } from "@/components/ui/button"; 
-import Navbar from "@/components/Navbar"; 
-import { useCart } from "@/contexts/CartContext"; 
+import { motion } from "framer-motion";
+import { ShoppingCart, ShieldCheck } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import Navbar from "@/components/Navbar";
+import { useCart } from "@/contexts/CartContext";
 import AddToCartModal from "@/components/AddToCartModal";
 import { showErrorToast } from "@/lib/toast";
 
@@ -28,33 +28,36 @@ export default function AccessoriesPage() {
   const [items, setItems] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
-useEffect(() => {
-  const fetchAccessories = async () => {
-    try {
-      const response = await axios.get(`${BASE_URL}/getAccessories`);
-      // console.log("Accessories Data:", response.data);
+  useEffect(() => {
+    const fetchAccessories = async () => {
+      try {
+        const response = await axios.get(`${BASE_URL}/getAccessories`);
+        // console.log("Accessories Data:", response.data);
 
-      // ✅ Correct place of array
-      const accessoriesArray = response.data.message;
+        // ✅ Correct place of array
+        const accessoriesArray = response.data.message;
 
-      setItems(Array.isArray(accessoriesArray) ? accessoriesArray : []);
-    } catch (error: any) {
-      // console.log("Error:", error.response?.data || error.message);
-      showErrorToast("Failed to load accessories!");
-    } finally {
-      setLoading(false);
-    }
-  };
+        setItems(Array.isArray(accessoriesArray) ? accessoriesArray : []);
+      } catch (error: any) {
+        // console.log("Error:", error.response?.data || error.message);
+        showErrorToast("Failed to load accessories!");
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  fetchAccessories();
-}, []);
+    fetchAccessories();
+  }, []);
 
 
 
   return (
     <div className="min-h-screen pt-28 px-4 lg:px-12 bg-gradient-to-b from-background to-muted/30">
       <Navbar />
-
+      <link rel="canonical" href="https://www.techoutlet.uk/accessories" />
+      <title>Premium Electronic shop on tottenham court road | Mobile Accessories</title>
+      <meta name="description" content="High quality chargers, cables & gadgets for your device"
+      />
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
