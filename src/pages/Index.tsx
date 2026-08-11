@@ -3358,11 +3358,11 @@ const Index = () => {
                     postal: "WC1V / WC2A",
                     distance: "Direct Line Route",
                   },
-                  {
-                    location: "West End",
-                    postal: "Central Hub",
-                    distance: "In-Store Drop off",
-                  },
+                  // {
+                  //   location: "West End",
+                  //   postal: "Central Hub",
+                  //   distance: "In-Store Drop off",
+                  // },
                 ].map((zone, zIdx) => (
                   <div
                     key={zIdx}
