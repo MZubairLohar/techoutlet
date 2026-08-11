@@ -2931,7 +2931,7 @@ const Index = () => {
               {
                 icon: "📍",
                 title: "Walk-In",
-                desc: "260 Tottenham Court Road, London W1T 7RF. Open Mon-Sat 8AM-6PM",
+                desc: "260 Tottenham Court Road, London W1T 7RF. Open Mon-Sun 10:00AM-7:00PM",
                 tag: "TCR, London · Mon-Sat",
               },
               {
