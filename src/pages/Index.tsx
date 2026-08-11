@@ -982,30 +982,92 @@ const stats = [
   { icon: Users, value: "200+", label: "Technicians" },
 ];
 
+// const testimonials = [
+//   {
+//     name: "Sarah M.",
+//     role: "iPhone User",
+//     rating: 5,
+//     text: "Incredible service! My screen was replaced in under an hour. The technician was professional and friendly.",
+//   },
+//   {
+//     name: "David K.",
+//     role: "Samsung User",
+//     rating: 5,
+//     text: "Best repair service I've ever used. Fair pricing and excellent quality. My phone looks brand new!",
+//   },
+//   {
+//     name: "Priya S.",
+//     role: "Xiaomi User",
+//     rating: 5,
+//     text: "The booking process was so easy and the technician came right to my office. Highly recommend!",
+//   },
+//   {
+//     name: "James L.",
+//     role: "Oppo User",
+//     rating: 4,
+//     text: "Quick turnaround and great communication throughout the process. Will definitely use again.",
+//   },
+// ];
 const testimonials = [
   {
-    name: "Sarah M.",
-    role: "iPhone User",
+    name: "Angela Tennant",
     rating: 5,
-    text: "Incredible service! My screen was replaced in under an hour. The technician was professional and friendly.",
+    text: "The shop was amazing!! They sorted my phone out & everything is ok now. Excellent!!",
+    role: "Google Review",
   },
   {
-    name: "David K.",
-    role: "Samsung User",
+    name: "Sophie Barnes",
     rating: 5,
-    text: "Best repair service I've ever used. Fair pricing and excellent quality. My phone looks brand new!",
+    text: "Great service to replace a broken charging cable, thank you very much!",
+    role: "Google Review",
   },
   {
-    name: "Priya S.",
-    role: "Xiaomi User",
+    name: "josefina calzavara",
     rating: 5,
-    text: "The booking process was so easy and the technician came right to my office. Highly recommend!",
+    text: "Great service, they fixed my computer very quickly! Recommend",
+    role: "Google Review",
   },
   {
-    name: "James L.",
-    role: "Oppo User",
-    rating: 4,
-    text: "Quick turnaround and great communication throughout the process. Will definitely use again.",
+    name: "Claudia",
+    rating: 5,
+    text: "Incredibly fair prices and top-notch service. So glad I found them!",
+    role: "Google Review",
+  },
+  {
+    name: "Michael Liber",
+    rating: 5,
+    text: "Amazing place to shop! Beats all other stores in the area! Thank you so much!",
+    role: "Google Review",
+  },
+  {
+    name: "Lucien Lawrence",
+    rating: 5,
+    text: "Ubaid provided top quality customer service, was very knowledgable. Saved me from a charger crisis.",
+    role: "Google Review",
+  },
+  {
+    name: "Asad Anfishi",
+    rating: 5,
+    text: "Good price and excellent quality",
+    role: "Google Review",
+  },
+  {
+    name: "Tony Broad",
+    rating: 5,
+    text: "Amazing service .... thoroughly recommend",
+    role: "Google Review",
+  },
+  {
+    name: "Kiara Timm Diakos",
+    rating: 5,
+    text: "Top service! Amazing people",
+    role: "Google Review",
+  },
+  {
+    name: "Reuben Charters-Bastide",
+    rating: 5,
+    text: "Very quick service",
+    role: "Google Review",
   },
 ];
 
@@ -3542,12 +3604,18 @@ const Index = () => {
             whileHover={{ animationPlayState: "paused" }}
             className="flex gap-6 "
           >
-            {[...testimonials, ...testimonials].map((t, i) => (
-              <motion.div
-                key={i}
-                whileHover={{ y: -6 }}
-                className="bg-background rounded-2xl p-6 shadow-card hover:shadow-soft transition-all border border-border/50 min-w-[320px]"
-              >
+           {[...testimonials, ...testimonials].map((t, i) => (
+  <motion.div
+    key={i}
+    whileHover={{ y: -6 }}
+    onClick={() =>
+      window.open(
+        "https://www.google.com/maps/place/TECH+OUTLET+LTD/@51.5173345,-0.1308551,17z/data=!3m1!5s0x48761b2d71523b81:0xc999d017b083b8c5!4m8!3m7!1s0x48761b4da7d87fb7:0x2a9bc9adaf3c1277!8m2!3d51.5173345!4d-0.1308551!9m1!1b1!16s%2Fg%2F11rj5_ks75!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDgwNS4xIKXMDSoASAFQAw%3D%3D",
+        "_blank"
+      )
+    }
+    className="bg-background rounded-2xl p-6 shadow-card hover:shadow-soft transition-all border border-border/50 min-w-[320px] cursor-pointer"
+  >
                 {/* Stars */}
                 <div className="flex gap-1 mb-3">
                   {Array.from({ length: t.rating }).map((_, j) => (
