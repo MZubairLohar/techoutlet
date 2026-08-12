@@ -1,6 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
   <url>
     <loc>https://www.techoutlet.uk/</loc>
   </url>
+
+  <url>
+    <loc>https://www.techoutlet.uk/book</loc>
+  </url>
+
+  <url>
+    <loc>https://www.techoutlet.uk/accessories</loc>
+  </url>
+
+  <url>
+    <loc>https://www.techoutlet.uk/blogs</loc>
+  </url>
+
+  <url>
+    <loc>https://www.techoutlet.uk/brands</loc>
+  </url>
+
+  <url>
+    <loc>https://www.techoutlet.uk/services</loc>
+  </url>
+
+  <url>
+    <loc>https://www.techoutlet.uk/contact</loc>
+  </url>
+
+  <url>
+    <loc>https://www.techoutlet.uk/aboutus</loc>
+  </url>
+
+  <url>
+    <loc>https://www.techoutlet.uk/phone-repair</loc>
+  </url>
+
+  <url>
+    <loc>https://www.techoutlet.uk/about</loc>
+  </url>
+
+  <url>
+    <loc>https://www.techoutlet.uk/laptop</loc>
+  </url>
+
 </urlset>
