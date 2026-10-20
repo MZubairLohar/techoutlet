@@ -104,37 +104,37 @@ const BookRepair = () => {
   //     });
   // }, []);
 
-useEffect(() => {
-  setBrandsLoading(true);
+  useEffect(() => {
+    setBrandsLoading(true);
 
-  axios
-    .get(`${BASE_URL}/brands`)
-    .then((res) => {
-      const brands = res.data?.data;
+    axios
+      .get(`${BASE_URL}/brands`)
+      .then((res) => {
+        const brands = res.data?.data;
 
-      if (Array.isArray(brands)) {
-        setData(
-          brands.map((item: any) => ({
-            brand: item.brand,
-            models: Array.isArray(item.models)
-              ? item.models.map((model: any) => model.name)
-              : [],
-          }))
-        );
-      } else {
-        console.error("Unexpected brands API response:", res.data);
+        if (Array.isArray(brands)) {
+          setData(
+            brands.map((item: any) => ({
+              brand: item.brand,
+              models: Array.isArray(item.models)
+                ? item.models.map((model: any) => model.name)
+                : [],
+            })),
+          );
+        } else {
+          console.error("Unexpected brands API response:", res.data);
+          setData([]);
+        }
+      })
+      .catch((error) => {
+        console.error("Failed to load brands:", error);
         setData([]);
-      }
-    })
-    .catch((error) => {
-      console.error("Failed to load brands:", error);
-      setData([]);
-      showErrorToast("Failed to load brands! Please refresh the page.");
-    })
-    .finally(() => {
-      setBrandsLoading(false);
-    });
-}, []);
+        showErrorToast("Failed to load brands! Please refresh the page.");
+      })
+      .finally(() => {
+        setBrandsLoading(false);
+      });
+  }, []);
 
   useEffect(() => {
     if (!selectedBrand) return;
@@ -185,7 +185,7 @@ useEffect(() => {
       !customerInfo.name ||
       !customerInfo.email ||
       !customerInfo.phone ||
-      !selectedBrand 
+      !selectedBrand
       // !selectedModel
     )
       return showErrorToast("Please fill all required fields");
@@ -343,9 +343,9 @@ useEffect(() => {
                       <label className="text-sm font-medium text-foreground mb-3 block">
                         Model
                       </label>
-                      <div className="grid grid-cols-2 gap-2">
+                      <div className="flex gap-2 overflow-x-auto pb-2">
                         {modelsLoading ? (
-                          <div className="col-span-full flex justify-center py-6">
+                          <div className="w-full flex justify-center py-6">
                             <div className="w-8 h-8 border-4 border-red-500 border-t-transparent rounded-full animate-spin" />
                           </div>
                         ) : (
@@ -353,7 +353,7 @@ useEffect(() => {
                             <button
                               key={m.name}
                               onClick={() => setSelectedModel(m.name)}
-                              className={`p-3 w-28 rounded-xl border text-left text-sm transition-all ${
+                              className={`p-3 w-28 shrink-0 rounded-xl border text-left text-sm transition-all ${
                                 selectedModel === m.name
                                   ? "border-red-300 bg-red-200 text-red-600 font-medium"
                                   : "border-border hover:border-red-100 text-foreground"
