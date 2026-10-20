@@ -88,21 +88,53 @@ const BookRepair = () => {
     { name: string; image: string; isAvailable: Boolean }[]
   >([]);
 
-  useEffect(() => {
-    setBrandsLoading(true);
+  // useEffect(() => {
+  //   setBrandsLoading(true);
 
-    axios
-      .get(`${BASE_URL}/brands`)
-      .then((res) => {
-        setData(res.data.message);
-      })
-      .catch(() => {
-        showErrorToast("Failed to load brands! Please refresh the page.");
-      })
-      .finally(() => {
-        setBrandsLoading(false);
-      });
-  }, []);
+  //   axios
+  //     .get(`${BASE_URL}/brands`)
+  //     .then((res) => {
+  //       setData(res.data.message);
+  //     })
+  //     .catch(() => {
+  //       showErrorToast("Failed to load brands! Please refresh the page.");
+  //     })
+  //     .finally(() => {
+  //       setBrandsLoading(false);
+  //     });
+  // }, []);
+
+useEffect(() => {
+  setBrandsLoading(true);
+
+  axios
+    .get(`${BASE_URL}/brands`)
+    .then((res) => {
+      const brands = res.data?.data;
+
+      if (Array.isArray(brands)) {
+        setData(
+          brands.map((item: any) => ({
+            brand: item.brand,
+            models: Array.isArray(item.models)
+              ? item.models.map((model: any) => model.name)
+              : [],
+          }))
+        );
+      } else {
+        console.error("Unexpected brands API response:", res.data);
+        setData([]);
+      }
+    })
+    .catch((error) => {
+      console.error("Failed to load brands:", error);
+      setData([]);
+      showErrorToast("Failed to load brands! Please refresh the page.");
+    })
+    .finally(() => {
+      setBrandsLoading(false);
+    });
+}, []);
 
   useEffect(() => {
     if (!selectedBrand) return;
@@ -153,8 +185,8 @@ const BookRepair = () => {
       !customerInfo.name ||
       !customerInfo.email ||
       !customerInfo.phone ||
-      !selectedBrand ||
-      !selectedModel
+      !selectedBrand 
+      // !selectedModel
     )
       return showErrorToast("Please fill all required fields");
     // 1️⃣ Date ko YYYY-MM-DD me convert karo
