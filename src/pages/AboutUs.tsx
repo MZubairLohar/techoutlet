@@ -4,6 +4,10 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import PageByline from "@/components/PageByline";
+import FaqSection from "@/components/FaqSection";
+import { aboutUsFaqs } from "@/seo/faqs";
+import heroRepair from "@/assets/hero-repair.jpg";
 
 function AboutUs() {
   return (
@@ -12,20 +16,16 @@ function AboutUs() {
       <section className="py-20 lg:py-28 bg-card">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-            >
+            {/* Hero copy (contains the H1) renders visible immediately for a fast LCP */}
+            <motion.div initial={false}>
               <span className="text-sm font-medium text-red-600 uppercase tracking-wider">
                 We Fix, Any Device
               </span>
-              <h2 className="text-3xl lg:text-4xl font-bold mt-3 text-foreground">
-                Expert Mobile Phone <span className="text-red-600">&</span> IPad
+              <h1 className="text-3xl lg:text-4xl font-bold mt-3 text-foreground">
+                Expert Mobile Phone <span className="text-red-600">&</span> iPad
                 Repair Services in London{" "}
                 <span className="text-red-600">&</span> UK
-              </h2>
+              </h1>
               <div className="mt-8 space-y-6">
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
@@ -50,6 +50,7 @@ function AboutUs() {
                       Trust us for all your device needs, keeping your tech in
                       top shape in one convenient location!
                     </p>
+                    <PageByline className="mt-3" />
                   </div>
                 </motion.div>
               </div>
@@ -70,7 +71,7 @@ function AboutUs() {
               <div className="rounded-3xl overflow-hidden shadow-2xl">
                 <img
                   src="/outlet-pic.jpeg"
-                  alt="Repair process"
+                  alt="TechOutlet shop front at 260 Tottenham Court Road, London"
                   className="w-full h-[450px] object-cover"
                 />
               </div>
@@ -88,7 +89,7 @@ function AboutUs() {
               <div className="rounded-3xl overflow-hidden shadow-2xl">
                 <img
                   src="/repair-process.jpg"
-                  alt="Repair process"
+                  alt="Technician repairing a device at the TechOutlet workshop"
                   className="w-full h-[450px] object-cover"
                 />
               </div>
@@ -154,8 +155,8 @@ function AboutUs() {
           {/* Left Image */}
           <div className="w-full h-full">
             <img
-              src="/happy-customer.jpg" // replace with your image path
-              alt="Store Interior"
+              src="/happy-customer.jpg"
+              alt="Happy TechOutlet customer with a repaired device"
               className="w-full h-full object-cover rounded-sm"
             />
           </div>
@@ -163,8 +164,8 @@ function AboutUs() {
           {/* Right Image */}
           <div className="w-full h-full">
             <img
-              src="hero-repair.jpg" // replace with your image path
-              alt="Store Front"
+              src={heroRepair}
+              alt="Phone repair in progress at TechOutlet, Tottenham Court Road"
               className="w-full h-full object-cover rounded-sm"
             />
           </div>
@@ -173,6 +174,7 @@ function AboutUs() {
 
       </div>
     </section>
+      <FaqSection faqs={aboutUsFaqs} className="mt-16" />
       </section>
       <Footer />
     </>

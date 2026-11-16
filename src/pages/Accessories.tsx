@@ -5,6 +5,12 @@ import { motion } from "framer-motion";
 import { ShoppingCart, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import PageByline from "@/components/PageByline";
+import FaqSection from "@/components/FaqSection";
+import { accessoryFaqs } from "@/seo/faqs";
+import { Link } from "react-router-dom";
+import { SITE_URL } from "@/seo/site";
 import { useCart } from "@/contexts/CartContext";
 import AddToCartModal from "@/components/AddToCartModal";
 import { showErrorToast } from "@/lib/toast";
@@ -51,22 +57,50 @@ export default function AccessoriesPage() {
 
 
 
+  // Product structured data for the accessories actually loaded from the API.
+  useEffect(() => {
+    if (!items.length) return;
+    const el = document.createElement("script");
+    el.type = "application/ld+json";
+    el.id = "ld-products";
+    el.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": items.slice(0, 50).map((item) => ({
+        "@type": "Product",
+        name: item.name,
+        description: item.description || undefined,
+        image: item.images?.[0] || undefined,
+        category: item.category || undefined,
+        sku: item._id,
+        offers: {
+          "@type": "Offer",
+          price: item.discountPrice > 0 ? item.discountPrice : item.price,
+          priceCurrency: "GBP",
+          url: `${SITE_URL}/accessories`,
+          seller: { "@id": `${SITE_URL}/#organization` },
+        },
+      })),
+    }).replace(/</g, "\\u003c");
+    document.head.appendChild(el);
+    return () => el.remove();
+  }, [items]);
+
   return (
+    <>
     <div className="min-h-screen pt-28 px-4 lg:px-12 bg-gradient-to-b from-background to-muted/30">
       <Navbar />
-      <link rel="canonical" href="https://www.techoutlet.uk/accessories" />
-      <title>Premium Electronic shop on tottenham court road | Mobile Accessories</title>
-      <meta name="description" content="High quality chargers, cables & gadgets for your device"
-      />
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         className="text-center mb-12"
       >
-        <h1 className="text-4xl font-bold">Premium Mobile Accessories</h1>
-        <p className="text-muted-foreground mt-3">
-          High quality chargers, cables & gadgets for your device
+        <h1 className="text-4xl font-bold">Phone &amp; Laptop Accessories on Tottenham Court Road</h1>
+        <p className="text-muted-foreground mt-3 max-w-3xl mx-auto">
+          TechOutlet's electronics store at 260 Tottenham Court Road, London stocks quality chargers, cables,
+          adapters, earphones, cases and screen protectors. Add items to your cart online or visit the shop, open
+          every day from 10:00 to 19:00.
         </p>
+        <PageByline className="mt-2" />
       </motion.div>
 
       {loading && (
@@ -112,20 +146,20 @@ export default function AccessoriesPage() {
                   {item.discountPrice > 0 ? (
                     <>
                       <span className="text-lg font-bold text-primary">
-                        Rs {item.discountPrice}$
+                        £{item.discountPrice}
                       </span>
                       <span className="text-xs line-through text-muted-foreground">
-                        Rs {item.price}$
+                        £{item.price}
                       </span>
                     </>
                   ) : (
-                    <span className="text-lg font-bold">Rs {item.price}</span>
+                    <span className="text-lg font-bold">£{item.price}</span>
                   )}
                 </div>
 
                 {item.warrantyDays > 0 && (
                   <span className="flex items-center gap-1 text-xs text-green-600">
-                    <ShieldCheck className="w-3 h-3" /> {item.warrantyDays}days
+                    <ShieldCheck className="w-3 h-3" /> {item.warrantyDays}-day warranty
                   </span>
                 )}
               </div>
@@ -153,7 +187,31 @@ export default function AccessoriesPage() {
           onClose={() => setSelectedItem(null)}
         />
       )}
+
+      <section className="max-w-4xl mx-auto mt-16 mb-20 grid md:grid-cols-2 gap-10">
+        <div>
+          <h2 className="text-2xl font-bold text-foreground">What we stock</h2>
+          <ul className="mt-4 list-disc pl-6 space-y-1 text-muted-foreground">
+            <li>Fast chargers and power adapters for iPhone, Samsung and laptops</li>
+            <li>USB-C, Lightning and laptop charging cables</li>
+            <li>Earphones and headphones</li>
+            <li>Phone cases and screen protectors</li>
+            <li>Power banks with honest mAh ratings</li>
+          </ul>
+        </div>
+        <div>
+          <h2 className="text-2xl font-bold text-foreground">Not sure what fits your device?</h2>
+          <p className="mt-4 text-muted-foreground leading-relaxed">
+            If you're not sure which charger, cable or adapter fits, bring your phone or laptop into the shop and
+            ask us. If it still won't charge with a new cable, the fault may be the charging port; see our{" "}
+            <Link to="/phone-repair" className="text-red-600 underline">phone repair</Link> page.
+          </p>
+        </div>
+      </section>
+      <FaqSection faqs={accessoryFaqs} className="mb-20" />
     </div>
+    <Footer />
+    </>
   );
 }
 

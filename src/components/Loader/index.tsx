@@ -10,7 +10,7 @@ const Loader: React.FC = () => {
       <div className="relative z-10 flex flex-col items-center justify-center">
         <img
           src="/logo.gif"
-          alt="Logo"
+          alt="Loading TechOutlet"
           className="w-40 h-40 rounded-full mb-6"
         />
 

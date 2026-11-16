@@ -179,7 +179,9 @@ const Navbar = () => {
             {/* <Box sx={{ display: "flex", justifyContent: "center", width: "100%", py: 2 }}> */}
             <img
               src="/logo.gif"
-              alt="Logo"
+              alt="TechOutlet logo"
+              width={60}
+              height={60}
               style={{ width: 60, height: 60, borderRadius: "50%" }}
             />
             {/* </Box> */}
