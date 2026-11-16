@@ -20,6 +20,11 @@ import { Textarea } from "@/components/ui/textarea";
 import Navbar from "@/components/Navbar";
 import axios from "axios";
 import { BASE_URL } from "@/Base_URL/Base_URL";
+import PageByline from "@/components/PageByline";
+import FaqSection from "@/components/FaqSection";
+import { bookFaqs } from "@/seo/faqs";
+import Footer from "@/components/Footer";
+import { BUSINESS } from "@/seo/site";
 import { showErrorToast, showSuccessToast } from "@/lib/toast";
 
 const issues = [
@@ -256,6 +261,16 @@ const BookRepair = () => {
       <Navbar />
       <div className="pt-24 pb-16">
         <div className="container mx-auto px-4 lg:px-8 max-w-3xl">
+          <header className="mb-10">
+            <h1 className="text-3xl font-bold text-foreground">Book a Phone or Laptop Repair Online</h1>
+            <p className="mt-3 text-muted-foreground leading-relaxed">
+              Book your phone, tablet or laptop repair at TechOutlet, 260 Tottenham Court Road, London. Choose your
+              device and model, describe the problem and pick a date. Diagnosis is free and you approve the quote
+              before any work starts.
+            </p>
+            <PageByline className="mt-2" />
+          </header>
+
           {/* Progress */}
           <div className="mb-10">
             <div className="flex items-center justify-between mb-3">
@@ -706,8 +721,31 @@ const BookRepair = () => {
               </Button>
             </div>
           )}
+
+          <section className="mt-16 grid md:grid-cols-2 gap-8 text-sm">
+            <div>
+              <h2 className="text-xl font-bold text-foreground">What happens after you book</h2>
+              <ol className="mt-3 list-decimal pl-5 space-y-1 text-muted-foreground">
+                <li>We email you a confirmation with your booking details.</li>
+                <li>Bring your device to 260 Tottenham Court Road on your chosen date.</li>
+                <li>We run a free diagnosis and confirm the price before starting.</li>
+                <li>Most phone repairs take 30–60 minutes; most laptop repairs are same-day.</li>
+              </ol>
+            </div>
+            <div>
+              <h2 className="text-xl font-bold text-foreground">Prefer to talk to us?</h2>
+              <p className="mt-3 text-muted-foreground leading-relaxed">
+                Call <a href={BUSINESS.telephoneHref} className="text-red-600 underline">{BUSINESS.telephoneDisplay}</a>{" "}
+                or just walk in. We are open Monday to Sunday, 10:00 to 19:00. Not sure what's wrong? See our{" "}
+                <Link to="/phone-repair" className="text-red-600 underline">phone repair</Link> and{" "}
+                <Link to="/laptop" className="text-red-600 underline">laptop repair</Link> guides first.
+              </p>
+            </div>
+          </section>
         </div>
       </div>
+      <FaqSection faqs={bookFaqs} className="pb-20" />
+      <Footer />
     </div>
   );
 };

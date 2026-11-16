@@ -5,6 +5,14 @@ import { motion, Variants } from "framer-motion";
 import { Package, Smartphone, Star, ChevronRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import PageByline from "@/components/PageByline";
+import FaqSection from "@/components/FaqSection";
+import { brandFaqs } from "@/seo/faqs";
+import { Link } from "react-router-dom";
+import { BUSINESS } from "@/seo/site";
+
+const phoneBrands = ["Apple iPhone and iPad", "Samsung Galaxy", "Google Pixel", "OnePlus", "Xiaomi", "Oppo", "Huawei"];
+const laptopBrands = ["Apple MacBook Air and MacBook Pro", "HP", "Dell", "Lenovo", "ASUS", "Acer"];
 
 interface BrandDetail {
   _id: string;
@@ -63,9 +71,25 @@ export default function Newbrands() {
     }
   };
   
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white flex items-center justify-center">
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+         <Navbar />
+      {/* Hero Section */}
+      <div className="text-[#0F1729] py-28 px-4">
+        <div className="max-w-7xl mx-auto text-center">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">Phone &amp; Laptop Brands We Repair</h1>
+          <p className="text-xl text-[#6588BB] max-w-3xl mx-auto">
+            TechOutlet repairs phones, tablets and laptops from every major brand at 260 Tottenham Court Road,
+            London, including Apple, Samsung, Google Pixel, OnePlus, Xiaomi, HP, Dell and Lenovo.
+          </p>
+          <PageByline className="mt-3" />
+        </div>
+      </div>
+
+      {/* Brands Grid Section */}
+      <div className="max-w-7xl mx-auto px-4">
+        {loading ? (
+      <div className="py-20 flex items-center justify-center" role="status">
         <div className="text-center">
           {/* Animated Loader */}
           <div className="relative">
@@ -85,37 +109,7 @@ export default function Newbrands() {
           </motion.p>
         </div>
       </div>
-    );
-  }
-
-  return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-         <Navbar />
-      {/* Hero Section */}
-      <div className="text-[#0F1729] py-28 px-4">
-        <div className="max-w-7xl mx-auto text-center">
-          <motion.h1 
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl font-bold mb-4"
-          >
-            Our Trusted Brands
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl text-[#6588BB] max-w-2xl mx-auto"
-          >
-            We work with the world's leading mobile brands to provide you the best quality service
-          </motion.p>
-        </div>
-      </div>
-
-      {/* Brands Grid Section */}
-      <div className="max-w-7xl mx-auto px-4">
-        {brands.length > 0 ? (
+        ) : brands.length > 0 ? (
           <>
             {/* Brands Grid */}
             <motion.div 
@@ -235,6 +229,40 @@ export default function Newbrands() {
           </motion.div>
         )}
       </div>
+      <section className="max-w-5xl mx-auto px-4 mt-20 grid md:grid-cols-2 gap-10">
+        <div>
+          <h2 className="text-2xl font-bold text-gray-900">Phone brands we repair</h2>
+          <ul className="mt-4 list-disc pl-6 space-y-1 text-gray-700">
+            {phoneBrands.map((b) => (
+              <li key={b}>{b}</li>
+            ))}
+          </ul>
+          <p className="mt-4 text-gray-600">
+            Most phone screen, battery and charging port repairs take 30 to 60 minutes.{" "}
+            <Link to="/phone-repair" className="text-red-600 underline">See phone repairs</Link>.
+          </p>
+        </div>
+        <div>
+          <h2 className="text-2xl font-bold text-gray-900">Laptop brands we repair</h2>
+          <ul className="mt-4 list-disc pl-6 space-y-1 text-gray-700">
+            {laptopBrands.map((b) => (
+              <li key={b}>{b}</li>
+            ))}
+          </ul>
+          <p className="mt-4 text-gray-600">
+            Most laptop repairs are completed the same day, with a free diagnosis first.{" "}
+            <Link to="/laptop" className="text-red-600 underline">See laptop repairs</Link>.
+          </p>
+        </div>
+        <p className="md:col-span-2 text-gray-600">
+          Don't see your brand? We might need to source parts for less common models, but we don't turn people away
+          based on brand. Call us on <a href={BUSINESS.telephoneHref} className="text-red-600 underline">{BUSINESS.telephoneDisplay}</a>{" "}
+          or <Link to="/book" className="text-red-600 underline">book a repair online</Link>.
+        </p>
+      </section>
+
+      <FaqSection faqs={brandFaqs} className="mt-16" />
+
       <div className="mt-16">
       <Footer />
       </div>

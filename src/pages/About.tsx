@@ -1,13 +1,7 @@
-// meta data for about page
-export const metadata = {
-    title: "Mobile Phone Repair Tottenham Court Road | Fast Same-Day Fixes",
-    description: "Need mobile phone repair on Tottenham Court Road? Visit our phone shop Tottenham Court Road for fast, affordable screen & battery repairs today",
-};
-
-
 import { motion } from "framer-motion";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import PageByline from "../components/PageByline";
 
 const fadeUp = {
     hidden: { opacity: 0, y: 20 },
@@ -21,10 +15,6 @@ const staggerContainer = {
 export default function About() {
     return (
         <div className="min-h-screen bg-background overflow-hidden">
-            <title>Best Electronic Shop | Laptop & Mobile Repair Experts | TECH OUTLET LTD</title>
-            <meta name="description" content="Tottenham Court Road-based laptop repair experts offering quick mobile fixes and premium tech accessories. Book your repair or visit our shop today!
-" />
-            <link rel="canonical" href="https://www.techoutlet.uk/about" />
             <Navbar />
 
             {/* 1. About Hero Section */}
@@ -41,12 +31,9 @@ export default function About() {
                         variants={staggerContainer}
                         className="max-w-6xl mx-auto"
                     >
-                        <motion.h1
-                            variants={fadeUp}
-                            className="text-5xl md:text-6xl font-extrabold text-foreground mb-6 tracking-tight"
-                        >
-                            About TECH OUTLET LTD
-                        </motion.h1>
+                        <h1 className="text-5xl md:text-6xl font-extrabold text-foreground mb-6 tracking-tight">
+                            About TechOutlet, Tottenham Court Road
+                        </h1>
 
                         <motion.h2
                             variants={fadeUp}
@@ -63,6 +50,7 @@ export default function About() {
                             screen shatters, or you just need a reliable charger today—tech
                             emergencies can’t wait for shipping. We get you back online without the delay.
                         </motion.p>
+                        <PageByline className="mt-4" />
 
                         <motion.p
                             variants={fadeUp}
@@ -143,6 +131,10 @@ export default function About() {
                         >
                             What We Do
                         </motion.h2>
+                        <motion.p variants={fadeUp} className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
+                            TechOutlet does three things under one roof on Tottenham Court Road: laptop repair, mobile
+                            phone repair and tech accessories, with a free diagnosis before any repair.
+                        </motion.p>
                     </motion.div>
 
                     <motion.div

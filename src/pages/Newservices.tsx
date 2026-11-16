@@ -5,6 +5,34 @@ import { motion, Variants } from "framer-motion";
 import { Wrench, PoundSterling, Smartphone, Battery, Shield, Cpu, Zap } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import PageByline from "@/components/PageByline";
+import FaqSection from "@/components/FaqSection";
+import { serviceFaqs } from "@/seo/faqs";
+import { Link } from "react-router-dom";
+
+const serviceAreas = [
+  {
+    title: "Phone repair",
+    text: "iPhone, Samsung, Google Pixel and other smartphones. Most repairs take 30 to 60 minutes while you wait.",
+    items: ["Screen replacement", "Battery replacement", "Charging port repair", "Water damage repair"],
+    link: "/phone-repair",
+    linkLabel: "Phone repair details",
+  },
+  {
+    title: "Laptop & MacBook repair",
+    text: "MacBooks, Windows laptops and Chromebooks. Screens typically £80–£200 and batteries £60–£150.",
+    items: ["Screen and keyboard repair", "Battery replacement", "SSD and RAM upgrades", "Data recovery"],
+    link: "/laptop",
+    linkLabel: "Laptop repair prices",
+  },
+  {
+    title: "iPad & tablet repair",
+    text: "All iPad generations and Samsung tablets, plus software updates and accessories.",
+    items: ["Screen and glass repair", "Battery replacement", "Charging issues", "Software updates"],
+    link: "/book",
+    linkLabel: "Book a tablet repair",
+  },
+];
 
 interface Service {
   _id: string;
@@ -23,7 +51,6 @@ export default function NewServices() {
       setLoading(true);
       const res = await axios.get(`${BASE_URL}/getAllServices`);
       setServices(res.data.message);
-      console.log("Fetched services:", res.data.message);
     } catch (error) {
       console.error("Failed to fetch services", error);
     } finally {
@@ -82,9 +109,44 @@ export default function NewServices() {
     }
   };
 
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white flex items-center justify-center">
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+        <Navbar />
+      {/* Hero Section */}
+      <div className="text-[#0F1729] py-28 px-4">
+        <div className="max-w-7xl mx-auto text-center">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">Phone, Laptop &amp; Tablet Repair Services</h1>
+          <p className="text-xl text-[#6588BB] max-w-3xl mx-auto">
+            TechOutlet offers phone, tablet and laptop repair services at 260 Tottenham Court Road, London: screen
+            and battery replacement, charging ports, water damage and data recovery, with a free diagnosis first.
+          </p>
+          <PageByline className="mt-3" />
+        </div>
+      </div>
+
+      <section className="max-w-6xl mx-auto px-4 mb-16 grid md:grid-cols-3 gap-6">
+        {serviceAreas.map((area) => (
+          <div key={area.title} className="bg-white rounded-2xl shadow p-6">
+            <h2 className="text-xl font-bold text-gray-900">{area.title}</h2>
+            <p className="mt-2 text-gray-600 text-sm leading-relaxed">{area.text}</p>
+            <ul className="mt-3 list-disc pl-5 text-sm text-gray-700 space-y-1">
+              {area.items.map((i) => (
+                <li key={i}>{i}</li>
+              ))}
+            </ul>
+            {area.link && (
+              <Link to={area.link} className="mt-4 inline-block text-red-600 font-medium underline">
+                {area.linkLabel}
+              </Link>
+            )}
+          </div>
+        ))}
+      </section>
+
+      {/* Services Section */}
+      <div className="max-w-7xl mx-auto px-4">
+        {loading ? (
+      <div className="py-20 flex items-center justify-center" role="status">
         <div className="text-center">
           {/* Animated Loader */}
           <div className="relative">
@@ -104,37 +166,7 @@ export default function NewServices() {
           </motion.p>
         </div>
       </div>
-    );
-  }
-
-  return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-        <Navbar />
-      {/* Hero Section */}
-      <div className="text-[#0F1729] py-28 px-4">
-        <div className="max-w-7xl mx-auto text-center">
-          <motion.h1 
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl font-bold mb-4"
-          >
-            Our Repair Services
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl text-[#6588BB] max-w-2xl mx-auto"
-          >
-            Professional repair services at competitive prices. Quality work guaranteed.
-          </motion.p>
-        </div>
-      </div>
-
-      {/* Services Section */}
-      <div className="max-w-7xl mx-auto px-4">
-        {services.length > 0 ? (
+        ) : services.length > 0 ? (
           <>
             {/* Header with count */}
             <div className="flex justify-between items-center mb-12">
@@ -184,9 +216,9 @@ export default function NewServices() {
                         {service.ServiceName}
                       </h3>
 
-                       <h3 className="text-xs font-thin text-gray-900 mb-2">
+                      <p className="text-xs font-thin text-gray-900 mb-2">
                         {service.Description}
-                      </h3>
+                      </p>
 
                       
 
@@ -231,6 +263,17 @@ export default function NewServices() {
           </motion.div>
         )}
       </div>
+      <section className="max-w-3xl mx-auto px-4 mt-20">
+        <h2 className="text-2xl font-bold text-gray-900">How our repairs work</h2>
+        <ol className="mt-4 list-decimal pl-6 space-y-1 text-gray-700">
+          <li>Walk in or <Link to="/book" className="text-red-600 underline">book online</Link>.</li>
+          <li>Free diagnosis: we test your device and explain the fault.</li>
+          <li>Upfront quote: you approve the price before any work starts.</li>
+          <li>Repair: most phone repairs take 30–60 minutes and most laptop repairs are same-day.</li>
+          <li>Collection: every repair is covered by our warranty on parts and workmanship.</li>
+        </ol>
+      </section>
+      <FaqSection faqs={serviceFaqs} className="mt-16" />
         <div className="mt-16">
         <Footer />
         </div>

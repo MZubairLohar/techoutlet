@@ -199,6 +199,8 @@ import { BASE_URL } from "@/Base_URL/Base_URL";
 // import { s } from "node_modules/vite/dist/node/types.d-aGj9QkWt";
 import { showErrorToast } from "@/lib/toast";
 import Footer from "@/components/Footer";
+import PageByline from "@/components/PageByline";
+import { SITE_URL } from "@/seo/site";
 
 interface Blog {
   _id: string;
@@ -248,6 +250,30 @@ export default function BlogPage() {
     fetchBlogs();
   }, []);
 
+  // BlogPosting structured data for the posts actually loaded from the API.
+  useEffect(() => {
+    if (!blogs.length) return;
+    const el = document.createElement("script");
+    el.type = "application/ld+json";
+    el.id = "ld-blog-posts";
+    el.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": blogs.slice(0, 30).map((blog) => ({
+        "@type": "BlogPosting",
+        "@id": `${SITE_URL}/blogs#post-${blog._id}`,
+        headline: blog.title,
+        image: blog.image || undefined,
+        articleBody: blog.content,
+        author: blog.author ? { "@type": "Person", name: blog.author } : { "@id": `${SITE_URL}/#organization` },
+        publisher: { "@id": `${SITE_URL}/#organization` },
+        isPartOf: { "@id": `${SITE_URL}/blogs#webpage` },
+        url: `${SITE_URL}/blogs`,
+      })),
+    }).replace(/</g, "\\u003c");
+    document.head.appendChild(el);
+    return () => el.remove();
+  }, [blogs]);
+
   const openReactionModal = (id: string, type: "like" | "dislike") => {
     setSelectedBlogId(id);
     setReactionType(type);
@@ -284,30 +310,29 @@ export default function BlogPage() {
     }
   };
 
-  if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center text-lg font-semibold">
-        Loading blogs...
-      </div>
-    );
-  }
-
   return (
     <>
       <div className="min-h-screen pt-28 px-4 lg:px-12 bg-gradient-to-b from-background to-muted/30">
         <Navbar />
-        <link rel="canonical" href="https://techoutlet.uk/blogs" />
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-12"
         >
-          <h1 className="text-4xl font-bold">Repair Tips & Blogs</h1>
-          <p className="text-muted-foreground mt-3">
-            Learn mobile care, maintenance & repair knowledge
+          <h1 className="text-4xl font-bold">Phone &amp; Laptop Repair Tips and Guides</h1>
+          <p className="text-muted-foreground mt-3 max-w-3xl mx-auto">
+            Practical advice from the TechOutlet technicians at 260 Tottenham Court Road, London: how to look after
+            your phone and laptop, keep batteries healthy, deal with water damage and decide when a repair is worth it.
           </p>
+          <PageByline className="mt-2" />
         </motion.div>
+
+        {loading && (
+          <div className="text-center py-20 text-lg font-semibold" role="status">
+            Loading blogs...
+          </div>
+        )}
 
         <div className="space-y-8">
           {blogs.map((blog, i) => {
@@ -331,7 +356,7 @@ export default function BlogPage() {
                 {/* Content RIGHT */}
                 <div className="p-6 flex flex-col flex-1">
                   <div className="flex items-center justify-between">
-                    <h3 className="font-bold text-xl">{blog.title}</h3>
+                    <h2 className="font-bold text-xl">{blog.title}</h2>
                     {blog.verified && (
                       <BadgeCheck className="text-green-500 w-5 h-5" />
                     )}
@@ -403,9 +428,9 @@ export default function BlogPage() {
               >
                 <X className="w-5 h-5" />
               </button>
-              <h2 className="text-xl font-bold mb-4">
+              <div className="text-xl font-bold mb-4">
                 Enter your email to {reactionType}
-              </h2>
+              </div>
               <input
                 type="email"
                 placeholder="Enter your email"
@@ -423,6 +448,7 @@ export default function BlogPage() {
             </div>
           </div>
         )}
+        <div className="pb-16" />
       </div>
       <Footer />
     </>

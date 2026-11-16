@@ -936,6 +936,8 @@ import { BASE_URL } from "@/Base_URL/Base_URL";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { showSuccessToast } from "@/lib/toast";
+import PageByline from "@/components/PageByline";
+import { homeFaqs } from "@/seo/faqs";
 
 export const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -1198,11 +1200,6 @@ const Index = () => {
   ];
   return (
     <div className="min-h-screen bg-background overflow-hidden">
-      <link rel="canonical" href="https://www.techoutlet.uk/" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>laptop repair tottenham court road | Electronics store tottenham court road</title>
-      <meta name="description" content="Top-rated laptop repair on Tottenham Court Road. Your trusted Tottenham court road electronics store for quick & reliable tech fixes,Visit us today!
-"/>
       <Navbar />
       {/* Hero Section */}
       <section
@@ -1228,49 +1225,26 @@ const Index = () => {
                 <CheckCircle2 className="w-4 h-4" />
                 Trusted by 50,000+ customers
               </motion.div> */}
-              <motion.h1
-                variants={fadeUp}
-                custom={1}
-                className="text-2xl md:text-2xl lg:text-5xl font-bold text-foreground leading-tight"
-              >
-                {/* Book Your <br />
-                <span className="text-gradient">Mobile Repair</span> <br />
-                Today */}
-                {/* <span className="bg-gradient-to-r from-red-400 via-red-500 to-red-700 bg-clip-text text-transparent">Laptop Repair Tottenham Court Road | </span> <br />
-                Electronics Store Tottenham Court Road
-                <span className="text-red-500">!</span> */}
-                <h1 className="bg-gradient-to-r from-red-400 via-red-500 to-red-700 bg-clip-text text-transparent">
-                  100% Guaranteed Laptop Repair
-                  Central London & Trusted Electronics
-                  Store
-                </h1>
-
-              </motion.h1>
-              <motion.p
-                variants={fadeUp}
-                custom={2}
-                className="mt-6 text-lg text-muted-foreground xl:max-w-lg leading-relaxed"
-              >
-                {/* Need a fast fix or a new gadget? Find reliable laptop repair on tottenham court road and premium gear all under one roof at our tottenham court road electronics store. */}
-                TechOutlet is your trusted electronics store and laptop repair Tottenham Court Road
-                specialist, offering everything from MacBook repairs,battery issues,  screen replacement,
-                data recovery, and slow computer fixes to quality chargers, adapters, cables, and everyday
-                tech accessories. Our experienced local technicians provide fast assessment , honest
-                advice, affordable prices, and reliable solutions so you can repair, replace, and upgrade your
-                devices all in one place.
-              </motion.p>
+              {/* Hero copy renders without an entrance animation: it is the
+                  largest above-the-fold element, so it must paint immediately. */}
+              <h1 className="text-2xl md:text-2xl lg:text-5xl font-bold leading-tight bg-gradient-to-r from-red-400 via-red-500 to-red-700 bg-clip-text text-transparent">
+                Laptop Repair Tottenham Court Road &amp; Trusted Electronics Store
+              </h1>
+              <p className="mt-6 text-lg text-muted-foreground xl:max-w-lg leading-relaxed">
+                TechOutlet is a laptop and phone repair shop and electronics store at 260 Tottenham Court Road,
+                London, fixing MacBooks, Windows laptops, iPhones and Samsung phones, most of them on the same day.
+              </p>
+              <p className="mt-4 text-lg text-muted-foreground xl:max-w-lg leading-relaxed">
+                Our experienced local technicians handle screen replacement, battery issues, data recovery and slow
+                computer fixes, and we stock quality chargers, adapters, cables and everyday tech accessories. You get
+                a free diagnosis, honest advice and an upfront quote, so you can repair, replace or upgrade in one place.
+              </p>
+              <PageByline className="mt-4 xl:max-w-lg" />
               <motion.div
                 variants={fadeUp}
                 custom={3}
                 className="mt-8 flex flex-wrap gap-4"
               >
-                <motion.p
-                  variants={fadeUp}
-                  custom={2}
-                  className="mt-6 text-lg text-muted-foreground xl:max-w-lg leading-relaxed"
-                >
-                  {/* TechOutlet is your trusted electronics store and laptop repair Tottenham Court Road specialist, offering everything from MacBook repairs, screen replacement, battery issues, data recovery, and slow computer fixes to quality chargers, cables, adapters, and everyday tech accessories. Our experienced local technicians provide fast diagnosis, honest advice, affordable prices, and reliable solutions so you can repair, replace, and upgrade your devices all in one place. */}
-                </motion.p>
 
                 {/* New USPs Section */}
                 {/* <motion.ul
@@ -2110,7 +2084,8 @@ const Index = () => {
           <div className="mt-16 text-center p-8 bg-gray-900 rounded-3xl text-white">
             <h3 className="text-2xl font-bold mb-2">Don't see your brand?</h3>
             <p className="text-gray-400 mb-6">
-              Don't see your brand? Walk in or call. We work on almost everything
+              Walk in or call. We work on almost every phone, tablet and laptop brand, and we can source parts for
+              less common models.
             </p>
             <a href="tel:+442080620553">
               <button className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-xl font-bold transition-all">
@@ -2497,7 +2472,8 @@ const Index = () => {
               What Causes a Laptop to Stop Working?
             </h2>
             <p className="text-xl text-muted-foreground">
-              After years of opening these things up, here's the truth about why laptops fail:
+              After years of opening these things up, here's the truth about why laptops fail. Most faults come down
+              to a handful of causes:
 
             </p>
           </div>
@@ -2566,6 +2542,10 @@ const Index = () => {
             <h2 className="text-4xl font-extrabold text-foreground mb-6">
               When You Need Professional Repair vs DIY
             </h2>
+            <p className="text-lg text-muted-foreground">
+              Some laptop problems are safe to fix at home, while others need a technician with the right tools,
+              parts and experience. Here is how to tell the difference before you spend money.
+            </p>
 
           </div>
 
@@ -3234,7 +3214,8 @@ const Index = () => {
               Need Help <span className="text-red-500">Right Now?</span>
             </h2>
             <p className="text-muted-foreground mt-4 text-lg">
-              Fast-track repair services in the heart of Tottenham Court Road.
+              Fast-track repair services in the heart of Tottenham Court Road, with most phone repairs done in 30–60
+              minutes and most laptop repairs finished the same day.
             </p>
           </div>
 
@@ -3461,35 +3442,14 @@ const Index = () => {
               Frequently Asked Questions
             </h2>
             <div className="grid md:grid-cols-2 gap-6">
-              {[
-                {
-                  q: "Do you offer laptop repair on Tottenham Court Road?",
-                  a: "Yes. Windows laptops, MacBooks, Chromebooks, gaming laptops, business devices. Walk in anytime.",
-                },
-                {
-                  q: "Is it safe to give my laptop in for repair?",
-                  a: "Yes, your data privacy is our top priority at Tech Outlet Ltd, and we only access what is necessary to complete the fix. For peace of mind, we simply recommend backing up your files before dropping it off if the machine still powers on.",
-                },
-                {
-                  q: "Is it worth fixing a broken laptop?",
-                  a: "It is usually worth it if the repair costs less than half the price of a new machine, especially for laptops under four years old. A quick component swap or SSD upgrade at Tech Outlet Ltd can easily make your current device feel brand new again.",
-                },
-                {
-                  q: "How long does a laptop repair typically take?",
-                  a: "At Tech Outlet Ltd, we specialize in same-day laptop repairs, meaning if you drop it off in the morning, it's usually ready by the afternoon. If a complex issue requires us to order a rare specialty part, we will let you know and provide an exact timeline upfront.",
-                },
-                {
-                  q: "How much does it normally cost to repair a laptop?",
-                  a: "It depends entirely on the issue. Basic fixes like battery replacements or software cleanups usually run between £40 and £90. Major repairs, like fixing a cracked screen or motherboard issue, typically range from £150 to £300+. We always give you a clear, upfront quote before starting any work.",
-                },
-              ].map((item, i) => (
+              {homeFaqs.map((item, i) => (
                 <div
                   key={i}
                   className="p-8 bg-gray-50 border border-gray-100 hover:border-black transition-all rounded-2xl"
                 >
-                  <h4 className="font-bold text-lg mb-3">{item.q}</h4>
+                  <h3 className="font-bold text-lg mb-3">{item.question}</h3>
                   <p className="text-sm text-gray-500 leading-relaxed">
-                    {item.a}
+                    {item.answer}
                   </p>
                 </div>
               ))}
@@ -3594,6 +3554,14 @@ const Index = () => {
             >
               What Our Customers Say
             </motion.h2>
+            <motion.p
+              variants={fadeUp}
+              custom={2}
+              className="mt-4 text-muted-foreground max-w-2xl mx-auto"
+            >
+              Real reviews from customers who brought phones, laptops and chargers to our shop at 260 Tottenham
+              Court Road. Source: Google reviews for TECH OUTLET LTD.
+            </motion.p>
           </motion.div>
         </div>
         {/* Scrolling Container */}
@@ -3607,6 +3575,7 @@ const Index = () => {
            {[...testimonials, ...testimonials].map((t, i) => (
   <motion.div
     key={i}
+    aria-hidden={i >= testimonials.length}
     whileHover={{ y: -6 }}
     onClick={() =>
       window.open(
@@ -3627,9 +3596,9 @@ const Index = () => {
                 </div>
 
                 {/* Text */}
-                <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                  {t.text}
-                </p>
+                <blockquote className="text-sm text-muted-foreground leading-relaxed mb-4">
+                  "{t.text}"
+                </blockquote>
 
                 {/* User */}
                 <div className="flex items-center gap-3">

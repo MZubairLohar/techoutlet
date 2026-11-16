@@ -18,4 +18,9 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  // The SSR build (used only for build-time prerendering) bundles all
+  // dependencies so Node never has to resolve browser-oriented packages.
+  ssr: {
+    noExternal: true,
+  },
 }));
