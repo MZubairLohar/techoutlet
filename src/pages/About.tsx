@@ -132,8 +132,7 @@ export default function About() {
                             What We Do
                         </motion.h2>
                         <motion.p variants={fadeUp} className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
-                            TechOutlet does three things under one roof on Tottenham Court Road: laptop repair, mobile
-                            phone repair and tech accessories, with a free diagnosis before any repair.
+                            TechOutlet does three things under one roof on Tottenham Court Road: laptop repair, mobile phone repair and tech accessories. For any laptop, a £25 diagnostic charge applies, and the laptop must be brought into the shop for diagnosis.
                         </motion.p>
                     </motion.div>
 

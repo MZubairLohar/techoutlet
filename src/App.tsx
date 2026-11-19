@@ -23,6 +23,7 @@ import Laptop from "./pages/Laptop";
 import About from "./pages/About";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Terms from "./pages/Terms";
+import Electronics from "./pages/Electronics";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -68,6 +69,7 @@ export const AppShell = () => (
               <Route path="/phone-repair" element={<Phone />} />
               <Route path="/about" element={<About />} />
               <Route path="/laptop" element={<Laptop />} />
+              <Route path="/electronics" element={<Electronics />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/terms" element={<Terms />} />
               <Route path="/technician" element={<TechnicianDashboard />} />

@@ -13,3 +13,10 @@ export const showErrorToast = (message: string): void => {
     autoClose: 3000,
   });
 };
+
+export const showWarningToast = (message: string): void => {
+  toast.warning(message, {
+    position: "top-right",
+    autoClose: 5000,
+  });
+};
