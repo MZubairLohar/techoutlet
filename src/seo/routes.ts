@@ -157,6 +157,15 @@ export const ROUTES: RouteSeo[] = [
     priority: 0.6,
   },
   {
+    path: "/electronics",
+    title: "Electronics Tottenham Court Road | TECH OUTLET LTD",
+    description:
+      "Tired of overpaying at Tottenham Court Road electronic shops? TECH OUTLET LTD delivers honest prices on quality laptops, mobiles, accessories & quick fixes.",
+    breadcrumb: "Electronics",
+    pageType: "WebPage",
+    priority: 0.6,
+  },
+  {
     path: "/blogs",
     title: "Phone & Laptop Repair Tips and Guides | TechOutlet Blog",
     description:

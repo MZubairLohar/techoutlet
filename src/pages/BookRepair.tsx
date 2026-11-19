@@ -25,7 +25,11 @@ import FaqSection from "@/components/FaqSection";
 import { bookFaqs } from "@/seo/faqs";
 import Footer from "@/components/Footer";
 import { BUSINESS } from "@/seo/site";
-import { showErrorToast, showSuccessToast } from "@/lib/toast";
+import {
+  showErrorToast,
+  showSuccessToast,
+  showWarningToast,
+} from "@/lib/toast";
 
 const issues = [
   { name: "Screen Repair", icon: Monitor, price: 49 },
@@ -65,6 +69,7 @@ const BookRepair = () => {
     email: "",
     address: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const [brandsLoading, setBrandsLoading] = useState(true);
   const [modelsLoading, setModelsLoading] = useState(false);
@@ -181,79 +186,123 @@ const BookRepair = () => {
       });
   }, []);
 
-  const [dataBooking, setDataBooking] = useState([]);
-  const handleConfirmBooking = () => {
-    // if () return;
+  const [dataBooking, setDataBooking] = useState(false);
+  const handleConfirmBooking = async () => {
+    if (isSubmitting) return;
     if (
       !selectedDate ||
       !selectedTime ||
-      !customerInfo.name ||
-      !customerInfo.email ||
-      !customerInfo.phone ||
-      !selectedBrand
-      // !selectedModel
+      !customerInfo.name.trim() ||
+      !customerInfo.email.trim() ||
+      !customerInfo.phone.trim() ||
+      !selectedBrand ||
+      !selectedModel
     )
-      return showErrorToast("Please fill all required fields");
-    // 1️⃣ Date ko YYYY-MM-DD me convert karo
-    const datePart = selectedDate.toISOString().split("T")[0];
+      return showErrorToast(
+        "Please fill all required fields and select a device model",
+      );
+    if (selectedIssues.length === 0)
+      return showErrorToast("Please select at least one repair issue");
 
-    // 2️⃣ Time ko split karo (10:00 AM)
     const [time, modifier] = selectedTime.split(" ");
     const [hourStr, minutes] = time.split(":");
+    let hourNumber = Number(hourStr);
 
-    let hourNumber = Number(hourStr); // string → number
-
-    // 3️⃣ 12 hour → 24 hour conversion
     if (modifier === "PM" && hourNumber !== 12) {
       hourNumber += 12;
     }
-
     if (modifier === "AM" && hourNumber === 12) {
       hourNumber = 0;
     }
 
-    // 4️⃣ 2 digit format me convert karo
-    const formattedTime = `${hourNumber
-      .toString()
-      .padStart(2, "0")}:${minutes}:00`;
+    const appointmentDateTime = new Date(
+      selectedDate.getFullYear(),
+      selectedDate.getMonth(),
+      selectedDate.getDate(),
+      hourNumber,
+      Number(minutes),
+    );
+    const appointmentIso = appointmentDateTime.toISOString();
 
-    // 5️⃣ Final ISO DateTime
-    const finalDateTime = new Date(`${datePart}T${formattedTime}`);
-
-    const bookingData = {
-      brand: selectedBrand,
-      model: selectedModel,
-      issues: selectedIssues,
-      description,
-      bookingDate: finalDateTime, // ✅ MongoDB Date type
-      customerInfo,
-      totalPrice,
-    };
-
-    // console.log("✅ Booking Data:", bookingData);
-    // showSuccessToast("Booking successful! We will contact you soon.");
-    axios
-      .post(`${BASE_URL}/sendRepairingRequest`, {
-        name: customerInfo.name,
-        email: customerInfo.email,
-        phoneNumber: customerInfo.phone,
-        mobileType: `${selectedBrand} ${selectedModel}`,
-        problem: selectedIssues.join(", "),
-        comment: description,
-        AppointmentTime: finalDateTime,
-      })
-      .then((res) => {
-        // console.log("Booking successful", res.data.message);
-        showSuccessToast("Booking successful! We will contact you soon.");
-        setDataBooking(res.data.message);
-      })
-      .catch(() => {
-        // console.log("Booking error", err);
-        showErrorToast("Booking failed! Please try again.");
+    setIsSubmitting(true);
+    try {
+      const response = await axios.post(`${BASE_URL}/orders`, {
+        customerName: customerInfo.name.trim(),
+        email: customerInfo.email.trim(),
+        phoneNumber: customerInfo.phone.trim(),
+        brand: selectedBrand,
+        modelName: selectedModel,
+        selectedOptions: {
+          selectedIssues,
+          description,
+          serviceType,
+          selectedDate: appointmentIso,
+          selectedTime,
+        },
+        address: {
+          street: customerInfo.address.trim(),
+          country: "United Kingdom",
+        },
+        items: [],
+        totalAmount: totalPrice,
+        notes: description,
       });
 
-    // console.log("Booking response", data);
-    next();
+      if (response.data?.success !== true) {
+        const apiMessage =
+          typeof response.data?.message === "string"
+            ? response.data.message
+            : "Booking failed because the API did not confirm success.";
+        showErrorToast(apiMessage);
+        return;
+      }
+
+      setDataBooking(true);
+      showSuccessToast("Booking successful! We will contact you soon.");
+
+      const whatsappNotification = response.data?.whatsappNotification;
+      if (whatsappNotification?.status === "failed") {
+        const reason =
+          typeof whatsappNotification.reason === "string"
+            ? ` ${whatsappNotification.reason}`
+            : "";
+        showWarningToast(
+          `Your booking was saved, but the WhatsApp confirmation could not be sent.${reason}`,
+        );
+      } else if (whatsappNotification?.status === "accepted") {
+        showWarningToast(
+          "Green API accepted the WhatsApp message, but final delivery is not confirmed. Check Green API message status if it does not arrive.",
+        );
+      }
+
+      next();
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        const responseData = error.response?.data;
+        const serverMessage =
+          typeof responseData?.message === "string"
+            ? responseData.message
+            : typeof responseData?.error === "string"
+              ? responseData.error
+              : undefined;
+
+        if (serverMessage) {
+          showErrorToast(serverMessage);
+        } else if (error.response) {
+          showErrorToast(
+            `Booking failed (HTTP ${error.response.status}). Check the repair booking API.`,
+          );
+        } else {
+          showErrorToast(
+            "Cannot reach the booking API. Check the backend URL and its CORS settings.",
+          );
+        }
+      } else {
+        showErrorToast("Booking failed due to an unexpected error.");
+      }
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -665,16 +714,16 @@ const BookRepair = () => {
 
                     {/* Heading */}
                     <h2 className="relative text-3xl font-bold text-foreground mb-4">
-                      Booking Confirmed
+                      Booking Request Submitted
                     </h2>
 
                     {/* Message */}
                     <p className="relative text-muted-foreground mb-4">
-                      Your repair has been scheduled successfully.
+                      Your repair request has been submitted successfully.
                     </p>
 
                     <p className="relative text-muted-foreground mb-10">
-                      You will receive confirmation details via email shortly.
+                      Our team will contact you shortly to confirm your appointment.
                     </p>
 
                     {/* Button */}
@@ -714,9 +763,14 @@ const BookRepair = () => {
               </Button> */}
               <Button
                 onClick={step === TOTAL_STEPS - 1 ? handleConfirmBooking : next}
+                disabled={isSubmitting}
                 className="bg-gradient-to-r from-red-500 via-red-600 to-red-700 text-white rounded-full px-6 shadow-soft"
               >
-                {step === TOTAL_STEPS - 1 ? "Confirm Booking" : "Continue"}
+                {step === TOTAL_STEPS - 1
+                  ? isSubmitting
+                    ? "Saving..."
+                    : "Confirm Booking"
+                  : "Continue"}
                 <ArrowRight className="w-4 h-4 ml-1" />
               </Button>
             </div>
